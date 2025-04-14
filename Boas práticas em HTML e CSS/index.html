@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boas Práticas em HTML e CSS</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0c0c0c;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 215, 100, 0.1);
+    }
+
+    header h1 {
+      color: #f2c744;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 18px rgba(255, 200, 100, 0.06);
+    }
+
+    h2 {
+      color: #f0b947;
+      font-size: 1.9em;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    pre {
+      background-color: #292929;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      overflow-x: auto;
+      color: #f8d47c;
+    }
+
+    code {
+      color: #f9e28c;
+    }
+
+    footer {
+      background-color: #121212;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Boas Práticas em HTML e CSS</h1>
+    <p>Construa interfaces profissionais, limpas e acessíveis</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Use HTML semântico</h2>
+      <p>Elementos como <code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> e <code>&lt;footer&gt;</code> ajudam na acessibilidade e organização do código.</p>
+      <pre>
+&lt;section&gt;
+  &lt;h2&gt;Sobre Nós&lt;/h2&gt;
+  &lt;p&gt;Texto sobre a empresa...&lt;/p&gt;
+&lt;/section&gt;
+      </pre>
+    </section>
+
+    <section>
+      <h2>2. Evite CSS inline</h2>
+      <p>Separe estrutura (HTML) de estilo (CSS). Isso melhora a manutenção e o reaproveitamento.</p>
+      <pre>
+/* Correto */
+style.css
+button {
+  background-color: #f2c744;
+  color: black;
+}
+
+/* Evite isso */
+&lt;button style="background-color: yellow;"&gt;
+      </pre>
+    </section>
+
+    <section>
+      <h2>3. Use classes e IDs de forma coerente</h2>
+      <p>Evite nomes genéricos como <code>.vermelho</code>. Prefira nomes descritivos e padronizados.</p>
+      <pre>
+/* Preferível */
+.card-tutorial { ... }
+
+/* Evite */
+.caixa1 { ... }
+      </pre>
+    </section>
+
+    <section>
+      <h2>4. Organize o CSS em blocos</h2>
+      <p>Use comentários, agrupamentos e ordem lógica no seu CSS para facilitar leitura.</p>
+    </section>
+
+    <section>
+      <h2>5. Mobile First e responsividade</h2>
+      <p>Use media queries e unidades relativas (<code>em</code>, <code>rem</code>, <code>%</code>) para garantir que o layout funcione em todas as telas.</p>
+      <pre>
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>6. Evite excesso de divs</h2>
+      <p>Utilize elementos apropriados em vez de criar "divs infinitas". Isso melhora performance e semântica.</p>
+    </section>
+
+    <section>
+      <h2>7. Comente seu código</h2>
+      <p>Comentários ajudam no entendimento e manutenção de grandes arquivos HTML e CSS.</p>
+      <pre>
+/* Estilização do botão de login */
+.login-btn {
+  ...
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>8. Utilize reset ou normalização</h2>
+      <p>Comece com um reset básico (como Normalize.css) para manter consistência entre navegadores.</p>
+    </section>
+
+    <section>
+      <h2>9. Acesse recursos modernos com cautela</h2>
+      <p>Use propriedades como <code>grid</code>, <code>flexbox</code> e <code>clamp()</code>, mas verifique suporte em navegadores.</p>
+    </section>
+
+    <section>
+      <h2>10. Valide seu código</h2>
+      <p>Use o <a href="https://validator.w3.org/" target="_blank">Validador W3C</a> para checar se sua estrutura está correta e acessível.</p>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>Boas práticas tornam seus projetos mais acessíveis, escaláveis e bonitos. Um HTML bem feito e um CSS bem estruturado são base para interfaces incríveis.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

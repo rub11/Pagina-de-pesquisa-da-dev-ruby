@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kubernetes e Orquestração</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0b0b0b;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #151515;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: #e6b93f;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 950px;
+      padding: 40px 25px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #f4c430;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .section {
+      background-color: #1b1b1b;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 5px solid #e6b93f;
+      box-shadow: 0 2px 12px rgba(255, 215, 0, 0.05);
+    }
+
+    .section h3 {
+      color: #ffd700;
+      margin-top: 0;
+    }
+
+    .section p, .section ul {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    code {
+      display: block;
+      background-color: #000;
+      color: #00ffcc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 1em;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Kubernetes e Orquestração</h1>
+    <p>Gerencie contêineres em larga escala com eficiência</p>
+  </header>
+
+  <main>
+    <h2>O que é Kubernetes?</h2>
+    <div class="section">
+      <p><strong>Kubernetes</strong>, também conhecido como <em>K8s</em>, é uma plataforma de código aberto desenvolvida pelo Google para orquestrar, escalar e gerenciar contêineres. Ele automatiza tarefas como deploy, balanceamento de carga, monitoramento e recuperação de falhas.</p>
+    </div>
+
+    <h2>Por que usar Kubernetes?</h2>
+    <div class="section">
+      <ul>
+        <li><strong>Escalabilidade:</strong> Lida com milhares de contêineres automaticamente.</li>
+        <li><strong>Alta disponibilidade:</strong> Replica aplicações para garantir resiliência.</li>
+        <li><strong>Deploy contínuo:</strong> Facilitado com integrações de CI/CD.</li>
+        <li><strong>Gerenciamento centralizado:</strong> Administre tudo com um único cluster.</li>
+      </ul>
+    </div>
+
+    <h2>Componentes do Kubernetes</h2>
+    <div class="section">
+      <ul>
+        <li><strong>Pod:</strong> A menor unidade, contém um ou mais contêineres.</li>
+        <li><strong>Node:</strong> Servidor onde os Pods são executados.</li>
+        <li><strong>Cluster:</strong> Conjunto de Nodes gerenciados.</li>
+        <li><strong>Service:</strong> Abstrai o acesso aos Pods, com IP fixo e load balancing.</li>
+        <li><strong>Deployment:</strong> Gerencia o ciclo de vida dos Pods (criação, update, rollback).</li>
+      </ul>
+    </div>
+
+    <h2>Exemplo básico de Deployment</h2>
+    <div class="section">
+      <code>
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: minha-app
+        spec:
+          replicas: 3
+          selector:
+            matchLabels:
+              app: minha-app
+          template:
+            metadata:
+              labels:
+                app: minha-app
+            spec:
+              containers:
+              - name: minha-app
+                image: node:18
+                ports:
+                - containerPort: 3000
+      </code>
+    </div>
+
+    <h2>Ferramentas complementares</h2>
+    <div class="section">
+      <ul>
+        <li><strong>Helm:</strong> Gerenciador de pacotes para Kubernetes</li>
+        <li><strong>Prometheus + Grafana:</strong> Monitoramento e visualização de métricas</li>
+        <li><strong>Ingress Controller:</strong> Gerencia acesso HTTP/HTTPS aos serviços</li>
+      </ul>
+    </div>
+
+    <h2>Comandos kubectl úteis</h2>
+    <div class="section">
+      <code>
+        kubectl get pods
+        kubectl get services
+        kubectl describe pod &lt;nome&gt;
+        kubectl apply -f deployment.yaml
+        kubectl delete pod &lt;nome&gt;
+      </code>
+    </div>
+
+    <h2>Quando usar Kubernetes?</h2>
+    <div class="section">
+      <ul>
+        <li>Projetos que exigem alta disponibilidade</li>
+        <li>Aplicações distribuídas em microserviços</li>
+        <li>Ambientes de produção e testes escaláveis</li>
+        <li>Necessidade de gerenciamento automatizado</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

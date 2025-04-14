@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Como funciona o Back-end</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #f2f2f2;
+    }
+
+    header {
+      background: #1b1b1b;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid #2c2c2c;
+    }
+
+    header h1 {
+      color: #e67e22;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      color: #e74c3c;
+      font-size: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    p {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      text-align: justify;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    ul li {
+      margin-bottom: 0.7rem;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      color: #888;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      border-top: 1px solid #333;
+    }
+
+    strong {
+      color: #f1c40f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Como funciona o Back-end</h1>
+  </header>
+  <main>
+    <section>
+      <h2>O que é o Back-end?</h2>
+      <p>
+        O back-end é a parte invisível de um site ou sistema, responsável por toda a lógica de negócio, manipulação de dados, segurança e comunicação com bancos de dados e servidores. Enquanto o front-end cuida do que o usuário vê e interage, o back-end é quem processa os pedidos, calcula respostas e garante que tudo funcione corretamente por trás das cortinas. É como a “cozinha” de um restaurante: o cliente não vê, mas tudo que ele consome é preparado ali.
+      </p>
+    </section>
+
+    <section>
+      <h2>Componentes principais</h2>
+      <ul>
+        <li><strong>Servidor:</strong> Computador remoto que recebe e responde requisições.</li>
+        <li><strong>Aplicação Back-end:</strong> Código responsável por processar requisições e executar lógica.</li>
+        <li><strong>Banco de Dados:</strong> Onde os dados são armazenados, lidos, inseridos ou atualizados.</li>
+        <li><strong>API:</strong> Interface que permite o front-end se comunicar com o back-end.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Como o back-end funciona na prática?</h2>
+      <p>
+        Imagine que um usuário esteja em um site de e-commerce e clique no botão "Ver Carrinho". O front-end envia uma requisição ao servidor, que aciona o código do back-end. O código então busca os dados do carrinho daquele usuário no banco de dados, formata as informações e envia de volta ao front-end, que as exibe na tela. Todo esse processo acontece em milissegundos, graças ao funcionamento bem orquestrado entre front e back.
+      </p>
+    </section>
+
+    <section>
+      <h2>Linguagens mais usadas no Back-end</h2>
+      <ul>
+        <li><strong>Node.js (JavaScript):</strong> Muito utilizado por quem já trabalha com JavaScript no front-end.</li>
+        <li><strong>Python:</strong> Fácil de aprender e muito utilizado com frameworks como Django e Flask.</li>
+        <li><strong>PHP:</strong> Muito presente em sistemas como WordPress.</li>
+        <li><strong>Java:</strong> Robusto e amplamente usado em sistemas empresariais.</li>
+        <li><strong>Ruby:</strong> Popular pelo framework Ruby on Rails.</li>
+        <li><strong>Go (Golang):</strong> Simples, moderno e com alta performance.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Bancos de dados</h2>
+      <p>
+        O back-end precisa de um local para guardar informações, como dados de usuários, produtos, pagamentos etc. Existem dois tipos principais de bancos de dados:
+      </p>
+      <ul>
+        <li><strong>Relacional:</strong> Usa tabelas estruturadas com SQL (MySQL, PostgreSQL, SQL Server).</li>
+        <li><strong>Não-relacional:</strong> Usa formatos flexíveis como JSON (MongoDB, Firebase).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Segurança no Back-end</h2>
+      <p>
+        A segurança no back-end é crucial para proteger dados sensíveis. Isso envolve autenticação de usuários (como login/senha ou tokens JWT), criptografia de dados, validação de entradas e proteção contra ataques como SQL Injection e Cross-Site Scripting (XSS). Sem essas camadas de segurança, um sistema pode ser facilmente invadido.
+      </p>
+    </section>
+
+    <section>
+      <h2>Frameworks e ferramentas</h2>
+      <ul>
+        <li><strong>Express.js:</strong> Framework leve para aplicações Node.js.</li>
+        <li><strong>Django:</strong> Framework robusto e seguro em Python.</li>
+        <li><strong>Laravel:</strong> Framework elegante e poderoso para PHP.</li>
+        <li><strong>Spring Boot:</strong> Muito usado para aplicações Java modernas.</li>
+        <li><strong>Prisma, Sequelize:</strong> ORMs para facilitar interação com banco de dados.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Exemplo prático</h2>
+      <p>
+        Um sistema de login funciona assim: o usuário digita e envia suas credenciais. O front-end envia os dados para o back-end, que os compara com os registros no banco de dados. Se estiverem corretos, ele gera um token de autenticação e envia de volta para o navegador, permitindo o acesso às áreas restritas do site.
+      </p>
+    </section>
+
+    <section>
+      <h2>Back-end e DevOps</h2>
+      <p>
+        O trabalho do desenvolvedor back-end muitas vezes se conecta com DevOps, especialmente na configuração de servidores, deploys automatizados, monitoramento de performance e uso de containers como Docker. Garantir que a aplicação esteja sempre no ar, estável e escalável faz parte da rotina técnica.
+      </p>
+    </section>
+  </main>
+  <footer>
+    Conteúdo criado por <strong>DEV RUBY</strong>.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolitos vs Microsserviços</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffd700;
+            font-size: 3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .section {
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            margin: 20px;
+            width: 100%;
+            color: #ccc;
+            text-align: left;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            background-color: #333;
+        }
+
+        .section h2 {
+            color: #ffd700;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .section ul li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #f4a261;
+        }
+
+        .section .highlight {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .section .box {
+            background-color: #2c2c2c;
+            border: 1px solid #444;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            color: #f4a261;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 30px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .section p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Monolitos vs Microsserviços</h1>
+
+    <div class="content-container">
+        <!-- Seção Monolitos -->
+        <div class="section">
+            <h2>O que são Sistemas Monolíticos?</h2>
+            <p>Os sistemas monolíticos são uma abordagem tradicional onde a aplicação é desenvolvida como um único bloco coeso. Toda a funcionalidade, desde a interface até a lógica de negócio e acesso a dados, reside em um único código-base, sendo distribuída e gerenciada em conjunto.</p>
+
+            <p><span class="highlight">Vantagens:</span></p>
+            <ul>
+                <li>Desenvolvimento e implantação mais simples em projetos pequenos.</li>
+                <li>Fácil de gerenciar, pois todos os componentes estão em um único lugar.</li>
+                <li>Requer menos recursos para pequenas equipes de desenvolvimento.</li>
+            </ul>
+
+            <p><span class="highlight">Desvantagens:</span></p>
+            <ul>
+                <li>Escalabilidade limitada, pois é preciso escalar o sistema inteiro.</li>
+                <li>Falta de flexibilidade, dificultando a introdução de novas tecnologias.</li>
+                <li>Alterações em uma parte do código podem impactar todo o sistema.</li>
+            </ul>
+
+            <div class="box">
+                <strong>Exemplo de Aplicação Monolítica:</strong> Um sistema de gestão de estoque onde todas as funcionalidades, como cadastro de produtos, processamento de pedidos e relatórios, estão interligadas em um único código.
+            </div>
+        </div>
+
+        <!-- Seção Microsserviços -->
+        <div class="section">
+            <h2>O que são Microsserviços?</h2>
+            <p>Microsserviços são uma abordagem arquitetural onde a aplicação é dividida em pequenos serviços independentes, cada um responsável por uma funcionalidade específica. Esses serviços se comunicam entre si por meio de APIs bem definidas e podem ser desenvolvidos, escalados e implantados de forma independente.</p>
+
+            <p><span class="highlight">Vantagens:</span></p>
+            <ul>
+                <li>Escalabilidade independente: cada serviço pode ser escalado de acordo com sua demanda específica.</li>
+                <li>Facilidade na introdução de novas tecnologias e ferramentas, sem afetar outros serviços.</li>
+                <li>Maior flexibilidade para equipes, que podem trabalhar de forma mais independente.</li>
+            </ul>
+
+            <p><span class="highlight">Desvantagens:</span></p>
+            <ul>
+                <li>Complexidade na gestão de múltiplos serviços e APIs.</li>
+                <li>Requer um esforço maior na comunicação e integração entre os serviços.</li>
+                <li>Pode demandar mais recursos para gerenciamento de infraestrutura e orquestração.</li>
+            </ul>
+
+            <div class="box">
+                <strong>Exemplo de Microsserviços:</strong> Em uma aplicação de e-commerce, um microsserviço pode ser responsável apenas pelo gerenciamento de pagamentos, enquanto outro pode cuidar do estoque e outro da recomendação de produtos.
+            </div>
+        </div>
+
+        <!-- Comparação entre Monolitos e Microsserviços -->
+        <div class="section">
+            <h2>Monolitos vs Microsserviços: Comparação</h2>
+            <p>A decisão entre monolito e microsserviços depende de vários fatores, incluindo o tamanho da aplicação, a equipe de desenvolvimento, e os requisitos de escalabilidade. Cada abordagem tem suas vantagens e desvantagens, que precisam ser cuidadosamente avaliadas.</p>
+
+            <p><span class="highlight">Aspectos a considerar:</span></p>
+            <ul>
+                <li><strong>Escalabilidade:</strong> Microsserviços oferecem maior escalabilidade, permitindo que serviços específicos sejam escalados conforme necessário, enquanto monolitos necessitam ser escalados como um todo.</li>
+                <li><strong>Manutenção:</strong> Microsserviços tendem a ser mais fáceis de manter, pois cada serviço é independente. No entanto, a comunicação entre serviços pode se tornar um desafio.</li>
+                <li><strong>Desempenho:</strong> Microsserviços podem ter um custo adicional devido à comunicação entre os serviços, mas oferecem mais controle sobre o desempenho de cada módulo individual.</li>
+                <li><strong>Flexibilidade:</strong> Microsserviços permitem que diferentes tecnologias e frameworks sejam usados em cada serviço, enquanto monolitos limitam a flexibilidade tecnológica.</li>
+            </ul>
+
+            <div class="box">
+                <strong>Dica:</strong> Microsserviços são recomendados para sistemas grandes e complexos, onde escalabilidade e agilidade no desenvolvimento são essenciais.
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

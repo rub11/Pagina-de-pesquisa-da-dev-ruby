@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metaverso: Realidade Digital</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0a0a0a;
+      color: #e6c87b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 960px;
+      width: 95%;
+      background-color: #1a1a1a;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(40px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌐 Metaverso: Realidade Digital</h1>
+
+  <div class="slider-container">
+
+    <div class="slide active">
+      <p>🌍 <strong>O que é o Metaverso?</strong></p>
+      <p>O <strong>Metaverso</strong> é um espaço virtual coletivo, compartilhado e imersivo, onde as pessoas podem interagir entre si e com o ambiente digital de maneira semelhante à realidade física, utilizando tecnologias como realidade aumentada (AR) e realidade virtual (VR).</p>
+    </div>
+
+    <div class="slide">
+      <p>💡 <strong>Principais Características do Metaverso</strong></p>
+      <ul>
+        <li>🌐 Convergência de mundos digitais e físicos</li>
+        <li>🎮 Interatividade e imersão em tempo real</li>
+        <li>💼 Integração de atividades sociais, econômicas e culturais</li>
+        <li>💬 Comunicação e socialização com avatares virtuais</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🚀 <strong>O Futuro do Metaverso</strong></p>
+      <p>O Metaverso está em constante evolução, com grandes empresas e desenvolvedores investindo em tecnologias que proporcionam experiências mais imersivas, como sensores de movimento, gráficos 3D avançados e inteligência artificial.</p>
+    </div>
+
+    <div class="slide">
+      <p>🎮 <strong>Metaverso nos Jogos</strong></p>
+      <p>O Metaverso já está presente em diversos jogos online, como o <strong>Fortnite</strong> e <strong>Roblox</strong>, permitindo que os jogadores não apenas joguem, mas também participem de eventos, compitam e criem seus próprios mundos virtuais.</p>
+    </div>
+
+    <div class="slide">
+      <p>🏠 <strong>Realidade Virtual e Aumentada</strong></p>
+      <p>A <strong>Realidade Virtual (VR)</strong> e a <strong>Realidade Aumentada (AR)</strong> são fundamentais para a experiência do Metaverso, proporcionando imersão total ou enriquecendo a interação com o mundo real através de dispositivos como óculos VR e AR.</p>
+    </div>
+
+    <div class="slide">
+      <p>💸 <strong>Economia no Metaverso</strong></p>
+      <ul>
+        <li>🛒 Compra e venda de itens virtuais e imóveis digitais.</li>
+        <li>🪙 Moedas e tokens digitais, como <strong>cryptomoedas</strong>, para transações dentro do metaverso.</li>
+        <li>🎨 Mercado de arte digital e NFTs (Tokens Não Fungíveis).</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>💼 <strong>Trabalho no Metaverso</strong></p>
+      <p>Com o avanço das tecnologias de colaboração digital, é possível trabalhar, fazer reuniões e até construir empresas inteiras dentro do Metaverso, criando novas oportunidades de emprego e inovação.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔒 <strong>Privacidade e Segurança no Metaverso</strong></p>
+      <p>Como em qualquer plataforma digital, a privacidade e segurança dos dados são fundamentais no Metaverso. A proteção contra fraudes, roubo de identidade e outras ameaças cibernéticas precisa ser uma prioridade para garantir uma experiência segura para todos os usuários.</p>
+    </div>
+
+    <div class="slide">
+      <p>📱 <strong>Acessibilidade e Interação</strong></p>
+      <p>O Metaverso pode ser acessado por diferentes dispositivos, desde computadores, smartphones e consoles até dispositivos de realidade aumentada e virtual, permitindo a interação e experiência imersiva a partir de vários pontos de acesso.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔮 <strong>Desafios do Metaverso</strong></p>
+      <ul>
+        <li>⚠️ Escalabilidade: Como garantir que o Metaverso possa lidar com milhões de usuários simultaneamente?</li>
+        <li>⚠️ Regulamentação: Como gerenciar as atividades e interações dentro de um ambiente descentralizado?</li>
+        <li>⚠️ Adoção massiva: Como tornar o Metaverso acessível e atraente para usuários de todas as idades e habilidades?</li>
+      </ul>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

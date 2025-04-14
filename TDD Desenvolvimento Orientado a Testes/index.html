@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TDD: Desenvolvimento Orientado a Testes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0c0c0c;
+      color: #eaeaea;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #141414;
+      padding: 60px 20px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: #f5c842;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 25px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.03);
+    }
+
+    section h2 {
+      color: #e0b347;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    section p {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: #bbb;
+    }
+
+    code {
+      background-color: #2a2a2a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #f5c842;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      width: 100%;
+      border-top: 1px solid #292929;
+      margin-top: 60px;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>TDD: Desenvolvimento Orientado a Testes</h1>
+    <p>Uma abordagem revolucionária para construir software com mais qualidade</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é TDD?</h2>
+      <p>TDD (Test Driven Development) ou Desenvolvimento Orientado a Testes é uma metodologia de desenvolvimento de software onde os testes são escritos antes mesmo do código de produção. O objetivo é garantir que cada parte da aplicação funcione conforme o esperado desde o início.</p>
+    </section>
+
+    <section>
+      <h2>O Ciclo do TDD</h2>
+      <p>O processo TDD segue um ciclo bem definido conhecido como <strong>Red-Green-Refactor</strong>:</p>
+      <ul>
+        <li><strong>Red:</strong> Escreva um teste que falha. (Ainda não há código que passe)</li>
+        <li><strong>Green:</strong> Escreva o mínimo de código necessário para o teste passar.</li>
+        <li><strong>Refactor:</strong> Melhore o código, mantendo os testes verdes (passando).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Benefícios do TDD</h2>
+      <ul>
+        <li>Maior confiança e estabilidade no código</li>
+        <li>Facilidade em identificar erros logo no início</li>
+        <li>Código mais modular e com melhor design</li>
+        <li>Documentação viva do comportamento do sistema</li>
+        <li>Menos tempo gasto com correções posteriores</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Exemplo Simples em JavaScript (Jest)</h2>
+      <p>Vamos imaginar que queremos criar uma função que soma dois números. Começamos pelo teste:</p>
+      <pre><code>test('soma dois números corretamente', () => {
+  expect(somar(2, 3)).toBe(5);
+});</code></pre>
+
+      <p>Depois criamos a função que faz esse teste passar:</p>
+      <pre><code>function somar(a, b) {
+  return a + b;
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>O TDD transforma a maneira como desenvolvemos software, incentivando a criação de código mais limpo, confiável e seguro. Adotar essa prática pode ser um diferencial enorme na sua carreira como desenvolvedor.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

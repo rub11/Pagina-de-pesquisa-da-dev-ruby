@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Power BI vs Tableau</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #0d0d0d;
+      color: #e0c06b;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      width: 1500%;
+    }
+
+    .slide {
+      min-width: 100vw;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+      box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+    }
+
+    h1, h2 {
+      color: #f5d76e;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f5d76e;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navigation">
+    <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+    <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+  </div>
+
+  <div class="slider" id="slider">
+    <div class="slide"><h1>Power BI vs Tableau</h1><p>Compare duas das principais ferramentas de Business Intelligence e escolha a ideal para seu projeto de dados.</p></div>
+    <div class="slide"><h2>O que é Power BI?</h2><p>Ferramenta da Microsoft para análise de dados e visualização interativa, muito integrada ao ecossistema Office.</p></div>
+    <div class="slide"><h2>O que é Tableau?</h2><p>Plataforma poderosa de visualização de dados, com foco em dashboards dinâmicos e exploratórios, da Salesforce.</p></div>
+    <div class="slide"><h2>Interface e Usabilidade</h2><p>Power BI é mais amigável para iniciantes. Tableau oferece maior liberdade para usuários avançados.</p></div>
+    <div class="slide"><h2>Conectividade</h2><p>Ambos conectam-se a diversas fontes. Power BI brilha com produtos Microsoft; Tableau tem ampla compatibilidade nativa.</p></div>
+    <div class="slide"><h2>Visualizações</h2><p>Tableau é conhecido por seus gráficos elaborados. Power BI possui visualizações otimizadas e personalizáveis.</p></div>
+    <div class="slide"><h2>Performance</h2><p>Power BI pode ser mais rápido em modelos pequenos. Tableau se destaca com grandes volumes de dados e performance visual.</p></div>
+    <div class="slide"><h2>Colaboração</h2><p>Power BI integra com Teams e SharePoint. Tableau Server permite colaboração em equipe com dashboards na nuvem.</p></div>
+    <div class="slide"><h2>Preço</h2><p>Power BI é mais acessível, com planos gratuitos e opções no Microsoft 365. Tableau pode ter custo mais elevado, mas com mais flexibilidade empresarial.</p></div>
+    <div class="slide"><h2>Comunidade</h2><p>Ambos têm comunidades ativas. Power BI se destaca pela integração com fóruns Microsoft. Tableau tem eventos globais e recursos visuais inspiradores.</p></div>
+    <div class="slide"><h2>Aprendizado</h2><p>Power BI possui curva de aprendizado mais suave. Tableau exige mais domínio técnico para exploração avançada.</p></div>
+    <div class="slide"><h2>Mobile e Cloud</h2><p>Ambos oferecem apps móveis. Tableau se destaca em visualizações responsivas. Power BI oferece ótima integração com Azure.</p></div>
+    <div class="slide"><h2>Casos de Uso</h2><p>Power BI é comum em corporações com infraestrutura Microsoft. Tableau é popular em marketing, agências e analistas de dados visuais.</p></div>
+    <div class="slide"><h2>Qual escolher?</h2><p>Depende do objetivo: Power BI é ideal para ambientes Microsoft e orçamentos menores; Tableau para visualizações complexas e projetos mais robustos.</p></div>
+    <div class="slide"><h2>Conclusão</h2><p>Ambas são poderosas. Escolha com base nas necessidades, integração desejada, experiência da equipe e orçamento disponível.</p></div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById('slider');
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+    }
+  </script>
+</body>
+</html>

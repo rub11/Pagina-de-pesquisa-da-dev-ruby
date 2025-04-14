@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - Redes de Computadores</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #f9f9f9;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffd700;
+      margin-bottom: 20px;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .question {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    ul.options {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.options li {
+      background-color: #222;
+      margin: 8px 0;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    ul.options li:hover {
+      background-color: #333;
+    }
+
+    .correct {
+      background-color: #28a745 !important;
+    }
+
+    .incorrect {
+      background-color: #dc3545 !important;
+    }
+
+    .result {
+      text-align: center;
+      font-size: 1.4em;
+      margin-top: 30px;
+    }
+
+    .result p {
+      font-size: 1.2em;
+    }
+
+    button {
+      background-color: #ffd700;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e6c200;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz sobre Redes de Computadores</h1>
+
+  <div id="slides">
+    <div class="slide active">
+      <h2>O que são Redes de Computadores?</h2>
+      <p>Redes de Computadores são estruturas que conectam dois ou mais dispositivos para compartilhar dados, recursos e serviços. Elas podem ser locais (LAN), amplas (WAN), metropolitanas (MAN), entre outras.</p>
+      <p>Compreender redes é essencial para entender a internet, segurança, comunicação entre sistemas e arquitetura de TI moderna.</p>
+      <p>Vamos ver quanto você sabe sobre o assunto!</p>
+      <button onclick="nextSlide()">Começar o Quiz</button>
+    </div>
+  </div>
+
+  <div class="result" id="result" style="display: none;">
+    <p id="result-message"></p>
+    <p id="result-score"></p>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "O que é uma rede de computadores?",
+        options: [
+          "A) Um único computador com vários usuários",
+          "B) Um conjunto de dispositivos conectados para compartilhar dados",
+          "C) Um programa de edição de vídeo",
+          "D) Uma linguagem de programação",
+          "E) Um banco de dados local"
+        ],
+        answer: 1
+      },
+      {
+        question: "O que significa a sigla LAN?",
+        options: [
+          "A) Large Area Network",
+          "B) Local Access Network",
+          "C) Local Area Network",
+          "D) Line Access Node",
+          "E) Limited Area Node"
+        ],
+        answer: 2
+      },
+      {
+        question: "Qual equipamento é responsável por interligar diferentes redes?",
+        options: [
+          "A) Switch",
+          "B) Modem",
+          "C) Hub",
+          "D) Roteador",
+          "E) Placa-mãe"
+        ],
+        answer: 3
+      },
+      {
+        question: "O que é IP (Internet Protocol)?",
+        options: [
+          "A) Um protocolo de envio de vídeo",
+          "B) Um navegador de internet",
+          "C) Um endereço que identifica um dispositivo na rede",
+          "D) Um código de barras digital",
+          "E) Um tipo de software de design"
+        ],
+        answer: 2
+      },
+      {
+        question: "Qual é a função de um switch em uma rede?",
+        options: [
+          "A) Controlar o fluxo de energia",
+          "B) Conectar diferentes redes geográficas",
+          "C) Criar senhas para Wi-Fi",
+          "D) Interligar dispositivos dentro de uma rede local",
+          "E) Instalar programas"
+        ],
+        answer: 3
+      },
+      {
+        question: "Qual destas opções representa uma rede de longa distância?",
+        options: [
+          "A) LAN",
+          "B) PAN",
+          "C) WAN",
+          "D) SAN",
+          "E) CAN"
+        ],
+        answer: 2
+      },
+      {
+        question: "Qual das seguintes é uma vantagem das redes de computadores?",
+        options: [
+          "A) Redução na velocidade de processamento",
+          "B) Diminuição da produtividade",
+          "C) Compartilhamento de recursos",
+          "D) Aumento do consumo de energia",
+          "E) Isolamento de usuários"
+        ],
+        answer: 2
+      },
+      {
+        question: "Qual das opções abaixo representa um exemplo de protocolo de comunicação?",
+        options: [
+          "A) HTML",
+          "B) FTP",
+          "C) JPEG",
+          "D) DOCX",
+          "E) MP3"
+        ],
+        answer: 1
+      },
+      {
+        question: "O que é a máscara de sub-rede?",
+        options: [
+          "A) Um antivírus",
+          "B) Um tipo de conexão Wi-Fi",
+          "C) Um componente físico",
+          "D) Um identificador que separa a rede dos hosts",
+          "E) Um firewall"
+        ],
+        answer: 3
+      },
+      {
+        question: "Em uma rede, qual camada é responsável pela entrega física dos dados?",
+        options: [
+          "A) Aplicação",
+          "B) Sessão",
+          "C) Transporte",
+          "D) Física",
+          "E) Apresentação"
+        ],
+        answer: 3
+      }
+    ];
+
+    const slidesContainer = document.getElementById("slides");
+    let current = 0;
+    let score = 0;
+
+    questions.forEach((q, index) => {
+      const slide = document.createElement("div");
+      slide.classList.add("slide");
+      slide.innerHTML = `
+        <div class="question">${q.question}</div>
+        <ul class="options">
+          ${q.options.map((opt, i) => `<li onclick="checkAnswer(${i}, ${q.answer}, ${index})">${opt}</li>`).join('')}
+        </ul>
+      `;
+      slidesContainer.appendChild(slide);
+    });
+
+    function nextSlide() {
+      const slides = document.querySelectorAll(".slide");
+      if (current < slides.length - 1) {
+        slides[current].classList.remove("active");
+        current++;
+        slides[current].classList.add("active");
+      } else {
+        showResult();
+      }
+    }
+
+    function checkAnswer(selected, correct, index) {
+      const options = document.querySelectorAll(".slide")[index + 1].querySelectorAll("li");
+      options.forEach(opt => opt.style.pointerEvents = "none");
+      if (selected === correct) {
+        options[selected].classList.add("correct");
+        score++;
+      } else {
+        options[selected].classList.add("incorrect");
+        options[correct].classList.add("correct");
+      }
+      setTimeout(nextSlide, 1200);
+    }
+
+    function showResult() {
+      document.getElementById("slides").style.display = "none";
+      document.getElementById("result").style.display = "block";
+
+      const percentage = (score / questions.length) * 100;
+      const msg = document.getElementById("result-message");
+      const pct = document.getElementById("result-score");
+
+      msg.innerText = `Você acertou ${score} de ${questions.length} perguntas.`;
+      pct.innerText = `Taxa de acertos: ${percentage.toFixed(2)}%`;
+
+      if (percentage >= 70) {
+        msg.innerText += " 🎉 Parabéns! Você tem um ótimo domínio sobre Redes de Computadores!";
+      } else {
+        msg.innerText += " 📘 Ainda não foi dessa vez, mas está tudo bem! O importante é continuar aprendendo. A DEV RUBY está com você nessa jornada!";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keras: Criação de Modelos IA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1a1a1a;
+            color: #f5d76e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #262626;
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        h1, h2 {
+            color: #f5d76e;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        pre {
+            background-color: #333;
+            color: #f5d76e;
+            padding: 20px;
+            border-radius: 5px;
+            overflow: auto;
+            max-width: 90%;
+            margin: 20px 0;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 3em;
+            color: #f5d76e;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>Keras: Criação de Modelos IA</h1>
+                <p>Keras é uma API de alto nível para a criação e treinamento de modelos de deep learning. Ela permite que você construa redes neurais complexas de maneira simples e rápida, aproveitando o poder do TensorFlow como backend.</p>
+            </div>
+            <div class="slide">
+                <h2>O que é o Keras?</h2>
+                <p>Keras é uma biblioteca de alto nível para redes neurais, escrita em Python. Ela foi projetada para permitir a criação rápida e fácil de modelos de aprendizado profundo, permitindo que você utilize o TensorFlow ou Theano como backend.</p>
+            </div>
+            <div class="slide">
+                <h2>Instalando o Keras</h2>
+                <p>O Keras pode ser instalado facilmente via pip:</p>
+                <pre><code>
+pip install keras
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Importando o Keras</h2>
+                <p>Depois de instalar o Keras, você pode importá-lo no seu projeto para criar e treinar modelos:</p>
+                <pre><code>
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Construindo um Modelo Simples</h2>
+                <p>Vamos construir uma rede neural simples com o Keras, usando um modelo sequencial e uma camada densa:</p>
+                <pre><code>
+model = Sequential()
+model.add(Dense(64, activation='relu', input_dim=8))
+model.add(Dense(1, activation='sigmoid'))
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Compilando o Modelo</h2>
+                <p>Antes de treinar o modelo, você precisa compilá-lo, definindo um otimizador e uma função de perda:</p>
+                <pre><code>
+model.compile(optimizer='adam',
+              loss='binary_crossentropy',
+              metrics=['accuracy'])
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Treinando o Modelo</h2>
+                <p>Agora, você pode treinar o modelo usando dados de entrada e rótulos:</p>
+                <pre><code>
+model.fit(X_train, y_train, epochs=10, batch_size=32)
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Avaliando o Modelo</h2>
+                <p>Após o treinamento, é importante avaliar o desempenho do modelo usando dados de teste:</p>
+                <pre><code>
+score = model.evaluate(X_test, y_test)
+print('Loss:', score[0])
+print('Accuracy:', score[1])
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Fazendo Previsões</h2>
+                <p>Você pode usar o modelo treinado para fazer previsões sobre novos dados:</p>
+                <pre><code>
+predictions = model.predict(X_new)
+print(predictions)
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Redes Neurais Convolucionais (CNNs)</h2>
+                <p>O Keras também suporta redes neurais convolucionais (CNNs) para tarefas de visão computacional. Aqui está um exemplo de como definir uma CNN:</p>
+                <pre><code>
+from keras.layers import Conv2D, MaxPooling2D
+
+model = Sequential()
+model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=(28, 28, 1)))
+model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(128, activation='relu'))
+model.add(Dense(10, activation='softmax'))
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Redes Neurais Recorrentes (RNNs)</h2>
+                <p>O Keras também pode ser usado para construir redes neurais recorrentes (RNNs) para análise de séries temporais e tarefas sequenciais:</p>
+                <pre><code>
+from keras.layers import LSTM
+
+model = Sequential()
+model.add(LSTM(50, input_shape=(timesteps, features)))
+model.add(Dense(1, activation='sigmoid'))
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Considerações Finais</h2>
+                <p>Keras é uma biblioteca poderosa e fácil de usar para o desenvolvimento de modelos de deep learning. Seu design modular e flexível permite a criação de redes neurais complexas com pouco código.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+            <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Suporte ao toque
+        let startTouch = 0;
+
+        document.querySelector('.slider-container').addEventListener('touchstart', function(e) {
+            startTouch = e.touches[0].clientX;
+        });
+
+        document.querySelector('.slider-container').addEventListener('touchmove', function(e) {
+            if (startTouch - e.touches[0].clientX > 50) {
+                changeSlide(1);
+            } else if (e.touches[0].clientX - startTouch > 50) {
+                changeSlide(-1);
+            }
+        });
+    </script>
+
+</body>
+</html>

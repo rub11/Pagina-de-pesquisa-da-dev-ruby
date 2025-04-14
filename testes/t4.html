@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz: Desenvolvimento Mobile</title>
+  <style>
+    body {
+      background-color: #0b0b0b;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      color: #f39c12;
+      font-size: 2.2em;
+      margin-bottom: 30px;
+    }
+    .question-container {
+      margin-top: 20px;
+    }
+    .question {
+      font-size: 1.4em;
+      margin-bottom: 20px;
+      color: #f1c40f;
+    }
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .answer {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+      border: 1px solid #333;
+      text-align: center;
+    }
+    .answer:hover {
+      background-color: #2a2a2a;
+    }
+    .correct {
+      background-color: #27ae60 !important;
+    }
+    .incorrect {
+      background-color: #c0392b !important;
+    }
+    .hidden {
+      display: none;
+    }
+    .result {
+      font-size: 1.3em;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .result.good {
+      color: #2ecc71;
+    }
+    .result.bad {
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz: Desenvolvimento Mobile 📱</h1>
+
+  <div id="question-container" class="question-container">
+    <div class="question" id="question"></div>
+    <div class="answers" id="answers"></div>
+  </div>
+
+  <div class="result hidden" id="result"></div>
+
+  <script>
+    const questions = [
+      {
+        question: "Qual é a principal linguagem usada no desenvolvimento Android nativo?",
+        options: ["Java", "Swift", "Kotlin", "Python", "Dart"],
+        correct: 2
+      },
+      {
+        question: "Qual tecnologia é usada no desenvolvimento iOS nativo?",
+        options: ["Kotlin", "React Native", "Swift", "Java", "Flutter"],
+        correct: 2
+      },
+      {
+        question: "O que é Flutter?",
+        options: [
+          "Uma linguagem de marcação",
+          "Um banco de dados",
+          "Um framework para apps web",
+          "Um framework para criar apps nativos multiplataforma",
+          "Uma IDE"
+        ],
+        correct: 3
+      },
+      {
+        question: "React Native permite desenvolver apps para:",
+        options: ["Apenas Android", "Apenas iOS", "Android e iOS", "Web", "Linux"],
+        correct: 2
+      },
+      {
+        question: "Qual linguagem é usada com Flutter?",
+        options: ["Swift", "Kotlin", "Dart", "JavaScript", "Ruby"],
+        correct: 2
+      },
+      {
+        question: "O que significa 'responsividade' no mobile?",
+        options: [
+          "Rapidez no backend",
+          "Design que se adapta a diferentes tamanhos de tela",
+          "Uso de rede 5G",
+          "Interação com o servidor",
+          "Integração com bancos de dados"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual ferramenta simula dispositivos para testar apps?",
+        options: ["Xcode", "Emulador", "Firebase", "Bitrise", "Expo"],
+        correct: 1
+      },
+      {
+        question: "Expo é uma ferramenta associada a qual tecnologia?",
+        options: ["Flutter", "Ionic", "Swift", "React Native", "Cordova"],
+        correct: 3
+      },
+      {
+        question: "Qual IDE é mais usada para Android?",
+        options: ["Visual Studio Code", "Android Studio", "Xcode", "Sublime Text", "Atom"],
+        correct: 1
+      },
+      {
+        question: "Qual dessas tecnologias é baseada em HTML, CSS e JavaScript para criar apps mobile?",
+        options: ["Flutter", "Swift", "Ionic", "Kotlin", "Xamarin"],
+        correct: 2
+      }
+    ];
+
+    let currentQuestion = 0;
+    let correctAnswers = 0;
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      document.getElementById("question").textContent = q.question;
+      const answersEl = document.getElementById("answers");
+      answersEl.innerHTML = "";
+
+      q.options.forEach((option, index) => {
+        const btn = document.createElement("div");
+        btn.classList.add("answer");
+        btn.textContent = option;
+        btn.onclick = () => handleAnswer(index);
+        answersEl.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(index) {
+      const q = questions[currentQuestion];
+      const allAnswers = document.querySelectorAll(".answer");
+
+      allAnswers.forEach((el, i) => {
+        if (i === q.correct) {
+          el.classList.add("correct");
+        } else if (i === index) {
+          el.classList.add("incorrect");
+        }
+      });
+
+      if (index === q.correct) correctAnswers++;
+
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          loadQuestion();
+        } else {
+          showResult();
+        }
+      }, 700);
+    }
+
+    function showResult() {
+      const percentage = (correctAnswers / questions.length) * 100;
+      const result = document.getElementById("result");
+      const container = document.getElementById("question-container");
+
+      container.classList.add("hidden");
+      result.classList.remove("hidden");
+
+      if (percentage >= 70) {
+        result.innerHTML = `🎉 Parabéns! Você acertou ${correctAnswers} de ${questions.length} (${percentage.toFixed(0)}%). Continue evoluindo! 🚀<br><br><strong>A DevRub está com você rumo ao sucesso mobile!</strong>`;
+        result.classList.add("good");
+      } else {
+        result.innerHTML = `Você acertou ${correctAnswers} de ${questions.length} (${percentage.toFixed(0)}%). Não tem problema errar, o importante é aprender! 🌱<br><br><strong>A DevRub está aqui para te ajudar a crescer!</strong> ✨`;
+        result.classList.add("bad");
+      }
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>

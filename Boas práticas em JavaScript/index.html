@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boas Práticas em JavaScript</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: #eaeaea;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #1b1b1b;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(240, 200, 100, 0.1);
+    }
+
+    header h1 {
+      color: #f0c24b;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 18px rgba(240, 200, 100, 0.05);
+    }
+
+    h2 {
+      color: #eab543;
+      font-size: 1.9em;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    pre {
+      background-color: #292929;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      overflow-x: auto;
+      color: #f8d47c;
+    }
+
+    code {
+      color: #f8d47c;
+    }
+
+    footer {
+      background-color: #121212;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Boas Práticas em JavaScript</h1>
+    <p>Escrevendo código limpo, seguro e eficiente com estilo</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Use <code>const</code> e <code>let</code> no lugar de <code>var</code></h2>
+      <p><code>var</code> possui escopo de função e pode causar bugs sutis. Use <code>const</code> para variáveis imutáveis e <code>let</code> para variáveis que serão reatribuídas.</p>
+      <pre>
+const nome = "Ruby";
+let idade = 28;
+      </pre>
+    </section>
+
+    <section>
+      <h2>2. Nomeie variáveis de forma clara</h2>
+      <p>Evite nomes genéricos como <code>x</code>, <code>temp</code> ou <code>data</code>. Prefira nomes descritivos:</p>
+      <pre>
+let precoProduto = 99.90;
+let totalCarrinho = precoProduto * 3;
+      </pre>
+    </section>
+
+    <section>
+      <h2>3. Evite código duplicado</h2>
+      <p>Crie funções reutilizáveis sempre que possível:</p>
+      <pre>
+function formatarPreco(valor) {
+  return "R$ " + valor.toFixed(2);
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>4. Prefira funções puras</h2>
+      <p>Funções que não alteram variáveis externas são mais previsíveis e fáceis de testar.</p>
+    </section>
+
+    <section>
+      <h2>5. Documente com clareza</h2>
+      <p>Comentários claros ajudam a manter o código compreensível para outros devs (e você no futuro):</p>
+      <pre>
+// Função para calcular o desconto de um produto
+function calcularDesconto(valor, percentual) {
+  return valor - (valor * (percentual / 100));
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>6. Trate erros corretamente</h2>
+      <p>Utilize <code>try...catch</code> para capturar exceções de forma segura:</p>
+      <pre>
+try {
+  JSON.parse(dados);
+} catch (erro) {
+  console.error("Erro ao analisar os dados:", erro.message);
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>7. Utilize Arrow Functions</h2>
+      <p>Elas são mais sucintas e respeitam o escopo do <code>this</code>:</p>
+      <pre>
+const saudacao = nome => `Olá, ${nome}!`;
+      </pre>
+    </section>
+
+    <section>
+      <h2>8. Evite grandes blocos de código</h2>
+      <p>Divida lógicas complexas em funções menores e específicas.</p>
+    </section>
+
+    <section>
+      <h2>9. Use Desestruturação</h2>
+      <p>Facilita o acesso a propriedades de objetos:</p>
+      <pre>
+const usuario = { nome: "Ruby", idade: 28 };
+const { nome, idade } = usuario;
+      </pre>
+    </section>
+
+    <section>
+      <h2>10. Ferramentas recomendadas</h2>
+      <ul>
+        <li>✅ ESLint: análise estática de código</li>
+        <li>✅ Prettier: formatação automática</li>
+        <li>✅ JSDoc: documentação de funções</li>
+        <li>✅ Jest: testes unitários</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>Boas práticas fazem toda a diferença em projetos colaborativos e escaláveis. Um código limpo é um presente para seu futuro eu — e para o time também.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

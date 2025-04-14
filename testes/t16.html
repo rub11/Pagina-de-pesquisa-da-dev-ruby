@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz: Big Data</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #f2f2f2;
+      font-family: 'Segoe UI', sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      color: #ffd54f;
+      font-size: 2.2em;
+      margin-bottom: 30px;
+    }
+    .slide, .result {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .slide p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .question {
+      font-size: 1.3em;
+      color: #fbc02d;
+      margin-bottom: 15px;
+    }
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .answer {
+      background-color: #1a1a1a;
+      padding: 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid #333;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .answer:hover {
+      background-color: #2a2a2a;
+    }
+    .correct {
+      background-color: #4caf50 !important;
+    }
+    .incorrect {
+      background-color: #e53935 !important;
+    }
+    .result {
+      text-align: center;
+      font-size: 1.3em;
+      margin-top: 40px;
+    }
+    .result.good {
+      color: #81c784;
+    }
+    .result.bad {
+      color: #ef5350;
+    }
+    .next-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ffd54f;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz: Big Data</h1>
+
+  <div id="slides">
+    <div class="slide active">
+      <p><strong>Big Data</strong> refere-se a conjuntos de dados grandes e complexos, que não podem ser tratados por ferramentas tradicionais de gerenciamento de dados. O conceito envolve três características principais: volume, velocidade e variedade. A análise de Big Data utiliza tecnologias como Hadoop, Spark e bancos de dados NoSQL para processar e extrair informações valiosas desses dados.</p>
+      <p>Vamos testar seus conhecimentos sobre Big Data!</p>
+      <button class="next-btn" onclick="nextSlide()">Começar Quiz</button>
+    </div>
+    <!-- Perguntas e respostas -->
+    <div class="slide">
+      <p class="question">O que caracteriza o Big Data?</p>
+      <div class="answers">
+        <div class="answer" onclick="checkAnswer(0, 1)">Grande volume de dados, processados rapidamente em tempo real</div>
+        <div class="answer" onclick="checkAnswer(0, 1)">Somente dados armazenados em bancos de dados relacionais</div>
+        <div class="answer" onclick="checkAnswer(0, 1)">Dados exclusivamente estruturados e organizados</div>
+        <div class="answer" onclick="checkAnswer(0, 1)">Uso exclusivo de inteligência artificial para análise</div>
+        <div class="answer" onclick="checkAnswer(0, 1)">Dados que são processados por programas tradicionais</div>
+      </div>
+    </div>
+    <!-- Outras perguntas -->
+    <div class="slide">
+      <p class="question">Quais são as 3 características principais do Big Data?</p>
+      <div class="answers">
+        <div class="answer" onclick="checkAnswer(1, 1)">Volume, Velocidade e Variedade</div>
+        <div class="answer" onclick="checkAnswer(1, 1)">Segurança, Armazenamento e Processamento</div>
+        <div class="answer" onclick="checkAnswer(1, 1)">Diversidade, Integração e Análise</div>
+        <div class="answer" onclick="checkAnswer(1, 1)">Escalabilidade, Performance e Velocidade</div>
+        <div class="answer" onclick="checkAnswer(1, 1)">Estrutura, Conectividade e Processamento</div>
+      </div>
+    </div>
+    <!-- Outras perguntas -->
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "O que caracteriza o Big Data?",
+        options: [
+          "Grande volume de dados, processados rapidamente em tempo real",
+          "Somente dados armazenados em bancos de dados relacionais",
+          "Dados exclusivamente estruturados e organizados",
+          "Uso exclusivo de inteligência artificial para análise",
+          "Dados que são processados por programas tradicionais"
+        ],
+        correct: 1
+      },
+      {
+        question: "Quais são as 3 características principais do Big Data?",
+        options: [
+          "Volume, Velocidade e Variedade",
+          "Segurança, Armazenamento e Processamento",
+          "Diversidade, Integração e Análise",
+          "Escalabilidade, Performance e Velocidade",
+          "Estrutura, Conectividade e Processamento"
+        ],
+        correct: 1
+      },
+      // Adicionar mais perguntas conforme necessário
+    ];
+    
+    let currentSlide = 0;
+    let score = 0;
+    
+    function nextSlide() {
+      const slides = document.querySelectorAll('.slide');
+      slides[currentSlide].classList.remove('active');
+      currentSlide++;
+      if (currentSlide < slides.length) {
+        slides[currentSlide].classList.add('active');
+      } else {
+        showResult();
+      }
+    }
+    
+    function checkAnswer(questionIndex, answerIndex) {
+      const answers = document.querySelectorAll('.answer');
+      const correctAnswerIndex = quizData[questionIndex].correct;
+      
+      if (answerIndex === correctAnswerIndex) {
+        answers[answerIndex].classList.add('correct');
+        score++;
+      } else {
+        answers[answerIndex].classList.add('incorrect');
+      }
+      setTimeout(nextSlide, 1000); // Avançar após 1 segundo
+    }
+    
+    function showResult() {
+      const resultElement = document.getElementById('result');
+      const percentage = (score / quizData.length) * 100;
+      resultElement.classList.add(percentage >= 70 ? 'good' : 'bad');
+      resultElement.innerHTML = percentage >= 70
+        ? `Parabéns! Você acertou ${score} de ${quizData.length} perguntas.`
+        : `Você acertou ${score} de ${quizData.length} perguntas. Estude mais e melhore!`;
+    }
+  </script>
+</body>
+</html>

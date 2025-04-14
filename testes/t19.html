@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - Chatbots</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #f9f9f9;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffd700;
+      margin-bottom: 20px;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .question {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    ul.options {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.options li {
+      background-color: #222;
+      margin: 8px 0;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    ul.options li:hover {
+      background-color: #333;
+    }
+
+    .correct {
+      background-color: #28a745 !important;
+    }
+
+    .incorrect {
+      background-color: #dc3545 !important;
+    }
+
+    .result {
+      text-align: center;
+      font-size: 1.4em;
+      margin-top: 30px;
+    }
+
+    .result p {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz sobre Chatbots</h1>
+
+  <div id="slides">
+    <div class="slide active">
+      <h2>O que são Chatbots?</h2>
+      <p>Chatbots são programas de computador criados para simular conversas humanas, seja via texto ou voz. Eles são amplamente utilizados em atendimento ao cliente, redes sociais, sites e aplicativos, oferecendo respostas automáticas, suporte e interação personalizada com os usuários.</p>
+      <p>Chatbots podem ser baseados em regras (respostas pré-programadas) ou em inteligência artificial, como os que utilizam machine learning e processamento de linguagem natural para aprender e melhorar suas respostas ao longo do tempo.</p>
+      <p>Agora vamos testar seu conhecimento!</p>
+      <button onclick="nextSlide()">Começar o Quiz</button>
+    </div>
+  </div>
+
+  <div class="result" id="result" style="display: none;">
+    <p id="result-message"></p>
+    <p id="result-score"></p>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "O que é um chatbot?",
+        options: [
+          "A) Um sistema de gerenciamento de banco de dados",
+          "B) Um robô físico que conversa com humanos",
+          "C) Um programa que simula conversas humanas",
+          "D) Um navegador web",
+          "E) Um servidor de e-mail"
+        ],
+        answer: 2
+      },
+      {
+        question: "Qual tecnologia é comum em chatbots modernos?",
+        options: [
+          "A) Planilhas eletrônicas",
+          "B) Processamento de linguagem natural (PLN)",
+          "C) Protocolos de internet",
+          "D) Compactadores de arquivos",
+          "E) Redes sociais"
+        ],
+        answer: 1
+      },
+      {
+        question: "Onde os chatbots são frequentemente utilizados?",
+        options: [
+          "A) Apenas em robótica industrial",
+          "B) Em cozinhas inteligentes",
+          "C) Em atendimento ao cliente e redes sociais",
+          "D) Em impressão 3D",
+          "E) Em automóveis"
+        ],
+        answer: 2
+      },
+      {
+        question: "O que diferencia um chatbot baseado em IA de um baseado em regras?",
+        options: [
+          "A) O uso de botões coloridos",
+          "B) A velocidade de digitação",
+          "C) A capacidade de aprender com interações",
+          "D) A integração com planilhas",
+          "E) A conexão com Wi-Fi"
+        ],
+        answer: 2
+      },
+      {
+        question: "Qual ferramenta é frequentemente usada para construir chatbots?",
+        options: [
+          "A) Excel",
+          "B) Photoshop",
+          "C) Dialogflow",
+          "D) WordPress",
+          "E) GitHub Pages"
+        ],
+        answer: 2
+      },
+      {
+        question: "Qual é uma limitação comum dos chatbots?",
+        options: [
+          "A) Sempre entendem sarcasmo",
+          "B) Não conseguem responder perguntas complexas sem treinamento",
+          "C) Têm sentimentos",
+          "D) Criam conteúdo original por si mesmos",
+          "E) Executam tarefas físicas"
+        ],
+        answer: 1
+      },
+      {
+        question: "Um chatbot que usa Machine Learning consegue:",
+        options: [
+          "A) Fazer café",
+          "B) Advinhar senhas",
+          "C) Aprender com interações anteriores",
+          "D) Trocar peças de hardware",
+          "E) Desenhar automaticamente"
+        ],
+        answer: 2
+      },
+      {
+        question: "O que é NLP (Natural Language Processing)?",
+        options: [
+          "A) Um tipo de linguagem de programação",
+          "B) Uma rede social",
+          "C) Processamento de linguagem natural",
+          "D) Um navegador",
+          "E) Um protocolo de rede"
+        ],
+        answer: 2
+      },
+      {
+        question: "Chatbots são úteis para:",
+        options: [
+          "A) Reescrever sistemas operacionais",
+          "B) Desenvolver jogos gráficos",
+          "C) Atender clientes 24h por dia",
+          "D) Compilar linguagens de baixo nível",
+          "E) Controlar drones"
+        ],
+        answer: 2
+      },
+      {
+        question: "Qual das alternativas NÃO é um uso comum de chatbots?",
+        options: [
+          "A) Suporte ao cliente",
+          "B) Recrutamento de talentos",
+          "C) Consultas bancárias",
+          "D) Diagnóstico médico",
+          "E) Conserto físico de equipamentos"
+        ],
+        answer: 4
+      }
+    ];
+
+    const slidesContainer = document.getElementById("slides");
+    let current = 0;
+    let score = 0;
+
+    questions.forEach((q, index) => {
+      const slide = document.createElement("div");
+      slide.classList.add("slide");
+      slide.innerHTML = `
+        <div class="question">${q.question}</div>
+        <ul class="options">
+          ${q.options.map((opt, i) => `<li onclick="checkAnswer(${i}, ${q.answer}, ${index})">${opt}</li>`).join('')}
+        </ul>
+      `;
+      slidesContainer.appendChild(slide);
+    });
+
+    function nextSlide() {
+      const slides = document.querySelectorAll(".slide");
+      if (current < slides.length - 1) {
+        slides[current].classList.remove("active");
+        current++;
+        slides[current].classList.add("active");
+      } else {
+        showResult();
+      }
+    }
+
+    function checkAnswer(selected, correct, index) {
+      const options = document.querySelectorAll(".slide")[index + 1].querySelectorAll("li");
+      options.forEach(opt => opt.style.pointerEvents = "none");
+      if (selected === correct) {
+        options[selected].classList.add("correct");
+        score++;
+      } else {
+        options[selected].classList.add("incorrect");
+        options[correct].classList.add("correct");
+      }
+      setTimeout(nextSlide, 1200);
+    }
+
+    function showResult() {
+      document.getElementById("slides").style.display = "none";
+      document.getElementById("result").style.display = "block";
+
+      const percentage = (score / questions.length) * 100;
+      const msg = document.getElementById("result-message");
+      const pct = document.getElementById("result-score");
+
+      msg.innerText = `Você acertou ${score} de ${questions.length} perguntas.`;
+      pct.innerText = `Taxa de acertos: ${percentage.toFixed(2)}%`;
+
+      if (percentage >= 70) {
+        msg.innerText += " 🎉 Parabéns! Você manda muito bem em Chatbots!";
+      } else {
+        msg.innerText += " 💡 Não tem problema errar. O importante é aprender e melhorar. A DEV RUBY está aqui para te ajudar nessa jornada!";
+      }
+    }
+  </script>
+</body>
+</html>
+

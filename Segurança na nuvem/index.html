@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Segurança na Nuvem</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #0d0d0d;
+      color: #e0c06b;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      width: 1500%;
+    }
+
+    .slide {
+      min-width: 100vw;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+      box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+    }
+
+    h1, h2 {
+      color: #f5d76e;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f5d76e;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navigation">
+    <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+    <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+  </div>
+
+  <div class="slider" id="slider">
+    <div class="slide"><h1>Segurança na Nuvem</h1><p>A segurança na nuvem envolve práticas e tecnologias para proteger dados, aplicativos e serviços na nuvem. As empresas precisam garantir que suas informações estejam seguras contra ameaças e acessos não autorizados.</p></div>
+    <div class="slide"><h2>O que é Segurança na Nuvem?</h2><p>Segurança na nuvem é o conjunto de políticas, tecnologias e controles projetados para proteger dados, aplicativos e serviços armazenados na nuvem. Isso inclui desde criptografia até controle de acesso.</p></div>
+    <div class="slide"><h2>Riscos Comuns</h2><p>Apesar de seus benefícios, a nuvem também apresenta riscos, como o acesso não autorizado a dados, vulnerabilidades de software e a falta de visibilidade em relação à segurança da infraestrutura da nuvem.</p></div>
+    <div class="slide"><h2>Criptografia de Dados</h2><p>A criptografia de dados é uma das formas mais eficazes de proteger informações na nuvem. Ela garante que mesmo que os dados sejam interceptados, eles não possam ser lidos sem a chave de descriptografia.</p></div>
+    <div class="slide"><h2>Gerenciamento de Identidades</h2><p>Uma das principais medidas de segurança na nuvem é o gerenciamento de identidades e acessos (IAM). Isso envolve a autenticação forte, controle de permissões e o monitoramento das atividades de usuários e dispositivos.</p></div>
+    <div class="slide"><h2>Autenticação Multifator (MFA)</h2><p>A autenticação multifator (MFA) adiciona uma camada extra de segurança exigindo que os usuários forneçam mais de uma forma de verificação para acessar os recursos na nuvem.</p></div>
+    <div class="slide"><h2>Monitoramento e Auditoria</h2><p>Monitorar as atividades na nuvem e realizar auditorias regulares ajuda a identificar comportamentos anômalos, possíveis violações de segurança e tomar ações corretivas rapidamente.</p></div>
+    <div class="slide"><h2>Backups na Nuvem</h2><p>Realizar backups regulares dos dados armazenados na nuvem é essencial para garantir que as informações possam ser recuperadas em caso de falhas de segurança ou desastres naturais.</p></div>
+    <div class="slide"><h2>Compliance e Regulamentações</h2><p>A segurança na nuvem também envolve o cumprimento de regulamentações de proteção de dados, como o GDPR e a Lei de Privacidade de Dados, garantindo que as informações sejam tratadas conforme as normas legais.</p></div>
+    <div class="slide"><h2>Arquitetura Segura na Nuvem</h2><p>Construir uma arquitetura segura envolve a aplicação de boas práticas de design, como segmentação de rede, firewalls, e a configuração de mecanismos de proteção adequados para os serviços na nuvem.</p></div>
+    <div class="slide"><h2>Conclusão</h2><p>Embora a nuvem ofereça muitos benefícios, é essencial implementar medidas rigorosas de segurança para proteger os dados e garantir que os serviços sejam confiáveis e protegidos contra ameaças.</p></div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById('slider');
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+    }
+  </script>
+</body>
+</html>

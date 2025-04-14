@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Segurança em Redes Corporativas</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #121212;
+      color: #e0c06b;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      width: 1500%;
+    }
+
+    .slide {
+      min-width: 100vw;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+      box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #f5d76e;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f5d76e;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navigation">
+    <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+    <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+  </div>
+
+  <div class="slider" id="slider">
+    <div class="slide"><h1>Segurança em Redes Corporativas</h1><p>🔐 A segurança de redes corporativas é um conjunto de práticas e tecnologias para proteger os dados, sistemas e dispositivos em uma rede empresarial contra ameaças e ataques.</p></div>
+    <div class="slide"><h2>O que é Segurança em Redes Corporativas?</h2><p>Envolve proteger a infraestrutura de TI de uma organização, incluindo servidores, dispositivos, aplicativos e dados, contra acessos não autorizados e ataques cibernéticos.</p></div>
+    <div class="slide"><h2>Ameaças Comuns</h2><p>As ameaças mais comuns incluem ataques de malware, phishing, ransomware, intrusões de hackers e vulnerabilidades em dispositivos de rede e aplicações.</p></div>
+    <div class="slide"><h2>Firewall</h2><p>Os firewalls são essenciais para proteger as redes corporativas, filtrando tráfego de dados e bloqueando acessos não autorizados à rede interna da organização.</p></div>
+    <div class="slide"><h2>VPNs (Redes Privadas Virtuais)</h2><p>As VPNs são utilizadas para criar conexões seguras e privadas entre os dispositivos dos usuários e a rede corporativa, garantindo a confidencialidade das informações transmitidas.</p></div>
+    <div class="slide"><h2>Autenticação Multifatorial</h2><p>A autenticação multifatorial (MFA) adiciona uma camada extra de segurança, exigindo mais de uma verificação para confirmar a identidade de um usuário.</p></div>
+    <div class="slide"><h2>Criptografia de Dados</h2><p>A criptografia protege os dados sensíveis, garantindo que as informações transmitidas pela rede sejam ilegíveis para qualquer pessoa não autorizada.</p></div>
+    <div class="slide"><h2>Monitoramento de Rede</h2><p>O monitoramento contínuo da rede permite identificar rapidamente atividades suspeitas e prevenir ou mitigar ataques cibernéticos.</p></div>
+    <div class="slide"><h2>Segurança em Dispositivos Móveis</h2><p>Com a crescente mobilidade, garantir a segurança de dispositivos móveis (smartphones, laptops) é essencial para proteger a rede corporativa contra vazamentos de dados.</p></div>
+    <div class="slide"><h2>Educação e Conscientização</h2><p>A formação contínua dos funcionários sobre boas práticas de segurança cibernética, como evitar phishing e usar senhas fortes, é vital para prevenir ataques.</p></div>
+    <div class="slide"><h2>Gestão de Incidentes</h2><p>Em caso de ataque, ter um plano de resposta a incidentes bem definido e treinado é crucial para minimizar danos e retomar as operações rapidamente.</p></div>
+    <div class="slide"><h2>Atualizações e Patches</h2><p>Manter sistemas, software e dispositivos sempre atualizados com os últimos patches de segurança ajuda a corrigir vulnerabilidades conhecidas.</p></div>
+    <div class="slide"><h2>Arquitetura de Segurança em Camadas</h2><p>Uma abordagem de segurança em camadas, onde diferentes métodos de defesa são aplicados em níveis variados, é uma das práticas recomendadas para proteger redes corporativas.</p></div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById('slider');
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+    }
+  </script>
+
+</body>
+</html>

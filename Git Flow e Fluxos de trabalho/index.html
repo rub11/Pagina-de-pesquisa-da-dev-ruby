@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Git Flow e Fluxos de Trabalho</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0c0c0c;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #161616;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: #f2c94c;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 900px;
+      padding: 40px 25px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #e6b93f;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .section {
+      background-color: #1b1b1b;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 6px solid #f2c94c;
+      box-shadow: 0 2px 12px rgba(255, 215, 0, 0.05);
+    }
+
+    .section h3 {
+      color: #ffd700;
+      margin-top: 0;
+    }
+
+    .section p, .section ul {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    code {
+      display: block;
+      background-color: #000;
+      color: #00ffcc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 1em;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Git Flow e Fluxos de Trabalho</h1>
+    <p>Organizando projetos com estratégia e controle de versões eficiente</p>
+  </header>
+
+  <main>
+    <h2>O que é Git Flow?</h2>
+    <div class="section">
+      <p><strong>Git Flow</strong> é uma estratégia de branching (ramificação) que organiza o desenvolvimento em diferentes tipos de branches com funções específicas. Ideal para projetos com entregas organizadas e múltiplas versões.</p>
+    </div>
+
+    <h2>Principais Branches no Git Flow</h2>
+    <div class="section">
+      <ul>
+        <li><strong>main:</strong> Contém o código de produção estável.</li>
+        <li><strong>develop:</strong> Integração do que será lançado em breve.</li>
+        <li><strong>feature/*:</strong> Desenvolvimento de novas funcionalidades.</li>
+        <li><strong>release/*:</strong> Preparação de versões para produção.</li>
+        <li><strong>hotfix/*:</strong> Correções rápidas em produção.</li>
+      </ul>
+    </div>
+
+    <h2>Fluxo de Trabalho no Git Flow</h2>
+    <div class="section">
+      <ol>
+        <li><strong>1. Criar uma feature:</strong><br><code>git checkout -b feature/nome-da-feature develop</code></li>
+        <li><strong>2. Finalizar a feature:</strong><br><code>git checkout develop<br>git merge feature/nome-da-feature</code></li>
+        <li><strong>3. Criar release:</strong><br><code>git checkout -b release/1.0 develop</code></li>
+        <li><strong>4. Finalizar release:</strong><br><code>git checkout main<br>git merge release/1.0<br>git tag -a v1.0</code></li>
+        <li><strong>5. Corrigir com hotfix:</strong><br><code>git checkout -b hotfix/1.0.1 main</code></li>
+      </ol>
+    </div>
+
+    <h2>Variações de Fluxo</h2>
+    <div class="section">
+      <ul>
+        <li><strong>GitHub Flow:</strong> Simples e direto, ideal para entregas contínuas. Branch → Pull Request → Merge na main.</li>
+        <li><strong>GitLab Flow:</strong> Mistura entre Git Flow e CI/CD. Pode usar merge requests, ambientes e automações.</li>
+        <li><strong>Trunk Based Development:</strong> Desenvolvedores trabalham diretamente em uma única branch (geralmente main) com deploys frequentes.</li>
+      </ul>
+    </div>
+
+    <h2>Qual escolher?</h2>
+    <div class="section">
+      <p>A escolha depende do projeto:</p>
+      <ul>
+        <li><strong>Projetos grandes:</strong> Git Flow ajuda a manter organização.</li>
+        <li><strong>Startups e MVPs:</strong> GitHub Flow para agilidade.</li>
+        <li><strong>DevOps e CI/CD:</strong> Trunk ou GitLab Flow com pipelines automatizadas.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

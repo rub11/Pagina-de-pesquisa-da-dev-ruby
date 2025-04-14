@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DevOps e Integração Contínua</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0c0c0c;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #151515;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: #f2c94c;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 900px;
+      padding: 40px 25px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #e6b93f;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .section {
+      background-color: #1b1b1b;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 6px solid #f2c94c;
+      box-shadow: 0 2px 12px rgba(255, 215, 0, 0.05);
+    }
+
+    .section h3 {
+      color: #ffd700;
+      margin-top: 0;
+    }
+
+    .section p, .section ul {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    code {
+      display: block;
+      background-color: #000;
+      color: #00ffcc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 1em;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>DevOps e Integração Contínua</h1>
+    <p>Agilidade, automação e colaboração no ciclo de desenvolvimento</p>
+  </header>
+
+  <main>
+    <h2>O que é DevOps?</h2>
+    <div class="section">
+      <p><strong>DevOps</strong> é uma cultura e conjunto de práticas que une desenvolvedores (Dev) e operações (Ops) com o objetivo de acelerar entregas, melhorar a qualidade do software e automatizar processos de desenvolvimento, testes e deploy.</p>
+    </div>
+
+    <h2>Princípios do DevOps</h2>
+    <div class="section">
+      <ul>
+        <li><strong>Integração Contínua (CI):</strong> Automatiza testes e validações ao integrar código com frequência.</li>
+        <li><strong>Entrega Contínua (CD):</strong> Automatiza o deploy após a validação.</li>
+        <li><strong>Monitoramento Contínuo:</strong> Observação em tempo real de sistemas em produção.</li>
+        <li><strong>Feedback Rápido:</strong> Corrige erros e entrega valor constante.</li>
+        <li><strong>Automação:</strong> Scripts e ferramentas para tarefas manuais e repetitivas.</li>
+      </ul>
+    </div>
+
+    <h2>Integração Contínua (CI)</h2>
+    <div class="section">
+      <p>A <strong>Integração Contínua</strong> permite que os desenvolvedores enviem código com frequência para um repositório central. Cada envio (push) é automaticamente testado por pipelines.</p>
+      <p>Exemplo de ferramenta CI:</p>
+      <ul>
+        <li>GitHub Actions</li>
+        <li>GitLab CI/CD</li>
+        <li>CircleCI</li>
+        <li>Jenkins</li>
+      </ul>
+      <code>
+        name: CI Pipeline
+        on: [push]
+        jobs:
+          build:
+            runs-on: ubuntu-latest
+            steps:
+              - uses: actions/checkout@v2
+              - name: Install dependencies
+                run: npm install
+              - name: Run tests
+                run: npm test
+      </code>
+    </div>
+
+    <h2>Entrega Contínua (CD)</h2>
+    <div class="section">
+      <p>A <strong>Entrega Contínua</strong> expande a CI com o deploy automático para ambientes de homologação ou produção, garantindo que qualquer código aprovado possa ser entregue com segurança.</p>
+      <p>Ferramentas comuns: Docker, Kubernetes, Terraform, Ansible, etc.</p>
+    </div>
+
+    <h2>Benefícios do DevOps</h2>
+    <div class="section">
+      <ul>
+        <li><strong>Maior produtividade:</strong> Menos erros manuais e mais agilidade.</li>
+        <li><strong>Tempo de entrega reduzido:</strong> Deploys frequentes e confiáveis.</li>
+        <li><strong>Melhor colaboração:</strong> Equipes integradas com responsabilidades compartilhadas.</li>
+        <li><strong>Maior segurança:</strong> Testes automatizados e pipelines com validações constantes.</li>
+      </ul>
+    </div>
+
+    <h2>Resumo Visual</h2>
+    <div class="section">
+      <p><strong>DevOps é a união entre:</strong></p>
+      <ul>
+        <li><strong>Desenvolvimento:</strong> Código, testes, versionamento.</li>
+        <li><strong>Operações:</strong> Deploy, infraestrutura, monitoramento.</li>
+        <li><strong>Ferramentas:</strong> Git, CI/CD, Docker, Cloud, observabilidade.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

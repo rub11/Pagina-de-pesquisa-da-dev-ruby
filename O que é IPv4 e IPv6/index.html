@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IPv4 e IPv6</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0a0a0a;
+      color: #e6e6e6;
+      line-height: 1.8;
+    }
+    header {
+      background: linear-gradient(to right, #8b0000, #ffd700);
+      padding: 40px 20px;
+      text-align: center;
+      color: gold;
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      letter-spacing: 1px;
+    }
+    main {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    section h2 {
+      color: #ffcc00;
+      border-left: 5px solid #e60000;
+      padding-left: 15px;
+      margin-bottom: 20px;
+      font-size: 1.7em;
+    }
+    section p {
+      text-align: justify;
+      color: #dddddd;
+    }
+    ul {
+      padding-left: 20px;
+      color: #d4af37;
+    }
+    footer {
+      background-color: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 0.9em;
+      border-top: 1px solid #333;
+    }
+    footer span {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>IPv4 e IPv6</h1>
+    <p>Entenda os protocolos que identificam tudo na Internet</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é IP?</h2>
+      <p>
+        IP significa "Internet Protocol", o protocolo responsável por identificar dispositivos em uma rede e permitir a comunicação entre eles. Cada dispositivo conectado à Internet possui um endereço IP exclusivo, que funciona como uma espécie de "identidade" digital.
+      </p>
+    </section>
+
+    <section>
+      <h2>IPv4 – O Protocolo Original</h2>
+      <p>
+        O IPv4 (Internet Protocol version 4) foi lançado nos anos 1980 e usa endereços de 32 bits, o que permite cerca de 4,3 bilhões de endereços únicos. Um exemplo de endereço IPv4 é <strong>192.168.0.1</strong>.
+      </p>
+      <p>Características:</p>
+      <ul>
+        <li>Endereços de 32 bits</li>
+        <li>Notação decimal separada por pontos (ex: 192.168.1.1)</li>
+        <li>Limitado em quantidade: cerca de 4,3 bilhões</li>
+        <li>Amplamente usado, mas com esgotamento de endereços</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>IPv6 – A Evolução do Protocolo</h2>
+      <p>
+        Com o crescimento explosivo da Internet e a chegada de dispositivos IoT, os endereços IPv4 começaram a se esgotar. O IPv6 (Internet Protocol version 6) foi criado para substituir o IPv4, usando endereços de 128 bits — o que permite <strong>340 undecilhões</strong> (um número absurdamente grande) de endereços únicos. Um exemplo de endereço IPv6 é <strong>2001:0db8:85a3:0000:0000:8a2e:0370:7334</strong>.
+      </p>
+      <p>Características:</p>
+      <ul>
+        <li>Endereços de 128 bits</li>
+        <li>Notação hexadecimal separada por dois-pontos</li>
+        <li>Suporte a autoconfiguração e maior segurança</li>
+        <li>Projetado para o futuro da Internet</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Principais Diferenças</h2>
+      <p>
+        A diferença principal está no tamanho do endereço e na capacidade de dispositivos que podem ser conectados. O IPv6 não é apenas uma extensão — ele foi reestruturado para melhorar performance, segurança e facilitar a configuração das redes.
+      </p>
+    </section>
+
+    <section>
+      <h2>Transição e Coexistência</h2>
+      <p>
+        Atualmente, IPv4 e IPv6 coexistem. Muitos sistemas suportam os dois protocolos simultaneamente (dual stack), enquanto a transição global para IPv6 avança lentamente, devido à complexidade de substituir infraestruturas antigas. No entanto, com a expansão constante da Internet, o IPv6 é o caminho inevitável.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

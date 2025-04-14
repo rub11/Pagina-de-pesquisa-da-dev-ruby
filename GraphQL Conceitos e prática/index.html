@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GraphQL: Conceitos e Prática</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #1e1e1e;
+      color: #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      color: #ffd700;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.8);
+    }
+    
+    .content-container {
+      width: 100%;
+      max-width: 1100px;
+      background: #2c2c2c;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+    
+    .section {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #ffd700;
+      font-size: 2em;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .section p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+    
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+      color: #ccc;
+    }
+    
+    .section ul li {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .section ul li:before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      color: #ffd700;
+    }
+    
+    pre {
+      background-color: #333;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 1em;
+      color: #ffd700;
+      overflow-x: auto;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+      
+      .section h2 {
+        font-size: 1.8em;
+      }
+      
+      .section p, .section ul li {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>GraphQL: Conceitos e Prática</h1>
+  
+  <div class="content-container">
+      <!-- Seção: Introdução -->
+      <div class="section">
+          <h2>Introdução</h2>
+          <p>GraphQL é uma linguagem de consulta para APIs desenvolvida pelo Facebook. Ele permite que o cliente solicite exatamente os dados que precisa, nada a mais, nada a menos, melhorando a performance e a flexibilidade das integrações.</p>
+      </div>
+      
+      <!-- Seção: Conceitos Básicos -->
+      <div class="section">
+          <h2>Conceitos Básicos</h2>
+          <ul>
+              <li><strong>Schema:</strong> Define a estrutura dos dados disponíveis na API.</li>
+              <li><strong>Query:</strong> Solicitação de dados, onde o cliente especifica o que precisa.</li>
+              <li><strong>Mutation:</strong> Operações que alteram os dados.</li>
+              <li><strong>Subscription:</strong> Permite atualizações em tempo real dos dados.</li>
+          </ul>
+      </div>
+      
+      <!-- Seção: Vantagens do GraphQL -->
+      <div class="section">
+          <h2>Vantagens</h2>
+          <ul>
+              <li><strong>Flexibilidade:</strong> Permite ao cliente obter exatamente os dados necessários.</li>
+              <li><strong>Eficiência:</strong> Reduz a quantidade de dados trafegados e o número de requisições.</li>
+              <li><strong>Documentação Integrada:</strong> O schema serve como documentação viva da API.</li>
+              <li><strong>Evolução da API:</strong> Facilita a evolução sem quebrar clientes existentes.</li>
+          </ul>
+      </div>
+      
+      <!-- Seção: Exemplos Práticos -->
+      <div class="section">
+          <h2>Exemplo Prático</h2>
+          <p>Exemplo simples de uma consulta GraphQL para obter informações de usuários:</p>
+          <pre>
+{
+  users {
+    id
+    name
+    email
+  }
+}
+          </pre>
+          <p>Neste exemplo, a consulta retorna somente os campos <strong>id</strong>, <strong>name</strong> e <strong>email</strong> dos usuários, demonstrando como o cliente pode especificar exatamente os dados que deseja receber.</p>
+      </div>
+      
+      <!-- Seção: Conclusão -->
+      <div class="section">
+          <h2>Conclusão</h2>
+          <p>GraphQL revoluciona a forma como as APIs são consumidas, proporcionando maior controle e eficiência no consumo de dados. É uma excelente alternativa às APIs REST tradicionais, especialmente para aplicações que necessitam de respostas altamente personalizadas.</p>
+      </div>
+  </div>
+  
+</body>
+</html>

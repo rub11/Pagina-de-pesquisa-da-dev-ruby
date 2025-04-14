@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criptografia de Ponta a Ponta</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 960px;
+      width: 95%;
+      background-color: #1c1c1c;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(40px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔒 Criptografia de Ponta a Ponta</h1>
+
+  <div class="slider-container">
+
+    <div class="slide active">
+      <p>🔐 <strong>O que é Criptografia de Ponta a Ponta?</strong></p>
+      <p>É uma técnica de segurança em que apenas o remetente e o destinatário conseguem ler as mensagens. Nem mesmo o servidor intermediário tem acesso ao conteúdo.</p>
+    </div>
+
+    <div class="slide">
+      <p>🧠 <strong>Como ela funciona?</strong></p>
+      <p>As mensagens são criptografadas no dispositivo de origem e só podem ser descriptografadas no dispositivo de destino, usando chaves privadas únicas.</p>
+    </div>
+
+    <div class="slide">
+      <p>🛡️ <strong>Benefícios da criptografia ponta a ponta</strong></p>
+      <ul>
+        <li>📬 Protege a privacidade das comunicações</li>
+        <li>🔍 Impede espionagem e acesso por terceiros</li>
+        <li>📱 Segurança mesmo em redes públicas</li>
+        <li>🌐 Muito usada em apps como WhatsApp, Signal, Telegram</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🔑 <strong>Chaves públicas e privadas</strong></p>
+      <p>O remetente usa a <strong>chave pública</strong> do destinatário para criptografar, e o destinatário usa sua <strong>chave privada</strong> para descriptografar.</p>
+    </div>
+
+    <div class="slide">
+      <p>📦 <strong>Exemplo prático:</strong></p>
+      <p>Ao enviar uma mensagem no WhatsApp, o app gera uma chave única e criptografa o conteúdo. O servidor apenas encaminha a mensagem, sem conseguir lê-la.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔓 <strong>O que não é criptografado?</strong></p>
+      <p>Normalmente, os metadados (como horários, números e localização) não são criptografados, apenas o conteúdo das mensagens.</p>
+    </div>
+
+    <div class="slide">
+      <p>❗ <strong>Desafios da criptografia ponta a ponta</strong></p>
+      <ul>
+        <li>🔍 Dificulta investigações legais</li>
+        <li>💬 Pode ser usada por criminosos</li>
+        <li>🛠️ Mais complexidade na implementação</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>💼 <strong>Uso corporativo</strong></p>
+      <p>Empresas têm adotado esse tipo de criptografia em apps de comunicação interna, garantindo que informações confidenciais permaneçam protegidas.</p>
+    </div>
+
+    <div class="slide">
+      <p>🚀 <strong>Futuro da criptografia</strong></p>
+      <p>Com o avanço da computação quântica, novas formas de criptografia mais robustas estão sendo pesquisadas para continuar protegendo os dados.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

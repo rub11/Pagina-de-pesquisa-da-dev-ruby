@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JWT: JSON Web Tokens</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #121212;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 25px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 920px;
+      width: 96%;
+      background-color: #1b1b1b;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(25px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    code {
+      background-color: #333;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #f0f0f0;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JWT: JSON Web Tokens</h1>
+
+  <div class="slider-container">
+    <div class="slide active">
+      <p>🔐 <strong>JWT (JSON Web Token)</strong> é um padrão aberto (RFC 7519) usado para troca segura de informações entre partes como um objeto JSON.</p>
+    </div>
+
+    <div class="slide">
+      <p>🧱 Um token JWT é composto por três partes: <strong>Header</strong>, <strong>Payload</strong> e <strong>Signature</strong>.</p>
+      <p>Exemplo: <code>xxxxx.yyyyy.zzzzz</code></p>
+    </div>
+
+    <div class="slide">
+      <p><strong>📌 Header:</strong> contém o tipo do token (JWT) e o algoritmo de assinatura (como HS256).</p>
+      <p><strong>📌 Payload:</strong> contém as <em>claims</em> (informações do usuário, permissões, etc).</p>
+      <p><strong>📌 Signature:</strong> é usada para verificar a integridade do token e evitar alterações maliciosas.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔑 <strong>Como funciona a autenticação com JWT?</strong></p>
+      <ul>
+        <li>1️⃣ O usuário se autentica (login).</li>
+        <li>2️⃣ O servidor gera um JWT e o envia ao cliente.</li>
+        <li>3️⃣ O cliente armazena e envia o token nas requisições subsequentes.</li>
+        <li>4️⃣ O servidor valida o token antes de permitir o acesso.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>💡 <strong>Vantagens do JWT:</strong></p>
+      <ul>
+        <li>✅ Autenticado sem manter sessão no servidor (stateless).</li>
+        <li>✅ Escalável para microsserviços e aplicações distribuídas.</li>
+        <li>✅ Pode conter permissões e dados embutidos (claims personalizadas).</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🚫 <strong>Cuidados de segurança:</strong></p>
+      <ul>
+        <li>Use HTTPS sempre para evitar vazamento do token.</li>
+        <li>Evite colocar informações sensíveis no payload (não é criptografado).</li>
+        <li>Configure tempo de expiração e rotação de tokens.</li>
+        <li>Revogue tokens com estratégias de blacklist se necessário.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🛠️ <strong>Exemplo de uso:</strong> APIs REST, autenticação com OAuth2, login em apps SPA e mobile, gateways de API, etc.</p>
+    </div>
+
+    <div class="slide">
+      <p>📘 <strong>Conclusão:</strong> JWTs são ideais para aplicações modernas, com autenticação leve, segura e eficiente em escala.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

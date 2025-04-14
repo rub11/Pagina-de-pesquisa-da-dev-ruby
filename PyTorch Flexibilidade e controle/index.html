@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PyTorch: Flexibilidade e Controle</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background: #121212;
+      color: #f8c471;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      width: 95%;
+      max-width: 1000px;
+      overflow: hidden;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(255, 140, 0, 0.2);
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 60px 40px;
+      background: #1e1e1e;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      color: #f5d76e;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #f8c471;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      margin: 20px auto;
+      max-width: 850px;
+    }
+
+    pre {
+      background: #2b2b2b;
+      color: #f8c471;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+      overflow-x: auto;
+      max-width: 90%;
+      margin: 20px auto;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f8c471;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+
+    .nav-btn:hover {
+      color: #ffa500;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+      }
+      h2 {
+        font-size: 1.6em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide">
+        <h1>PyTorch: Flexibilidade e Controle</h1>
+        <p>PyTorch é uma biblioteca de aprendizado profundo desenvolvida pelo Facebook. Famosa por sua flexibilidade e simplicidade, ela permite um controle granular dos modelos, ideal para pesquisadores e desenvolvedores que precisam de liberdade para experimentar.</p>
+      </div>
+      <div class="slide">
+        <h2>O que torna o PyTorch especial?</h2>
+        <p>Com seu sistema dinâmico de gráficos computacionais, o PyTorch permite a construção e modificação de modelos em tempo real. Isso o torna extremamente poderoso para pesquisas e protótipos.</p>
+      </div>
+      <div class="slide">
+        <h2>Instalação</h2>
+        <pre><code>pip install torch torchvision</code></pre>
+        <p>Ou use o site oficial do PyTorch para gerar o comando de instalação ideal para seu ambiente.</p>
+      </div>
+      <div class="slide">
+        <h2>Tensores no PyTorch</h2>
+        <pre><code>import torch
+
+x = torch.tensor([5.5, 3])
+print(x)
+        </code></pre>
+        <p>Tensores são a base dos dados no PyTorch. Você pode manipulá-los como arrays do NumPy, com suporte nativo a GPU.</p>
+      </div>
+      <div class="slide">
+        <h2>Autograd: Gradientes automáticos</h2>
+        <pre><code>x = torch.ones(2, 2, requires_grad=True)
+y = x + 2
+z = y * y * 3
+out = z.mean()
+out.backward()
+print(x.grad)</code></pre>
+        <p>O sistema autograd permite cálculo automático de gradientes, essencial para treinamento de redes neurais.</p>
+      </div>
+      <div class="slide">
+        <h2>Construindo um Modelo</h2>
+        <pre><code>import torch.nn as nn
+
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.fc = nn.Linear(10, 1)
+
+    def forward(self, x):
+        return self.fc(x)
+        </code></pre>
+        <p>Criação de modelos personalizados com total controle do fluxo de dados e camadas.</p>
+      </div>
+      <div class="slide">
+        <h2>Treinando o Modelo</h2>
+        <pre><code>model = Net()
+criterion = nn.MSELoss()
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+
+for epoch in range(100):
+    outputs = model(inputs)
+    loss = criterion(outputs, targets)
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()</code></pre>
+        <p>Treinamento explícito com controle detalhado sobre cada etapa do processo.</p>
+      </div>
+      <div class="slide">
+        <h2>Suporte à GPU</h2>
+        <pre><code>device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)</code></pre>
+        <p>Com apenas algumas linhas, você pode usar GPUs para acelerar o treinamento dos modelos.</p>
+      </div>
+      <div class="slide">
+        <h2>Visão Computacional com torchvision</h2>
+        <p>O módulo <code>torchvision</code> facilita o trabalho com imagens, datasets populares e transformações.</p>
+      </div>
+      <div class="slide">
+        <h2>Conclusão</h2>
+        <p>O PyTorch oferece uma abordagem transparente, flexível e poderosa para o aprendizado de máquina. Ideal para pesquisadores e profissionais que buscam controle total sobre seus modelos.</p>
+      </div>
+    </div>
+    <div class="navigation">
+      <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+      <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById("slider");
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Suporte a toque
+    let startX = 0;
+    document.querySelector('.slider-container').addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+
+    document.querySelector('.slider-container').addEventListener('touchmove', e => {
+      let diff = e.touches[0].clientX - startX;
+      if (diff > 50) changeSlide(-1);
+      if (diff < -50) changeSlide(1);
+    });
+  </script>
+</body>
+</html>

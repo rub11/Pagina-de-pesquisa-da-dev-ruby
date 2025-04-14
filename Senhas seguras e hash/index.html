@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Senhas Seguras e Hash</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 960px;
+      width: 95%;
+      background-color: #1c1c1c;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(40px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔑 Senhas Seguras e Hash</h1>
+
+  <div class="slider-container">
+
+    <div class="slide active">
+      <p>🔐 <strong>Por que senhas seguras importam?</strong></p>
+      <p>Senhas são a primeira linha de defesa digital. Uma senha fraca pode permitir que invasores acessem dados confidenciais ou comprometam sistemas inteiros.</p>
+    </div>
+
+    <div class="slide">
+      <p>🛡️ <strong>Boas práticas para criar senhas seguras</strong></p>
+      <ul>
+        <li>🔠 Misture letras maiúsculas e minúsculas</li>
+        <li>🔢 Use números e símbolos</li>
+        <li>📏 Tenha pelo menos 12 caracteres</li>
+        <li>🚫 Evite palavras comuns ou nomes pessoais</li>
+        <li>🔄 Use senhas únicas para cada serviço</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>💾 <strong>O que é Hash?</strong></p>
+      <p>Hash é uma função matemática que transforma dados (como senhas) em uma sequência fixa de caracteres. Mesmo pequenas alterações geram resultados totalmente diferentes.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔐 <strong>Por que usamos hash em senhas?</strong></p>
+      <p>Senhas nunca devem ser armazenadas em texto puro. Com hash, mesmo que um banco de dados seja comprometido, os atacantes não verão a senha original.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔄 <strong>Hashes comuns usados em segurança</strong></p>
+      <ul>
+        <li>🧂 <strong>SHA-256</strong> – comum, mas deve ser usado com salt</li>
+        <li>💪 <strong>bcrypt</strong> – resistente a ataques de força bruta</li>
+        <li>⛏️ <strong>Argon2</strong> – atual padrão recomendado</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🧂 <strong>O que é Salt?</strong></p>
+      <p>Salt é um valor aleatório adicionado à senha antes da aplicação do hash. Isso impede que duas senhas iguais gerem hashes iguais e dificulta ataques por dicionário.</p>
+    </div>
+
+    <div class="slide">
+      <p>📌 <strong>Exemplo de uso com bcrypt</strong></p>
+      <p>Ao registrar o usuário, a senha é “salteada” e depois convertida com bcrypt. Na autenticação, a senha digitada é comparada com o hash salvo.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔍 <strong>Como verificar senhas fortes?</strong></p>
+      <ul>
+        <li>🔐 Use geradores de senhas fortes</li>
+        <li>🧠 Evite repetir senhas</li>
+        <li>📱 Utilize autenticação de dois fatores (2FA)</li>
+        <li>🔁 Troque senhas periodicamente em serviços críticos</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>📊 <strong>Curiosidade:</strong></p>
+      <p>A senha "123456" ainda é uma das mais usadas no mundo 🌍. Nunca subestime o valor de uma senha bem construída!</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

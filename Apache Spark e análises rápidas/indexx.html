@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apache Spark e Análises Rápidas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #d4af37;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      width: 100vw;
+      height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    .slide {
+      scroll-snap-align: center;
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: #ffd700;
+    }
+
+    p {
+      font-size: 1.4em;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-option {
+      background-color: #222;
+      color: #fff;
+      border: 2px solid #d4af37;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-option:hover {
+      background-color: #d4af37;
+      color: #111;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 2em;
+      color: #d4af37;
+      cursor: pointer;
+      z-index: 1;
+      user-select: none;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      p {
+        font-size: 1.1em;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="arrow arrow-left" onclick="prevSlide()">&#10094;</div>
+  <div class="arrow arrow-right" onclick="nextSlide()">&#10095;</div>
+
+  <div class="slider" id="slider">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <h1>Apache Spark e Análises Rápidas</h1>
+      <p>Apache Spark é uma poderosa ferramenta de processamento de dados em grande escala que permite realizar análises rápidas, especialmente para grandes volumes de dados. Ele é utilizado principalmente em áreas como aprendizado de máquina, análise de dados em tempo real e processamento de big data.</p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <h2>O Que é o Apache Spark?</h2>
+      <p>Apache Spark é um framework de processamento paralelo de dados que oferece uma interface de programação para processamento de dados em larga escala. Ele é ideal para ambientes de Big Data e possui uma performance extremamente alta ao processar grandes volumes de dados em comparação a outras ferramentas.</p>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <h2>Principais Componentes do Apache Spark</h2>
+      <ul>
+        <li><strong>Spark Core:</strong> É a base do Spark, que fornece a funcionalidade de processamento de dados e gerenciamento de tarefas.</li>
+        <li><strong>Spark SQL:</strong> Permite executar consultas SQL sobre dados distribuídos.</li>
+        <li><strong>Spark Streaming:</strong> Permite processar fluxos de dados em tempo real.</li>
+        <li><strong>MLlib:</strong> Biblioteca de aprendizado de máquina para análise e modelagem de dados.</li>
+        <li><strong>GraphX:</strong> Framework para análise de grafos e dados conectados.</li>
+      </ul>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <h2>Vantagens do Apache Spark</h2>
+      <p>Apache Spark é conhecido por sua alta velocidade, especialmente para operações de leitura e gravação. Além disso, oferece suporte a múltiplas linguagens de programação como Python, Java, Scala e R, o que o torna uma ferramenta muito flexível. Outro destaque é sua capacidade de processamento em memória, o que o torna mais rápido que os sistemas tradicionais de processamento em lote.</p>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <h2>Como o Apache Spark é Usado?</h2>
+      <p>Apache Spark é frequentemente utilizado em cenários de Big Data, como processamento de grandes volumes de dados, análises em tempo real, aprendizado de máquina e mineração de dados. Ele também é utilizado para análise de logs de servidores, monitoramento de sistemas e análise de dados de redes sociais.</p>
+    </div>
+
+    <!-- Slide 6: Quiz -->
+    <div class="slide">
+      <h2>Quiz: O que você aprendeu?</h2>
+      <p><strong>1. O que é Apache Spark?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">É um framework de processamento de dados em grande escala.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É uma ferramenta de visualização de dados estatísticos.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É uma plataforma de armazenamento de dados em tempo real.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>2. Qual componente do Apache Spark permite processar fluxos de dados em tempo real?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Spark Streaming</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Spark SQL</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Spark Core</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>3. O que é MLlib no Apache Spark?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">É uma biblioteca de aprendizado de máquina para análise e modelagem de dados.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É um módulo para armazenamento de dados em larga escala.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É um componente responsável pela execução de consultas SQL.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>4. O que é o Spark Core?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">É a base do Apache Spark que fornece a funcionalidade de processamento de dados e gerenciamento de tarefas.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É um sistema de análise de dados de redes sociais.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É uma ferramenta para modelagem gráfica de dados.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>5. Qual é a principal vantagem do Apache Spark?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Sua alta velocidade de processamento, especialmente ao processar dados em memória.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Sua capacidade de armazenar grandes volumes de dados em tempo real.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Sua facilidade de integração com bancos de dados relacionais.</div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="slide">
+      <h2>Resultado</h2>
+      <p id="resultText">Você acertou X de 5 perguntas!</p>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = slider.children;
+    let currentSlide = 0;
+    let score = 0;
+    let answered = 0;
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function checkAnswer(el, isCorrect) {
+      if (el.classList.contains("disabled")) return;
+
+      answered++;
+      el.classList.add("disabled");
+      if (isCorrect) {
+        score++;
+        el.style.backgroundColor = "#28a745";
+      } else {
+        el.style.backgroundColor = "#dc3545";
+      }
+
+      setTimeout(() => {
+        if (answered >= 5) {
+          document.getElementById("resultText").innerText = `Você acertou ${score} de 5 perguntas!`;
+          currentSlide = slides.length - 1;
+        } else {
+          currentSlide++;
+        }
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

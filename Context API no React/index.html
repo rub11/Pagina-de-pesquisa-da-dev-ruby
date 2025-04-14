@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Context API no React</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0a0a0a;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background: #131313;
+      width: 100%;
+      padding: 60px 20px 40px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255, 204, 0, 0.08);
+    }
+
+    header h1 {
+      color: #ffcc00;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #aaa;
+      font-size: 1.2em;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.05);
+    }
+
+    h2 {
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      color: #ddd;
+      line-height: 1.7;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    code {
+      background-color: #2b2b2b;
+      color: #ffcc00;
+      padding: 10px 15px;
+      border-radius: 6px;
+      display: block;
+      margin: 12px 0;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #111;
+      color: #999;
+      border-top: 1px solid #222;
+    }
+
+    footer span {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Context API no React</h1>
+    <p>Compartilhando estado global de forma simples e elegante</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é Context API?</h2>
+      <p>
+        A Context API é uma ferramenta nativa do React que permite compartilhar dados entre componentes sem a necessidade de prop drilling — ou seja, sem precisar passar props manualmente por todos os níveis da árvore de componentes.
+      </p>
+    </section>
+
+    <section>
+      <h2>Quando usar Context?</h2>
+      <ul>
+        <li>Quando múltiplos componentes precisam acessar o mesmo dado.</li>
+        <li>Para armazenar temas, autenticação, preferências do usuário, etc.</li>
+        <li>Quando você quer evitar o uso de bibliotecas externas para estados simples.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Como usar Context API</h2>
+      <p>1. Criar o contexto:</p>
+      <code>
+{`import { createContext } from 'react';
+
+export const TemaContext = createContext();`}
+      </code>
+
+      <p>2. Criar o Provider:</p>
+      <code>
+{`import React, { useState } from 'react';
+import { TemaContext } from './TemaContext';
+
+export const TemaProvider = ({ children }) => {
+  const [tema, setTema] = useState('dark');
+
+  return (
+    <TemaContext.Provider value={{ tema, setTema }}>
+      {children}
+    </TemaContext.Provider>
+  );
+};`}
+      </code>
+
+      <p>3. Usar em um componente:</p>
+      <code>
+{`import { useContext } from 'react';
+import { TemaContext } from './TemaContext';
+
+function BotaoTema() {
+  const { tema, setTema } = useContext(TemaContext);
+
+  return (
+    <button onClick={() => setTema(tema === 'dark' ? 'light' : 'dark')}>
+      Mudar para {tema === 'dark' ? 'claro' : 'escuro'}
+    </button>
+  );
+}`}
+      </code>
+    </section>
+
+    <section>
+      <h2>Vantagens</h2>
+      <ul>
+        <li>É nativo do React (sem dependências externas).</li>
+        <li>Fácil de implementar e entender.</li>
+        <li>Ideal para estados globais simples.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Limitações</h2>
+      <ul>
+        <li>Re-renderizações em massa podem ocorrer se o contexto mudar com frequência.</li>
+        <li>Não é ideal para estados complexos (como listas grandes ou cache).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>
+        O Context API é uma poderosa funcionalidade do React que permite compartilhamento de estado global com facilidade. Ideal para muitos casos de uso, principalmente quando não há necessidade de uma solução mais robusta como Redux.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

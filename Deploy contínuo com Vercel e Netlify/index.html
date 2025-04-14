@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy contínuo com Vercel e Netlify</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1a1a1a;
+            color: #f5d76e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #262626;
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        h1, h2 {
+            color: #f5d76e;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 3em;
+            color: #f5d76e;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>Deploy contínuo com Vercel e Netlify</h1>
+                <p>O deploy contínuo é uma prática essencial para manter uma entrega constante e de qualidade em projetos de desenvolvimento. Vamos explorar como Vercel e Netlify podem ser usados para facilitar essa integração e entrega contínua.</p>
+            </div>
+            <div class="slide">
+                <h2>O que é Deploy Contínuo?</h2>
+                <p>Deploy contínuo é uma técnica de desenvolvimento que permite automatizar o processo de lançamento de novos recursos ou atualizações em produção. O código é enviado automaticamente para produção sempre que é alterado, garantindo uma integração constante e sem falhas.</p>
+            </div>
+            <div class="slide">
+                <h2>Vercel: A Plataforma para Front-end</h2>
+                <p>Vercel é uma plataforma de deploy contínuo focada em aplicações front-end, especialmente para React, Next.js, e outras bibliotecas modernas. Ela permite a configuração automática do ambiente e facilita o processo de integração e deploy, tornando a experiência de desenvolvimento mais fluída e rápida.</p>
+            </div>
+            <div class="slide">
+                <h2>Configurando Vercel</h2>
+                <p>Para começar com Vercel, basta conectar seu repositório GitHub, GitLab ou Bitbucket e Vercel cuidará do resto. Ao fazer push para seu repositório, o Vercel automaticamente detecta alterações e realiza o deploy em questão de minutos.</p>
+                <pre><code>npm i -g vercel</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Netlify: Simples e Eficiente</h2>
+                <p>Netlify também é uma plataforma de deploy contínuo altamente focada em front-end, com integrações perfeitas para projetos estáticos e modernos. Ele é conhecido por sua simplicidade e rapidez, oferecendo recursos como previews de deploy e pré-processamento automático de builds.</p>
+            </div>
+            <div class="slide">
+                <h2>Configurando Netlify</h2>
+                <p>Assim como no Vercel, a configuração do Netlify é muito simples. Conecte seu repositório e a plataforma cuidará da construção, deploy e publicação do seu site automaticamente, sem a necessidade de configurações complicadas.</p>
+                <pre><code>npm install netlify-cli -g</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Benefícios do Deploy Contínuo</h2>
+                <p>O deploy contínuo com Vercel ou Netlify oferece vários benefícios, como:</p>
+                <ul>
+                    <li>Automação do processo de deploy;</li>
+                    <li>Redução de erros humanos;</li>
+                    <li>Entrega mais rápida de novos recursos;</li>
+                    <li>Previews de deploy para testes de mudanças;</li>
+                    <li>Integração direta com plataformas de versionamento de código.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Como Funciona o Fluxo de Trabalho?</h2>
+                <p>Quando você faz um commit e push para o seu repositório, o Vercel ou Netlify automaticamente detecta as mudanças. O processo de construção começa, e ao final, o novo conteúdo é disponibilizado no ambiente de produção, sem interrupções para o usuário final.</p>
+            </div>
+            <div class="slide">
+                <h2>Previews de Deploy</h2>
+                <p>Com Netlify e Vercel, você pode visualizar uma versão temporária do seu site antes de fazer o deploy final. Isso é extremamente útil para revisão e testes antes de liberar uma nova versão ao público.</p>
+            </div>
+            <div class="slide">
+                <h2>Customizando Configurações de Build</h2>
+                <p>Tanto Vercel quanto Netlify permitem que você personalize as configurações de build. Com o Netlify, você pode adicionar configurações no arquivo <code>netlify.toml</code>, enquanto o Vercel usa o arquivo <code>vercel.json</code>.</p>
+                <pre><code>[build]
+  command = "npm run build"
+  publish = "dist"</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Conclusão</h2>
+                <p>Vercel e Netlify oferecem soluções poderosas para o deploy contínuo de projetos web modernos. Ambas as plataformas oferecem uma configuração simples, automação no deploy e excelentes recursos para garantir que o código chegue à produção de forma rápida e sem problemas.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+            <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Suporte ao toque
+        let startTouch = 0;
+
+        document.querySelector('.slider-container').addEventListener('touchstart', function(e) {
+            startTouch = e.touches[0].clientX;
+        });
+
+        document.querySelector('.slider-container').addEventListener('touchmove', function(e) {
+            if (startTouch - e.touches[0].clientX > 50) {
+                changeSlide(1);
+            } else if (e.touches[0].clientX - startTouch > 50) {
+                changeSlide(-1);
+            }
+        });
+    </script>
+
+</body>
+</html>

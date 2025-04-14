@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Git e GitHub Intermediário</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111111;
+      color: #e0e0e0;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      text-align: center;
+      padding: 3rem 2rem;
+      box-shadow: 0 0 20px rgba(255, 193, 7, 0.2);
+    }
+
+    header h1 {
+      color: #f0a500;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: #181818;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      color: #f0a500;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: justify;
+      color: #cccccc;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      text-align: center;
+      color: #999;
+      border-top: 1px solid #333;
+    }
+
+    footer strong {
+      color: #f0a500;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Git e GitHub Intermediário</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Introdução ao Git Intermediário</h2>
+      <p>
+        Após aprender os conceitos básicos de versionamento com Git, como `clone`, `add`, `commit` e `push`, é natural avançar para um uso mais técnico e robusto dessa poderosa ferramenta. Git em nível intermediário envolve o uso de ramificações (branches), resolução de conflitos, rebase, stash, cherry-pick e outras técnicas que tornam o desenvolvimento mais eficiente e colaborativo. O conhecimento intermediário também requer uma visão mais clara do fluxo de trabalho (workflow), organização de repositórios e melhores práticas de versionamento.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Trabalhando com Branches</h2>
+      <p>
+        Uma das maiores vantagens do Git é a capacidade de trabalhar com múltiplas ramificações. Branches são “cópias” do código onde novas funcionalidades ou correções são feitas separadamente, permitindo desenvolvimento paralelo. Comandos como `git branch`, `git checkout`, `git merge` e `git switch` são essenciais para manipular branches. É comum usar uma branch principal (`main` ou `master`), e a partir dela, criar branches de funcionalidades (`feature/nova-funcionalidade`), correções (`fix/bug-nome`) ou testes (`test/nome`). Saber navegar, criar e apagar essas branches torna o fluxo muito mais organizado.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Merge vs Rebase</h2>
+      <p>
+        Ao trabalhar com múltiplas branches, é necessário integrá-las em algum momento. O `git merge` une o histórico de uma branch a outra, criando um novo commit de merge. Já o `git rebase` reescreve o histórico, aplicando as alterações de uma branch como se fossem criadas por cima de outra. O merge preserva o histórico completo de divergência entre as branches, enquanto o rebase resulta em um histórico linear. Ambos têm suas vantagens e desvantagens, e entender quando usar cada um é uma habilidade essencial para projetos profissionais.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Lidando com Conflitos</h2>
+      <p>
+        Conflitos surgem quando duas ou mais pessoas alteram as mesmas partes de um arquivo em branches diferentes. Git não consegue decidir qual versão é a correta, então o programador precisa resolver manualmente. Durante um `merge` ou `rebase`, o Git sinaliza os arquivos com conflitos usando marcas como `<<<<<<<`, `=======` e `>>>>>>>`. O desenvolvedor deve editar o arquivo, escolher as alterações corretas, remover os marcadores e então executar `git add` para marcar o conflito como resolvido. Praticar resolução de conflitos é essencial para ambientes colaborativos.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Git Stash e Cherry-Pick</h2>
+      <p>
+        O comando `git stash` permite salvar temporariamente alterações que ainda não estão prontas para serem commitadas. Isso é útil quando você precisa mudar de branch rapidamente sem perder seu progresso. Com `git stash pop`, você pode recuperar essas alterações depois. Já o `git cherry-pick` permite aplicar um commit específico de uma branch em outra, útil quando você precisa de apenas uma parte de uma funcionalidade. Essas ferramentas tornam seu controle de código muito mais preciso e versátil.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. GitHub: Forks, Pull Requests e Colaboração</h2>
+      <p>
+        GitHub amplia a experiência do Git para ambientes de colaboração. Um fork cria uma cópia do repositório na sua conta. Você pode modificar esse repositório, criar branches, e ao final, submeter um pull request para propor suas alterações ao repositório original. Pull requests permitem revisão de código, comentários, sugestões e integração automatizada com ferramentas de CI/CD. Além disso, GitHub Actions e GitHub Pages são recursos poderosos que expandem as possibilidades dos seus projetos.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Boas Práticas e Workflows Profissionais</h2>
+      <p>
+        Em ambientes profissionais, recomenda-se seguir workflows como Git Flow ou GitHub Flow. Isso inclui nomear branches com padrão, escrever mensagens de commit descritivas, criar pull requests organizados, revisar código e documentar alterações. Um time alinhado com boas práticas evita bugs, melhora a legibilidade do código e aumenta a produtividade. Manter um README.md atualizado, utilizar issues e labels no GitHub e automatizar processos com CI/CD também faz parte do domínio intermediário da ferramenta.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Conclusão</h2>
+      <p>
+        Dominar Git e GitHub em nível intermediário é um divisor de águas para desenvolvedores que desejam trabalhar em equipes e projetos reais. Essas ferramentas oferecem não apenas versionamento, mas controle, organização e segurança ao código. Quanto mais você pratica, mais natural se torna a resolução de conflitos, o gerenciamento de branches e o uso dos comandos avançados. Git é uma das ferramentas mais poderosas do arsenal de um programador moderno.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Conteúdo criado por <strong>DEV RUBY</strong>
+  </footer>
+
+</body>
+</html>

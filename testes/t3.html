@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz: Desenvolvimento Web</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-top: 30px;
+    }
+    .question {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .answer {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      cursor: pointer;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .answer:hover {
+      background-color: #292929;
+    }
+    .correct {
+      background-color: #2ecc71 !important;
+    }
+    .incorrect {
+      background-color: #e74c3c !important;
+    }
+    .hidden {
+      display: none;
+    }
+    .result {
+      font-size: 1.3em;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .result.good {
+      color: #00ff88;
+    }
+    .result.bad {
+      color: #ff5555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz de Desenvolvimento Web</h1>
+
+  <div id="question-container" class="question-container">
+    <div class="question" id="question"></div>
+    <div class="answers" id="answers"></div>
+  </div>
+
+  <div class="result hidden" id="result"></div>
+
+  <script>
+    const questions = [
+      {
+        question: "O que é HTML?",
+        options: [
+          "Uma linguagem de programação",
+          "Um sistema operacional",
+          "Uma linguagem de marcação para estruturar páginas web",
+          "Um banco de dados",
+          "Um servidor web"
+        ],
+        correct: 2
+      },
+      {
+        question: "Para que serve o CSS?",
+        options: [
+          "Para gerenciar bancos de dados",
+          "Para adicionar estilos visuais às páginas web",
+          "Para codificar aplicações backend",
+          "Para controlar o hardware",
+          "Para compilar arquivos JavaScript"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual é o papel do JavaScript no desenvolvimento web?",
+        options: [
+          "Controlar os dados do servidor",
+          "Estilizar elementos HTML",
+          "Adicionar interatividade ao site",
+          "Criar imagens no navegador",
+          "Fazer a estrutura da página"
+        ],
+        correct: 2
+      },
+      {
+        question: "Qual das opções representa corretamente o conceito de frontend?",
+        options: [
+          "A parte do site que interage com o banco de dados",
+          "A lógica do servidor",
+          "A parte visual com que o usuário interage",
+          "O armazenamento de arquivos",
+          "A segurança da rede"
+        ],
+        correct: 2
+      },
+      {
+        question: "O que significa 'responsividade' em um site?",
+        options: [
+          "Que o site responde com rapidez ao backend",
+          "Que ele se adapta bem a diferentes tamanhos de tela",
+          "Que responde aos usuários por e-mail",
+          "Que utiliza frameworks modernos",
+          "Que é acessível somente no computador"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual ferramenta é usada para versionamento de código?",
+        options: [
+          "Git",
+          "Node.js",
+          "React",
+          "Bootstrap",
+          "Docker"
+        ],
+        correct: 0
+      },
+      {
+        question: "Qual das opções é um framework JavaScript?",
+        options: [
+          "MySQL",
+          "Laravel",
+          "React",
+          "PHP",
+          "Python"
+        ],
+        correct: 2
+      },
+      {
+        question: "O que é uma API?",
+        options: [
+          "Um tipo de banco de dados",
+          "Uma estrutura de frontend",
+          "Uma interface para comunicação entre sistemas",
+          "Uma linguagem de estilo",
+          "Uma máquina virtual"
+        ],
+        correct: 2
+      },
+      {
+        question: "Para que serve o Flexbox no CSS?",
+        options: [
+          "Gerar interações visuais",
+          "Definir bancos de dados",
+          "Controlar a responsividade de vídeos",
+          "Organizar elementos em layouts flexíveis",
+          "Criar animações em 3D"
+        ],
+        correct: 3
+      },
+      {
+        question: "Qual das linguagens abaixo é usada principalmente no backend?",
+        options: [
+          "HTML",
+          "JavaScript",
+          "CSS",
+          "PHP",
+          "SASS"
+        ],
+        correct: 3
+      }
+    ];
+
+    let currentQuestion = 0;
+    let correctAnswers = 0;
+
+    function loadQuestion() {
+      const questionEl = document.getElementById("question");
+      const answersEl = document.getElementById("answers");
+      const current = questions[currentQuestion];
+
+      questionEl.textContent = current.question;
+      answersEl.innerHTML = "";
+
+      current.options.forEach((option, index) => {
+        const answer = document.createElement("div");
+        answer.classList.add("answer");
+        answer.textContent = option;
+        answer.onclick = () => handleAnswer(index);
+        answersEl.appendChild(answer);
+      });
+    }
+
+    function handleAnswer(index) {
+      const question = questions[currentQuestion];
+      const answerEls = document.querySelectorAll(".answer");
+
+      answerEls.forEach((el, i) => {
+        if (i === question.correct) {
+          el.classList.add("correct");
+        } else if (i === index) {
+          el.classList.add("incorrect");
+        }
+      });
+
+      if (index === question.correct) correctAnswers++;
+
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          loadQuestion();
+        } else {
+          showResult();
+        }
+      }, 600);
+    }
+
+    function showResult() {
+      const resultEl = document.getElementById("result");
+      const percentage = (correctAnswers / questions.length) * 100;
+      let message = "";
+
+      if (percentage >= 70) {
+        message = `🎉 Parabéns! Você acertou ${correctAnswers} de ${questions.length} perguntas (${percentage.toFixed(0)}%). Continue brilhando!`;
+        resultEl.classList.add("good");
+      } else {
+        message = `Você acertou ${correctAnswers} de ${questions.length} (${percentage.toFixed(0)}%). Não tem problema errar, o importante é aprender! 💡 A DevRub está com você nessa jornada!`;
+        resultEl.classList.add("bad");
+      }
+
+      document.getElementById("question-container").classList.add("hidden");
+      resultEl.innerHTML = message;
+      resultEl.classList.remove("hidden");
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>

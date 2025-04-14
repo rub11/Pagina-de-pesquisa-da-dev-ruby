@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz: Redes Neurais</title>
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #f2f2f2;
+      font-family: 'Segoe UI', sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      color: #ffd54f;
+      font-size: 2.2em;
+      margin-bottom: 30px;
+    }
+    .slide, .result {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .slide p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .question {
+      font-size: 1.3em;
+      color: #fbc02d;
+      margin-bottom: 15px;
+    }
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .answer {
+      background-color: #1a1a1a;
+      padding: 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid #333;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .answer:hover {
+      background-color: #2a2a2a;
+    }
+    .correct {
+      background-color: #4caf50 !important;
+    }
+    .incorrect {
+      background-color: #e53935 !important;
+    }
+    .result {
+      text-align: center;
+      font-size: 1.3em;
+      margin-top: 40px;
+    }
+    .result.good {
+      color: #81c784;
+    }
+    .result.bad {
+      color: #ef5350;
+    }
+    .next-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ffd54f;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz: Redes Neurais 🧠</h1>
+
+  <div id="slides">
+    <div class="slide active">
+      <p><strong>Redes Neurais</strong> são modelos computacionais inspirados no funcionamento do cérebro humano. Elas são compostas por unidades chamadas de neurônios artificiais organizados em camadas, que ajudam a resolver problemas complexos de aprendizado, como reconhecimento de padrões e previsão de dados. As redes neurais são essenciais para aplicações de inteligência artificial, como classificação, recomendação e análise de dados.</p>
+      <p>Vamos testar seus conhecimentos sobre redes neurais!</p>
+      <button class="next-btn" onclick="nextSlide()">Começar Quiz</button>
+    </div>
+    <!-- Perguntas e respostas -->
+    <div class="slide">
+      <p class="question">O que é uma Rede Neural?</p>
+      <div class="answers">
+        <div class="answer" onclick="checkAnswer(0, 1)">Uma máquina que simula o cérebro humano para aprender e resolver problemas</div>
+        <div class="answer" onclick="checkAnswer(0, 1)">Um tipo de software que organiza dados em grandes bancos de dados</div>
+        <div class="answer" onclick="checkAnswer(0, 1)">Um algoritmo de busca em redes sociais</div>
+        <div class="answer" onclick="checkAnswer(0, 1)">Um sistema operacional inteligente</div>
+        <div class="answer" onclick="checkAnswer(0, 1)">Uma estrutura de dados que armazena informações temporárias</div>
+      </div>
+    </div>
+    <!-- Outras perguntas -->
+    <div class="slide">
+      <p class="question">Qual é a principal função das camadas ocultas em uma rede neural?</p>
+      <div class="answers">
+        <div class="answer" onclick="checkAnswer(1, 1)">Processar as informações e aprender a partir delas</div>
+        <div class="answer" onclick="checkAnswer(1, 1)">Armazenar as informações de entrada</div>
+        <div class="answer" onclick="checkAnswer(1, 1)">Conectar a camada de entrada com a camada de saída</div>
+        <div class="answer" onclick="checkAnswer(1, 1)">Garantir a precisão do treinamento</div>
+        <div class="answer" onclick="checkAnswer(1, 1)">Exibir o resultado final do modelo</div>
+      </div>
+    </div>
+    <!-- Outras perguntas -->
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "O que é uma Rede Neural?",
+        options: [
+          "Uma máquina que simula o cérebro humano para aprender e resolver problemas",
+          "Um tipo de software que organiza dados em grandes bancos de dados",
+          "Um algoritmo de busca em redes sociais",
+          "Um sistema operacional inteligente",
+          "Uma estrutura de dados que armazena informações temporárias"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual é a principal função das camadas ocultas em uma rede neural?",
+        options: [
+          "Processar as informações e aprender a partir delas",
+          "Armazenar as informações de entrada",
+          "Conectar a camada de entrada com a camada de saída",
+          "Garantir a precisão do treinamento",
+          "Exibir o resultado final do modelo"
+        ],
+        correct: 1
+      },
+      // Adicionar mais perguntas conforme necessário
+    ];
+    
+    let currentSlide = 0;
+    let score = 0;
+    
+    function nextSlide() {
+      const slides = document.querySelectorAll('.slide');
+      slides[currentSlide].classList.remove('active');
+      currentSlide++;
+      if (currentSlide < slides.length) {
+        slides[currentSlide].classList.add('active');
+      } else {
+        showResult();
+      }
+    }
+    
+    function checkAnswer(questionIndex, answerIndex) {
+      const answers = document.querySelectorAll('.answer');
+      const correctAnswerIndex = quizData[questionIndex].correct;
+      
+      if (answerIndex === correctAnswerIndex) {
+        answers[answerIndex].classList.add('correct');
+        score++;
+      } else {
+        answers[answerIndex].classList.add('incorrect');
+      }
+      setTimeout(nextSlide, 1000); // Avançar após 1 segundo
+    }
+    
+    function showResult() {
+      const resultElement = document.getElementById('result');
+      const percentage = (score / quizData.length) * 100;
+      resultElement.classList.add(percentage >= 70 ? 'good' : 'bad');
+      resultElement.innerHTML = percentage >= 70
+        ? `Parabéns! Você acertou ${score} de ${quizData.length} perguntas.`
+        : `Você acertou ${score} de ${quizData.length} perguntas. Estude mais e melhore!`;
+    }
+  </script>
+</body>
+</html>

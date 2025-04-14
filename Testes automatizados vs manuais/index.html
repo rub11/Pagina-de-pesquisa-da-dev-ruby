@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testes Automatizados vs Manuais</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #161616;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 2.6em;
+      color: #f5c842;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #bbb;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 25px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #e0b347;
+      font-size: 2em;
+      margin-top: 40px;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin: 20px 0;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.05);
+    }
+
+    .comparison {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .box {
+      flex: 1 1 45%;
+      background-color: #121212;
+      border: 1px solid #333;
+      border-left: 5px solid #f5c842;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.03);
+    }
+
+    .box h3 {
+      margin-top: 0;
+      color: #ffd700;
+      font-size: 1.5em;
+    }
+
+    .box ul {
+      padding-left: 20px;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+
+    @media(max-width: 768px) {
+      .comparison {
+        flex-direction: column;
+      }
+
+      .box {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Testes Automatizados vs Manuais</h1>
+    <p>Entenda as diferenças e saiba quando usar cada tipo de teste</p>
+  </header>
+
+  <main>
+    <h2>Comparando os Tipos de Testes</h2>
+    <div class="section comparison">
+      <div class="box">
+        <h3>Testes Automatizados</h3>
+        <ul>
+          <li>Executados por scripts ou ferramentas</li>
+          <li>Rápidos, consistentes e repetíveis</li>
+          <li>Ideais para testes repetitivos e regressivos</li>
+          <li>Requerem maior esforço inicial de configuração</li>
+          <li>Baixo custo a longo prazo</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3>Testes Manuais</h3>
+        <ul>
+          <li>Executados por seres humanos</li>
+          <li>Mais flexíveis e intuitivos</li>
+          <li>Indicados para testes exploratórios e de usabilidade</li>
+          <li>Propensos a erro humano</li>
+          <li>Mais lentos e custosos a longo prazo</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Quando Usar Cada Um?</h2>
+    <div class="section">
+      <p>Testes automatizados são perfeitos para tarefas repetitivas, como verificar se funcionalidades antigas continuam funcionando após atualizações (<em>testes de regressão</em>).</p>
+      <p>Já os testes manuais são mais apropriados quando você precisa observar comportamentos inesperados, explorar uma interface ou avaliar a experiência do usuário.</p>
+    </div>
+
+    <h2>Melhor estratégia: Combinar</h2>
+    <div class="section">
+      <p>A melhor abordagem é adotar uma estratégia híbrida, combinando testes automatizados e manuais. Assim, você garante velocidade e precisão nos testes técnicos, sem abrir mão da sensibilidade humana nas análises visuais e exploratórias.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avanços em Realidade Mista</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0a0a0a;
+      color: #e6c87b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 960px;
+      width: 95%;
+      background-color: #1a1a1a;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(40px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🕶️ Avanços em Realidade Mista</h1>
+
+  <div class="slider-container">
+
+    <div class="slide active">
+      <p>🔮 <strong>O que é Realidade Mista?</strong></p>
+      <p>A <strong>Realidade Mista</strong> (RM) é a combinação da Realidade Aumentada (AR) e da Realidade Virtual (VR), permitindo que elementos digitais interajam com o mundo real de maneira imersiva e interativa. Ela vai além da AR e VR, criando experiências únicas e dinâmicas.</p>
+    </div>
+
+    <div class="slide">
+      <p>💡 <strong>Avanços Tecnológicos em Realidade Mista</strong></p>
+      <ul>
+        <li>👓 Dispositivos mais acessíveis e leves, como os óculos de realidade mista (Microsoft HoloLens, Magic Leap).</li>
+        <li>🤖 Aumento da inteligência artificial para uma experiência mais imersiva e interativa.</li>
+        <li>🌐 Avanços em sensores e rastreamento de movimento para melhorar a precisão e a interação no ambiente misto.</li>
+        <li>🎮 Gráficos e animações mais avançados, proporcionando experiências visuais ricas e realistas.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🚀 <strong>Principais Aplicações da Realidade Mista</strong></p>
+      <ul>
+        <li>🏥 Medicina: Cirurgias assistidas, treinamento de profissionais e diagnóstico de doenças.</li>
+        <li>🎮 Entretenimento: Jogos interativos e experiências imersivas de filmes e vídeos.</li>
+        <li>🏗️ Arquitetura: Projeção de modelos 3D interativos para visualização de projetos e construção.</li>
+        <li>📚 Educação: Aprendizado interativo, permitindo simulações e aulas mais dinâmicas.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🛠️ <strong>Ferramentas e Tecnologias de Desenvolvimento</strong></p>
+      <ul>
+        <li>🎮 Unity e Unreal Engine: Motores de jogos que oferecem suporte para o desenvolvimento de experiências de realidade mista.</li>
+        <li>🔧 Microsoft Mixed Reality Toolkit: Um conjunto de ferramentas para criar e desenvolver aplicativos de RM no HoloLens.</li>
+        <li>👓 ARCore e ARKit: Ferramentas do Google e da Apple para criar experiências de realidade aumentada com dispositivos móveis.</li>
+        <li>🖥️ Vuforia: Plataforma para criar aplicações de AR que podem ser integradas a dispositivos de realidade mista.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🌐 <strong>Integração com o Metaverso</strong></p>
+      <p>A Realidade Mista está estreitamente conectada com o <strong>Metaverso</strong>, pois oferece a imersão necessária para criar experiências digitais integradas e interativas, permitindo que os usuários naveguem, interajam e criem no espaço virtual de maneira mais dinâmica e envolvente.</p>
+    </div>
+
+    <div class="slide">
+      <p>🚀 <strong>O Futuro da Realidade Mista</strong></p>
+      <ul>
+        <li>🌍 Maior conectividade com a internet das coisas (IoT) para criar experiências mais imersivas e contextualizadas.</li>
+        <li>🎧 Novos dispositivos de realidade mista, incluindo óculos mais leves e com melhores capacidades de rastreamento.</li>
+        <li>💡 Aplicações em diferentes indústrias, desde saúde até entretenimento, oferecendo novos modelos de interação e produtividade.</li>
+      </ul>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deploy com Streamlit</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background: #111;
+      color: #f5c76e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      width: 95%;
+      max-width: 1100px;
+      overflow: hidden;
+      border-radius: 18px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(255, 204, 0, 0.1);
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 60px 40px;
+      background: #1a1a1a;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      margin-bottom: 20px;
+      color: #f5d76e;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #f5c76e;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    pre {
+      background: #2c2c2c;
+      color: #f8c471;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+      overflow-x: auto;
+      max-width: 90%;
+      margin: 20px auto;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f5c76e;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+
+    .nav-btn:hover {
+      color: #ffd700;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide"><h1>Deploy com Streamlit</h1><p>Transforme seus modelos e análises em aplicações web interativas com o poder do Streamlit.</p></div>
+      <div class="slide"><h2>1. O que é Streamlit?</h2><p>É uma biblioteca Python que permite criar apps web de forma simples e rápida, ideal para protótipos e dashboards interativos.</p></div>
+      <div class="slide"><h2>2. Instalação</h2><pre>pip install streamlit</pre><p>Com um único comando, você já tem a ferramenta instalada e pronta para uso.</p></div>
+      <div class="slide"><h2>3. Estrutura básica</h2><pre>import streamlit as st\nst.title("Meu App")\nst.write("Olá, mundo!")</pre><p>O app pode ser executado com <code>streamlit run app.py</code>.</p></div>
+      <div class="slide"><h2>4. Integração com ML</h2><p>Você pode carregar modelos com <code>joblib</code> ou <code>pickle</code> e fazer previsões diretamente no app.</p></div>
+      <div class="slide"><h2>5. Interface interativa</h2><p>Use widgets como <code>st.slider</code>, <code>st.selectbox</code> e <code>st.button</code> para captar entradas do usuário.</p></div>
+      <div class="slide"><h2>6. Visualizações</h2><p>O Streamlit permite gráficos com <code>Matplotlib</code>, <code>Plotly</code> ou diretamente com <code>st.line_chart</code>.</p></div>
+      <div class="slide"><h2>7. Deploy na nuvem</h2><p>Use o <strong>Streamlit Cloud</strong>: basta subir seu projeto no GitHub e conectar com um clique.</p></div>
+      <div class="slide"><h2>8. requirements.txt</h2><p>Inclua bibliotecas como <code>streamlit</code>, <code>scikit-learn</code>, etc., no <code>requirements.txt</code> para o deploy funcionar corretamente.</p></div>
+      <div class="slide"><h2>9. Segurança e performance</h2><p>Otimize o uso de cache com <code>@st.cache</code> para reduzir o tempo de resposta em execuções repetidas.</p></div>
+      <div class="slide"><h2>10. Considerações finais</h2><p>Streamlit é ideal para mostrar insights de forma elegante, funcional e rápida. Uma poderosa vitrine para seus modelos!</p></div>
+    </div>
+    <div class="navigation">
+      <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+      <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById("slider");
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    let startX = 0;
+    document.querySelector('.slider-container').addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+
+    document.querySelector('.slider-container').addEventListener('touchend', e => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) changeSlide(1);
+      if (startX - endX < -50) changeSlide(-1);
+    });
+  </script>
+</body>
+</html>

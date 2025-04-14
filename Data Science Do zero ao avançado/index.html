@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Science: Do Zero ao Avançado</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background: #111;
+      color: #f5c76e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      width: 95%;
+      max-width: 1100px;
+      overflow: hidden;
+      border-radius: 18px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(255, 204, 0, 0.1);
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 60px 40px;
+      background: #1a1a1a;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+      color: #f5d76e;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #f5c76e;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    pre {
+      background: #2c2c2c;
+      color: #f8c471;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+      overflow-x: auto;
+      max-width: 90%;
+      margin: 20px auto;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f5c76e;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+
+    .nav-btn:hover {
+      color: #ffd700;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide"><h1>Data Science: Do Zero ao Avançado</h1><p>Explore o universo da Ciência de Dados, desde fundamentos até técnicas avançadas. Aprenda análise, visualização, estatística, machine learning e muito mais.</p></div>
+      <div class="slide"><h2>1. O que é Data Science?</h2><p>É a arte de extrair conhecimento e insights de dados brutos, combinando estatística, programação e conhecimento de domínio para resolver problemas reais.</p></div>
+      <div class="slide"><h2>2. Linguagens principais</h2><p>Python domina a área, seguido por R e SQL. Python é preferido por sua simplicidade, bibliotecas poderosas e integração com IA e automação.</p></div>
+      <div class="slide"><h2>3. Bibliotecas essenciais</h2><p>Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow e PyTorch. Cada uma atende a partes do pipeline de análise e modelagem.</p></div>
+      <div class="slide"><h2>4. Análise exploratória de dados (EDA)</h2><p>Antes de qualquer modelo, devemos entender os dados. EDA envolve limpar, resumir e visualizar dados para gerar hipóteses.</p></div>
+      <div class="slide"><h2>5. Visualização de Dados</h2><p>Ferramentas como Matplotlib, Seaborn e Plotly ajudam a transformar dados complexos em gráficos compreensíveis e persuasivos.</p></div>
+      <div class="slide"><h2>6. Estatística para Data Science</h2><p>Probabilidade, distribuições, testes de hipóteses e inferência estatística são fundamentais para interpretar resultados com confiança.</p></div>
+      <div class="slide"><h2>7. Machine Learning</h2><p>Aplicações de aprendizado de máquina vão de classificações simples a modelos preditivos complexos. Supervisionado, não supervisionado e por reforço.</p></div>
+      <div class="slide"><h2>8. Modelagem preditiva</h2><p>Utilizamos algoritmos como regressão, árvores de decisão, Random Forest e redes neurais para prever eventos e comportamentos futuros.</p></div>
+      <div class="slide"><h2>9. Avaliação de Modelos</h2><p>Precisão, recall, F1-score e curva ROC são algumas das métricas que usamos para validar e escolher o melhor modelo.</p></div>
+      <div class="slide"><h2>10. Deep Learning</h2><p>Com redes neurais profundas, é possível resolver problemas de reconhecimento de imagem, linguagem natural e muito mais.</p></div>
+      <div class="slide"><h2>11. Big Data e Ferramentas</h2><p>Ao lidar com grandes volumes de dados, usamos Hadoop, Spark, Data Lakes, bancos NoSQL e arquiteturas escaláveis.</p></div>
+      <div class="slide"><h2>12. Projetos de Data Science</h2><p>Envolvem etapas de aquisição de dados, limpeza, modelagem, deploy e comunicação dos resultados com dashboards ou APIs.</p></div>
+      <div class="slide"><h2>13. Carreira em Data Science</h2><p>Data Scientist, Data Analyst, Machine Learning Engineer, entre outros. Cada um foca em partes diferentes do ciclo de dados.</p></div>
+      <div class="slide"><h2>14. Ética e Privacidade</h2><p>O uso ético dos dados é crucial. A LGPD e outras legislações reforçam a necessidade de anonimização e consentimento.</p></div>
+      <div class="slide"><h2>15. Conclusão</h2><p>Data Science é uma das áreas mais promissoras do século. Com prática, estudo e dedicação, você pode dominar desde a análise básica até o machine learning mais avançado.</p></div>
+    </div>
+    <div class="navigation">
+      <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+      <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById("slider");
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Toque em dispositivos móveis
+    let startX = 0;
+    document.querySelector('.slider-container').addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+
+    document.querySelector('.slider-container').addEventListener('touchend', e => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) changeSlide(1);
+      if (startX - endX < -50) changeSlide(-1);
+    });
+  </script>
+</body>
+</html>

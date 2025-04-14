@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Educação Financeira Digital</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #1a1a1a;
+      color: #e0c06b;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      width: 1500%;
+    }
+
+    .slide {
+      min-width: 100vw;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #262626;
+      box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+    }
+
+    h1, h2 {
+      color: #f5d76e;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f5d76e;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navigation">
+    <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+    <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+  </div>
+
+  <div class="slider" id="slider">
+    <div class="slide"><h1>Educação Financeira Digital</h1><p>A educação financeira digital busca ensinar como gerenciar e investir o dinheiro de maneira eficiente, utilizando plataformas digitais como bancos, fintechs e criptomoedas.</p></div>
+    <div class="slide"><h2>O que é Educação Financeira Digital?</h2><p>Ela envolve o uso de recursos online para aprender a gerenciar as finanças pessoais, investir, poupar e planejar o futuro financeiro, além de ensinar sobre as novas tecnologias que impactam o setor financeiro.</p></div>
+    <div class="slide"><h2>Importância da Educação Financeira</h2><p>Com o crescente uso de plataformas digitais, o aprendizado sobre como gerenciar dinheiro de forma inteligente se tornou essencial para tomar decisões financeiras informadas e alcançar a independência financeira.</p></div>
+    <div class="slide"><h2>Plataformas de Educação Financeira</h2><p>Existem diversas ferramentas e aplicativos que ajudam na educação financeira, como apps de controle de gastos, investimentos automatizados e até plataformas de ensino de finanças pessoais.</p></div>
+    <div class="slide"><h2>Investindo na Era Digital</h2><p>Com o advento das fintechs e criptomoedas, a forma de investir mudou. Agora, é possível investir de maneira simples e rápida, com uma vasta gama de opções digitais para todos os tipos de investidores.</p></div>
+    <div class="slide"><h2>Planejamento Financeiro Digital</h2><p>O planejamento financeiro digital inclui o uso de aplicativos de orçamento e ferramentas de acompanhamento de metas financeiras. Isso ajuda a otimizar gastos, economizar para objetivos futuros e garantir a saúde financeira a longo prazo.</p></div>
+    <div class="slide"><h2>Gestão de Riscos</h2><p>Investir no ambiente digital requer uma boa gestão de riscos. A educação financeira digital ensina a avaliar os riscos de investimentos em ações, criptomoedas e outros ativos financeiros digitais.</p></div>
+    <div class="slide"><h2>Criptomoedas e Blockchain</h2><p>As criptomoedas, como o Bitcoin e o Ethereum, são uma parte fundamental da educação financeira digital. Aprender sobre blockchain e como investir nessas novas formas de ativos é essencial no cenário atual.</p></div>
+    <div class="slide"><h2>Segurança no Ambiente Digital</h2><p>Com o aumento da digitalização das finanças, a segurança online tornou-se uma prioridade. Aprender a proteger seus dados financeiros contra fraudes e hackers é crucial para a gestão financeira digital.</p></div>
+    <div class="slide"><h2>Futuro da Educação Financeira Digital</h2><p>O futuro da educação financeira está cada vez mais ligado à inteligência artificial, robo-advisors, e novos modelos de educação online, que tornam o aprendizado mais acessível e dinâmico.</p></div>
+    <div class="slide"><h2>Conclusão</h2><p>A educação financeira digital é uma ferramenta essencial para quem deseja entender e aproveitar as novas tecnologias no mundo das finanças. Com o conhecimento certo, é possível alcançar liberdade financeira e tomar decisões mais inteligentes.</p></div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById('slider');
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+    }
+  </script>
+</body>
+</html>

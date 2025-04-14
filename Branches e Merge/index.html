@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Branches e Merge - Git</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #151515;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #f2c94c;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #bbb;
+    }
+
+    main {
+      max-width: 900px;
+      padding: 40px 25px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #e6b93f;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 6px solid #f2c94c;
+      box-shadow: 0 2px 12px rgba(255, 215, 0, 0.05);
+    }
+
+    .section h3 {
+      color: #ffd700;
+      margin-top: 0;
+    }
+
+    .section p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    code {
+      display: block;
+      background-color: #000;
+      color: #00ffcc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 1em;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Branches e Merge no Git</h1>
+    <p>Trabalhe com ramificações de forma profissional e segura</p>
+  </header>
+
+  <main>
+    <h2>O que são Branches?</h2>
+    <div class="section">
+      <p>Uma <strong>branch</strong> (ramo) no Git é como uma linha do tempo independente de desenvolvimento. Ideal para testar novas funcionalidades sem afetar o projeto principal (geralmente chamado de <code>main</code> ou <code>master</code>).</p>
+      
+      <h3>🔧 Criar uma nova branch</h3>
+      <code>git branch nome-da-branch</code>
+
+      <h3>➡️ Mudar para a nova branch</h3>
+      <code>git checkout nome-da-branch</code>
+
+      <h3>🚀 Criar e mudar direto</h3>
+      <code>git checkout -b nome-da-branch</code>
+    </div>
+
+    <h2>Como funciona o Merge?</h2>
+    <div class="section">
+      <p>Depois de trabalhar em uma branch, você pode juntar (fazer <strong>merge</strong>) essas mudanças à branch principal.</p>
+      
+      <h3>📌 Passos para fazer merge:</h3>
+      <ol>
+        <li>Vá para a branch principal:</li>
+        <code>git checkout main</code>
+
+        <li>Junte a branch de desenvolvimento:</li>
+        <code>git merge nome-da-branch</code>
+      </ol>
+
+      <p>Se não houver conflitos, o Git fundirá automaticamente as mudanças.</p>
+    </div>
+
+    <h2>Conflitos de Merge</h2>
+    <div class="section">
+      <p>Quando dois arquivos foram modificados de formas incompatíveis em branches diferentes, ocorre um <strong>conflito</strong>.</p>
+
+      <p>O Git irá indicar onde estão os conflitos nos arquivos. Você deve editar manualmente os trechos marcados e depois:</p>
+      <code>git add arquivo-resolvido.txt</code>
+      <code>git commit</code>
+    </div>
+
+    <h2>Apagar uma branch</h2>
+    <div class="section">
+      <h3>🧹 Local:</h3>
+      <code>git branch -d nome-da-branch</code>
+
+      <h3>🌐 Remoto:</h3>
+      <code>git push origin --delete nome-da-branch</code>
+    </div>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

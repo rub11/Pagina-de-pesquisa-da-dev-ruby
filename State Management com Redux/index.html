@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>State Management com Redux</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0b0b0b;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background: #141414;
+      width: 100%;
+      padding: 60px 20px 40px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255, 204, 0, 0.08);
+    }
+
+    header h1 {
+      color: #ffcc00;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #aaa;
+      font-size: 1.2em;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.05);
+    }
+
+    h2 {
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      color: #ddd;
+      line-height: 1.7;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    code {
+      background-color: #2a2a2a;
+      color: #ffcc00;
+      padding: 10px 15px;
+      border-radius: 6px;
+      display: block;
+      margin: 12px 0;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #111;
+      color: #999;
+      border-top: 1px solid #222;
+    }
+
+    footer span {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>State Management com Redux</h1>
+    <p>Controle de estado global com poder, previsibilidade e escalabilidade</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é Redux?</h2>
+      <p>Redux é uma biblioteca de gerenciamento de estado previsível, amplamente utilizada com aplicações JavaScript modernas (especialmente com React), que centraliza o estado em um único store global.</p>
+    </section>
+
+    <section>
+      <h2>Princípios do Redux</h2>
+      <ul>
+        <li><strong>Store único:</strong> toda a aplicação tem um único local onde o estado é armazenado.</li>
+        <li><strong>Estado é somente leitura:</strong> não se altera o estado diretamente. Usa-se ações para descrevê-las.</li>
+        <li><strong>As mudanças são feitas com reducers:</strong> funções puras que recebem estado anterior + ação, e retornam um novo estado.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Exemplo Básico de Redux</h2>
+      <code>
+{`// Action
+const incrementar = () => ({ type: 'INCREMENTAR' });
+
+// Reducer
+const contadorReducer = (state = 0, action) => {
+  switch(action.type) {
+    case 'INCREMENTAR':
+      return state + 1;
+    default:
+      return state;
+  }
+};
+
+// Store
+import { createStore } from 'redux';
+const store = createStore(contadorReducer);
+
+store.subscribe(() => console.log(store.getState()));
+store.dispatch(incrementar());`}
+      </code>
+    </section>
+
+    <section>
+      <h2>Redux com React</h2>
+      <p>Com React, usamos <code>react-redux</code> para conectar componentes ao estado global.</p>
+      <code>
+{`import { Provider, useSelector, useDispatch } from 'react-redux';
+
+function App() {
+  const contador = useSelector(state => state);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h1>{contador}</h1>
+      <button onClick={() => dispatch({ type: 'INCREMENTAR' })}>
+        Incrementar
+      </button>
+    </div>
+  );
+}`}
+      </code>
+    </section>
+
+    <section>
+      <h2>Quando usar Redux?</h2>
+      <ul>
+        <li>Quando múltiplos componentes precisam acessar/modificar o mesmo estado.</li>
+        <li>Para aplicações grandes e com muitos fluxos.</li>
+        <li>Quando o controle e previsibilidade do estado são fundamentais.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Alternativas modernas</h2>
+      <p>Em apps menores, alternativas como o Context API (React), Zustand, Recoil ou Jotai podem ser mais leves e diretas. Mas o Redux continua sendo uma das ferramentas mais robustas e escaláveis.</p>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>Redux traz clareza, previsibilidade e escalabilidade no controle do estado. Ele exige um pouco mais de estrutura, mas compensa em projetos maiores e em times colaborativos. Aprender Redux é uma vantagem profissional e uma base sólida para lidar com aplicações mais complexas.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

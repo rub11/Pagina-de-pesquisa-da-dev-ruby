@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OAuth e Autenticação Segura</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #121212;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 25px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 920px;
+      width: 96%;
+      background-color: #1b1b1b;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(25px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    code {
+      background-color: #333;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #f0f0f0;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>OAuth e Autenticação Segura</h1>
+
+  <div class="slider-container">
+    <div class="slide active">
+      <p>🔐 <strong>OAuth</strong> é um protocolo de autorização padrão da indústria usado para permitir acesso seguro a recursos protegidos sem compartilhar credenciais de usuário.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔄 Ele permite que aplicativos de terceiros acessem dados de usuários em serviços como Google, Facebook, GitHub e outros — de forma controlada e segura.</p>
+    </div>
+
+    <div class="slide">
+      <p>🧩 O OAuth funciona com <strong>tokens de acesso</strong>, geralmente do tipo Bearer, que representam a permissão de um app agir em nome de um usuário.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔍 <strong>Fluxo de autorização:</strong></p>
+      <ul>
+        <li>1️⃣ O app solicita autorização ao usuário.</li>
+        <li>2️⃣ O usuário autoriza o app através de um provedor OAuth (ex: Google).</li>
+        <li>3️⃣ O app recebe um token de acesso.</li>
+        <li>4️⃣ O app usa o token para acessar recursos da API.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>💡 <strong>Vantagens do OAuth:</strong></p>
+      <ul>
+        <li>✅ Permite autenticação segura sem expor senhas.</li>
+        <li>✅ Integração com provedores confiáveis.</li>
+        <li>✅ Suporte a múltiplos escopos de acesso (permissões granulares).</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🚨 <strong>Boas práticas:</strong></p>
+      <ul>
+        <li>Utilize sempre conexões HTTPS.</li>
+        <li>Configure escopos mínimos necessários.</li>
+        <li>Implemente refresh tokens com expiração controlada.</li>
+        <li>Revogue tokens comprometidos imediatamente.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🔑 <strong>OAuth 2.0 vs OpenID Connect:</strong></p>
+      <p>OAuth é um protocolo de autorização. Para autenticação, o <strong>OpenID Connect</strong> é uma extensão sobre o OAuth que fornece informações do usuário (como ID e email).</p>
+    </div>
+
+    <div class="slide">
+      <p>📌 <strong>Conclusão:</strong> O OAuth oferece uma maneira robusta e segura de implementar autenticação e autorização moderna em aplicações web e mobile.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

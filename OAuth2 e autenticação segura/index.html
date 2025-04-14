@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OAuth2 e Autenticação Segura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+    
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5em;
+      color: #ffd700;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 2px 2px 12px rgba(255, 215, 0, 0.8);
+    }
+    
+    .content-container {
+      width: 100%;
+      max-width: 1100px;
+      background: #2c2c2c;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.8);
+    }
+    
+    .section {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #ffd700;
+      font-size: 2.3em;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-bottom: 2px solid #ffd700;
+      padding-bottom: 10px;
+    }
+    
+    .section p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: #ddd;
+    }
+    
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+      color: #ddd;
+    }
+    
+    .section ul li {
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .section ul li:before {
+      content: "♦";
+      position: absolute;
+      left: 0;
+      color: #ffd700;
+    }
+    
+    pre {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 1em;
+      color: #ffd700;
+      overflow-x: auto;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8em;
+      }
+      
+      .section h2 {
+        font-size: 2em;
+      }
+      
+      .section p, .section ul li {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>OAuth2 e Autenticação Segura</h1>
+  
+  <div class="content-container">
+    <!-- Seção: Introdução -->
+    <div class="section">
+      <h2>O que é OAuth2?</h2>
+      <p>OAuth2 é um protocolo de autorização utilizado para permitir que aplicações acessem recursos de terceiros em nome do usuário, sem precisar que o usuário forneça suas credenciais diretamente.</p>
+      <p>Ele é amplamente utilizado por grandes serviços, como Google, Facebook, GitHub e outros, para permitir que usuários façam login e concedam permissões de acesso às suas contas, sem compartilhar suas senhas.</p>
+    </div>
+    
+    <!-- Seção: Como Funciona o OAuth2 -->
+    <div class="section">
+      <h2>Como Funciona o OAuth2?</h2>
+      <p>O processo de autenticação e autorização no OAuth2 envolve o uso de diferentes fluxos, sendo o mais comum o fluxo de "Autorização do Código". Esse processo funciona da seguinte maneira:</p>
+      <ul>
+        <li>O usuário acessa a aplicação que deseja conceder permissão.</li>
+        <li>A aplicação redireciona o usuário para o servidor de autorização, onde ele consente o acesso aos seus dados.</li>
+        <li>Após a autorização, o servidor de autorização redireciona o usuário de volta para a aplicação com um código de autorização.</li>
+        <li>A aplicação então troca o código de autorização por um token de acesso, que pode ser usado para acessar os recursos protegidos.</li>
+      </ul>
+    </div>
+    
+    <!-- Seção: Fluxos do OAuth2 -->
+    <div class="section">
+      <h2>Fluxos do OAuth2</h2>
+      <ul>
+        <li><strong>Fluxo de Autorização (Authorization Code Flow):</strong> Utilizado por aplicações que podem manter um segredo seguro, como aplicativos web.</li>
+        <li><strong>Fluxo Implicit (Implicit Flow):</strong> Usado por aplicações que não podem manter segredos, como apps front-end que rodam no navegador.</li>
+        <li><strong>Fluxo de Credenciais do Cliente (Client Credentials Flow):</strong> Usado por servidores backend que precisam acessar seus próprios recursos.</li>
+        <li><strong>Fluxo de Senha do Proprietário (Resource Owner Password Credentials Flow):</strong> Utilizado quando o usuário confia totalmente na aplicação, como em clientes móveis.</li>
+      </ul>
+    </div>
+    
+    <!-- Seção: Benefícios -->
+    <div class="section">
+      <h2>Benefícios do OAuth2</h2>
+      <ul>
+        <li><strong>Segurança:</strong> O OAuth2 permite que os usuários concedam acesso sem compartilhar suas credenciais, reduzindo o risco de vazamento de senhas.</li>
+        <li><strong>Facilidade de Integração:</strong> Muitos serviços de terceiros oferecem OAuth2 como método de autenticação, facilitando a integração.</li>
+        <li><strong>Controle de Acesso:</strong> O usuário pode revogar o acesso a qualquer momento, oferecendo controle completo sobre seus dados.</li>
+        <li><strong>Escalabilidade:</strong> O OAuth2 permite uma gestão centralizada de autenticação, útil em sistemas distribuídos com múltiplos serviços.</li>
+      </ul>
+    </div>
+    
+    <!-- Seção: Exemplo Prático -->
+    <div class="section">
+      <h2>Exemplo Prático: Autenticação com OAuth2</h2>
+      <p>Um exemplo de como realizar uma autenticação com OAuth2 utilizando Node.js e a biblioteca <strong>passport-oauth2</strong>:</p>
+      <pre>
+const passport = require('passport');
+const OAuth2Strategy = require('passport-oauth2');
+
+// Configuração da estratégia OAuth2
+passport.use(new OAuth2Strategy({
+    authorizationURL: 'https://example.com/oauth/authorize',
+    tokenURL: 'https://example.com/oauth/token',
+    clientID: 'your-client-id',
+    clientSecret: 'your-client-secret',
+    callbackURL: 'http://localhost:3000/auth/callback'
+  },
+  function(accessToken, refreshToken, profile, done) {
+    // Lógica para lidar com o token de acesso e obter os dados do usuário
+    User.findOrCreate({ oauthId: profile.id }, function(err, user) {
+      return done(err, user); 
+    });
+  }
+));
+      </pre>
+      <p>Este código configura uma estratégia OAuth2 usando o Passport para autenticar um usuário com um serviço externo.</p>
+    </div>
+    
+    <!-- Seção: Conclusão -->
+    <div class="section">
+      <h2>Conclusão</h2>
+      <p>OAuth2 é uma solução poderosa para garantir uma autenticação segura e flexível entre usuários e serviços. Ele permite que as aplicações acessem recursos em nome dos usuários sem comprometer suas credenciais, e oferece flexibilidade através de diferentes fluxos de autenticação.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Lakes vs Data Warehouses</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #0d0d0d;
+      color: #e0c06b;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      width: 1200%;
+    }
+
+    .slide {
+      min-width: 100vw;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+      box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+    }
+
+    h1, h2 {
+      color: #f5d76e;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f5d76e;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navigation">
+    <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+    <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+  </div>
+
+  <div class="slider" id="slider">
+    <div class="slide"><h1>Data Lakes vs Data Warehouses</h1><p>Entenda as principais diferenças entre esses dois modelos de armazenamento de dados usados em larga escala.</p></div>
+    <div class="slide"><h2>O que é um Data Lake?</h2><p>É um repositório que armazena dados em seu formato bruto, estruturados ou não, com flexibilidade para análises futuras.</p></div>
+    <div class="slide"><h2>O que é um Data Warehouse?</h2><p>É um banco de dados estruturado e otimizado para consultas analíticas, com dados organizados, limpos e integrados.</p></div>
+    <div class="slide"><h2>Formato dos Dados</h2><p>Data Lakes suportam dados brutos, enquanto Data Warehouses exigem dados limpos e modelados.</p></div>
+    <div class="slide"><h2>Agilidade vs Estrutura</h2><p>Data Lakes são flexíveis e rápidos para ingestão de dados, mas exigem processamento posterior. Warehouses são mais rígidos, porém otimizados.</p></div>
+    <div class="slide"><h2>Custo</h2><p>Data Lakes costumam ser mais baratos por armazenarem dados brutos em larga escala. Warehouses têm custo mais alto por requererem preparação dos dados.</p></div>
+    <div class="slide"><h2>Usuários</h2><p>Data Scientists preferem Data Lakes para experimentação. Analistas de BI e executivos usam Data Warehouses para relatórios e dashboards.</p></div>
+    <div class="slide"><h2>Tecnologias Populares</h2><p>Data Lakes: Hadoop, Amazon S3, Azure Data Lake. Data Warehouses: Snowflake, BigQuery, Redshift, Azure Synapse.</p></div>
+    <div class="slide"><h2>Performance</h2><p>Data Warehouses oferecem melhor performance em consultas SQL otimizadas. Data Lakes podem ser lentos sem o tratamento correto dos dados.</p></div>
+    <div class="slide"><h2>Casos de Uso</h2><p>Data Lakes: Machine Learning, dados em tempo real, IoT. Data Warehouses: Relatórios de negócios, análise preditiva estruturada.</p></div>
+    <div class="slide"><h2>Integração</h2><p>Organizações modernas usam ambos em conjunto. O dado cru entra no Lake, é tratado e depois enviado ao Warehouse.</p></div>
+    <div class="slide"><h2>Qual escolher?</h2><p>Depende da necessidade: exploração livre e variedade de dados = Data Lake. Relatórios consistentes e prontos para o negócio = Warehouse.</p></div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById('slider');
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+    }
+  </script>
+</body>
+</html>

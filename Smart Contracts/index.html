@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Contracts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0d0d0d;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 960px;
+      width: 95%;
+      background-color: #1a1a1a;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(40px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📜 Smart Contracts</h1>
+
+  <div class="slider-container">
+
+    <div class="slide active">
+      <p>🔗 <strong>O que são Smart Contracts?</strong></p>
+      <p>São contratos digitais autoexecutáveis armazenados na blockchain, onde os termos do acordo são definidos por código.</p>
+    </div>
+
+    <div class="slide">
+      <p>⚙️ <strong>Como funcionam?</strong></p>
+      <p>Quando condições pré-definidas são atendidas, o contrato se executa automaticamente, sem intervenção humana.</p>
+    </div>
+
+    <div class="slide">
+      <p>💡 <strong>Vantagens</strong></p>
+      <ul>
+        <li>🔐 Transparência e imutabilidade</li>
+        <li>⏱️ Execução automática e rápida</li>
+        <li>🛡️ Eliminação de intermediários</li>
+        <li>💸 Redução de custos e riscos</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>📍 <strong>Onde são usados?</strong></p>
+      <p>Em aplicações como DeFi, NFTs, jogos blockchain, logística, propriedade digital, seguros e mais.</p>
+    </div>
+
+    <div class="slide">
+      <p>💻 <strong>Exemplo de código (Solidity)</strong></p>
+      <pre style="background:#222; padding:15px; border-radius:8px; text-align:left; overflow-x:auto; font-size:0.9em; color:#ffecb3;">
+pragma solidity ^0.8.0;
+
+contract PagamentoSimples {
+    address public dono;
+    constructor() {
+        dono = msg.sender;
+    }
+
+    function pagar() public payable {}
+
+    function sacar() public {
+        require(msg.sender == dono);
+        payable(dono).transfer(address(this).balance);
+    }
+}
+      </pre>
+    </div>
+
+    <div class="slide">
+      <p>📚 <strong>Plataformas populares</strong></p>
+      <ul>
+        <li>🟣 Ethereum</li>
+        <li>🔵 Solana</li>
+        <li>🟢 Polygon</li>
+        <li>⚫ Binance Smart Chain</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🚧 <strong>Desafios atuais</strong></p>
+      <ul>
+        <li>🔄 Dificuldade de atualização após deploy</li>
+        <li>🔍 Vulnerabilidades de segurança</li>
+        <li>⚖️ Questões legais e regulamentares</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🔮 <strong>Futuro dos Smart Contracts</strong></p>
+      <p>Integração com IA, contratos dinâmicos, execução cross-chain e maior adoção em diversos setores.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

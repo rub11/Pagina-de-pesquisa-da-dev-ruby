@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ETL: Extração, Transformação e Carga</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: #0d0d0d;
+      color: #e0c06b;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+      width: 1200%;
+    }
+
+    .slide {
+      min-width: 100vw;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+      box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+    }
+
+    h1, h2 {
+      color: #f5d76e;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 30px;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f5d76e;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navigation">
+    <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+    <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+  </div>
+
+  <div class="slider" id="slider">
+    <div class="slide"><h1>ETL: Extração, Transformação e Carga</h1><p>Conheça as etapas fundamentais do processamento de dados em ambientes analíticos e sistemas de Business Intelligence.</p></div>
+    <div class="slide"><h2>O que é ETL?</h2><p>ETL é o processo de <strong>Extração</strong>, <strong>Transformação</strong> e <strong>Carga</strong> de dados de diversas fontes para um repositório central como um Data Warehouse.</p></div>
+    <div class="slide"><h2>1. Extração</h2><p>Consiste em coletar dados de diferentes fontes: bancos de dados, arquivos CSV, APIs, logs de aplicativos, entre outros formatos.</p></div>
+    <div class="slide"><h2>Objetivo da Extração</h2><p>Reunir dados de forma confiável e consistente, sem perda de integridade, para posterior tratamento.</p></div>
+    <div class="slide"><h2>2. Transformação</h2><p>É o coração do ETL. Aqui os dados são limpos, filtrados, normalizados, enriquecidos e convertidos para o formato correto.</p></div>
+    <div class="slide"><h2>Exemplos de Transformação</h2><p>Remoção de duplicatas, conversão de formatos de data, padronização de nomes, cálculos agregados, validações e muito mais.</p></div>
+    <div class="slide"><h2>3. Carga</h2><p>É o envio dos dados transformados para um destino final, geralmente um Data Warehouse ou banco analítico otimizado para consulta.</p></div>
+    <div class="slide"><h2>Tipos de Carga</h2><p>Carga completa (substitui tudo) ou carga incremental (somente novos dados ou dados alterados).</p></div>
+    <div class="slide"><h2>Ferramentas ETL</h2><p>Apache NiFi, Talend, Informatica, Pentaho, Microsoft SSIS, Airbyte, entre outras.</p></div>
+    <div class="slide"><h2>ETL vs ELT</h2><p>No ETL os dados são transformados antes da carga. No ELT (Extract, Load, Transform), os dados brutos são carregados e transformados posteriormente dentro do banco de dados.</p></div>
+    <div class="slide"><h2>Importância do ETL</h2><p>ETL garante dados consistentes, integrados e prontos para análise, contribuindo com insights confiáveis para o negócio.</p></div>
+    <div class="slide"><h2>Desafios do ETL</h2><p>Lidar com grandes volumes de dados, integração de fontes variadas, performance e manutenção de qualidade dos dados.</p></div>
+    <div class="slide"><h2>Boas Práticas</h2><p>Monitoramento constante, testes de qualidade de dados, logs detalhados e arquitetura escalável para lidar com crescimento.</p></div>
+    <div class="slide"><h2>Futuro do ETL</h2><p>Com o avanço do Big Data e da cloud, o processo ETL evolui para pipelines de dados automatizados e em tempo real.</p></div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById('slider');
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+    }
+  </script>
+</body>
+</html>

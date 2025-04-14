@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clean Code: Código Limpo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(240, 200, 100, 0.1);
+    }
+
+    header h1 {
+      color: #f0c24b;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 18px rgba(240, 200, 100, 0.05);
+    }
+
+    h2 {
+      color: #eab543;
+      font-size: 1.9em;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #f5c842;
+      margin-top: 20px;
+    }
+
+    p {
+      line-height: 1.7;
+      color: #ccc;
+      margin-bottom: 12px;
+    }
+
+    code, pre {
+      background-color: #292929;
+      padding: 10px;
+      border-radius: 8px;
+      display: block;
+      color: #f8d47c;
+      margin-top: 10px;
+      overflow-x: auto;
+    }
+
+    footer {
+      background-color: #121212;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Clean Code: Código Limpo</h1>
+    <p>Escrevendo software legível, elegante e sustentável</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é Clean Code?</h2>
+      <p>Clean Code é um conjunto de boas práticas para escrever códigos legíveis, simples, claros e de fácil manutenção. A ideia é que qualquer desenvolvedor consiga entender o código como se estivesse lendo um texto bem escrito.</p>
+    </section>
+
+    <section>
+      <h2>1. Bons nomes para variáveis e funções</h2>
+      <p>Evite abreviações e nomes genéricos. Prefira nomes descritivos que explicam a função da variável ou método.</p>
+      <pre>
+// Ruim
+int a = c * d;
+
+// Melhor
+int quantidadeDeHorasTrabalhadas = cargaHoraria * diasTrabalhados;
+      </pre>
+    </section>
+
+    <section>
+      <h2>2. Funções pequenas e coesas</h2>
+      <p>Cada função deve fazer apenas uma coisa. Funções curtas são mais fáceis de testar, entender e manter.</p>
+      <pre>
+// Ruim
+function processarPedido(pedido) {
+  validar(pedido);
+  calcularDesconto(pedido);
+  salvarNoBanco(pedido);
+  enviarEmail(pedido);
+}
+
+// Melhor
+function processarPedido(pedido) {
+  validarPedido(pedido);
+  aplicarDesconto(pedido);
+  persistirPedido(pedido);
+  notificarCliente(pedido);
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>3. Evite comentários desnecessários</h2>
+      <p>Comentários são úteis, mas o código limpo deve se explicar sozinho. Prefira melhorar o código do que explicar um código ruim.</p>
+      <pre>
+// Comentário desnecessário
+// Soma os valores do array
+let soma = array.reduce((a, b) => a + b, 0);
+
+// Melhor sem o comentário, pois o código é claro
+let totalDeItens = array.reduce((a, b) => a + b, 0);
+      </pre>
+    </section>
+
+    <section>
+      <h2>4. Remova código morto</h2>
+      <p>Não mantenha código comentado ou que não é mais utilizado. Isso polui o projeto e causa confusão.</p>
+      <pre>
+// Código antigo comentado (evitar)
+/* function antigoLogin() {
+  // ...
+} */
+      </pre>
+    </section>
+
+    <section>
+      <h2>5. Trate erros com clareza</h2>
+      <p>Evite deixar mensagens genéricas. Mostre exatamente o que aconteceu e por quê.</p>
+      <pre>
+// Ruim
+throw new Error("Erro");
+
+// Melhor
+throw new Error("Usuário não encontrado com o ID fornecido.");
+      </pre>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>Clean Code não é apenas um conceito, é uma filosofia. Escrever código limpo é uma demonstração de respeito aos colegas desenvolvedores, à equipe e a você mesmo no futuro.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

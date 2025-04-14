@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSockets e Tempo Real</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+    
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5em;
+      color: #ffd700;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 2px 2px 12px rgba(255, 215, 0, 0.8);
+    }
+    
+    .content-container {
+      width: 100%;
+      max-width: 1100px;
+      background: #2c2c2c;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.8);
+    }
+    
+    .section {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #ffd700;
+      font-size: 2.3em;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-bottom: 2px solid #ffd700;
+      padding-bottom: 10px;
+    }
+    
+    .section p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: #ddd;
+    }
+    
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+      color: #ddd;
+    }
+    
+    .section ul li {
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .section ul li:before {
+      content: "♦";
+      position: absolute;
+      left: 0;
+      color: #ffd700;
+    }
+    
+    pre {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 1em;
+      color: #ffd700;
+      overflow-x: auto;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8em;
+      }
+      
+      .section h2 {
+        font-size: 2em;
+      }
+      
+      .section p, .section ul li {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>WebSockets e Tempo Real</h1>
+  
+  <div class="content-container">
+    <!-- Seção: Introdução -->
+    <div class="section">
+      <h2>O que são WebSockets?</h2>
+      <p>WebSockets são uma tecnologia que permite a comunicação bidirecional e em tempo real entre um servidor e um cliente através de um único canal de comunicação persistente.</p>
+      <p>Diferente das requisições HTTP tradicionais, que são unidimensionais (cliente faz a requisição e servidor responde), o WebSocket permite que o servidor envie dados para o cliente a qualquer momento, criando uma experiência interativa e em tempo real.</p>
+    </div>
+    
+    <!-- Seção: Vantagens do WebSocket -->
+    <div class="section">
+      <h2>Vantagens do WebSocket</h2>
+      <ul>
+        <li><strong>Comunicação em tempo real:</strong> Permite atualizações instantâneas sem a necessidade de requisições repetidas do cliente.</li>
+        <li><strong>Baixa latência:</strong> A comunicação é mais rápida, pois não há necessidade de abrir novas conexões a cada troca de dados.</li>
+        <li><strong>Eficiência:</strong> Economiza largura de banda, pois uma única conexão é mantida aberta durante toda a interação.</li>
+        <li><strong>Ideal para aplicações interativas:</strong> WebSockets são perfeitos para aplicações como chats, jogos e notificações em tempo real.</li>
+      </ul>
+    </div>
+    
+    <!-- Seção: Como Funciona o WebSocket? -->
+    <div class="section">
+      <h2>Como Funciona o WebSocket?</h2>
+      <p>O WebSocket inicia com uma requisição HTTP tradicional, mas, ao ser estabelecida, ela é "promovida" a uma conexão WebSocket, permitindo comunicação bidirecional.</p>
+      <p>Essa conexão permanece aberta, e tanto o servidor quanto o cliente podem enviar dados para a outra parte sempre que necessário, sem a sobrecarga de novas requisições HTTP.</p>
+    </div>
+    
+    <!-- Seção: Exemplo Prático -->
+    <div class="section">
+      <h2>Exemplo Prático</h2>
+      <p>Exemplo de um servidor WebSocket em Node.js utilizando a biblioteca <strong>ws</strong>:</p>
+      <pre>
+const WebSocket = require('ws');
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', ws => {
+  ws.on('message', message => {
+    console.log('Recebido: %s', message);
+  });
+
+  ws.send('Conexão WebSocket estabelecida');
+});
+      </pre>
+      <p>Esse código cria um servidor WebSocket em Node.js e envia uma mensagem ao cliente assim que a conexão é estabelecida.</p>
+    </div>
+    
+    <!-- Seção: Aplicações em Tempo Real -->
+    <div class="section">
+      <h2>Aplicações em Tempo Real</h2>
+      <p>Os WebSockets são amplamente utilizados em diversas aplicações em tempo real, como:</p>
+      <ul>
+        <li><strong>Chats ao vivo:</strong> Comunicação instantânea entre usuários em plataformas de mensagens.</li>
+        <li><strong>Notificações em tempo real:</strong> Notificações de atualizações, mensagens ou eventos no momento em que ocorrem.</li>
+        <li><strong>Jogos multiplayer online:</strong> Atualizações de status de jogo e interações em tempo real.</li>
+        <li><strong>Monitoramento e alertas:</strong> Sistema de monitoramento que envia alertas em tempo real conforme novos dados são coletados.</li>
+      </ul>
+    </div>
+    
+    <!-- Seção: Conclusão -->
+    <div class="section">
+      <h2>Conclusão</h2>
+      <p>WebSockets são uma tecnologia poderosa que habilita a comunicação bidirecional e em tempo real entre servidores e clientes. Eles são ideais para criar experiências interativas, como chats, jogos e notificações instantâneas, otimizando a comunicação e melhorando a performance de aplicações em tempo real.</p>
+    </div>
+  </div>
+</body>
+</html>

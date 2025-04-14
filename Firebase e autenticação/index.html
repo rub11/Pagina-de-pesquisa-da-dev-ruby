@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Firebase e Autenticação</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #121212;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 25px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 920px;
+      width: 96%;
+      background-color: #1b1b1b;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(25px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    code {
+      background-color: #333;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #f0f0f0;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Firebase e Autenticação</h1>
+
+  <div class="slider-container">
+    <div class="slide active">
+      <p>🔐 O <strong>Firebase Authentication</strong> é uma solução poderosa do Google para autenticação em aplicações web e mobile, fácil de integrar e altamente escalável.</p>
+    </div>
+
+    <div class="slide">
+      <p>📲 Ele suporta autenticação por email/senha, redes sociais (Google, Facebook, GitHub), login anônimo e até autenticação com número de telefone.</p>
+    </div>
+
+    <div class="slide">
+      <p>💡 <strong>Vantagens:</strong></p>
+      <ul>
+        <li>Fácil integração com Firebase e outras soluções da Google Cloud.</li>
+        <li>Boas práticas de segurança já implementadas.</li>
+        <li>Interface de gerenciamento de usuários no painel do Firebase.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>⚙️ <strong>Exemplo com Email/Senha:</strong></p>
+      <p><code>firebase.auth().createUserWithEmailAndPassword(email, password)</code></p>
+      <p><code>firebase.auth().signInWithEmailAndPassword(email, password)</code></p>
+    </div>
+
+    <div class="slide">
+      <p>🌐 Também é possível usar <strong>OAuth</strong> para permitir login com contas sociais:</p>
+      <p><code>firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())</code></p>
+    </div>
+
+    <div class="slide">
+      <p>🔒 <strong>Segurança:</strong> Regras de segurança no Firebase Database e Firestore podem ser definidas com base na autenticação do usuário.</p>
+    </div>
+
+    <div class="slide">
+      <p>📁 <strong>Armazenamento seguro:</strong> Firebase Authentication pode ser usado com Firebase Storage para proteger arquivos por usuário autenticado.</p>
+    </div>
+
+    <div class="slide">
+      <p>🚀 Em resumo, o Firebase Authentication simplifica a implementação de login seguro e escalável com uma ampla variedade de métodos de autenticação.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

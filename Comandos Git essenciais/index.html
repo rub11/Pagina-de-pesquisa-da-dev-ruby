@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comandos Git Essenciais</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      background-color: #151515;
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #f2c94c;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #bbb;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 25px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #e6b93f;
+      margin-top: 40px;
+    }
+
+    .comando {
+      background-color: #1a1a1a;
+      border-left: 5px solid #f2c94c;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(255, 215, 0, 0.05);
+    }
+
+    .comando h3 {
+      margin: 0 0 10px;
+      color: #ffd700;
+    }
+
+    .comando code {
+      display: block;
+      background-color: #000;
+      color: #00ffcc;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 1em;
+      margin-top: 10px;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Comandos Git Essenciais</h1>
+    <p>Conheça os comandos mais usados no dia a dia do desenvolvedor</p>
+  </header>
+
+  <main>
+    <div class="comando">
+      <h3>1. Inicializar um repositório</h3>
+      <p>Cria um novo repositório Git na pasta atual.</p>
+      <code>git init</code>
+    </div>
+
+    <div class="comando">
+      <h3>2. Clonar um repositório</h3>
+      <p>Cria uma cópia local de um repositório remoto.</p>
+      <code>git clone https://github.com/usuario/repositorio.git</code>
+    </div>
+
+    <div class="comando">
+      <h3>3. Verificar o status</h3>
+      <p>Exibe arquivos modificados, adicionados e não versionados.</p>
+      <code>git status</code>
+    </div>
+
+    <div class="comando">
+      <h3>4. Adicionar arquivos ao stage</h3>
+      <p>Prepara arquivos para o commit.</p>
+      <code>git add .</code>
+      <code>git add nome-do-arquivo.txt</code>
+    </div>
+
+    <div class="comando">
+      <h3>5. Criar um commit</h3>
+      <p>Salva as alterações com uma mensagem descritiva.</p>
+      <code>git commit -m "mensagem explicativa do que foi feito"</code>
+    </div>
+
+    <div class="comando">
+      <h3>6. Ver histórico de commits</h3>
+      <p>Lista todos os commits realizados no projeto.</p>
+      <code>git log</code>
+    </div>
+
+    <div class="comando">
+      <h3>7. Enviar alterações para o repositório remoto</h3>
+      <p>Atualiza o repositório online com seus commits locais.</p>
+      <code>git push origin main</code>
+    </div>
+
+    <div class="comando">
+      <h3>8. Atualizar repositório local</h3>
+      <p>Baixa e integra as últimas mudanças do repositório remoto.</p>
+      <code>git pull</code>
+    </div>
+
+    <div class="comando">
+      <h3>9. Criar e mudar de branch</h3>
+      <p>Cria uma nova ramificação e alterna para ela.</p>
+      <code>git checkout -b nova-feature</code>
+    </div>
+
+    <div class="comando">
+      <h3>10. Mesclar branches</h3>
+      <p>Une o conteúdo de uma branch à branch atual.</p>
+      <code>git merge nome-da-branch</code>
+    </div>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

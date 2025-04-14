@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consumo de API com Axios e Fetch</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #121212;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 25px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 920px;
+      width: 96%;
+      background-color: #1b1b1b;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(25px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    code {
+      background-color: #333;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #f0f0f0;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Consumo de API com Axios e Fetch</h1>
+
+  <div class="slider-container">
+    <div class="slide active">
+      <p>O consumo de APIs é essencial no desenvolvimento web moderno. Duas das formas mais populares são utilizando <strong>Fetch</strong> e <strong>Axios</strong>.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Fetch API:</strong> É uma funcionalidade nativa do JavaScript que permite fazer requisições HTTP com uma sintaxe baseada em Promises.</p>
+      <p><code>fetch('https://api.exemplo.com/dados')</code></p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Axios:</strong> É uma biblioteca externa que facilita o consumo de APIs. Oferece uma sintaxe mais concisa e recursos adicionais como interceptadores.</p>
+      <p><code>axios.get('https://api.exemplo.com/dados')</code></p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Principais Diferenças:</strong></p>
+      <ul style="text-align:left;">
+        <li><strong>Fetch:</strong> Nativo, mais leve, mas requer mais configuração para erros.</li>
+        <li><strong>Axios:</strong> Mais completo, com suporte automático a JSON e interceptadores.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p><strong>Tratamento de Erros:</strong> Axios lida automaticamente com erros de status, enquanto o Fetch precisa de verificação manual.</p>
+      <p><code>if (!response.ok) throw new Error("Erro!")</code></p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Quando Usar?</strong></p>
+      <p>Use <strong>Fetch</strong> para projetos pequenos e simples. Use <strong>Axios</strong> em projetos maiores que exigem robustez e controle sobre as requisições.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

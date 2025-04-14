@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação com Zapier e Make</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1a1a1a;
+            color: #f5d76e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #262626;
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        h1, h2 {
+            color: #f5d76e;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 3em;
+            color: #f5d76e;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>Automação com Zapier e Make</h1>
+                <p>Zapier e Make (anteriormente Integromat) são ferramentas poderosas que permitem automatizar tarefas repetitivas sem a necessidade de programação. Essas plataformas conectam diferentes aplicativos e serviços para criar fluxos de trabalho automáticos.</p>
+            </div>
+            <div class="slide">
+                <h2>O que são Zapier e Make?</h2>
+                <p><strong>Zapier:</strong> Zapier é uma plataforma de automação que conecta aplicativos e serviços online, criando "Zaps" que automatizam tarefas.</p>
+                <p><strong>Make (Integromat):</strong> Make é uma plataforma de automação visual que permite conectar aplicativos e criar fluxos de trabalho (cenários) para automatizar tarefas e processos.</p>
+            </div>
+            <div class="slide">
+                <h2>Como Funciona o Zapier?</h2>
+                <p>O Zapier funciona com "Zaps", que são integrações entre dois ou mais aplicativos. Cada Zap tem um "gatilho" e uma "ação". Quando o gatilho é ativado, a ação é executada automaticamente.</p>
+            </div>
+            <div class="slide">
+                <h2>Como Funciona o Make?</h2>
+                <p>O Make permite criar "cenários", onde você define etapas e conexões entre diferentes aplicativos. Ele oferece mais flexibilidade e controle em relação ao Zapier, permitindo criar processos mais complexos.</p>
+            </div>
+            <div class="slide">
+                <h2>Vantagens do Zapier</h2>
+                <ul>
+                    <li><strong>Fácil de Usar:</strong> Interface intuitiva e fácil de configurar.</li>
+                    <li><strong>Suporte a muitos apps:</strong> Conecta-se com mais de 3.000 aplicativos.</li>
+                    <li><strong>Sem necessidade de programação:</strong> Configuração sem código.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Vantagens do Make</h2>
+                <ul>
+                    <li><strong>Mais Flexibilidade:</strong> Permite a criação de cenários mais complexos e personalizáveis.</li>
+                    <li><strong>Interface Visual:</strong> Interface gráfica fácil de entender.</li>
+                    <li><strong>Controle Detalhado:</strong> Oferece maior controle sobre a automação.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Exemplos de Automação com Zapier</h2>
+                <ul>
+                    <li><strong>Notificações automáticas:</strong> Enviar notificações no Slack sempre que um novo email chegar no Gmail.</li>
+                    <li><strong>Automatização de vendas:</strong> Adicionar novos leads do Google Forms para uma planilha do Google Sheets.</li>
+                    <li><strong>Gestão de Redes Sociais:</strong> Postar automaticamente no Twitter quando uma nova foto for adicionada ao Instagram.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Exemplos de Automação com Make</h2>
+                <ul>
+                    <li><strong>Processamento de Dados:</strong> Coletar dados de uma API e processá-los em um banco de dados SQL.</li>
+                    <li><strong>Integração de Serviços:</strong> Sincronizar dados entre Salesforce e Google Sheets.</li>
+                    <li><strong>Automatização de Marketing:</strong> Enviar emails personalizados com base em interações com o site.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Quando Usar Zapier?</h2>
+                <p>Zapier é ideal para automações simples, como conectar aplicativos populares e criar fluxos de trabalho básicos. É ideal para pequenas empresas e pessoas que precisam de soluções rápidas e fáceis sem muito esforço de configuração.</p>
+            </div>
+            <div class="slide">
+                <h2>Quando Usar Make?</h2>
+                <p>Make é recomendado para automações mais complexas, que envolvem múltiplas etapas ou aplicativos com fluxos de trabalho mais personalizados. Ideal para empresas que precisam de automações detalhadas e flexíveis.</p>
+            </div>
+            <div class="slide">
+                <h2>Conclusão</h2>
+                <p>Ambas as ferramentas são poderosas para automatizar tarefas e processos. A escolha entre Zapier e Make depende das suas necessidades específicas: Zapier para soluções rápidas e fáceis ou Make para automações mais complexas e personalizadas.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+            <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Suporte ao toque
+        let startTouch = 0;
+
+        document.querySelector('.slider-container').addEventListener('touchstart', function(e) {
+            startTouch = e.touches[0].clientX;
+        });
+
+        document.querySelector('.slider-container').addEventListener('touchmove', function(e) {
+            if (startTouch - e.touches[0].clientX > 50) {
+                changeSlide(1);
+            } else if (e.touches[0].clientX - startTouch > 50) {
+                changeSlide(-1);
+            }
+        });
+    </script>
+
+</body>
+</html>

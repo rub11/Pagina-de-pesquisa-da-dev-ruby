@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React Avançado</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #ddd;
+    }
+
+    header {
+      background-color: #1b1b1b;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+
+    header h1 {
+      color: #FFD700;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: #1a1a1a;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      color: #f9b233;
+      font-size: 2rem;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: justify;
+      color: #ccc;
+    }
+
+    footer {
+      background-color: #1b1b1b;
+      padding: 1.5rem;
+      text-align: center;
+      color: #888;
+      border-top: 1px solid #333;
+    }
+
+    footer strong {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>React Avançado</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Introdução ao React em Nível Avançado</h2>
+      <p>
+        React é uma biblioteca JavaScript amplamente utilizada para construção de interfaces modernas, mas ao ultrapassar o estágio inicial de componentes e props, o React Avançado traz à tona uma série de conceitos que possibilitam o desenvolvimento de aplicações robustas, escaláveis e altamente performáticas. Neste nível, aprendemos a lidar com arquitetura de projetos complexos, otimizações de renderização, manipulação de estado global, hooks personalizados, lazy loading, SSR, SSG, Suspense, Context API avançado, memoization e muito mais. Essa etapa é fundamental para desenvolvedores que pretendem atuar em times profissionais, construir soluções de larga escala ou contribuir com bibliotecas do ecossistema.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Componentes Otimizados e Re-renderizações</h2>
+      <p>
+        Um dos maiores desafios em React é controlar as re-renderizações desnecessárias. Ao dominar os conceitos de `React.memo`, `useMemo` e `useCallback`, é possível evitar que componentes filhos atualizem quando suas props não mudam de fato. Além disso, técnicas como dividir componentes em menores, utilizar chaves (`key`) corretamente em listas e aplicar renderizações condicionais com cuidado são estratégias que melhoram o desempenho significativamente. Com isso, o React pode entregar experiências fluidas mesmo em interfaces com muitos elementos dinâmicos.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Hooks Customizados e Reutilização de Lógica</h2>
+      <p>
+        Hooks personalizados permitem abstrair lógica complexa e reutilizável em diversas partes do aplicativo. Por exemplo, podemos criar um `useFetch` para lidar com requisições HTTP, um `useAuth` para lógica de autenticação ou `useWindowSize` para responsividade. Esses hooks seguem a mesma estrutura dos hooks nativos e tornam o código mais legível, limpo e modular. Em aplicações maiores, essa prática reduz a duplicação e melhora a testabilidade do código.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Context API e Gerenciamento de Estado Global</h2>
+      <p>
+        A Context API permite o compartilhamento de dados entre componentes sem precisar passar props manualmente. Em projetos maiores, é comum dividir contextos por responsabilidade: `ThemeContext`, `UserContext`, `CartContext` e assim por diante. Combinado com `useReducer`, o Context se torna uma alternativa leve ao Redux em muitos casos. No React Avançado, também aprendemos a lidar com contextos aninhados, performance na atualização de contexto e evitar re-renderizações globais desnecessárias.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. React Router e Navegação Dinâmica</h2>
+      <p>
+        O React Router é a principal ferramenta de roteamento para aplicações React. Em nível avançado, usamos rotas aninhadas, rotas protegidas, carregamento dinâmico de componentes com `React.lazy`, parâmetros de rota (`useParams`) e navegação programática com `useNavigate`. Além disso, a composição entre rotas e autenticação, lazy loading e fallback com `Suspense` são recursos valiosos para entregar uma experiência mais dinâmica e segura ao usuário.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Server Side Rendering (SSR) e Static Site Generation (SSG)</h2>
+      <p>
+        Para aplicações que exigem SEO e performance desde o primeiro carregamento, técnicas como SSR (Server Side Rendering) e SSG (Static Site Generation) são essenciais. Utilizando frameworks como Next.js, conseguimos renderizar páginas no servidor antes de enviá-las ao navegador, melhorando a indexação por mecanismos de busca. Em SSG, as páginas são geradas uma vez durante o build e servidas estaticamente. Essas estratégias exigem mudanças na forma como lidamos com hooks e dados, pois nem todos os recursos do navegador estão disponíveis no servidor.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Testes Automatizados em React</h2>
+      <p>
+        A escrita de testes automatizados torna-se indispensável em projetos sérios. Com bibliotecas como Jest e React Testing Library, é possível simular interações do usuário, validar renderizações e garantir a estabilidade da aplicação ao longo do tempo. Testes de unidade, testes de integração e testes end-to-end (como com Cypress) compõem uma suíte robusta de validação. Hooks customizados, componentes dinâmicos e integrações com APIs também devem ser cobertos com testes.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Deploy e Integração Contínua</h2>
+      <p>
+        Após construir e testar a aplicação, é hora de fazer o deploy. Serviços como Vercel, Netlify, Render e Firebase Hosting permitem que você hospede projetos React com facilidade. A integração contínua (CI/CD) automatiza o processo de build e deploy sempre que novas alterações são enviadas para o repositório. Com isso, o processo de entrega se torna mais seguro, rápido e confiável. Além disso, boas práticas incluem versionamento semântico, documentação com Storybook e controle de mudanças com GitHub Actions.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Conclusão</h2>
+      <p>
+        O React Avançado é um campo vasto e empolgante. Ele prepara o desenvolvedor para os desafios reais do mercado, oferece uma estrutura sólida para crescer em projetos de todos os tamanhos e fortalece a capacidade de pensar em performance, escalabilidade e manutenibilidade. É nessa etapa que a arquitetura de aplicações entra em foco, e o domínio de ferramentas complementares se torna diferencial competitivo.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Conteúdo criado por <strong>DEV RUBY</strong>
+  </footer>
+
+</body>
+</html>

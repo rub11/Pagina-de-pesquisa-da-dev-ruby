@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python para Análise de Dados</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: #e6e6e6;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
+    }
+
+    header h1 {
+      color: #ffcc00;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #181818;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 204, 0, 0.1);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      color: #f0c060;
+      font-size: 2rem;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: justify;
+      color: #d0d0d0;
+    }
+
+    pre {
+      background-color: #1f1f1f;
+      padding: 1rem;
+      border-left: 5px solid #f0c060;
+      color: #fff;
+      overflow-x: auto;
+      border-radius: 8px;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      text-align: center;
+      color: #999;
+      border-top: 1px solid #333;
+    }
+
+    footer strong {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Python para Análise de Dados</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Introdução à Análise de Dados com Python</h2>
+      <p>
+        Python tornou-se uma das linguagens mais utilizadas na análise de dados por sua simplicidade, eficiência e poderosas bibliotecas especializadas. Seja para análise estatística, visualização de dados ou machine learning, o Python oferece ferramentas que tornam o trabalho de cientistas de dados, analistas e engenheiros de dados muito mais produtivo. Empresas de todos os setores — de bancos a startups de tecnologia — utilizam Python para coletar, organizar, analisar e interpretar grandes volumes de dados. A curva de aprendizado suave e a comunidade ativa são fatores adicionais que explicam seu crescimento constante no ecossistema da ciência de dados.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Bibliotecas Essenciais</h2>
+      <p>
+        Python conta com um ecossistema rico em bibliotecas para análise de dados. Entre as principais, destacam-se:
+      </p>
+      <ul>
+        <li><strong>Pandas</strong> – ideal para manipulação de dados tabulares (DataFrames), filtragem, agrupamento e limpeza de dados.</li>
+        <li><strong>NumPy</strong> – fornece suporte para arrays e operações matemáticas vetorizadas.</li>
+        <li><strong>Matplotlib</strong> e <strong>Seaborn</strong> – utilizadas para visualizações gráficas como histogramas, gráficos de dispersão e mapas de calor.</li>
+        <li><strong>Scikit-learn</strong> – voltada para machine learning, com ferramentas para regressão, classificação e clusterização.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Exemplo Prático: Análise de Vendas</h2>
+      <p>
+        Abaixo temos um exemplo simples de como importar dados de um arquivo CSV, calcular estatísticas básicas e gerar um gráfico usando Pandas e Matplotlib.
+      </p>
+
+      <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+# Carregando os dados
+df = pd.read_csv('vendas.csv')
+
+# Estatísticas básicas
+print(df.describe())
+
+# Agrupando por produto
+vendas_produto = df.groupby('Produto')['Valor'].sum()
+
+# Gráfico de barras
+vendas_produto.plot(kind='bar', color='#f0c060')
+plt.title('Total de Vendas por Produto')
+plt.xlabel('Produto')
+plt.ylabel('Valor em R$')
+plt.grid(True)
+plt.show()
+      </code></pre>
+    </section>
+
+    <section>
+      <h2>4. Limpeza e Preparação dos Dados</h2>
+      <p>
+        Antes de analisar os dados, é fundamental garantir que estejam limpos e estruturados corretamente. Isso inclui remover valores nulos, padronizar formatos, corrigir dados duplicados e transformar colunas para o tipo correto. Pandas oferece métodos como <code>.dropna()</code>, <code>.fillna()</code>, <code>.astype()</code>, e <code>.duplicated()</code> que tornam essa etapa simples e eficiente. A qualidade da análise depende diretamente da qualidade dos dados, e Python fornece as ferramentas para garantir essa base sólida.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Visualizações e Storytelling com Dados</h2>
+      <p>
+        A visualização de dados é uma etapa essencial na comunicação dos resultados obtidos. Com Python, é possível criar gráficos sofisticados e interativos para facilitar a interpretação e tomada de decisões. Além de Matplotlib e Seaborn, bibliotecas como Plotly e Bokeh permitem a criação de dashboards interativos e visualmente impactantes. Um bom gráfico conta uma história clara e objetiva, revelando padrões e insights que seriam difíceis de perceber apenas com números. É a ponte entre os dados e as decisões estratégicas.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Machine Learning e Previsões</h2>
+      <p>
+        Com a ajuda da biblioteca Scikit-learn, é possível treinar modelos preditivos baseados em dados históricos. Por exemplo, com dados de vendas, podemos prever o faturamento de meses futuros utilizando modelos de regressão. Python facilita todo o fluxo de machine learning: separação de dados em treino/teste, normalização, escolha do algoritmo, treinamento e validação. O aprendizado de máquina permite automatizar análises, detectar fraudes, prever churn de clientes e muito mais — tudo isso com a base sólida das bibliotecas Python.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Conclusão</h2>
+      <p>
+        Python revolucionou a forma como profissionais lidam com dados. Sua flexibilidade, somada à robustez das bibliotecas e facilidade de aprendizado, faz dele a ferramenta preferida no mundo da análise de dados. Desde tarefas simples, como criação de relatórios, até complexos modelos preditivos com inteligência artificial, Python oferece recursos acessíveis para todos os níveis de conhecimento. Se você deseja dominar a ciência de dados, Python é um dos pilares essenciais dessa jornada.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Conteúdo criado por <strong>DEV RUBY</strong>
+  </footer>
+
+</body>
+</html>

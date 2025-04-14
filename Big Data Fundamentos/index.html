@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Big Data: Fundamentos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0a0a0a;
+      color: #e6c87b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 960px;
+      width: 95%;
+      background-color: #1a1a1a;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(40px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📊 Big Data: Fundamentos</h1>
+
+  <div class="slider-container">
+
+    <div class="slide active">
+      <p><strong>O que é Big Data?</strong></p>
+      <p>Big Data refere-se ao conjunto de tecnologias e práticas para capturar, armazenar, processar e analisar grandes volumes de dados gerados continuamente por fontes diversas como redes sociais, sensores, transações e sistemas corporativos.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>As 5 V’s do Big Data</strong></p>
+      <ul>
+        <li><strong>Volume:</strong> Quantidade massiva de dados gerados a cada segundo.</li>
+        <li><strong>Velocidade:</strong> Ritmo em que os dados são produzidos e precisam ser processados.</li>
+        <li><strong>Variedade:</strong> Diferentes formatos — textos, imagens, vídeos, sensores etc.</li>
+        <li><strong>Veracidade:</strong> Qualidade e confiabilidade dos dados.</li>
+        <li><strong>Valor:</strong> A utilidade real extraída dos dados para tomada de decisões.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p><strong>Fontes de Big Data</strong></p>
+      <ul>
+        <li>🌐 Redes sociais e plataformas digitais</li>
+        <li>📱 Dispositivos móveis e IoT</li>
+        <li>🏢 Sistemas empresariais e bancos de dados</li>
+        <li>🛰️ Sensores, câmeras, GPS</li>
+        <li>🛒 Comportamento de consumo online e físico</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p><strong>Tecnologias Envolvidas</strong></p>
+      <ul>
+        <li>🔧 Hadoop e HDFS</li>
+        <li>🚀 Apache Spark</li>
+        <li>📚 NoSQL (MongoDB, Cassandra)</li>
+        <li>📈 Ferramentas de BI e Data Visualization</li>
+        <li>☁️ Serviços em Nuvem (AWS, Azure, GCP)</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p><strong>Processamento de Dados</strong></p>
+      <p>O Big Data pode ser processado de forma <strong>batch</strong> (em lotes) ou <strong>streaming</strong> (tempo real), dependendo da necessidade de atualização e resposta da aplicação.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Aplicações de Big Data</strong></p>
+      <ul>
+        <li>🧠 Análise preditiva em negócios</li>
+        <li>🏥 Diagnóstico em saúde baseado em dados</li>
+        <li>📦 Otimização de logística e cadeia de suprimentos</li>
+        <li>🛡️ Segurança cibernética e detecção de fraudes</li>
+        <li>🎯 Marketing personalizado e análise de comportamento</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p><strong>Desafios do Big Data</strong></p>
+      <ul>
+        <li>🔐 Privacidade e proteção de dados</li>
+        <li>⚙️ Integração entre diferentes fontes e sistemas</li>
+        <li>💾 Armazenamento eficiente</li>
+        <li>🧩 Governança e qualidade dos dados</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p><strong>Profissionais Envolvidos</strong></p>
+      <ul>
+        <li>👨‍💻 Cientistas de Dados</li>
+        <li>📊 Engenheiros de Dados</li>
+        <li>🧠 Analistas de Dados</li>
+        <li>🧱 Arquitetos de Big Data</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p><strong>Futuro do Big Data</strong></p>
+      <ul>
+        <li>🔗 Integração com IA e Machine Learning</li>
+        <li>🧬 Análise genética e medicina de precisão</li>
+        <li>🌐 Expansão de aplicações com 5G e IoT</li>
+        <li>📡 Automação de decisões em tempo real</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p><strong>Resumo</strong></p>
+      <p>Big Data representa o alicerce da transformação digital. Saber coletar, organizar e analisar dados em larga escala é essencial para inovação, eficiência e vantagem competitiva em qualquer setor.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

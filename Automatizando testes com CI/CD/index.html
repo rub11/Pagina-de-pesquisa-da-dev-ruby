@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Automatizando Testes com CI/CD</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #161616;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: #e0b347;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 25px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #f5c842;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 5px solid #f5c842;
+      box-shadow: 0 2px 12px rgba(255, 215, 0, 0.05);
+    }
+
+    .section h3 {
+      color: #ffd700;
+      margin-top: 0;
+    }
+
+    .section p, .section ul {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    code {
+      display: block;
+      background-color: #000;
+      color: #00ffcc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 1em;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Automatizando Testes com CI/CD</h1>
+    <p>Qualidade contínua e entregas confiáveis</p>
+  </header>
+
+  <main>
+    <h2>O que é CI/CD?</h2>
+    <div class="section">
+      <p><strong>CI/CD</strong> significa <em>Integração Contínua</em> (Continuous Integration) e <em>Entrega Contínua</em> (Continuous Delivery/Deployment). É uma prática que permite automatizar o processo de integração de código, execução de testes e entrega em ambientes de produção de forma rápida, segura e consistente.</p>
+    </div>
+
+    <h2>Vantagens da Automação de Testes</h2>
+    <div class="section">
+      <ul>
+        <li><strong>Detecção precoce de bugs:</strong> Erros são identificados logo após o commit.</li>
+        <li><strong>Feedback rápido:</strong> Alertas imediatos em caso de falha.</li>
+        <li><strong>Entrega mais rápida:</strong> Reduz tempo entre desenvolvimento e produção.</li>
+        <li><strong>Maior confiança:</strong> Ambientes testados automaticamente reduzem riscos.</li>
+      </ul>
+    </div>
+
+    <h2>Ferramentas comuns de CI/CD</h2>
+    <div class="section">
+      <ul>
+        <li><strong>GitHub Actions:</strong> Automatize workflows direto do repositório.</li>
+        <li><strong>GitLab CI:</strong> Pipeline nativo com integração completa.</li>
+        <li><strong>Jenkins:</strong> Solução open-source com diversos plugins.</li>
+        <li><strong>CircleCI, Travis CI, Bitbucket Pipelines:</strong> Opções populares e robustas.</li>
+      </ul>
+    </div>
+
+    <h2>Exemplo com GitHub Actions</h2>
+    <div class="section">
+      <code>
+        name: Testes Automatizados
+
+        on: [push]
+
+        jobs:
+          build:
+            runs-on: ubuntu-latest
+            steps:
+            - uses: actions/checkout@v3
+            - name: Instalar dependências
+              run: npm install
+            - name: Executar testes
+              run: npm test
+      </code>
+      <p>Este exemplo roda os testes automaticamente sempre que um código é enviado para o repositório.</p>
+    </div>
+
+    <h2>Tipos de Testes Automatizados</h2>
+    <div class="section">
+      <ul>
+        <li><strong>Testes Unitários:</strong> Verificam o comportamento de funções isoladas.</li>
+        <li><strong>Testes de Integração:</strong> Validam a comunicação entre partes do sistema.</li>
+        <li><strong>Testes End-to-End:</strong> Simulam o uso real da aplicação.</li>
+      </ul>
+    </div>
+
+    <h2>Boas Práticas em CI/CD</h2>
+    <div class="section">
+      <ul>
+        <li>Manter pipelines curtos e objetivos</li>
+        <li>Executar testes em ambientes semelhantes ao de produção</li>
+        <li>Utilizar versionamento claro e padronizado</li>
+        <li>Automatizar rollback e alertas em caso de falhas</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

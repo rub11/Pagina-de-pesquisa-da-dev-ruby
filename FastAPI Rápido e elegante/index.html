@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI: Rápido e Elegante</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1a1a1a;
+            color: #f5d76e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #262626;
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        h1, h2 {
+            color: #f5d76e;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        pre {
+            background-color: #333;
+            color: #f5d76e;
+            padding: 20px;
+            border-radius: 5px;
+            overflow: auto;
+            max-width: 90%;
+            margin: 20px 0;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 3em;
+            color: #f5d76e;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>FastAPI: Rápido e Elegante</h1>
+                <p>Aprenda a criar APIs RESTful rápidas e elegantes com o FastAPI, um framework Python moderno e altamente performático. Abaixo, exploramos os fundamentos e exemplos de código para começar.</p>
+            </div>
+            <div class="slide">
+                <h2>O que é FastAPI?</h2>
+                <p>FastAPI é um framework moderno para a construção de APIs com Python, projetado para ser rápido, fácil de usar e com excelente suporte para a criação de APIs RESTful. Ele aproveita recursos como tipagem estática, validação automática e execução assíncrona.</p>
+            </div>
+            <div class="slide">
+                <h2>Vantagens do FastAPI</h2>
+                <p>Algumas das principais vantagens do FastAPI incluem:</p>
+                <ul>
+                    <li>Desempenho elevado (comparável ao Node.js e Go).</li>
+                    <li>Validação automática de dados e documentação interativa com Swagger.</li>
+                    <li>Suporte a assíncrono, o que o torna ideal para aplicativos de alta concorrência.</li>
+                    <li>Tipagem estática do Python para maior confiabilidade no código.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Instalação do FastAPI</h2>
+                <p>Para começar a usar o FastAPI, basta instalar o pacote com o pip. Também precisaremos de um servidor ASGI, como o Uvicorn, para executar nossa aplicação.</p>
+                <pre><code>pip install fastapi uvicorn</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Criando a Primeira Rota</h2>
+                <p>Agora, vamos criar uma aplicação simples com FastAPI que responde a uma requisição GET.</p>
+                <pre><code>from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Olá, FastAPI!"}</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Executando a API</h2>
+                <p>Para executar nossa API, basta usar o Uvicorn para rodar a aplicação FastAPI.</p>
+                <pre><code>uvicorn main:app --reload</code></pre>
+                <p>O servidor estará disponível em <code>http://127.0.0.1:8000</code>.</p>
+            </div>
+            <div class="slide">
+                <h2>Validando Dados com FastAPI</h2>
+                <p>FastAPI permite validar dados de entrada automaticamente usando Pydantic. Isso nos ajuda a garantir que os dados recebidos pelas rotas sejam válidos e no formato correto.</p>
+                <pre><code>from pydantic import BaseModel
+
+class Item(BaseModel):
+    name: str
+    price: float
+
+@app.post("/items/")
+def create_item(item: Item):
+    return {"name": item.name, "price": item.price}</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Documentação Interativa</h2>
+                <p>Uma das características mais notáveis do FastAPI é a documentação interativa automática, que pode ser acessada em <code>/docs</code>. Com ela, você pode testar sua API diretamente na interface.</p>
+            </div>
+            <div class="slide">
+                <h2>Assincronismo no FastAPI</h2>
+                <p>O FastAPI oferece suporte total ao desenvolvimento de APIs assíncronas, o que melhora a escalabilidade e o desempenho, especialmente em aplicativos com alta carga de solicitações.</p>
+                <pre><code>import asyncio
+
+@app.get("/async")
+async def async_endpoint():
+    await asyncio.sleep(1)
+    return {"message": "Resposta assíncrona!"}</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Conclusão</h2>
+                <p>O FastAPI é uma ferramenta poderosa para desenvolvedores que buscam construir APIs rápidas, escaláveis e com código limpo. Com sua facilidade de uso, tipagem estática e suporte a assíncrono, ele se destaca como uma das melhores opções para criar APIs com Python.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+            <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Suporte ao toque
+        let startTouch = 0;
+
+        document.querySelector('.slider-container').addEventListener('touchstart', function(e) {
+            startTouch = e.touches[0].clientX;
+        });
+
+        document.querySelector('.slider-container').addEventListener('touchmove', function(e) {
+            if (startTouch - e.touches[0].clientX > 50) {
+                changeSlide(1);
+            } else if (e.touches[0].clientX - startTouch > 50) {
+                changeSlide(-1);
+            }
+        });
+    </script>
+
+</body>
+</html>

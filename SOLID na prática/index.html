@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Princípios SOLID na Prática</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #1b1b1b;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    }
+
+    header h1 {
+      color: #f0c24b;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #bbb;
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 18px rgba(255, 215, 0, 0.05);
+    }
+
+    h2 {
+      color: #eab543;
+      font-size: 1.9em;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      color: #f5c842;
+      margin-top: 20px;
+    }
+
+    p {
+      line-height: 1.7;
+      color: #ccc;
+      margin-bottom: 12px;
+    }
+
+    code, pre {
+      background-color: #292929;
+      padding: 10px;
+      border-radius: 8px;
+      display: block;
+      color: #f8d47c;
+      margin-top: 10px;
+      overflow-x: auto;
+    }
+
+    footer {
+      background-color: #121212;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Princípios SOLID na Prática</h1>
+    <p>Os pilares da programação orientada a objetos bem estruturada</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é SOLID?</h2>
+      <p>SOLID é um acrônimo que representa cinco princípios fundamentais da programação orientada a objetos. Esses princípios ajudam a escrever código mais limpo, modular, flexível e de fácil manutenção.</p>
+    </section>
+
+    <section>
+      <h2>1. S — Single Responsibility Principle (Princípio da Responsabilidade Única)</h2>
+      <p>Uma classe deve ter apenas uma razão para mudar. Em outras palavras, deve ter apenas uma responsabilidade.</p>
+      <pre>
+// ERRADO: Classe com múltiplas responsabilidades
+class Usuario {
+  salvarUsuario() { /*...*/ }
+  validarUsuario() { /*...*/ }
+  enviarEmail() { /*...*/ }
+}
+      </pre>
+      <pre>
+// CERTO: Separando responsabilidades
+class Usuario {
+  salvar() { /*...*/ }
+}
+
+class ValidadorDeUsuario {
+  validar(usuario) { /*...*/ }
+}
+
+class EmailService {
+  enviar(email) { /*...*/ }
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>2. O — Open/Closed Principle (Aberto/Fechado)</h2>
+      <p>O código deve estar aberto para extensão, mas fechado para modificação.</p>
+      <pre>
+// Exemplo com Strategy Pattern
+class Desconto {
+  calcular(valor) { return valor; }
+}
+
+class Desconto10 extends Desconto {
+  calcular(valor) { return valor * 0.9; }
+}
+
+function aplicarDesconto(produto, estrategia) {
+  return estrategia.calcular(produto.valor);
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>3. L — Liskov Substitution Principle</h2>
+      <p>Subclasses devem poder ser substituídas por suas classes base sem alterar o comportamento do sistema.</p>
+      <pre>
+class Ave {
+  voar() { /*...*/ }
+}
+
+class Pinguim extends Ave {
+  voar() {
+    throw new Error("Pinguins não voam!");
+  }
+}
+// VIOLA O PRINCÍPIO!
+
+// Correto:
+class Ave {}
+class AveQueVoa extends Ave {
+  voar() { /*...*/ }
+}
+class Pinguim extends Ave {}
+class Andorinha extends AveQueVoa {}
+      </pre>
+    </section>
+
+    <section>
+      <h2>4. I — Interface Segregation Principle</h2>
+      <p>Uma classe não deve ser forçada a implementar interfaces que não utiliza.</p>
+      <pre>
+// VIOLAÇÃO:
+interface Trabalhador {
+  trabalhar();
+  comer();
+}
+
+// CORRETO:
+interface Trabalhador {
+  trabalhar();
+}
+
+interface Alimentador {
+  comer();
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>5. D — Dependency Inversion Principle</h2>
+      <p>Dependa de abstrações, não de implementações concretas.</p>
+      <pre>
+// ERRADO:
+class Motor {
+  ligar() { console.log("Ligando motor..."); }
+}
+
+class Carro {
+  constructor() {
+    this.motor = new Motor(); // acoplamento direto
+  }
+}
+
+// CERTO:
+class Carro {
+  constructor(motor) {
+    this.motor = motor; // injeção de dependência
+  }
+}
+      </pre>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>Aplicar os princípios SOLID no dia a dia do desenvolvimento torna o código mais sustentável, testável e preparado para evoluir com as mudanças do projeto. Eles são a base para quem deseja construir software de qualidade profissional.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

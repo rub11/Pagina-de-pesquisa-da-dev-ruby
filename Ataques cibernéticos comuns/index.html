@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ataques Cibernéticos Comuns</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #d4af37;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      width: 100vw;
+      height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    .slide {
+      scroll-snap-align: center;
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: #ffd700;
+    }
+
+    p {
+      font-size: 1.4em;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-option {
+      background-color: #222;
+      color: #fff;
+      border: 2px solid #d4af37;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-option:hover {
+      background-color: #d4af37;
+      color: #111;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 2em;
+      color: #d4af37;
+      cursor: pointer;
+      z-index: 1;
+      user-select: none;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      p {
+        font-size: 1.1em;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="arrow arrow-left" onclick="prevSlide()">&#10094;</div>
+  <div class="arrow arrow-right" onclick="nextSlide()">&#10095;</div>
+
+  <div class="slider" id="slider">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <h1>Ataques Cibernéticos Comuns</h1>
+      <p>Os ataques cibernéticos estão em constante evolução e afetam organizações e indivíduos ao redor do mundo. Compreender os ataques mais comuns é essencial para implementar estratégias eficazes de segurança cibernética.</p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <h2>Phishing</h2>
+      <p>Phishing é um ataque no qual os hackers se disfarçam como uma entidade confiável, como bancos ou serviços populares, para induzir as vítimas a revelar informações confidenciais, como senhas e números de cartão de crédito.</p>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <h2>Malware</h2>
+      <p>Malware é um tipo de software malicioso projetado para causar danos a um sistema ou roubar dados. Existem diferentes tipos de malware, como vírus, worms e trojans.</p>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <h2>Ransomware</h2>
+      <p>O ransomware é um tipo de malware que criptografa os arquivos de um usuário ou organização, exigindo um pagamento (resgate) para restaurar o acesso aos dados.</p>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <h2>Man-in-the-Middle (MitM)</h2>
+      <p>Um ataque man-in-the-middle ocorre quando um hacker intercepta a comunicação entre dois sistemas ou usuários para espionar ou alterar as informações trocadas.</p>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide">
+      <h2>SQL Injection</h2>
+      <p>SQL injection é um tipo de ataque no qual o atacante insere código SQL malicioso em uma consulta de banco de dados para manipular ou acessar informações sensíveis.</p>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide">
+      <h2>Denial of Service (DoS)</h2>
+      <p>Um ataque DoS tem como objetivo tornar um serviço ou sistema indisponível, geralmente através de uma sobrecarga de tráfego, tornando-o incapaz de atender a solicitações legítimas.</p>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide">
+      <h2>Cross-Site Scripting (XSS)</h2>
+      <p>XSS é um tipo de ataque que permite que um atacante insira scripts maliciosos em páginas da web, afetando usuários finais e comprometendo seus dados.</p>
+    </div>
+
+    <!-- Slide 9 -->
+    <div class="slide">
+      <h2>Attack Surface</h2>
+      <p>A "superfície de ataque" refere-se a todas as partes do sistema que são vulneráveis a ataques cibernéticos. Quanto maior a superfície de ataque, maior a probabilidade de um ataque bem-sucedido.</p>
+    </div>
+
+    <!-- Slide 10: Quiz -->
+    <div class="slide">
+      <h2>Quiz: O que você aprendeu?</h2>
+      <p><strong>1. O que é phishing?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Um ataque para roubar informações confidenciais, disfarçado de entidade confiável.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Um tipo de software que causa danos aos sistemas.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Um ataque de sobrecarga de tráfego para tornar um sistema indisponível.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>2. O que é ransomware?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Um malware que criptografa arquivos e exige pagamento para liberar o acesso.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Um ataque para roubar senhas por meio de sites fraudulentos.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Um tipo de ataque que explora falhas em banco de dados.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>3. O que é SQL Injection?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Injeção de código SQL malicioso para manipular ou acessar dados.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Interceptação de comunicações entre dois sistemas.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Ataque que tenta derrubar o serviço de um sistema.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>4. O que caracteriza um ataque Man-in-the-Middle?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Interceptação da comunicação entre dois sistemas para espionagem ou manipulação.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Uma injeção de código malicioso em páginas da web.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Um tipo de malware que danifica os sistemas.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>5. O que é um ataque de Denial of Service (DoS)?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Tentar tornar um serviço ou sistema indisponível, sobrecarregando-o com tráfego.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Um tipo de ataque que manipula dados sensíveis em bancos de dados.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Ataque que utiliza scripts maliciosos em sites.</div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="slide">
+      <h2>Resultado</h2>
+      <p id="resultText">Você acertou X de 5 perguntas!</p>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = slider.children;
+    let currentSlide = 0;
+    let score = 0;
+    let answered = 0;
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        slider.style.transform = `translateX(-${100 * currentSlide}vw)`;
+      }
+      if (currentSlide === slides.length - 1) {
+        document.getElementById('resultText').textContent = `Você acertou ${score} de 5 perguntas!`;
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        slider.style.transform = `translateX(-${100 * currentSlide}vw)`;
+      }
+    }
+
+    function checkAnswer(option, isCorrect) {
+      if (answered === 0) {
+        score += isCorrect ? 1 : 0;
+        answered++;
+        nextSlide();
+      }
+    }
+  </script>
+</body>
+</html>

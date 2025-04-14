@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O que é TypeScript</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0c0c0c;
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 215, 100, 0.1);
+    }
+
+    header h1 {
+      color: #f2c744;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 18px rgba(255, 200, 100, 0.06);
+    }
+
+    h2 {
+      color: #f0b947;
+      font-size: 1.9em;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    pre {
+      background-color: #292929;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      overflow-x: auto;
+      color: #f8d47c;
+    }
+
+    code {
+      color: #f9e28c;
+    }
+
+    footer {
+      background-color: #121212;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>O que é TypeScript</h1>
+    <p>O superconjunto de JavaScript que traz mais segurança e produtividade ao seu código</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Introdução ao TypeScript</h2>
+      <p>TypeScript é uma linguagem de programação desenvolvida pela Microsoft, que se baseia no JavaScript, mas adiciona tipagem estática e recursos avançados de desenvolvimento. É um superconjunto de JavaScript, ou seja, todo código JavaScript válido é também um código TypeScript válido.</p>
+    </section>
+
+    <section>
+      <h2>Vantagens do TypeScript</h2>
+      <ul>
+        <li><strong>Tipagem Estática:</strong> evita erros comuns ao validar os tipos das variáveis antes da execução.</li>
+        <li><strong>Autocomplete e IntelliSense:</strong> editores modernos fornecem sugestões inteligentes com base nos tipos definidos.</li>
+        <li><strong>Refatoração mais segura:</strong> mudar nomes de variáveis ou estruturas se torna mais seguro.</li>
+        <li><strong>Orientação a Objetos:</strong> suporte a classes, interfaces e herança.</li>
+        <li><strong>Melhor organização:</strong> permite uma arquitetura mais robusta em projetos grandes.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Exemplo comparativo</h2>
+      <p><strong>JavaScript:</strong></p>
+      <pre>
+function soma(a, b) {
+  return a + b;
+}
+      </pre>
+      <p><strong>TypeScript:</strong></p>
+      <pre>
+function soma(a: number, b: number): number {
+  return a + b;
+}
+      </pre>
+      <p>No exemplo TypeScript, os tipos <code>number</code> são definidos, o que impede chamadas incorretas como <code>soma("2", true)</code>.</p>
+    </section>
+
+    <section>
+      <h2>Transpilação para JavaScript</h2>
+      <p>TypeScript não é executado diretamente no navegador. Ele precisa ser transpilado para JavaScript através do comando:</p>
+      <pre>tsc script.ts</pre>
+      <p>Esse processo converte o código TypeScript em JavaScript padrão para execução em qualquer navegador.</p>
+    </section>
+
+    <section>
+      <h2>Instalação</h2>
+      <p>Você pode instalar o TypeScript globalmente com o seguinte comando via NPM:</p>
+      <pre>npm install -g typescript</pre>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>TypeScript é uma excelente escolha para projetos profissionais, especialmente em times e aplicações de grande escala. Ele traz confiabilidade, clareza e poder ao já versátil JavaScript.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

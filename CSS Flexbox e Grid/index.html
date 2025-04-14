@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Flexbox e Grid</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #101010;
+      color: #e6e6e6;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(218, 165, 32, 0.2);
+    }
+
+    header h1 {
+      color: #FFD700;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #161616;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.08);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      color: #f0c060;
+      font-size: 2rem;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      text-align: justify;
+      color: #d0d0d0;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      padding: 1.5rem;
+      text-align: center;
+      color: #999;
+      border-top: 1px solid #333;
+    }
+
+    footer strong {
+      color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CSS Flexbox e Grid</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Introdução aos Layouts Modernos</h2>
+      <p>
+        O desenvolvimento web evoluiu drasticamente com a chegada de novas ferramentas no CSS. Antigamente, layouts eram criados com tabelas, depois com floats e posicionamentos absolutos, o que exigia muito esforço para construir estruturas responsivas e organizadas. Com a introdução do **Flexbox** e, posteriormente, do **Grid Layout**, o CSS ganhou dois modelos poderosos de layout que revolucionaram o design web. Essas tecnologias permitem criar estruturas de página complexas, responsivas e adaptáveis de forma mais simples, legível e organizada. Enquanto o Flexbox foca em organizar elementos em uma única dimensão (linha ou coluna), o Grid atua em duas dimensões, permitindo um controle refinado de linhas e colunas simultaneamente.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Entendendo o Flexbox</h2>
+      <p>
+        O **Flexbox** (ou Flexible Box Layout) foi introduzido para facilitar o alinhamento, distribuição de espaço e ordenação de elementos em uma única direção. Ao definir um contêiner como `display: flex`, ele ganha poderes para alinhar seus itens filhos de formas antes complexas de alcançar. Com propriedades como `justify-content`, `align-items`, `flex-wrap`, `flex-grow` e `flex-shrink`, é possível centralizar elementos vertical e horizontalmente, criar layouts fluidos e adaptar a interface de forma elegante a diferentes tamanhos de tela. O Flexbox é ideal para componentes como menus, cards em linha, barras de navegação e até mesmo para centralizar conteúdo na tela com poucas linhas de código.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Conhecendo o CSS Grid Layout</h2>
+      <p>
+        O **CSS Grid** é um sistema bidimensional de layout, ou seja, permite organizar elementos tanto em linhas quanto em colunas. Ele foi criado para resolver os problemas mais complexos de layout na web moderna. Utilizando propriedades como `grid-template-rows`, `grid-template-columns`, `grid-gap`, `grid-area` e `place-items`, o Grid dá ao desenvolvedor um controle total sobre a estrutura da página. É possível criar grids simétricos, áreas nomeadas, layouts responsivos com media queries ou até mesmo com `auto-fit` e `minmax`, tornando o design completamente adaptável. O CSS Grid é perfeito para a criação de interfaces de páginas inteiras, dashboards, áreas administrativas, galerias de imagens e seções complexas com múltiplos componentes.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Quando usar Flexbox e quando usar Grid</h2>
+      <p>
+        Saber quando utilizar Flexbox ou Grid é essencial para criar layouts eficientes. O **Flexbox** é mais apropriado quando lidamos com **um eixo de layout**, como uma linha horizontal de botões ou uma coluna vertical de cards. Ele facilita o alinhamento e a distribuição proporcional entre os itens. Já o **Grid** é ideal quando o layout exige múltiplas linhas e colunas, como uma grade de produtos, um layout de página principal ou seções com divisões claras. Em muitos projetos modernos, ambos os modelos são combinados: Grid para a estrutura principal da página e Flexbox para organizar componentes internos. A escolha entre eles depende do tipo de conteúdo, da complexidade do layout e do comportamento responsivo desejado.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. Layout Responsivo com Flex e Grid</h2>
+      <p>
+        Um dos grandes diferenciais de Flexbox e Grid é a capacidade de construir interfaces **responsivas e adaptáveis**. Com **media queries**, podemos alterar a configuração do layout conforme o tamanho da tela. Além disso, propriedades como `flex-wrap`, `minmax()`, `auto-fill` e `auto-fit` permitem um comportamento fluido, dispensando a necessidade de códigos redundantes. Utilizar `fr` no Grid (frações de espaço) e `flex` nos filhos de Flexbox ajuda a garantir que o conteúdo se ajuste automaticamente. Em layouts modernos, é comum ver designs "mobile-first", onde a estrutura começa adaptada para telas pequenas e vai se expandindo com o crescimento do espaço disponível, mantendo a estética e a funcionalidade em todas as plataformas.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Conclusão</h2>
+      <p>
+        O CSS Flexbox e o Grid representam uma nova era na construção de layouts web. Eles permitem não só mais poder e flexibilidade, como também **simplicidade e clareza no código**. Esses modelos não se substituem, mas se complementam. Ao dominá-los, desenvolvedores conseguem criar interfaces modernas, acessíveis e impressionantes com menos esforço. Se você deseja elevar o nível visual e técnico de seus projetos, Flexbox e Grid são fundamentais para criar experiências sofisticadas, responsivas e esteticamente equilibradas na web atual.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    Conteúdo criado por <strong>DEV RUBY</strong>
+  </footer>
+
+</body>
+</html>

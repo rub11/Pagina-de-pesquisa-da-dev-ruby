@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criando Sistemas de Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #121212;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 25px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 920px;
+      width: 96%;
+      background-color: #1b1b1b;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(25px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    code {
+      background-color: #333;
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #f0f0f0;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Criando Sistemas de Login</h1>
+
+  <div class="slider-container">
+    <div class="slide active">
+      <p>🔐 Um sistema de login permite que usuários se autentiquem para acessar áreas restritas de uma aplicação.</p>
+    </div>
+
+    <div class="slide">
+      <p>🧾 <strong>Fluxo básico:</strong></p>
+      <ul>
+        <li>1️⃣ Formulário de login (usuário e senha).</li>
+        <li>2️⃣ Validação no backend.</li>
+        <li>3️⃣ Criação de sessão ou token JWT.</li>
+        <li>4️⃣ Armazenamento seguro no cliente.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🛡️ <strong>Boas práticas:</strong></p>
+      <ul>
+        <li>✔️ Criptografar senhas com <code>bcrypt</code>.</li>
+        <li>✔️ Validar dados com segurança (SQL Injection, XSS, etc).</li>
+        <li>✔️ Implementar autenticação em rotas protegidas.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🔑 <strong>Autenticação vs Autorização:</strong></p>
+      <p><strong>Autenticação</strong> verifica quem é o usuário. <br> <strong>Autorização</strong> verifica o que ele pode acessar.</p>
+    </div>
+
+    <div class="slide">
+      <p>📂 <strong>Formas de autenticação:</strong></p>
+      <ul>
+        <li>🧾 Usuário e senha tradicionais</li>
+        <li>📲 Autenticação em dois fatores (2FA)</li>
+        <li>🪪 Login social (Google, Facebook, etc.)</li>
+        <li>🔐 JWT, OAuth2, SAML, etc.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🛠️ <strong>Tecnologias comuns:</strong></p>
+      <ul>
+        <li>🧰 Backend: Node.js, Django, Laravel, Spring</li>
+        <li>🔐 Segurança: bcrypt, JWT, OAuth</li>
+        <li>🗄️ Banco: PostgreSQL, MongoDB, Firebase</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>📌 <strong>Front-end seguro:</strong></p>
+      <ul>
+        <li>🚫 Nunca armazenar senha no localStorage.</li>
+        <li>✔️ Usar HTTPS sempre.</li>
+        <li>🔐 Armazenar tokens com cautela.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>📘 <strong>Conclusão:</strong> Um bom sistema de login é a base da segurança digital e deve ser bem planejado desde o início.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

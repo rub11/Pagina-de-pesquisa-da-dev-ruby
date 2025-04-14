@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React Native: do zero ao app</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2em;
+      color: #ffd700;
+      margin-bottom: 20px;
+      text-align: center;
+      text-shadow: 1px 1px 10px rgba(255, 215, 0, 0.7);
+    }
+
+    .content-container {
+      width: 100%;
+      max-width: 1100px;
+      background: #2c2c2c;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.7);
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      color: #ffd700;
+      font-size: 2.2em;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #ffd700;
+      padding-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: #ddd;
+    }
+
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+      color: #ddd;
+    }
+
+    .section ul li {
+      margin-bottom: 12px;
+      font-size: 1.1em;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .section ul li:before {
+      content: "📱";
+      position: absolute;
+      left: 0;
+      color: #ffd700;
+    }
+
+    pre {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 1em;
+      color: #ffd700;
+      overflow-x: auto;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5em;
+      }
+
+      .section h2 {
+        font-size: 1.9em;
+      }
+
+      .section p, .section ul li {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>React Native: do zero ao app</h1>
+
+  <div class="content-container">
+    <!-- Introdução -->
+    <div class="section">
+      <h2>🚀 O que é React Native?</h2>
+      <p>React Native é um framework criado pelo Facebook que permite desenvolver aplicativos móveis nativos utilizando JavaScript e React. Com ele, é possível construir apps para iOS e Android com uma única base de código.</p>
+    </div>
+
+    <!-- Vantagens -->
+    <div class="section">
+      <h2>✨ Vantagens do React Native</h2>
+      <ul>
+        <li>Desenvolvimento multiplataforma (Android e iOS com o mesmo código).</li>
+        <li>Interface nativa com performance excelente.</li>
+        <li>Grande comunidade e suporte de bibliotecas.</li>
+        <li>Atualizações rápidas com Fast Refresh.</li>
+      </ul>
+    </div>
+
+    <!-- Instalação -->
+    <div class="section">
+      <h2>🔧 Instalando o Ambiente</h2>
+      <p>Para começar, é necessário configurar o ambiente de desenvolvimento com Node.js, Java, Android Studio e o React Native CLI.</p>
+      <pre>
+npm install -g react-native-cli
+react-native init MeuApp
+cd MeuApp
+npx react-native run-android
+      </pre>
+    </div>
+
+    <!-- Estrutura do Projeto -->
+    <div class="section">
+      <h2>📁 Estrutura Básica de um Projeto</h2>
+      <p>Ao criar um projeto, a estrutura inclui pastas como <code>android</code>, <code>ios</code>, <code>App.js</code>, entre outras. O arquivo <strong>App.js</strong> é o ponto inicial da aplicação, onde você define a interface principal do seu app.</p>
+    </div>
+
+    <!-- Componentes -->
+    <div class="section">
+      <h2>🧱 Componentes e Estilo</h2>
+      <p>React Native usa componentes como <code>View</code>, <code>Text</code> e <code>TouchableOpacity</code>. A estilização é feita com JavaScript, usando objetos parecidos com CSS.</p>
+      <pre>
+import { View, Text, StyleSheet } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Olá, React Native!</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  title: { fontSize: 24, color: '#ffd700' }
+});
+      </pre>
+    </div>
+
+    <!-- Publicação -->
+    <div class="section">
+      <h2>🚀 Publicando seu App</h2>
+      <p>Você pode gerar os arquivos APK ou IPA com os comandos adequados para cada plataforma e seguir os passos da Google Play Store ou App Store para publicação.</p>
+    </div>
+
+    <!-- Conclusão -->
+    <div class="section">
+      <h2>📦 Conclusão</h2>
+      <p>React Native é uma solução poderosa para quem deseja criar aplicativos de forma ágil e moderna. Ele une a praticidade do JavaScript com a performance do código nativo, permitindo construir experiências ricas e fluidas.</p>
+    </div>
+  </div>
+</body>
+</html>

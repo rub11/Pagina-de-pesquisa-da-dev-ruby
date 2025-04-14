@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Sourcing e CQRS</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .content-container {
+            width: 90%;
+            max-width: 1000px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            color: #007bff;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .section ul {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1.1em;
+        }
+
+        .section ul li {
+            margin-bottom: 8px;
+        }
+
+        .section .highlight {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Event Sourcing e CQRS</h1>
+
+    <div class="content-container">
+        <!-- Seção Definição -->
+        <div class="section">
+            <h2>O que é Event Sourcing?</h2>
+            <p>O <span class="highlight">Event Sourcing</span> é um padrão arquitetural onde todas as alterações de estado de um sistema são representadas como eventos imutáveis.</p>
+            <p>Ao invés de atualizar diretamente o estado de um banco de dados, cada alteração de estado é registrada como um evento, o qual pode ser processado e analisado posteriormente.</p>
+        </div>
+
+        <!-- Seção CQRS -->
+        <div class="section">
+            <h2>O que é CQRS?</h2>
+            <p>O <span class="highlight">CQRS (Command Query Responsibility Segregation)</span> é um padrão arquitetural que separa a leitura e a escrita dos dados em sistemas.</p>
+            <p>No CQRS, a lógica de comando (escrita) e a lógica de consulta (leitura) são tratadas de forma separada, permitindo otimizações específicas para cada uma.</p>
+        </div>
+
+        <!-- Seção Combinação -->
+        <div class="section">
+            <h2>Como Event Sourcing e CQRS Funcionam Juntos?</h2>
+            <p>Ao combinar <span class="highlight">Event Sourcing</span> e <span class="highlight">CQRS</span>, o sistema pode ter uma arquitetura mais eficiente para leitura e escrita de dados, com a possibilidade de escalabilidade e performance aprimorada.</p>
+            <p>Enquanto o Event Sourcing armazena todos os eventos como registros imutáveis, o CQRS permite que esses eventos sejam usados para atualizar os dados de forma eficiente e separada entre leitura e escrita.</p>
+        </div>
+
+        <!-- Seção Benefícios -->
+        <div class="section">
+            <h2>Benefícios</h2>
+            <ul>
+                <li><strong>Escalabilidade:</strong> A separação de leitura e escrita permite otimizações independentes.</li>
+                <li><strong>Auditoria e Histórico:</strong> O Event Sourcing oferece um histórico completo de todos os eventos.</li>
+                <li><strong>Desempenho:</strong> Melhora o desempenho ao otimizar a leitura e a escrita de dados.</li>
+                <li><strong>Flexibilidade:</strong> Permite que o sistema seja facilmente alterado sem afetar a integridade dos dados.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

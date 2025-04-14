@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESTful vs GraphQL</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #121212;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 25px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 920px;
+      width: 96%;
+      background-color: #1b1b1b;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(25px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>RESTful vs GraphQL</h1>
+
+  <div class="slider-container">
+    <div class="slide active">
+      <p><strong>RESTful</strong> e <strong>GraphQL</strong> são abordagens diferentes para construir APIs. Cada uma possui vantagens e limitações dependendo do contexto.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>REST:</strong> Baseado em recursos, usa múltiplos endpoints (ex: /users, /posts). Cada endpoint representa uma entidade.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>GraphQL:</strong> Utiliza um único endpoint e permite consultas altamente personalizadas, retornando apenas os dados necessários.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Overfetching:</strong> No REST, muitas vezes são retornados dados em excesso. Com GraphQL, isso é evitado ao escolher exatamente os campos desejados.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Underfetching:</strong> Com REST, é comum ter que fazer múltiplas requisições para obter todos os dados relacionados. O GraphQL resolve isso com uma única query.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Documentação:</strong> REST depende de documentação manual. Já GraphQL gera documentação automática baseada no schema.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Flexibilidade:</strong> GraphQL é mais flexível, ideal para aplicações ricas em frontend. REST é mais simples e direto para operações básicas.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Ferramentas:</strong> REST é suportado amplamente por navegadores, ferramentas e frameworks. GraphQL requer ferramentas específicas como Apollo e Relay.</p>
+    </div>
+
+    <div class="slide">
+      <p><strong>Conclusão:</strong> Use <strong>REST</strong> quando quiser simplicidade e integração direta. Use <strong>GraphQL</strong> quando precisar de flexibilidade e eficiência nas requisições.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

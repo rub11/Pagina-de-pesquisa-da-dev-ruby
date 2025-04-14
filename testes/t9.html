@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz: Integração Contínua</title>
+  <style>
+    body {
+      background-color: #0b0b0b;
+      color: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      color: #ff4081;
+      font-size: 2.2em;
+      margin-bottom: 30px;
+    }
+    .slide, .result {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    .slide p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .question {
+      font-size: 1.3em;
+      color: #f06292;
+      margin-bottom: 15px;
+    }
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .answer {
+      background-color: #1a1a1a;
+      padding: 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 1px solid #333;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .answer:hover {
+      background-color: #2a2a2a;
+    }
+    .correct {
+      background-color: #4caf50 !important;
+    }
+    .incorrect {
+      background-color: #e53935 !important;
+    }
+    .result {
+      text-align: center;
+      font-size: 1.3em;
+      margin-top: 40px;
+    }
+    .result.good {
+      color: #81c784;
+    }
+    .result.bad {
+      color: #ef5350;
+    }
+    .next-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz: Integração Contínua ⚙️</h1>
+
+  <div id="slides">
+    <!-- Slide explicativo -->
+    <div class="slide active">
+      <p><strong>Integração Contínua (CI)</strong> é uma prática essencial em DevOps e desenvolvimento ágil, onde desenvolvedores integram seu código com frequência em um repositório compartilhado. Cada integração é verificada por meio de builds e testes automatizados, garantindo que novos códigos não quebrem a aplicação.</p>
+      <p>Ela melhora a qualidade do software, facilita a detecção de erros e reduz conflitos entre equipes. Ferramentas como Jenkins, GitHub Actions e GitLab CI são exemplos populares para implementar CI.</p>
+      <p>Agora que você entendeu o básico, vamos testar seus conhecimentos!</p>
+      <button class="next-btn" onclick="nextSlide()">Começar Quiz</button>
+    </div>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    const quizData = [
+      {
+        question: "O que significa CI?",
+        options: [
+          "Client Integration",
+          "Continuous Improvement",
+          "Continuous Integration",
+          "Code Instruction",
+          "Container Interface"
+        ],
+        correct: 2
+      },
+      {
+        question: "Qual é um benefício principal da Integração Contínua?",
+        options: [
+          "Elimina completamente bugs",
+          "Evita deploys automáticos",
+          "Permite testes e builds automáticos frequentes",
+          "Funciona sem repositório de código",
+          "Dispensa versionamento"
+        ],
+        correct: 2
+      },
+      {
+        question: "Qual ferramenta é comumente usada para CI?",
+        options: [
+          "Photoshop",
+          "MySQL",
+          "Jenkins",
+          "Outlook",
+          "Docker Hub"
+        ],
+        correct: 2
+      },
+      {
+        question: "CI ajuda a evitar:",
+        options: [
+          "Deploys contínuos",
+          "Conflitos de código frequentes",
+          "Atualizações de dependências",
+          "Branches no Git",
+          "Backups automatizados"
+        ],
+        correct: 1
+      },
+      {
+        question: "CI deve ser executada quando?",
+        options: [
+          "Apenas antes da entrega",
+          "Somente aos finais de semana",
+          "Com cada integração de código",
+          "Depois do deploy",
+          "Durante os testes manuais"
+        ],
+        correct: 2
+      },
+      {
+        question: "GitHub Actions é uma ferramenta de:",
+        options: [
+          "Design de UI",
+          "CI/CD",
+          "Banco de dados",
+          "Machine Learning",
+          "Hospedagem de sites"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual é o papel dos testes na CI?",
+        options: [
+          "Garantir estética do código",
+          "Analisar estilo de escrita",
+          "Validar funcionalidades automaticamente",
+          "Enviar notificações",
+          "Melhorar performance gráfica"
+        ],
+        correct: 2
+      },
+      {
+        question: "Qual tecnologia geralmente complementa a CI?",
+        options: [
+          "HTML puro",
+          "CD (Entrega Contínua)",
+          "PowerPoint",
+          "Excel",
+          "Bluetooth"
+        ],
+        correct: 1
+      },
+      {
+        question: "CI reduz:",
+        options: [
+          "A segurança",
+          "A eficiência",
+          "Erros ao integrar código de várias fontes",
+          "A produtividade da equipe",
+          "A automação"
+        ],
+        correct: 2
+      },
+      {
+        question: "Uma boa prática da CI é:",
+        options: [
+          "Evitar commits pequenos",
+          "Ignorar testes",
+          "Integrar código raramente",
+          "Executar builds e testes a cada commit",
+          "Deixar tarefas manuais"
+        ],
+        correct: 3
+      }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    const slidesDiv = document.getElementById('slides');
+
+    function nextSlide() {
+      if (current < quizData.length) {
+        const data = quizData[current];
+        const slide = document.createElement('div');
+        slide.classList.add('slide', 'active');
+
+        const question = document.createElement('div');
+        question.className = 'question';
+        question.textContent = data.question;
+
+        const answers = document.createElement('div');
+        answers.className = 'answers';
+
+        data.options.forEach((opt, idx) => {
+          const btn = document.createElement('div');
+          btn.className = 'answer';
+          btn.textContent = opt;
+          btn.onclick = () => handleAnswer(idx, data.correct, btn);
+          answers.appendChild(btn);
+        });
+
+        slide.appendChild(question);
+        slide.appendChild(answers);
+
+        const prevSlide = document.querySelector('.slide.active');
+        if (prevSlide) prevSlide.classList.remove('active');
+
+        slidesDiv.appendChild(slide);
+        current++;
+      }
+    }
+
+    function handleAnswer(selected, correct, btn) {
+      const buttons = btn.parentElement.children;
+      [...buttons].forEach((b, i) => {
+        if (i === correct) b.classList.add('correct');
+        if (i === selected && i !== correct) b.classList.add('incorrect');
+      });
+
+      if (selected === correct) score++;
+
+      setTimeout(() => nextSlide(), 700);
+    }
+
+    function showResult() {
+      const result = document.getElementById("result");
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach(s => s.remove());
+
+      const percentage = (score / quizData.length) * 100;
+
+      result.classList.add('active');
+      if (percentage >= 70) {
+        result.classList.add('good');
+        result.innerHTML = `🎉 Você acertou ${score} de ${quizData.length} (${percentage.toFixed(0)}%)!<br><br>Parabéns! Você está no caminho certo na jornada DevOps! 🚀<br><br><strong>Conte sempre com a DevRub para continuar evoluindo 💖</strong>`;
+      } else {
+        result.classList.add('bad');
+        result.innerHTML = `Você acertou ${score} de ${quizData.length} (${percentage.toFixed(0)}%).<br><br>Não se preocupe! Errar faz parte do aprendizado 💡<br><br><strong>Estude com carinho e a DevRub estará aqui com você em cada passo! 🌱</strong>`;
+      }
+    }
+
+    // Detecta final automaticamente
+    const observer = new MutationObserver(() => {
+      if (current === quizData.length) showResult();
+    });
+    observer.observe(slidesDiv, { childList: true });
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NFTs: Aplicações Práticas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0a0a0a;
+      color: #e6c87b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 960px;
+      width: 95%;
+      background-color: #1a1a1a;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(40px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌐 NFTs: Aplicações Práticas</h1>
+
+  <div class="slider-container">
+
+    <div class="slide active">
+      <p>🎨 <strong>O que são NFTs?</strong></p>
+      <p><strong>NFTs</strong> (Tokens Não Fungíveis) são ativos digitais únicos que utilizam a tecnologia blockchain para garantir sua autenticidade e escassez. Eles podem representar qualquer tipo de item digital, desde arte até músicas, vídeos e muito mais.</p>
+    </div>
+
+    <div class="slide">
+      <p>💡 <strong>Principais Aplicações de NFTs</strong></p>
+      <ul>
+        <li>🎨 Arte digital: Certificação de autenticidade para obras de arte.</li>
+        <li>🎮 Jogos: Itens exclusivos e colecionáveis dentro de jogos.</li>
+        <li>📚 Conteúdo digital: Proteção de direitos autorais para músicas, livros e filmes.</li>
+        <li>🏠 Imóveis virtuais: Terrenos e propriedades dentro de mundos virtuais.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🔗 <strong>NFTs e Blockchain</strong></p>
+      <p>Os NFTs são registrados em blockchains como <strong>Ethereum</strong>, <strong>Solana</strong> e <strong>Polygon</strong>, garantindo a imutabilidade e transparência das transações, além de possibilitar a rastreabilidade de sua propriedade.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔑 <strong>Benefícios dos NFTs</strong></p>
+      <ul>
+        <li>✅ Prova de propriedade e autenticidade digital</li>
+        <li>✅ Possibilidade de royalties automáticos para criadores de conteúdo</li>
+        <li>✅ Mercado crescente e potencial de valorização</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>💸 <strong>Mercado de NFTs</strong></p>
+      <p>O mercado de NFTs tem crescido exponencialmente, com artistas, empresas e desenvolvedores adotando essa tecnologia para gerar novas formas de monetização. Além disso, o uso de NFTs está expandindo para outros setores, como moda e esportes.</p>
+    </div>
+
+    <div class="slide">
+      <p>🏅 <strong>Exemplos de Sucesso</strong></p>
+      <ul>
+        <li>🎨 Beeple: Venda de arte digital por $69 milhões.</li>
+        <li>🎮 Axie Infinity: Jogo baseado em NFTs com transações multimilionárias.</li>
+        <li>⚽ NBA Top Shot: Plataforma de colecionáveis digitais da NBA.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🔒 <strong>Segurança e Propriedade</strong></p>
+      <p>Ao adquirir um NFT, o comprador recebe uma chave criptográfica única que o torna o proprietário legítimo do ativo digital, garantindo que o item não possa ser copiado ou falsificado.</p>
+    </div>
+
+    <div class="slide">
+      <p>🌍 <strong>O Futuro dos NFTs</strong></p>
+      <p>O futuro dos NFTs passa pela integração com a Web 3.0, com a criação de ambientes virtuais imersivos onde os usuários poderão interagir com seus ativos digitais de forma mais sofisticada e envolvente.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔄 <strong>Transações de NFTs</strong></p>
+      <p>As transações de NFTs podem ser realizadas em marketplaces como OpenSea, Rarible e Foundation, permitindo que artistas, colecionadores e investidores comprem, vendam ou troquem seus ativos digitais.</p>
+    </div>
+
+    <div class="slide">
+      <p>⚠️ <strong>Riscos e Considerações</strong></p>
+      <ul>
+        <li>⚠️ A volatilidade do mercado de NFTs pode gerar altos riscos financeiros.</li>
+        <li>⚠️ A falta de regulamentação pode gerar problemas legais.</li>
+        <li>⚠️ O impacto ambiental do consumo de energia das blockchains ainda é uma preocupação.</li>
+      </ul>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

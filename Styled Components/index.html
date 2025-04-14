@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Components</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0b0b0b;
+      color: #eaeaea;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      background-color: #161616;
+      padding: 60px 20px 40px;
+      box-shadow: 0 0 25px rgba(255, 200, 100, 0.08);
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #f0b93a;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #bbb;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 16px rgba(255, 200, 100, 0.05);
+    }
+
+    h2 {
+      color: #f0b947;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    code {
+      background-color: #2d2d2d;
+      color: #ffd700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      display: block;
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      background-color: #111;
+      color: #999;
+      padding: 30px 20px;
+      border-top: 1px solid #222;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Styled Components</h1>
+    <p>Estilização elegante e moderna para projetos React</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é Styled Components?</h2>
+      <p><strong>Styled Components</strong> é uma biblioteca que permite escrever CSS dentro do JavaScript utilizando o conceito de componentes do React. Ele promove o uso de <em>CSS-in-JS</em>, proporcionando mais coesão entre lógica e estilo visual.</p>
+    </section>
+
+    <section>
+      <h2>Principais Vantagens</h2>
+      <ul>
+        <li>🎯 <strong>Scoped CSS:</strong> cada estilo está atrelado ao seu componente.</li>
+        <li>🧠 <strong>Sem conflito de classes:</strong> evita nomes genéricos e colisões.</li>
+        <li>🎨 <strong>Dynamic styling:</strong> permite usar props para alterar estilos.</li>
+        <li>🧩 <strong>Melhor organização:</strong> o componente já contém estilo e lógica juntos.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Exemplo de Uso</h2>
+      <p>Veja um exemplo básico de um botão estilizado com <code>styled-components</code>:</p>
+      <code>
+{`import styled from 'styled-components';
+
+const Botao = styled.button\`
+  background: gold;
+  color: black;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background: orange;
+  }
+\`;
+
+function App() {
+  return <Botao>Clique aqui</Botao>;
+}`}
+      </code>
+    </section>
+
+    <section>
+      <h2>Instalação</h2>
+      <p>Você pode instalar a biblioteca com o seguinte comando:</p>
+      <code>npm install styled-components</code>
+      <p>Ou com Yarn:</p>
+      <code>yarn add styled-components</code>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>Com o <strong>Styled Components</strong>, você pode criar interfaces modernas e altamente coesas. Ele é perfeito para projetos React que buscam escalabilidade, organização e controle visual completo dentro do JS.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

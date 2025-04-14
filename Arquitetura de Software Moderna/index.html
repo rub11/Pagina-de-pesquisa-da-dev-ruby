@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arquitetura de Software</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #d4af37;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      width: 100vw;
+      height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    .slide {
+      scroll-snap-align: center;
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: #ffd700;
+    }
+
+    p {
+      font-size: 1.4em;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-option {
+      background-color: #222;
+      color: #fff;
+      border: 2px solid #d4af37;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-option:hover {
+      background-color: #d4af37;
+      color: #111;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 2em;
+      color: #d4af37;
+      cursor: pointer;
+      z-index: 1;
+      user-select: none;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      p {
+        font-size: 1.1em;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="arrow arrow-left" onclick="prevSlide()">&#10094;</div>
+  <div class="arrow arrow-right" onclick="nextSlide()">&#10095;</div>
+
+  <div class="slider" id="slider">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <h1>Arquitetura de Software</h1>
+      <p>A Arquitetura de Software define a estrutura de um sistema de software, determinando como os componentes interagem, se comunicam e são organizados. Ela é crucial para garantir que o sistema seja escalável, confiável e fácil de manter ao longo do tempo.</p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <h2>O que é Arquitetura de Software?</h2>
+      <p>Arquitetura de software é o processo de definir uma estrutura para um sistema de software. Ela envolve a criação de uma visão de alto nível do sistema, incluindo os principais componentes e as interações entre eles, visando garantir que o sistema seja eficiente, seguro e escalável.</p>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <h2>Camadas da Arquitetura de Software</h2>
+      <p>A arquitetura de software pode ser dividida em camadas, cada uma com responsabilidades específicas:</p>
+      <ul>
+        <li><strong>Camada de Apresentação:</strong> Lida com a interface do usuário.</li>
+        <li><strong>Camada de Lógica de Negócio:</strong> Contém a lógica principal do sistema.</li>
+        <li><strong>Camada de Dados:</strong> Responsável pelo armazenamento e recuperação de dados.</li>
+      </ul>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <h2>Tipos de Arquitetura</h2>
+      <ul>
+        <li><strong>Monolítica:</strong> Um sistema onde todos os componentes estão integrados em uma única unidade.</li>
+        <li><strong>Microservices:</strong> O sistema é dividido em pequenos serviços independentes que se comunicam entre si.</li>
+        <li><strong>Arquitetura em Camadas:</strong> Um modelo tradicional com diferentes camadas, cada uma com responsabilidades específicas.</li>
+        <li><strong>Serverless:</strong> Arquitetura que permite que os desenvolvedores se concentrem apenas na lógica do código, sem se preocupar com a infraestrutura.</li>
+      </ul>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <h2>Importância da Arquitetura de Software</h2>
+      <p>A arquitetura de software impacta diretamente a escalabilidade, desempenho, segurança e manutenção do sistema. Uma boa arquitetura permite que o software seja mais fácil de evoluir, adaptação a novas tecnologias e garante a entrega de alta qualidade ao longo do tempo.</p>
+    </div>
+
+    <!-- Slide 6: Quiz -->
+    <div class="slide">
+      <h2>Quiz: O que você aprendeu?</h2>
+      <p><strong>1. O que define a Arquitetura de Software?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A estrutura fundamental de um sistema de software.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A interface de usuário de um software.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">O design do banco de dados de um sistema.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>2. Qual das alternativas descreve a Arquitetura Monolítica?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">O sistema é construído como uma única unidade indivisível.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">O sistema é dividido em pequenos serviços independentes.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">O sistema é organizado em camadas com responsabilidades bem definidas.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>3. O que a Arquitetura Orientada a Eventos faz?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">O sistema reage a eventos gerados por outros sistemas.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">O sistema é construído como uma única unidade indivisível.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">O sistema é dividido em serviços independentes que se comunicam entre si.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>4. Qual a principal vantagem da Arquitetura em Microservices?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Permite que diferentes partes do sistema sejam desenvolvidas e escaladas independentemente.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">O sistema é construído como uma única unidade indivisível.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Melhora a comunicação entre as camadas do sistema.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>5. Como uma boa Arquitetura de Software impacta a segurança?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Uma arquitetura bem planejada contribui para a segurança do sistema.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A arquitetura não tem impacto na segurança do sistema.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A arquitetura pode ser ignorada para questões de segurança.</div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="slide">
+      <h2>Resultado</h2>
+      <p id="resultText">Você acertou X de 5 perguntas!</p>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = slider.children;
+    let currentSlide = 0;
+    let score = 0;
+    let answered = 0;
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function checkAnswer(el, isCorrect) {
+      if (answered === 0) {
+        if (isCorrect) {
+          score++;
+        }
+        answered++;
+        nextSlide();
+      }
+    }
+
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.quiz-option').forEach(option => option.addEventListener('click', () => {
+        if (answered === 0) {
+          score += option.classList.contains('correct') ? 1 : 0;
+        }
+      }));
+    });
+  </script>
+</body>
+</html>

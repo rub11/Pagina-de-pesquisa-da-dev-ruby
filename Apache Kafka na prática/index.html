@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apache Kafka na Prática</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #d4af37;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      width: 100vw;
+      height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    .slide {
+      scroll-snap-align: center;
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: #ffd700;
+    }
+
+    p {
+      font-size: 1.4em;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-option {
+      background-color: #222;
+      color: #fff;
+      border: 2px solid #d4af37;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-option:hover {
+      background-color: #d4af37;
+      color: #111;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 2em;
+      color: #d4af37;
+      cursor: pointer;
+      z-index: 1;
+      user-select: none;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      p {
+        font-size: 1.1em;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="arrow arrow-left" onclick="prevSlide()">&#10094;</div>
+  <div class="arrow arrow-right" onclick="nextSlide()">&#10095;</div>
+
+  <div class="slider" id="slider">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <h1>Apache Kafka na Prática</h1>
+      <p>Apache Kafka é uma plataforma de streaming distribuída usada para gerenciar grandes volumes de dados em tempo real. Ele permite o envio e recebimento de mensagens, com alta confiabilidade e baixa latência, sendo essencial para arquiteturas modernas de dados e sistemas distribuídos.</p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <h2>O Que é o Apache Kafka?</h2>
+      <p>Apache Kafka é um sistema de mensagens de código aberto que facilita a construção de pipelines de dados escaláveis. Ele pode processar dados em tempo real, permitindo a comunicação entre sistemas e aplicativos em uma arquitetura de microserviços.</p>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <h2>Arquitetura do Apache Kafka</h2>
+      <p>A arquitetura do Kafka é baseada em produtores, consumidores e tópicos. Os produtores enviam dados para tópicos, que são armazenados no Kafka. Os consumidores leem esses dados de forma assíncrona e podem processá-los conforme necessário. Kafka também garante alta disponibilidade e resiliência.</p>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <h2>Principais Componentes</h2>
+      <ul>
+        <li><strong>Broker:</strong> Servidor que armazena dados e gerencia a comunicação.</li>
+        <li><strong>Topic:</strong> Canal onde as mensagens são publicadas e consumidas.</li>
+        <li><strong>Producer:</strong> Envia mensagens para os tópicos.</li>
+        <li><strong>Consumer:</strong> Consome as mensagens publicadas nos tópicos.</li>
+        <li><strong>Zookeeper:</strong> Gerencia a coordenação entre os brokers.</li>
+      </ul>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+      <h2>Como Kafka é Usado?</h2>
+      <p>Apache Kafka é utilizado em sistemas que requerem processamento de dados em tempo real, como monitoramento de sistemas, análise de logs, sistemas de recomendação, e-commerce e sistemas de análise de dados em tempo real.</p>
+    </div>
+
+    <!-- Slide 6: Quiz -->
+    <div class="slide">
+      <h2>Quiz: O que você aprendeu?</h2>
+      <p><strong>1. O que é o Apache Kafka?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">É uma plataforma de streaming distribuída para gerenciar dados em tempo real.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É uma ferramenta de análise de dados estatísticos.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É uma biblioteca de processamento de dados offline.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>2. Qual é o principal componente do Kafka responsável por armazenar dados?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Broker</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Producer</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Consumer</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>3. O que é um Producer no Apache Kafka?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">É a entidade que envia mensagens para os tópicos.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É a entidade que processa as mensagens recebidas.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É o servidor que armazena as mensagens.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>4. O que é um Topic no Apache Kafka?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">É o canal onde as mensagens são publicadas e consumidas.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É o servidor que armazena os dados temporariamente.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É a ferramenta que analisa os dados recebidos.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>5. O que é o Zookeeper no Apache Kafka?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">É um serviço que coordena a comunicação entre brokers.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É um serviço que processa as mensagens de Kafka.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É a interface que permite ao usuário interagir com o Kafka.</div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="slide">
+      <h2>Resultado</h2>
+      <p id="resultText">Você acertou X de 5 perguntas!</p>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = slider.children;
+    let currentSlide = 0;
+    let score = 0;
+    let answered = 0;
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function checkAnswer(el, isCorrect) {
+      if (el.classList.contains("disabled")) return;
+
+      answered++;
+      el.classList.add("disabled");
+      if (isCorrect) {
+        score++;
+        el.style.backgroundColor = "#28a745";
+      } else {
+        el.style.backgroundColor = "#dc3545";
+      }
+
+      setTimeout(() => {
+        if (answered >= 5) {
+          document.getElementById("resultText").innerText = `Você acertou ${score} de 5 perguntas!`;
+          currentSlide = slides.length - 1;
+        } else {
+          currentSlide++;
+        }
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

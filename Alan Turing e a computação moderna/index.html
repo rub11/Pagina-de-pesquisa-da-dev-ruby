@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alan Turing e a Computação Moderna</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #d4af37;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      width: 100vw;
+      height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    .slide {
+      scroll-snap-align: center;
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: #ffd700;
+    }
+
+    p {
+      font-size: 1.4em;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-option {
+      background-color: #222;
+      color: #fff;
+      border: 2px solid #d4af37;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-option:hover {
+      background-color: #d4af37;
+      color: #111;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 2em;
+      color: #d4af37;
+      cursor: pointer;
+      z-index: 1;
+      user-select: none;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      p {
+        font-size: 1.1em;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="arrow arrow-left" onclick="prevSlide()">&#10094;</div>
+  <div class="arrow arrow-right" onclick="nextSlide()">&#10095;</div>
+
+  <div class="slider" id="slider">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <h1>Alan Turing: O Pai da Computação Moderna</h1>
+      <p>Alan Turing foi um matemático britânico que é amplamente reconhecido como o pai da computação moderna. Ele formulou a teoria da máquina de Turing, um modelo matemático que se tornou a base para os computadores modernos.</p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <h2>Máquina de Turing</h2>
+      <p>A máquina de Turing é um conceito fundamental que descreve um dispositivo capaz de executar qualquer algoritmo, estabelecendo os princípios da computação universal. Turing usou sua teoria para explorar o que pode ser computado e como isso poderia ser feito.</p>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <h2>Desafios de Turing e a Decisão</h2>
+      <p>Turing também é conhecido pelo "Problema da Decisão", que propôs a questão de se existe um algoritmo capaz de resolver todas as questões matemáticas. Ele demonstrou que não existe tal algoritmo, um marco fundamental na matemática.</p>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <h2>A Contribuição para a Segunda Guerra Mundial</h2>
+      <p>Durante a Segunda Guerra Mundial, Turing desempenhou um papel crucial no desenvolvimento de técnicas de criptografia para decifrar os códigos de comunicação nazistas, especificamente o código Enigma. Sua contribuição ajudou a encurtar a guerra e salvar inúmeras vidas.</p>
+    </div>
+
+    <!-- Slide 5: Quiz -->
+    <div class="slide">
+      <h2>Quiz: O que você aprendeu?</h2>
+      <p><strong>1. O que Alan Turing é amplamente conhecido por ter desenvolvido?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">A Máquina de Turing</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">A linguagem Python</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">O computador pessoal</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>2. O que a Máquina de Turing representa?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Um modelo matemático de computação universal</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Um modelo de criptografia</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Uma máquina de calcular simples</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>3. Qual foi o impacto do "Problema da Decisão" proposto por Turing?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Demonstrou que não existe um algoritmo que resolva todos os problemas matemáticos</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Criou um algoritmo de decisão que é universal</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Permitiu a criação do sistema de criptografia moderno</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>4. Como Alan Turing ajudou na Segunda Guerra Mundial?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Desenvolveu técnicas para decifrar o código Enigma</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Desenvolveu armas secretas</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Ajudou a criar sistemas de comunicação para as forças aliadas</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>5. Qual é o legado de Alan Turing na computação moderna?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Ele é considerado o pai da computação moderna</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Ele criou o primeiro computador pessoal</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Ele inventou a internet</div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="slide">
+      <h2>Resultado</h2>
+      <p id="resultText">Você acertou X de 5 perguntas!</p>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = slider.children;
+    let currentSlide = 0;
+    let score = 0;
+    let answered = 0;
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function checkAnswer(el, isCorrect) {
+      if (el.classList.contains("disabled")) return;
+
+      answered++;
+      el.classList.add("disabled");
+      if (isCorrect) {
+        score++;
+        el.style.backgroundColor = "#28a745";
+      } else {
+        el.style.backgroundColor = "#dc3545";
+      }
+
+      setTimeout(() => {
+        if (answered >= 5) {
+          document.getElementById("resultText").innerText = `Você acertou ${score} de 5 perguntas!`;
+          currentSlide = slides.length - 1;
+        } else {
+          currentSlide++;
+        }
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

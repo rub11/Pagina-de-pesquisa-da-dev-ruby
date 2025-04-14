@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Docker e Contêineres</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0c0c0c;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #151515;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: #f2c94c;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 900px;
+      padding: 40px 25px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #e6b93f;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .section {
+      background-color: #1b1b1b;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 6px solid #f2c94c;
+      box-shadow: 0 2px 12px rgba(255, 215, 0, 0.05);
+    }
+
+    .section h3 {
+      color: #ffd700;
+      margin-top: 0;
+    }
+
+    .section p, .section ul {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    code {
+      display: block;
+      background-color: #000;
+      color: #00ffcc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 1em;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Docker e Contêineres</h1>
+    <p>Virtualização leve e portabilidade de aplicações</p>
+  </header>
+
+  <main>
+    <h2>O que é Docker?</h2>
+    <div class="section">
+      <p><strong>Docker</strong> é uma plataforma que permite empacotar aplicações e suas dependências em contêineres — unidades leves e portáveis que garantem que o software funcione em qualquer ambiente.</p>
+    </div>
+
+    <h2>O que são Contêineres?</h2>
+    <div class="section">
+      <p><strong>Contêineres</strong> são ambientes isolados que compartilham o mesmo sistema operacional, mas que mantêm bibliotecas e configurações independentes. São mais rápidos e eficientes que máquinas virtuais.</p>
+      <ul>
+        <li>Leves e rápidos para iniciar</li>
+        <li>Reproduzíveis e consistentes</li>
+        <li>Fáceis de versionar e compartilhar</li>
+      </ul>
+    </div>
+
+    <h2>Benefícios do Docker</h2>
+    <div class="section">
+      <ul>
+        <li><strong>Portabilidade:</strong> "Funciona na minha máquina" deixa de ser um problema.</li>
+        <li><strong>Escalabilidade:</strong> Facilita o deploy de múltiplas instâncias.</li>
+        <li><strong>Produtividade:</strong> Reduz o tempo gasto com configurações de ambiente.</li>
+        <li><strong>Integração com CI/CD:</strong> Ideal para pipelines automatizadas.</li>
+      </ul>
+    </div>
+
+    <h2>Comandos Docker Básicos</h2>
+    <div class="section">
+      <p>Alguns comandos úteis para começar:</p>
+      <code>
+        docker build -t minha-imagem .
+        docker run -d -p 3000:3000 minha-imagem
+        docker ps
+        docker stop &lt;id_do_container&gt;
+        docker images
+        docker rmi &lt;nome_da_imagem&gt;
+      </code>
+    </div>
+
+    <h2>Dockerfile</h2>
+    <div class="section">
+      <p>Um <strong>Dockerfile</strong> define o ambiente de execução da aplicação. Exemplo:</p>
+      <code>
+        FROM node:18
+        WORKDIR /app
+        COPY . .
+        RUN npm install
+        EXPOSE 3000
+        CMD ["npm", "start"]
+      </code>
+    </div>
+
+    <h2>Docker Hub</h2>
+    <div class="section">
+      <p><strong>Docker Hub</strong> é um repositório público onde você pode publicar e baixar imagens Docker.</p>
+      <ul>
+        <li><code>docker pull nginx</code> baixa a imagem oficial do NGINX</li>
+        <li><code>docker push usuario/minha-imagem</code> envia uma imagem para sua conta</li>
+      </ul>
+    </div>
+
+    <h2>Docker Compose</h2>
+    <div class="section">
+      <p><strong>Docker Compose</strong> permite orquestrar múltiplos contêineres com um único arquivo YAML:</p>
+      <code>
+        version: '3'
+        services:
+          app:
+            build: .
+            ports:
+              - "3000:3000"
+          db:
+            image: postgres
+            environment:
+              POSTGRES_PASSWORD: exemplo
+      </code>
+    </div>
+
+    <h2>Quando usar Docker?</h2>
+    <div class="section">
+      <p>Docker é ideal quando você precisa de:</p>
+      <ul>
+        <li>Ambientes padronizados</li>
+        <li>Microserviços</li>
+        <li>Deploy rápido</li>
+        <li>Testes isolados</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

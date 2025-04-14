@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flutter vs React Native</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #e0c080;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #ffd700;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 900px;
+      width: 95%;
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 1s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(30px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #444;
+      color: #ffd700;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #666;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Flutter vs React Native</h1>
+
+  <div class="slider-container">
+    <div class="slide active">
+      <p><strong>Flutter</strong> é um framework de desenvolvimento criado pelo Google que permite criar aplicações nativas para Android, iOS, Web e desktop com uma única base de código, usando a linguagem Dart.</p>
+    </div>
+    <div class="slide">
+      <p><strong>React Native</strong>, desenvolvido pelo Facebook, permite criar apps móveis nativos com JavaScript e React, utilizando componentes nativos da plataforma.</p>
+    </div>
+    <div class="slide">
+      <p><strong>Desempenho:</strong> Flutter compila diretamente para código nativo, o que proporciona performance elevada. React Native depende de uma ponte para comunicação com os componentes nativos, o que pode impactar a performance em casos mais complexos.</p>
+    </div>
+    <div class="slide">
+      <p><strong>Comunidade e ecossistema:</strong> React Native tem uma comunidade maior e bibliotecas bem consolidadas. Flutter está crescendo rapidamente e já possui um ecossistema forte.</p>
+    </div>
+    <div class="slide">
+      <p><strong>Experiência de desenvolvimento:</strong> Flutter oferece "hot reload" eficaz e widgets altamente customizáveis. React Native também tem "hot reload", mas depende mais de bibliotecas externas para interfaces sofisticadas.</p>
+    </div>
+    <div class="slide">
+      <p><strong>Conclusão:</strong> Flutter se destaca em performance e personalização visual, enquanto React Native brilha na integração com o ecossistema JavaScript e React. A escolha depende do projeto, equipe e objetivos.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

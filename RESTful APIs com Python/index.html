@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESTful APIs com Python</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1a1a1a;
+            color: #f5d76e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #262626;
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        h1, h2 {
+            color: #f5d76e;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        pre {
+            background-color: #333;
+            color: #f5d76e;
+            padding: 20px;
+            border-radius: 5px;
+            overflow: auto;
+            max-width: 90%;
+            margin: 20px 0;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 3em;
+            color: #f5d76e;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>RESTful APIs com Python</h1>
+                <p>Aprenda a criar e consumir APIs RESTful de forma eficiente usando Python. Vamos explorar as principais práticas, bibliotecas e exemplos práticos para você se tornar um especialista na construção de APIs.</p>
+            </div>
+            <div class="slide">
+                <h2>O que são APIs RESTful?</h2>
+                <p>APIs RESTful seguem os princípios do estilo arquitetônico REST (Representational State Transfer). Elas usam métodos HTTP como GET, POST, PUT e DELETE para manipulação de dados. REST é amplamente adotado por ser simples, eficiente e fácil de escalar.</p>
+            </div>
+            <div class="slide">
+                <h2>Configurando o Ambiente</h2>
+                <p>Antes de começarmos a construir uma API, é necessário configurar o ambiente. Usaremos o Flask, um micro-framework para Python, para criar nossa API de maneira rápida e fácil.</p>
+                <pre><code>pip install flask</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Criando a Primeira Rota</h2>
+                <p>Agora, vamos criar nossa primeira rota API usando o Flask. Abaixo está o código básico para iniciar uma API RESTful simples.</p>
+                <pre><code>from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'Olá, API RESTful com Python!'
+
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+            </div>
+            <div class="slide">
+                <h2>GET: Recuperando Dados</h2>
+                <p>O método GET é utilizado para recuperar dados. A seguir, um exemplo de como criar uma rota GET para retornar informações em formato JSON.</p>
+                <pre><code>@app.route('/dados', methods=['GET'])
+def get_dados():
+    return {'nome': 'João', 'idade': 30}</code></pre>
+            </div>
+            <div class="slide">
+                <h2>POST: Enviando Dados</h2>
+                <p>O método POST é utilizado para enviar dados ao servidor. Vamos aprender a enviar dados via JSON usando o Flask.</p>
+                <pre><code>from flask import request
+
+@app.route('/adicionar', methods=['POST'])
+def adicionar_dados():
+    dados = request.get_json()
+    return {'status': 'Dados recebidos', 'dados': dados}</code></pre>
+            </div>
+            <div class="slide">
+                <h2>PUT: Atualizando Dados</h2>
+                <p>O método PUT é utilizado para atualizar dados existentes. Abaixo temos um exemplo de como criar uma rota PUT para atualizar informações.</p>
+                <pre><code>@app.route('/atualizar', methods=['PUT'])
+def atualizar_dados():
+    dados = request.get_json()
+    return {'status': 'Dados atualizados', 'dados': dados}</code></pre>
+            </div>
+            <div class="slide">
+                <h2>DELETE: Excluindo Dados</h2>
+                <p>O método DELETE é utilizado para excluir dados. Vamos criar uma rota DELETE que remove um item do banco de dados ou do sistema.</p>
+                <pre><code>@app.route('/excluir', methods=['DELETE'])
+def excluir_dados():
+    return {'status': 'Dados excluídos'}</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Consumindo a API com Python</h2>
+                <p>Agora que temos nossa API criada, podemos consumir os endpoints usando o módulo <code>requests</code> do Python. A seguir, um exemplo de como fazer uma requisição GET para recuperar dados.</p>
+                <pre><code>import requests
+response = requests.get('http://127.0.0.1:5000/dados')
+print(response.json())</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Conclusão</h2>
+                <p>Com o Flask e a biblioteca requests, podemos criar e consumir APIs RESTful de maneira eficiente e simples. A partir deste ponto, você pode expandir suas APIs para incluir autenticação, conexão com bancos de dados e muito mais.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+            <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Suporte ao toque
+        let startTouch = 0;
+
+        document.querySelector('.slider-container').addEventListener('touchstart', function(e) {
+            startTouch = e.touches[0].clientX;
+        });
+
+        document.querySelector('.slider-container').addEventListener('touchmove', function(e) {
+            if (startTouch - e.touches[0].clientX > 50) {
+                changeSlide(1);
+            } else if (e.touches[0].clientX - startTouch > 50) {
+                changeSlide(-1);
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boas Práticas em Python</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #eaeaea;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(255, 200, 100, 0.15);
+    }
+
+    header h1 {
+      color: #f0c24b;
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1100px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 18px rgba(240, 200, 100, 0.08);
+    }
+
+    h2 {
+      color: #eab543;
+      font-size: 1.9em;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    pre {
+      background-color: #292929;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      overflow-x: auto;
+      color: #f8d47c;
+    }
+
+    code {
+      color: #f8d47c;
+    }
+
+    footer {
+      background-color: #121212;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Boas Práticas em Python</h1>
+    <p>Escrevendo código limpo, legível e pythonicamente elegante</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Siga a PEP 8</h2>
+      <p>A <strong>PEP 8</strong> é o guia oficial de estilo para Python. Ela cobre espaçamento, nomes, indentação e organização.</p>
+      <pre>
+# Correto
+def calcular_total(valor, taxa):
+    return valor + (valor * taxa)
+      </pre>
+    </section>
+
+    <section>
+      <h2>2. Use nomes claros e significativos</h2>
+      <p>Evite abreviações desnecessárias. Dê nomes que explicam a função da variável ou método.</p>
+      <pre>
+# Ruim
+def ct(v, t):
+    return v + (v * t)
+
+# Bom
+def calcular_total(valor, taxa):
+    return valor + (valor * taxa)
+      </pre>
+    </section>
+
+    <section>
+      <h2>3. Comente com moderação</h2>
+      <p>Comente o porquê do código, não o que ele faz. Códigos bem escritos precisam de poucos comentários.</p>
+      <pre>
+# Aplica 10% de desconto no preço do produto
+def aplicar_desconto(preco):
+    return preco * 0.9
+      </pre>
+    </section>
+
+    <section>
+      <h2>4. Escreva funções pequenas e específicas</h2>
+      <p>Funções devem realizar apenas uma tarefa. Isso torna o código mais fácil de testar e manter.</p>
+    </section>
+
+    <section>
+      <h2>5. Utilize listas por compreensão</h2>
+      <p>Sintaxe concisa e legível para criar listas a partir de iteráveis.</p>
+      <pre>
+# Tradicional
+quadrados = []
+for i in range(10):
+    quadrados.append(i * i)
+
+# Compreensão
+quadrados = [i * i for i in range(10)]
+      </pre>
+    </section>
+
+    <section>
+      <h2>6. Trate exceções corretamente</h2>
+      <p>Evite <code>except Exception</code> genérico. Capture exceções específicas e forneça mensagens úteis.</p>
+      <pre>
+try:
+    resultado = 10 / divisor
+except ZeroDivisionError:
+    print("Erro: divisão por zero.")
+      </pre>
+    </section>
+
+    <section>
+      <h2>7. Utilize f-strings</h2>
+      <p>São mais modernas, rápidas e legíveis para formatação de strings.</p>
+      <pre>
+nome = "Ruby"
+print(f"Bem-vinda, {nome}!")
+      </pre>
+    </section>
+
+    <section>
+      <h2>8. Mantenha código DRY (Don't Repeat Yourself)</h2>
+      <p>Evite duplicação criando funções ou abstrações reutilizáveis.</p>
+    </section>
+
+    <section>
+      <h2>9. Tipagem opcional com type hints</h2>
+      <p>Facilita a leitura e uso de ferramentas de análise estática.</p>
+      <pre>
+def somar(a: int, b: int) -> int:
+    return a + b
+      </pre>
+    </section>
+
+    <section>
+      <h2>10. Ferramentas úteis</h2>
+      <ul>
+        <li>✅ <strong>Black</strong>: formata seu código automaticamente</li>
+        <li>✅ <strong>Pylint</strong> ou <strong>Flake8</strong>: análise de qualidade</li>
+        <li>✅ <strong>MyPy</strong>: verificação de tipos</li>
+        <li>✅ <strong>pytest</strong>: testes automatizados</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>Seguir boas práticas torna o código Python mais legível, confiável e profissional. O "Pythonic way" valoriza clareza, elegância e simplicidade.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

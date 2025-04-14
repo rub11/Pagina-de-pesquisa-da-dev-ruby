@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BDD: Desenvolvimento Orientado a Comportamento</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0c0c0c;
+      color: #eaeaea;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #151515;
+      padding: 60px 20px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.08);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: #f5c842;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 25px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.03);
+    }
+
+    section h2 {
+      color: #e0b347;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    section p {
+      color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      padding-left: 20px;
+      color: #bbb;
+    }
+
+    pre {
+      background-color: #252525;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: #f5c842;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      width: 100%;
+      border-top: 1px solid #292929;
+      margin-top: 60px;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>BDD: Desenvolvimento Orientado a Comportamento</h1>
+    <p>Uma abordagem centrada no comportamento do usuário final</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é BDD?</h2>
+      <p>BDD (Behavior Driven Development), ou Desenvolvimento Orientado a Comportamento, é uma evolução do TDD que foca no comportamento do sistema do ponto de vista do usuário. Em vez de escrever testes técnicos, o BDD utiliza uma linguagem mais natural e compreensível por todos os envolvidos no projeto.</p>
+    </section>
+
+    <section>
+      <h2>Objetivo do BDD</h2>
+      <p>O BDD busca promover a colaboração entre desenvolvedores, QA e stakeholders através de uma linguagem comum. Essa linguagem geralmente segue o formato <strong>Gherkin</strong>, utilizando estruturas como:</p>
+      <pre>
+Funcionalidade: Login de usuário
+  Cenário: Usuário entra com credenciais válidas
+    Dado que o usuário esteja na página de login
+    Quando ele digitar seu e-mail e senha corretos
+    Então ele deverá acessar sua área restrita
+      </pre>
+    </section>
+
+    <section>
+      <h2>Benefícios do BDD</h2>
+      <ul>
+        <li>Melhor entendimento entre áreas técnicas e de negócio</li>
+        <li>Maior clareza nos requisitos</li>
+        <li>Documentação viva e automatizável</li>
+        <li>Redução de falhas por mal-entendidos</li>
+        <li>Foco na experiência e jornada do usuário</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Ferramentas de BDD populares</h2>
+      <ul>
+        <li><strong>Cucumber:</strong> Utiliza a linguagem Gherkin para descrever comportamentos.</li>
+        <li><strong>SpecFlow:</strong> Versão do Cucumber para .NET.</li>
+        <li><strong>Behave:</strong> Ferramenta para Python.</li>
+        <li><strong>JBehave:</strong> Implementação para Java.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Exemplo com Cucumber (Gherkin)</h2>
+      <p>Veja um exemplo simples de especificação BDD:</p>
+      <pre>
+Funcionalidade: Soma de números
+  Cenário: Somar dois números inteiros
+    Dado que eu tenha inserido 5 no campo A
+    E eu tenha inserido 3 no campo B
+    Quando eu pressionar "somar"
+    Então o resultado deve ser 8
+      </pre>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>O BDD aproxima o time técnico do negócio, assegurando que o software atenda às necessidades reais dos usuários. Ele oferece uma forma clara, objetiva e testável de descrever requisitos, facilitando a entrega de soluções funcionais e validadas desde o início.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

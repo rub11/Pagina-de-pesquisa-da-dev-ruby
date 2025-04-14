@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deploy de Modelos com Flask</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Playfair Display', serif;
+      background: #111;
+      color: #f5c76e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slider-container {
+      width: 95%;
+      max-width: 1100px;
+      overflow: hidden;
+      border-radius: 18px;
+      position: relative;
+      box-shadow: 0 0 30px rgba(255, 204, 0, 0.1);
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+      padding: 60px 40px;
+      background: #1a1a1a;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      margin-bottom: 20px;
+      color: #f5d76e;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 15px;
+      color: #f5c76e;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.6;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    pre {
+      background: #2c2c2c;
+      color: #f8c471;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: left;
+      overflow-x: auto;
+      max-width: 90%;
+      margin: 20px auto;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-size: 3em;
+      color: #f5c76e;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+
+    .nav-btn:hover {
+      color: #ffd700;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide"><h1>Deploy de Modelos com Flask</h1><p>Descubra como transformar um modelo de Machine Learning em uma aplicação web funcional e acessível, utilizando o framework Flask.</p></div>
+      <div class="slide"><h2>1. O que é o Flask?</h2><p>Flask é um microframework em Python, leve e flexível, ideal para criar APIs e interfaces web para aplicações de machine learning.</p></div>
+      <div class="slide"><h2>2. Preparação do modelo</h2><p>Treine seu modelo usando Scikit-learn, TensorFlow, etc. Em seguida, salve-o com <code>joblib</code> ou <code>pickle</code> para reutilização.</p></div>
+      <div class="slide"><h2>3. Estrutura do projeto</h2><p>Organize seu projeto com uma pasta principal contendo o arquivo <code>app.py</code>, a pasta <code>templates</code> e o modelo salvo.</p></div>
+      <div class="slide"><h2>4. Código básico do Flask</h2><pre>from flask import Flask, request, jsonify\nimport joblib\nmodel = joblib.load('modelo.pkl')\napp = Flask(__name__)\n@app.route('/predict', methods=['POST'])\ndef predict():\n    data = request.get_json()\n    prediction = model.predict([data['features']])\n    return jsonify({'prediction': prediction.tolist()})</pre></div>
+      <div class="slide"><h2>5. Testando com Postman</h2><p>Use ferramentas como Postman ou curl para enviar dados via JSON e testar sua rota <code>/predict</code>.</p></div>
+      <div class="slide"><h2>6. Front-end com HTML</h2><p>Crie um formulário básico em HTML e use o Flask para renderizá-lo com <code>render_template</code>.</p></div>
+      <div class="slide"><h2>7. Deploy local</h2><p>Rode sua aplicação localmente com <code>flask run</code> e acesse via <code>http://localhost:5000</code>.</p></div>
+      <div class="slide"><h2>8. Deploy na nuvem</h2><p>Use plataformas como Heroku, Vercel ou Render para colocar sua API Flask online com poucos comandos.</p></div>
+      <div class="slide"><h2>9. Requisitos</h2><p>Inclua um <code>requirements.txt</code> com todas as bibliotecas necessárias para o funcionamento da aplicação.</p></div>
+      <div class="slide"><h2>10. Considerações finais</h2><p>Com Flask, é possível criar e expor modelos inteligentes de forma elegante e funcional, pronto para uso em sistemas reais.</p></div>
+    </div>
+    <div class="navigation">
+      <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+      <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slider = document.getElementById("slider");
+    const totalSlides = slider.children.length;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Suporte a toque
+    let startX = 0;
+    document.querySelector('.slider-container').addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    });
+
+    document.querySelector('.slider-container').addEventListener('touchend', e => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) changeSlide(1);
+      if (startX - endX < -50) changeSlide(-1);
+    });
+  </script>
+</body>
+</html>

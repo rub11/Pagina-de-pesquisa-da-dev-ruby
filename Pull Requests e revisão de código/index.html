@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pull Requests e Revisão de Código</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0c0c0c;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #161616;
+      padding: 60px 20px;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: #f2c94c;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 900px;
+      padding: 40px 25px;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #e6b93f;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .section {
+      background-color: #1b1b1b;
+      margin: 20px 0;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 6px solid #f2c94c;
+      box-shadow: 0 2px 12px rgba(255, 215, 0, 0.05);
+    }
+
+    .section h3 {
+      color: #ffd700;
+      margin-top: 0;
+    }
+
+    .section p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    code {
+      display: block;
+      background-color: #000;
+      color: #00ffcc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      font-size: 1em;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+      width: 100%;
+      border-top: 1px solid #292929;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Pull Requests e Revisão de Código</h1>
+    <p>Colaboração, controle e qualidade no desenvolvimento em equipe</p>
+  </header>
+
+  <main>
+    <h2>O que é um Pull Request?</h2>
+    <div class="section">
+      <p>Um <strong>Pull Request (PR)</strong> é uma solicitação para integrar mudanças de uma branch em outra (geralmente para <code>main</code>), muito usado em plataformas como GitHub, GitLab ou Bitbucket. Ele permite que outros revisem e aprovem antes da fusão final.</p>
+    </div>
+
+    <h2>Como criar um Pull Request</h2>
+    <div class="section">
+      <p>Depois de subir seu código para uma branch remota:</p>
+      <code>
+        git push origin minha-feature
+      </code>
+      <p>Em seguida, vá até o repositório no GitHub e clique em "Compare & pull request".</p>
+      <p>Adicione título e descrição do que foi feito, e envie o PR para revisão.</p>
+    </div>
+
+    <h2>Etapas de Revisão de Código</h2>
+    <div class="section">
+      <ol>
+        <li><strong>Leitura do código:</strong> verificar clareza, lógica e boas práticas.</li>
+        <li><strong>Comentários:</strong> sugerir melhorias, apontar bugs, elogiar boas soluções.</li>
+        <li><strong>Testes:</strong> garantir que o código não quebre funcionalidades existentes.</li>
+        <li><strong>Aprovação:</strong> quando estiver tudo certo, aprovar e fazer o merge.</li>
+      </ol>
+    </div>
+
+    <h2>Fazendo o Merge</h2>
+    <div class="section">
+      <p>Após aprovação, o autor ou revisor pode fazer o merge. Existem três formas principais:</p>
+      <ul>
+        <li><strong>Merge Commit:</strong> mantém histórico detalhado.</li>
+        <li><strong>Squash and Merge:</strong> compacta tudo em um único commit.</li>
+        <li><strong>Rebase and Merge:</strong> reescreve a linha do tempo para manter linearidade.</li>
+      </ul>
+    </div>
+
+    <h2>Boas práticas em PRs</h2>
+    <div class="section">
+      <ul>
+        <li>Crie PRs pequenos e objetivos</li>
+        <li>Descreva claramente o que foi feito</li>
+        <li>Responda e atualize de acordo com feedbacks</li>
+        <li>Utilize checklists e labels para organização</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desenvolvimento de APIs REST</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #e0c080;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #ffd700;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 900px;
+      width: 95%;
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 1s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(30px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #444;
+      color: #ffd700;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #666;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Desenvolvimento de APIs REST</h1>
+
+  <div class="slider-container">
+    <div class="slide active">
+      <p><strong>APIs REST</strong> (Representational State Transfer) são um dos padrões mais utilizados para a criação de serviços web que se comunicam através do protocolo HTTP.</p>
+    </div>
+    <div class="slide">
+      <p><strong>Princípios REST:</strong> REST se baseia em princípios como: uso de métodos HTTP, URLs como identificadores de recursos, comunicação sem estado e estrutura clara para operações de CRUD.</p>
+    </div>
+    <div class="slide">
+      <p><strong>HTTP Methods:</strong> Os principais métodos são: <strong>GET</strong> (buscar dados), <strong>POST</strong> (criar dados), <strong>PUT</strong> (atualizar dados), <strong>DELETE</strong> (remover dados).</p>
+    </div>
+    <div class="slide">
+      <p><strong>Boas práticas:</strong> Use nomenclatura consistente para endpoints, evite verbos nas URLs, implemente versionamento de API, trate erros com códigos HTTP apropriados e forneça mensagens claras.</p>
+    </div>
+    <div class="slide">
+      <p><strong>Segurança:</strong> Proteja suas APIs com autenticação (como OAuth2), HTTPS obrigatório, validação de entrada e controle de acesso por permissões e tokens.</p>
+    </div>
+    <div class="slide">
+      <p><strong>Ferramentas úteis:</strong> Postman, Swagger/OpenAPI, Insomnia, além de bibliotecas/frameworks como Express (Node.js), Flask (Python), Spring Boot (Java) para implementação.</p>
+    </div>
+    <div class="slide">
+      <p><strong>Escalabilidade:</strong> APIs REST podem ser facilmente escaladas horizontalmente e adaptadas para microsserviços, mantendo a estrutura modular e reutilizável.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

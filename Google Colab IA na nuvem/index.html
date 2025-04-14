@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Colab: IA na Nuvem</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: gold;
+      margin-bottom: 10px;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+      width: 100%;
+      max-width: 800px;
+      background: #222;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      margin: 20px 10px;
+      background-color: gold;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e5c100;
+    }
+
+    .quiz-option {
+      background: #333;
+      border: 2px solid gold;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .quiz-option:hover {
+      background-color: #444;
+    }
+
+    .result {
+      font-size: 1.5em;
+      color: gold;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Google Colab: IA na Nuvem</h1>
+
+  <div class="slide active">
+    <h2>📘 O que é o Google Colab?</h2>
+    <p>O Google Colab é uma ferramenta gratuita da Google que permite programar em Python diretamente no navegador com suporte à computação em nuvem, ideal para projetos de ciência de dados e inteligência artificial.</p>
+    <p>Com ele, é possível usar bibliotecas como TensorFlow, PyTorch e outras sem precisar instalar nada localmente. Além disso, oferece GPUs gratuitamente para acelerar modelos de machine learning.</p>
+    <p>Seu formato de notebook facilita testes interativos e colaboração com outras pessoas em tempo real.</p>
+    <button onclick="nextSlide()">Começar Quiz</button>
+  </div>
+
+  <!-- Perguntas -->
+  <div class="slide">
+    <h2>1️⃣ O que é o Google Colab?</h2>
+    <div class="quiz-option" onclick="selectAnswer(this, true)">Uma plataforma para rodar código Python na nuvem</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">Um editor de texto online</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">Um sistema operacional</div>
+  </div>
+
+  <div class="slide">
+    <h2>2️⃣ Qual linguagem o Google Colab utiliza?</h2>
+    <div class="quiz-option" onclick="selectAnswer(this, true)">Python</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">Java</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">C++</div>
+  </div>
+
+  <div class="slide">
+    <h2>3️⃣ Qual benefício o Colab oferece gratuitamente?</h2>
+    <div class="quiz-option" onclick="selectAnswer(this, true)">Uso de GPUs</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">Domínio personalizado</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">Banco de dados próprio</div>
+  </div>
+
+  <div class="slide">
+    <h2>4️⃣ O que diferencia o Colab de um editor tradicional?</h2>
+    <div class="quiz-option" onclick="selectAnswer(this, true)">Executa código na nuvem com colaboração em tempo real</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">Possui temas escuros</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">É offline</div>
+  </div>
+
+  <div class="slide">
+    <h2>5️⃣ Qual biblioteca de IA pode ser usada no Colab?</h2>
+    <div class="quiz-option" onclick="selectAnswer(this, true)">TensorFlow</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">React</div>
+    <div class="quiz-option" onclick="selectAnswer(this, false)">Laravel</div>
+  </div>
+
+  <!-- Resultado -->
+  <div class="slide">
+    <h2>✅ Resultado</h2>
+    <p class="result" id="resultText"></p>
+    <button onclick="restartQuiz()">Refazer</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    let correctAnswers = 0;
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide++;
+      slides[currentSlide].classList.add('active');
+    }
+
+    function selectAnswer(element, isCorrect) {
+      if (isCorrect) correctAnswers++;
+      nextSlide();
+      if (currentSlide === slides.length - 1) {
+        document.getElementById('resultText').textContent =
+          `Você acertou ${correctAnswers} de 5!`;
+      }
+    }
+
+    function restartQuiz() {
+      currentSlide = 0;
+      correctAnswers = 0;
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[0].classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

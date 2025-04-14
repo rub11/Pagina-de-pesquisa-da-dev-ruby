@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Engines de Jogos: Unity vs Unreal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #121212;
+      color: #e0c88b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 960px;
+      width: 95%;
+      background-color: #1b1b1b;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(30px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎮 Engines de Jogos: Unity vs Unreal</h1>
+
+  <div class="slider-container">
+
+    <div class="slide active">
+      <p>🔍 <strong>O que são Engines de Jogos?</strong></p>
+      <p>Engines são plataformas que fornecem ferramentas para desenvolver jogos de forma eficiente, como físicas, gráficos, som, scripts e exportações.</p>
+    </div>
+
+    <div class="slide">
+      <p>🧠 <strong>Unity: Visão Geral</strong></p>
+      <p>A <strong>Unity</strong> é uma engine popular, leve, acessível e extremamente usada para jogos 2D e 3D multiplataforma.</p>
+    </div>
+
+    <div class="slide">
+      <p>🚀 <strong>Unreal Engine: Visão Geral</strong></p>
+      <p>A <strong>Unreal</strong> é conhecida por gráficos realistas, usada em jogos AAA e também para cinema e simulações realistas.</p>
+    </div>
+
+    <div class="slide">
+      <p>💻 <strong>Linguagens Suportadas</strong></p>
+      <ul>
+        <li>🟡 Unity: <code>C#</code></li>
+        <li>🔵 Unreal: <code>C++</code> e Blueprints (visual scripting)</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🖼️ <strong>Gráficos e Visual</strong></p>
+      <ul>
+        <li>✨ Unreal: foca em realismo e efeitos visuais avançados.</li>
+        <li>🎨 Unity: versátil e ótimo para jogos estilizados ou mobile.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>📱 <strong>Multiplataforma</strong></p>
+      <p>Ambas exportam para Web, PC, Mac, Android, iOS, consoles e VR.</p>
+    </div>
+
+    <div class="slide">
+      <p>📚 <strong>Facilidade de Aprendizado</strong></p>
+      <ul>
+        <li>📘 Unity tem curva de aprendizado mais amigável para iniciantes.</li>
+        <li>📗 Unreal é mais complexo, porém mais poderoso em certas áreas.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>💸 <strong>Licenciamento e Custos</strong></p>
+      <ul>
+        <li>💵 Unity: Gratuito até certo faturamento, planos pagos acima.</li>
+        <li>🆓 Unreal: Gratuito até US$ 1 milhão de receita, depois royalties.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>⚙️ <strong>Performance</strong></p>
+      <ul>
+        <li>🛠️ Unreal geralmente melhor para jogos AAA e de alto desempenho.</li>
+        <li>🔧 Unity ótimo para mobile, indie e projetos mais leves.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🏁 <strong>Conclusão</strong></p>
+      <p>🎯 <strong>Unity</strong> é ideal para quem está começando e deseja agilidade.<br>
+         🔥 <strong>Unreal</strong> é a escolha para quem busca gráficos realistas e projetos ambiciosos.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

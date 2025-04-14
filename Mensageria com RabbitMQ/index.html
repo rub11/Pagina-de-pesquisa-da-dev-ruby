@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensageria com RabbitMQ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffd700;
+            font-size: 3em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .section {
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            margin: 20px;
+            width: 100%;
+            color: #ccc;
+            text-align: left;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            background-color: #333;
+        }
+
+        .section h2 {
+            color: #ffd700;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .section ul li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #f4a261;
+        }
+
+        .section .highlight {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .section .box {
+            background-color: #2c2c2c;
+            border: 1px solid #444;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            color: #f4a261;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 30px;
+            }
+
+            .section h2 {
+                font-size: 2em;
+            }
+
+            .section p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+            }
+
+            .section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mensageria com RabbitMQ</h1>
+
+    <div class="content-container">
+        <!-- Seção Definição -->
+        <div class="section">
+            <h2>O que é RabbitMQ?</h2>
+            <p>O <span class="highlight">RabbitMQ</span> é um software de mensageria open source baseado no protocolo AMQP (Advanced Message Queuing Protocol). Ele permite a troca de mensagens assíncronas entre diferentes partes de uma aplicação, garantindo a comunicação eficaz e desacoplada entre sistemas.</p>
+            
+            <p>RabbitMQ é amplamente utilizado para enviar e receber mensagens de forma escalável e confiável, e é especialmente útil para arquiteturas distribuídas e sistemas que exigem alta disponibilidade e tolerância a falhas.</p>
+        </div>
+
+        <!-- Seção Funcionamento -->
+        <div class="section">
+            <h2>Como o RabbitMQ Funciona?</h2>
+            <p>O RabbitMQ funciona como um intermediário entre produtores e consumidores de mensagens. Aqui está o fluxo básico:</p>
+            <ul>
+                <li><strong>Produtores:</strong> Enviam mensagens para o RabbitMQ. Essas mensagens são armazenadas em filas (queues).</li>
+                <li><strong>Filas:</strong> O RabbitMQ organiza as mensagens em filas. Cada fila pode conter uma série de mensagens aguardando para serem processadas por consumidores.</li>
+                <li><strong>Consumidores:</strong> Processam as mensagens da fila. Cada consumidor lê e processa as mensagens de forma assíncrona.</li>
+            </ul>
+
+            <p>Além disso, o RabbitMQ permite que você defina regras para como as mensagens serão roteadas para as filas (por exemplo, usando tópicos ou chaves de roteamento).</p>
+        </div>
+
+        <!-- Seção Vantagens -->
+        <div class="section">
+            <h2>Vantagens do RabbitMQ</h2>
+            <ul>
+                <li><strong>Desacoplamento:</strong> Os sistemas produtores e consumidores não precisam conhecer os detalhes uns dos outros, o que facilita a manutenção e a escalabilidade do sistema.</li>
+                <li><strong>Escalabilidade:</strong> O RabbitMQ permite que você escale facilmente os produtores e consumidores de forma independente.</li>
+                <li><strong>Garantia de Entrega:</strong> O RabbitMQ garante a entrega das mensagens, mesmo que um consumidor esteja temporariamente offline.</li>
+                <li><strong>Alta Disponibilidade:</strong> O RabbitMQ oferece suporte a clusters e replicação de filas, o que garante alta disponibilidade e tolerância a falhas.</li>
+            </ul>
+        </div>
+
+        <!-- Seção Exemplo de Aplicação -->
+        <div class="section">
+            <h2>Exemplo de Aplicação com RabbitMQ</h2>
+            <p>Imagine que você tenha um sistema de e-commerce onde os pedidos de clientes precisam ser processados de forma assíncrona. Em vez de realizar todas as operações dentro do mesmo processo de requisição HTTP, você pode usar RabbitMQ para gerenciar o processamento dos pedidos:</p>
+            <ul>
+                <li>O produtor envia uma mensagem para a fila do RabbitMQ assim que o pedido é feito.</li>
+                <li>Vários consumidores (serviços independentes) podem pegar a mensagem e processá-la, por exemplo, para validar o pagamento, enviar e-mails de confirmação e atualizar o estoque.</li>
+                <li>O sistema continua funcionando sem bloqueios, pois o processamento é assíncrono e distribuído.</li>
+            </ul>
+            <div class="box">
+                <strong>Benefício:</strong> Isso melhora a performance e a escalabilidade do sistema, além de garantir que os processos possam ser realizados em paralelo.
+            </div>
+        </div>
+
+        <!-- Seção Como Implementar -->
+        <div class="section">
+            <h2>Como Implementar o RabbitMQ?</h2>
+            <p>Para integrar RabbitMQ em sua aplicação, você precisará seguir alguns passos simples:</p>
+            <ol>
+                <li><strong>Instalar o RabbitMQ:</strong> Primeiramente, você precisa instalar o RabbitMQ em seu servidor. Isso pode ser feito facilmente usando pacotes fornecidos pela documentação oficial.</li>
+                <li><strong>Configurar o RabbitMQ:</strong> Após a instalação, configure filas, exchanges e roteadores. Exchanges são responsáveis por rotear as mensagens para as filas apropriadas.</li>
+                <li><strong>Desenvolver o Produtor:</strong> No lado do produtor, você precisará escrever o código que envia mensagens para as filas.</li>
+                <li><strong>Desenvolver o Consumidor:</strong> No lado do consumidor, implemente o código que irá ler e processar as mensagens da fila de maneira assíncrona.</li>
+            </ol>
+
+            <p>RabbitMQ suporta várias linguagens de programação, como Java, Python, Ruby, Node.js, e mais, o que o torna altamente flexível.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

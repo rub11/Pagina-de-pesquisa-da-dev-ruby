@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Temas de Programação e Tecnologia</title>
+  <style>
+    /* Resetando margens e preenchimentos padrões */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 0;
+    }
+
+    h1 {
+      color: #ffd700;
+      text-align: center;
+      margin: 20px;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    .theme-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+      text-align: center;
+      max-width: 1200px;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .theme-item {
+      background-color: #222;
+      border: 2px solid #555;
+      padding: 20px;
+      border-radius: 12px;
+      transition: 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .theme-item:hover {
+      background-color: #444;
+    }
+
+    .theme-item h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #ffd700; /* Apenas o título em dourado */
+    }
+
+    .theme-item p {
+      font-size: 1.1em;
+      color: #bbb;
+    }
+
+    /* Responsividade */
+    @media (max-width: 1200px) {
+      .theme-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .theme-item {
+        padding: 15px;
+      }
+
+      .theme-item h2 {
+        font-size: 1.3em;
+      }
+
+      .theme-item p {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .theme-item {
+        padding: 12px;
+      }
+
+      .theme-item h2 {
+        font-size: 1.1em;
+      }
+
+      .theme-item p {
+        font-size: 0.95em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .theme-list {
+        padding: 0 10px;
+      }
+
+      .theme-item {
+        padding: 10px;
+      }
+
+      .theme-item h2 {
+        font-size: 1em;
+      }
+
+      .theme-item p {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Programação e Tecnologia</h1>
+  <div class="theme-list">
+    <a href="../testes/t1.html" class="theme-item">
+      <h2>Programação Orientada a Objetos</h2>
+      <p>Entenda os fundamentos dessa técnica de programação essencial para muitos sistemas modernos.</p>
+    </a>
+
+    <a href="../testes/t2.html" class="theme-item">
+      <h2>Machine Learning</h2>
+      <p>Explore os algoritmos que permitem que as máquinas aprendam a partir de dados.</p>
+    </a>
+
+    <a href="../testes/t3.html" class="theme-item">
+      <h2>Desenvolvimento Web</h2>
+      <p>Construa sites modernos e responsivos utilizando HTML, CSS, e JavaScript.</p>
+    </a>
+
+    <a href="../testes/t4.html" class="theme-item">
+      <h2>Desenvolvimento Mobile</h2>
+      <p>Crie aplicativos para iOS e Android com tecnologias como Flutter e React Native.</p>
+    </a>
+
+    <a href="../testes/t5.html" class="theme-item">
+      <h2>Blockchain</h2>
+      <p>Saiba como essa tecnologia está revolucionando setores como finanças e segurança.</p>
+    </a>
+
+    <a href="../testes/t6.html" class="theme-item">
+      <h2>DevOps</h2>
+      <p>Automatize e melhore os processos de desenvolvimento e operações.</p>
+    </a>
+
+    <a href="../testes/t7.html" class="theme-item">
+      <h2>APIs RESTful</h2>
+      <p>Aprenda a criar APIs escaláveis para a comunicação entre sistemas.</p>
+    </a>
+
+    <a href="../testes/t8.html" class="theme-item">
+      <h2>GraphQL</h2>
+      <p>Descubra como usar o GraphQL para obter dados de forma mais eficiente e flexível.</p>
+    </a>
+
+    <a href="../testes/t9.html" class="theme-item">
+      <h2>Integração Contínua</h2>
+      <p>Práticas e ferramentas para garantir que o software seja continuamente integrado e testado.</p>
+    </a>
+
+    <a href="../testes/t10.html" class="theme-item">
+      <h2>Internet das Coisas (IoT)</h2>
+      <p>Conecte dispositivos e sistemas para criar soluções inteligentes e automatizadas.</p>
+    </a>
+
+    <a href="../testes/t11.html" class="theme-item">
+      <h2>Inteligência Artificial</h2>
+      <p>Estude como os computadores podem imitar processos cognitivos humanos.</p>
+    </a>
+
+    <a href="../testes/t12.html" class="theme-item">
+      <h2>Deep Learning</h2>
+      <p>Entenda como redes neurais profundas são utilizadas em aplicações complexas de IA.</p>
+    </a>
+
+    <a href="../testes/t13.html" class="theme-item">
+      <h2>Segurança Cibernética</h2>
+      <p>Protéja sistemas e dados contra ameaças e ataques cibernéticos.</p>
+    </a>
+
+    <a href="../testes/t14.html" class="theme-item">
+      <h2>Cloud Computing</h2>
+      <p>Aprenda sobre as vantagens e os serviços oferecidos por plataformas de computação em nuvem.</p>
+    </a>
+
+    <a href="../testes/t15.html" class="theme-item">
+      <h2>Redes Neurais</h2>
+      <p>Explore como as redes neurais são usadas para processar grandes volumes de dados e resolver problemas complexos.</p>
+    </a>
+
+    <a href="../testes/t16.html" class="theme-item">
+      <h2>Big Data</h2>
+      <p>Entenda como coletar e processar grandes volumes de dados para extrair insights valiosos.</p>
+    </a>
+
+    <a href="../testes/t17.html" class="theme-item">
+      <h2>Quantum Computing</h2>
+      <p>Descubra como a computação quântica pode transformar áreas como criptografia e otimização.</p>
+    </a>
+
+    <a href="../testes/t18.html" class="theme-item">
+      <h2>Automação de Processos</h2>
+      <p>Use ferramentas de automação para otimizar e agilizar processos repetitivos e manuais.</p>
+    </a>
+
+    <a href="../testes/t19.html" class="theme-item">
+      <h2>Chatbots</h2>
+      <p>Aprenda a desenvolver chatbots inteligentes para atendimento ao cliente e automação.</p>
+    </a>
+
+    <a href="../testes/t20.html" class="theme-item">
+      <h2>Redes de Computadores</h2>
+      <p>Compreenda como os dispositivos se comunicam em uma rede e como gerenciar redes corporativas.</p>
+    </a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz: Programação Orientada a Objetos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .question-container {
+      margin: 20px 0;
+    }
+    .question {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    .answers {
+      list-style-type: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #222;
+      margin: 10px 0;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .correct {
+      background-color: #4CAF50;
+    }
+    .incorrect {
+      background-color: #F44336;
+    }
+    .hidden {
+      display: none;
+    }
+    #result {
+      font-size: 1.5em;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quiz: Programação Orientada a Objetos</h1>
+  <div id="quiz-container">
+    <div class="question-container" id="question-container">
+      <p class="question" id="question-text">O que é uma classe em Programação Orientada a Objetos?</p>
+      <ul class="answers" id="answer-list">
+        <li data-correct="false">a) Um tipo de objeto</li>
+        <li data-correct="true">b) Um molde para criar objetos</li>
+        <li data-correct="false">c) Um tipo de método</li>
+        <li data-correct="false">d) Uma instância de um objeto</li>
+        <li data-correct="false">e) Nenhuma das alternativas</li>
+      </ul>
+    </div>
+    <button class="hidden" id="next-button">Próxima Pergunta</button>
+    <div id="result" class="hidden"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        question: "O que é uma classe em Programação Orientada a Objetos?",
+        answers: [
+          { text: "a) Um tipo de objeto", correct: false },
+          { text: "b) Um molde para criar objetos", correct: true },
+          { text: "c) Um tipo de método", correct: false },
+          { text: "d) Uma instância de um objeto", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      },
+      {
+        question: "O que é um objeto em POO?",
+        answers: [
+          { text: "a) Uma instância de uma classe", correct: true },
+          { text: "b) Um tipo de variável", correct: false },
+          { text: "c) Uma função dentro da classe", correct: false },
+          { text: "d) A mesma coisa que uma classe", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      },
+      {
+        question: "O que é encapsulamento?",
+        answers: [
+          { text: "a) A prática de esconder a implementação de um objeto", correct: true },
+          { text: "b) A criação de novas classes", correct: false },
+          { text: "c) A herança de métodos", correct: false },
+          { text: "d) O uso de múltiplas classes", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      },
+      {
+        question: "O que é herança em POO?",
+        answers: [
+          { text: "a) Quando uma classe herda atributos e métodos de outra", correct: true },
+          { text: "b) O uso de funções para herdar valores", correct: false },
+          { text: "c) A criação de classes de forma independente", correct: false },
+          { text: "d) A prática de escrever código mais complexo", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      },
+      {
+        question: "O que é polimorfismo em POO?",
+        answers: [
+          { text: "a) A capacidade de objetos de diferentes classes serem tratados da mesma forma", correct: true },
+          { text: "b) A prática de criar funções em cada classe", correct: false },
+          { text: "c) A herança de atributos", correct: false },
+          { text: "d) A reutilização de código sem modificações", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      },
+      {
+        question: "O que é abstração em POO?",
+        answers: [
+          { text: "a) Ocultar a implementação e expor apenas o que é necessário", correct: true },
+          { text: "b) Criar classes com métodos complexos", correct: false },
+          { text: "c) Utilizar apenas métodos de uma classe", correct: false },
+          { text: "d) Manipular dados diretamente", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      },
+      {
+        question: "Quais são os principais conceitos da POO?",
+        answers: [
+          { text: "a) Classe, Objeto, Encapsulamento, Herança, Polimorfismo e Abstração", correct: true },
+          { text: "b) Só Classe e Objeto", correct: false },
+          { text: "c) Só Herança e Polimorfismo", correct: false },
+          { text: "d) Só Abstração e Encapsulamento", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      },
+      {
+        question: "Qual é a principal vantagem da POO?",
+        answers: [
+          { text: "a) Aumento de complexidade", correct: false },
+          { text: "b) Melhor reutilização de código", correct: true },
+          { text: "c) Criação de novos conceitos", correct: false },
+          { text: "d) Diminuição de performance", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      },
+      {
+        question: "Em POO, qual é o comportamento de um método?",
+        answers: [
+          { text: "a) Ele define como os dados são armazenados", correct: false },
+          { text: "b) Ele define os atributos de um objeto", correct: false },
+          { text: "c) Ele manipula os dados e comportamentos de um objeto", correct: true },
+          { text: "d) Ele apenas armazena dados", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      },
+      {
+        question: "Quando você usa herança, o que você está fazendo?",
+        answers: [
+          { text: "a) Criando uma nova instância de um objeto", correct: false },
+          { text: "b) Criando uma nova classe que herda atributos e métodos de outra", correct: true },
+          { text: "c) Criando funções dentro de uma classe", correct: false },
+          { text: "d) Acessando dados privados de uma classe", correct: false },
+          { text: "e) Nenhuma das alternativas", correct: false }
+        ]
+      }
+    ];
+
+    let currentQuestion = 0;
+    let correctAnswers = 0;
+
+    const questionText = document.getElementById("question-text");
+    const answerList = document.getElementById("answer-list");
+    const nextButton = document.getElementById("next-button");
+    const resultContainer = document.getElementById("result");
+
+    function loadQuestion() {
+      const question = questions[currentQuestion];
+      questionText.textContent = question.question;
+      answerList.innerHTML = "";
+
+      question.answers.forEach((answer, index) => {
+        const answerItem = document.createElement("li");
+        answerItem.textContent = answer.text;
+        answerItem.addEventListener("click", () => checkAnswer(answerItem, answer.correct));
+        answerList.appendChild(answerItem);
+      });
+
+      nextButton.classList.add("hidden");
+    }
+
+    function checkAnswer(answerItem, isCorrect) {
+      if (isCorrect) {
+        answerItem.classList.add("correct");
+        correctAnswers++;
+      } else {
+        answerItem.classList.add("incorrect");
+      }
+      nextButton.classList.remove("hidden");
+      const answerItems = answerList.querySelectorAll("li");
+      answerItems.forEach(item => item.removeEventListener("click", checkAnswer));
+    }
+
+    function showResults() {
+      const score = (correctAnswers / questions.length) * 100;
+      let message = "";
+
+      if (score >= 70) {
+        message = "Parabéns! Você acertou mais de 70%! 🎉";
+      } else {
+        message = "Não tem problema, continue estudando! A DevRub está aqui para ajudar você a melhorar. 💪";
+      }
+
+      resultContainer.textContent = `Você acertou ${correctAnswers} de ${questions.length} (${score.toFixed(2)}%). ${message}`;
+      resultContainer.classList.remove("hidden");
+    }
+
+    nextButton.addEventListener("click", () => {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        loadQuestion();
+        nextButton.classList.add("hidden");
+      } else {
+        showResults();
+      }
+    });
+
+    loadQuestion();
+  </script>
+</body>
+</html>

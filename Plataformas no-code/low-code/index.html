@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataformas No-Code/Low-Code</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1a1a1a;
+            color: #f5d76e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #262626;
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        h1, h2 {
+            color: #f5d76e;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 3em;
+            color: #f5d76e;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>Plataformas No-Code/Low-Code</h1>
+                <p>Plataformas No-Code/Low-Code permitem a criação de aplicações sem ou com pouca necessidade de codificação. Elas possibilitam que desenvolvedores e até mesmo não desenvolvedores criem soluções tecnológicas de forma rápida e eficiente.</p>
+            </div>
+            <div class="slide">
+                <h2>O que são Plataformas No-Code/Low-Code?</h2>
+                <p>Plataformas No-Code e Low-Code são ferramentas que facilitam a criação de aplicações sem a necessidade de escrever código manualmente, usando interfaces gráficas e fluxos de trabalho visuais.</p>
+            </div>
+            <div class="slide">
+                <h2>Diferença entre No-Code e Low-Code</h2>
+                <p><strong>No-Code:</strong> Permite criar aplicativos sem escrever uma única linha de código.</p>
+                <p><strong>Low-Code:</strong> Requer algumas linhas de código, mas permite criar aplicativos rapidamente com interfaces visuais.</p>
+            </div>
+            <div class="slide">
+                <h2>Vantagens das Plataformas No-Code/Low-Code</h2>
+                <ul>
+                    <li><strong>Rapidez no Desenvolvimento:</strong> Criação de aplicativos de forma ágil e eficiente.</li>
+                    <li><strong>Acessibilidade:</strong> Qualquer pessoa pode criar aplicativos, não é necessário ser programador.</li>
+                    <li><strong>Redução de Custos:</strong> Menor necessidade de equipes técnicas grandes.</li>
+                    <li><strong>Inovação:</strong> Permite prototipagem rápida e testes de novas ideias.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Exemplos de Plataformas</h2>
+                <ul>
+                    <li><strong>Bubble:</strong> Plataforma No-Code para a criação de web apps complexos.</li>
+                    <li><strong>OutSystems:</strong> Plataforma Low-Code focada em aplicativos empresariais.</li>
+                    <li><strong>Adalo:</strong> Plataforma No-Code focada em aplicativos móveis.</li>
+                    <li><strong>AppGyver:</strong> Plataforma Low-Code para criar aplicativos móveis e web.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Quando Usar?</h2>
+                <p>As plataformas No-Code/Low-Code são ideais para protótipos rápidos, desenvolvimento de aplicativos internos para empresas e soluções de baixo custo, além de facilitar a inovação sem grandes investimentos em recursos técnicos.</p>
+            </div>
+            <div class="slide">
+                <h2>Desafios e Limitações</h2>
+                <ul>
+                    <li><strong>Escalabilidade:</strong> Podem não ser ideais para aplicações muito complexas ou de grande escala.</li>
+                    <li><strong>Limitação de Customização:</strong> Embora flexíveis, podem ter limitações em personalizações avançadas.</li>
+                    <li><strong>Dependência da Plataforma:</strong> Ao usar ferramentas No-Code/Low-Code, você fica preso à plataforma escolhida.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>O Futuro das Plataformas No-Code/Low-Code</h2>
+                <p>As plataformas No-Code/Low-Code estão crescendo e evoluindo rapidamente. Com o avanço das tecnologias de inteligência artificial e automação, espera-se que essas plataformas se tornem ainda mais poderosas e capazes de atender a necessidades empresariais complexas.</p>
+            </div>
+            <div class="slide">
+                <h2>Conclusão</h2>
+                <p>Plataformas No-Code/Low-Code são uma revolução no desenvolvimento de aplicativos, permitindo que qualquer pessoa com uma ideia transforme-a em um produto funcional sem a necessidade de habilidades avançadas de programação. Elas estão mudando a forma como pensamos sobre o desenvolvimento de software.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+            <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Suporte ao toque
+        let startTouch = 0;
+
+        document.querySelector('.slider-container').addEventListener('touchstart', function(e) {
+            startTouch = e.touches[0].clientX;
+        });
+
+        document.querySelector('.slider-container').addEventListener('touchmove', function(e) {
+            if (startTouch - e.touches[0].clientX > 50) {
+                changeSlide(1);
+            } else if (e.touches[0].clientX - startTouch > 50) {
+                changeSlide(-1);
+            }
+        });
+    </script>
+
+</body>
+</html>

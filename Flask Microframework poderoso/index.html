@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask: Microframework Poderoso</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1a1a1a;
+            color: #f5d76e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #262626;
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        h1, h2 {
+            color: #f5d76e;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        pre {
+            background-color: #333;
+            color: #f5d76e;
+            padding: 20px;
+            border-radius: 5px;
+            overflow: auto;
+            max-width: 90%;
+            margin: 20px 0;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 3em;
+            color: #f5d76e;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>Flask: Microframework Poderoso</h1>
+                <p>Flask é um microframework para Python que permite a construção de aplicações web de forma simples e eficaz. Embora seja leve, ele oferece grande flexibilidade e a capacidade de ser expandido conforme a necessidade do projeto.</p>
+            </div>
+            <div class="slide">
+                <h2>O que é Flask?</h2>
+                <p>Flask é um microframework minimalista para a criação de aplicativos web com Python. Ele segue o princípio de ser simples e não impositivo, oferecendo apenas os recursos essenciais para desenvolver web apps, com a flexibilidade para adicionar as bibliotecas necessárias conforme o projeto cresce.</p>
+            </div>
+            <div class="slide">
+                <h2>Vantagens do Flask</h2>
+                <p>As principais vantagens de usar Flask incluem:</p>
+                <ul>
+                    <li>Leve e rápido, ideal para protótipos e pequenos projetos.</li>
+                    <li>Extremamente flexível e expansível.</li>
+                    <li>Completamente configurável conforme as necessidades do desenvolvedor.</li>
+                    <li>Facilidade de integração com outras bibliotecas e ferramentas.</li>
+                    <li>Comunidade ativa e vasta documentação.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Instalando Flask</h2>
+                <p>A instalação do Flask é simples, basta rodar o seguinte comando:</p>
+                <pre><code>pip install flask</code></pre>
+                <p>Uma vez instalado, você pode começar a criar seu primeiro aplicativo Flask com apenas algumas linhas de código.</p>
+            </div>
+            <div class="slide">
+                <h2>Criando o Primeiro App Flask</h2>
+                <p>Aqui está um exemplo básico de um aplicativo Flask:</p>
+                <pre><code>
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Olá, Flask!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+</code></pre>
+                <p>Esse código cria uma aplicação simples que exibe "Olá, Flask!" na página principal.</p>
+            </div>
+            <div class="slide">
+                <h2>Estrutura de um Projeto Flask</h2>
+                <p>A estrutura básica de um projeto Flask geralmente segue a seguinte organização:</p>
+                <ul>
+                    <li><code>app.py</code>: Arquivo principal que contém o código da aplicação.</li>
+                    <li><code>templates/</code>: Diretório onde ficam os arquivos HTML.</li>
+                    <li><code>static/</code>: Diretório para arquivos estáticos, como CSS, JS e imagens.</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Roteamento em Flask</h2>
+                <p>Em Flask, você define rotas usando o decorador <code>@app.route()</code>. Aqui está como criar uma rota para uma página "Sobre":</p>
+                <pre><code>
+@app.route('/sobre')
+def sobre():
+    return 'Sobre o Flask'
+</code></pre>
+                <p>Isso cria uma URL "localhost:5000/sobre" que retorna "Sobre o Flask".</p>
+            </div>
+            <div class="slide">
+                <h2>Renderizando Templates</h2>
+                <p>Flask integra facilmente com templates HTML usando Jinja2. Aqui está como renderizar um template HTML:</p>
+                <pre><code>
+from flask import render_template
+
+@app.route('/pagina')
+def pagina():
+    return render_template('pagina.html', nome='Flask')
+</code></pre>
+                <p>Dentro de "pagina.html", você pode usar variáveis passadas, como <code>{{ nome }}</code>.</p>
+            </div>
+            <div class="slide">
+                <h2>Formulários e Requisições</h2>
+                <p>Você pode lidar com formulários em Flask utilizando os métodos <code>GET</code> e <code>POST</code>. Aqui está um exemplo básico de envio de formulário:</p>
+                <pre><code>
+from flask import request
+
+@app.route('/form', methods=['GET', 'POST'])
+def form():
+    if request.method == 'POST':
+        nome = request.form['nome']
+        return f'Olá, {nome}!'
+    return render_template('form.html')
+</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Extensões do Flask</h2>
+                <p>Flask permite a utilização de extensões para adicionar funcionalidades como autenticação, banco de dados, upload de arquivos, entre outros. Alguns exemplos incluem:</p>
+                <ul>
+                    <li>Flask-SQLAlchemy (para integração com bancos de dados)</li>
+                    <li>Flask-Login (para autenticação de usuários)</li>
+                    <li>Flask-WTF (para formulários seguros)</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Testando Aplicações Flask</h2>
+                <p>Flask possui suporte nativo para testes utilizando o módulo <code>unittest</code>. Aqui está um exemplo de teste para uma rota:</p>
+                <pre><code>
+import unittest
+
+class TestApp(unittest.TestCase):
+    def test_home(self):
+        tester = app.test_client()
+        response = tester.get('/')
+        self.assertEqual(response.data, b'Olá, Flask!')
+</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Conclusão</h2>
+                <p>Flask é uma excelente escolha para projetos pequenos e médios, oferecendo flexibilidade e facilidade de uso. Com a adição de extensões, você pode criar sistemas complexos com simplicidade e eficiência.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+            <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Suporte ao toque
+        let startTouch = 0;
+
+        document.querySelector('.slider-container').addEventListener('touchstart', function(e) {
+            startTouch = e.touches[0].clientX;
+        });
+
+        document.querySelector('.slider-container').addEventListener('touchmove', function(e) {
+            if (startTouch - e.touches[0].clientX > 50) {
+                changeSlide(1);
+            } else if (e.touches[0].clientX - startTouch > 50) {
+                changeSlide(-1);
+            }
+        });
+    </script>
+
+</body>
+</html>

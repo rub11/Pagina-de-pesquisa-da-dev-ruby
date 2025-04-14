@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraping com BeautifulSoup</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1a1a1a;
+            color: #f5d76e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #262626;
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        h1, h2 {
+            color: #f5d76e;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        pre {
+            background-color: #333;
+            color: #f5d76e;
+            padding: 20px;
+            border-radius: 5px;
+            overflow: auto;
+            max-width: 90%;
+            margin: 20px 0;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 3em;
+            color: #f5d76e;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>Web Scraping com BeautifulSoup</h1>
+                <p>Web scraping é o processo de extrair informações de sites. BeautifulSoup é uma biblioteca Python poderosa que facilita o scraping de dados, permitindo navegar e buscar informações dentro do HTML de uma página de forma simples e eficiente.</p>
+            </div>
+            <div class="slide">
+                <h2>O que é Web Scraping?</h2>
+                <p>Web scraping é uma técnica usada para coletar informações de sites automaticamente. Essa prática é útil para pegar dados de páginas que não possuem APIs ou quando você precisa de grandes volumes de dados de forma rápida e sem a intervenção manual.</p>
+            </div>
+            <div class="slide">
+                <h2>O que é o BeautifulSoup?</h2>
+                <p>BeautifulSoup é uma biblioteca Python usada para analisar documentos HTML e XML. Ela cria uma árvore de análise (parse tree) que permite navegar pelos documentos e extrair dados de forma simples, como pesquisar por tags, atributos e textos.</p>
+            </div>
+            <div class="slide">
+                <h2>Instalação do BeautifulSoup</h2>
+                <p>A instalação do BeautifulSoup é fácil. Você pode instalá-lo com o pip:</p>
+                <pre><code>pip install beautifulsoup4</code></pre>
+                <p>Além disso, você precisará de um parser, como o lxml:</p>
+                <pre><code>pip install lxml</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Exemplo Básico de Scraping</h2>
+                <p>Aqui está um exemplo simples de como usar o BeautifulSoup para coletar dados de uma página:</p>
+                <pre><code>
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://www.exemplo.com'
+response = requests.get(url)
+
+soup = BeautifulSoup(response.text, 'lxml')
+
+# Extrair o título da página
+titulo = soup.title.string
+print('Título da Página:', titulo)
+</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Extração de Dados de Tabelas</h2>
+                <p>Você pode usar BeautifulSoup para extrair dados de tabelas HTML. Aqui está um exemplo:</p>
+                <pre><code>
+# Encontrar todas as tabelas
+tabelas = soup.find_all('table')
+
+for tabela in tabelas:
+    linhas = tabela.find_all('tr')
+    for linha in linhas:
+        colunas = linha.find_all('td')
+        for coluna in colunas:
+            print(coluna.text)
+</code></pre>
+            <p>Esse código encontra todas as tabelas da página e extrai as células de cada uma delas.</p>
+            </div>
+            <div class="slide">
+                <h2>Como Buscar Elementos</h2>
+                <p>O BeautifulSoup permite buscar elementos de várias maneiras. Você pode usar o <code>find()</code> para encontrar o primeiro elemento ou <code>find_all()</code> para encontrar todos:</p>
+                <pre><code>
+# Encontrar o primeiro link
+link = soup.find('a')
+print(link.get('href'))
+
+# Encontrar todos os links
+links = soup.find_all('a')
+for link in links:
+    print(link.get('href'))
+</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Filtrando Dados com Atributos</h2>
+                <p>Você pode filtrar elementos usando atributos específicos. Por exemplo:</p>
+                <pre><code>
+# Encontrar todas as imagens com a classe 'produto'
+imagens = soup.find_all('img', class_='produto')
+for imagem in imagens:
+    print(imagem.get('src'))
+</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Usando Expressões Regulares</h2>
+                <p>O BeautifulSoup também suporta expressões regulares para buscar elementos mais flexíveis. Aqui está um exemplo:</p>
+                <pre><code>
+import re
+
+# Encontrar links com URLs que contenham 'produto'
+links = soup.find_all('a', href=re.compile('produto'))
+for link in links:
+    print(link.get('href'))
+</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Armazenando os Dados Coletados</h2>
+                <p>Uma vez coletados os dados, você pode armazená-los em arquivos CSV, Excel ou até mesmo em um banco de dados. Aqui está um exemplo simples para salvar dados em um arquivo CSV:</p>
+                <pre><code>
+import csv
+
+# Dados de exemplo
+dados = [['Nome', 'Preço'], ['Produto 1', 'R$10'], ['Produto 2', 'R$20']]
+
+# Salvar em um arquivo CSV
+with open('produtos.csv', 'w', newline='') as arquivo:
+    writer = csv.writer(arquivo)
+    writer.writerows(dados)
+</code></pre>
+            </div>
+            <div class="slide">
+                <h2>Considerações Legais</h2>
+                <p>Antes de realizar scraping, é importante verificar as leis de privacidade e os termos de serviço do site, pois alguns sites podem proibir scraping ou ter restrições em seus robots.txt.</p>
+            </div>
+            <div class="slide">
+                <h2>Conclusão</h2>
+                <p>O BeautifulSoup é uma ferramenta poderosa para realizar web scraping. Ele oferece flexibilidade e facilidade de uso, permitindo a coleta de dados de maneira eficiente. No entanto, lembre-se sempre de verificar a legalidade do scraping em determinados sites.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+            <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Suporte ao toque
+        let startTouch = 0;
+
+        document.querySelector('.slider-container').addEventListener('touchstart', function(e) {
+            startTouch = e.touches[0].clientX;
+        });
+
+        document.querySelector('.slider-container').addEventListener('touchmove', function(e) {
+            if (startTouch - e.touches[0].clientX > 50) {
+                changeSlide(1);
+            } else if (e.touches[0].clientX - startTouch > 50) {
+                changeSlide(-1);
+            }
+        });
+    </script>
+
+</body>
+</html>

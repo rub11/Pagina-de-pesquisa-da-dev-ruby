@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frameworks CSS: Tailwind vs Bootstrap</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0c0c0c;
+      color: #eaeaea;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      background-color: #141414;
+      text-align: center;
+      padding: 60px 20px 40px;
+      box-shadow: 0 0 20px rgba(255, 200, 100, 0.08);
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #f0b93a;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #bbb;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 16px rgba(255, 200, 100, 0.05);
+    }
+
+    h2 {
+      color: #f0b947;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    code {
+      background-color: #2d2d2d;
+      color: #ffd700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      background-color: #111;
+      color: #999;
+      padding: 30px 20px;
+      border-top: 1px solid #222;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Frameworks CSS</h1>
+    <p>Comparando Tailwind CSS e Bootstrap</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que são Frameworks CSS?</h2>
+      <p>Frameworks CSS são bibliotecas que facilitam o desenvolvimento de interfaces web responsivas, otimizadas e visualmente padronizadas. Eles economizam tempo, padronizam layouts e oferecem soluções prontas para estilização e componentes.</p>
+    </section>
+
+    <section>
+      <h2>Bootstrap</h2>
+      <p><strong>Bootstrap</strong> é um dos frameworks mais populares do mundo, criado pelo Twitter. Ele fornece uma vasta gama de componentes prontos como botões, cards, grids e formulários, além de classes utilitárias para responsividade.</p>
+
+      <ul>
+        <li>📦 <strong>Componentes prontos:</strong> Navbar, modals, carrosséis, etc.</li>
+        <li>📐 <strong>Sistema de Grid:</strong> baseado em 12 colunas com flexbox.</li>
+        <li>🎨 <strong>Design consistente:</strong> visual limpo e moderno.</li>
+        <li>🧩 <strong>Customização:</strong> pode ser feita via Sass ou classes utilitárias.</li>
+      </ul>
+
+      <p>Exemplo de botão:</p>
+      <code>&lt;button class="btn btn-primary"&gt;Clique aqui&lt;/button&gt;</code>
+    </section>
+
+    <section>
+      <h2>Tailwind CSS</h2>
+      <p><strong>Tailwind CSS</strong> é um framework utilitário, onde você compõe sua interface usando classes que aplicam estilos diretamente no HTML, sem componentes prontos, promovendo mais controle e customização visual.</p>
+
+      <ul>
+        <li>⚙️ <strong>Controle granular:</strong> você decide cada aspecto do estilo.</li>
+        <li>💨 <strong>Classes utilitárias:</strong> como <code>bg-gray-800</code>, <code>text-white</code>, <code>p-4</code>.</li>
+        <li>🚀 <strong>Performance:</strong> remove CSS não utilizado (purge).</li>
+        <li>🎯 <strong>Customização total:</strong> temas, plugins e breakpoints flexíveis.</li>
+      </ul>
+
+      <p>Exemplo de botão:</p>
+      <code>&lt;button class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-4 rounded"&gt;Clique aqui&lt;/button&gt;</code>
+    </section>
+
+    <section>
+      <h2>Tailwind ou Bootstrap: qual usar?</h2>
+      <p>A escolha depende do seu projeto e do estilo desejado:</p>
+      <ul>
+        <li><strong>Use Bootstrap</strong> se você quer produtividade com componentes prontos e menor curva de aprendizado.</li>
+        <li><strong>Use Tailwind</strong> se deseja controle total de design, performance e consistência visual personalizada.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p>Ambos são poderosos e têm comunidades sólidas. O ideal é entender o objetivo do seu projeto e escolher o que melhor se encaixa na sua stack e workflow de desenvolvimento.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>

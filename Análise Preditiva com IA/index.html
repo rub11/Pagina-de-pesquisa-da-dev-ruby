@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Análise Preditiva com IA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #d4af37;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      width: 100vw;
+      height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    .slide {
+      scroll-snap-align: center;
+      flex: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: #ffd700;
+    }
+
+    p {
+      font-size: 1.4em;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-option {
+      background-color: #222;
+      color: #fff;
+      border: 2px solid #d4af37;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .quiz-option:hover {
+      background-color: #d4af37;
+      color: #111;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      font-size: 2em;
+      color: #d4af37;
+      cursor: pointer;
+      z-index: 1;
+      user-select: none;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      p {
+        font-size: 1.1em;
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="arrow arrow-left" onclick="prevSlide()">&#10094;</div>
+  <div class="arrow arrow-right" onclick="nextSlide()">&#10095;</div>
+
+  <div class="slider" id="slider">
+    <!-- Slide 1 -->
+    <div class="slide">
+      <h1>Análise Preditiva com IA</h1>
+      <p>A Análise Preditiva com Inteligência Artificial utiliza algoritmos e modelos estatísticos para prever resultados futuros com base em dados históricos. Essa técnica é amplamente usada em diversos setores, como finanças, saúde, marketing e até mesmo em esportes.</p>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+      <h2>Como Funciona a Análise Preditiva?</h2>
+      <p>Essa técnica envolve a coleta de grandes volumes de dados, que são analisados com algoritmos de aprendizado de máquina para identificar padrões e prever futuros comportamentos ou tendências. Modelos como regressão, redes neurais e árvores de decisão são comumente utilizados nesse processo.</p>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+      <h2>Principais Aplicações da Análise Preditiva</h2>
+      <p>A Análise Preditiva é utilizada para prever tendências de mercado, comportamento de clientes, falhas em máquinas, e até o risco de doenças. Na área de negócios, ela ajuda a tomar decisões informadas, antecipando o que pode acontecer no futuro com base em dados atuais e passados.</p>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+      <h2>Modelos de Previsão Comuns</h2>
+      <p>Alguns dos modelos mais comuns usados na Análise Preditiva incluem:</p>
+      <ul>
+        <li>Regressão Linear e Logística</li>
+        <li>Árvores de Decisão</li>
+        <li>Redes Neurais Artificiais</li>
+        <li>Máquinas de Vetores de Suporte (SVM)</li>
+      </ul>
+    </div>
+
+    <!-- Slide 5: Quiz -->
+    <div class="slide">
+      <h2>Quiz: O que você aprendeu?</h2>
+      <p><strong>1. O que é a Análise Preditiva com IA?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">É a técnica de prever resultados futuros com base em dados históricos.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É a técnica de coletar dados para análise estatística.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">É a técnica de análise de dados passados sem prever o futuro.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>2. Quais áreas podem se beneficiar da Análise Preditiva?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Finanças, saúde, marketing, esportes, etc.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Apenas finanças e saúde.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Apenas no setor de tecnologia.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>3. Quais modelos são utilizados na Análise Preditiva?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Regressão, redes neurais, árvores de decisão.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Cálculo integral e diferencial.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Algoritmos genéticos e de busca.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>4. Qual é a principal função dos algoritmos na Análise Preditiva?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Identificar padrões em grandes volumes de dados.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Armazenar dados de forma eficiente.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Classificar dados de maneira simples.</div>
+    </div>
+
+    <div class="slide">
+      <p><strong>5. O que as redes neurais ajudam a prever na Análise Preditiva?</strong></p>
+      <div class="quiz-option" onclick="checkAnswer(this, true)">Comportamentos e tendências complexas.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Somente resultados numéricos simples.</div>
+      <div class="quiz-option" onclick="checkAnswer(this, false)">Relações entre dados estáticos e sem interação.</div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="slide">
+      <h2>Resultado</h2>
+      <p id="resultText">Você acertou X de 5 perguntas!</p>
+    </div>
+  </div>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = slider.children;
+    let currentSlide = 0;
+    let score = 0;
+    let answered = 0;
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }
+    }
+
+    function checkAnswer(el, isCorrect) {
+      if (el.classList.contains("disabled")) return;
+
+      answered++;
+      el.classList.add("disabled");
+      if (isCorrect) {
+        score++;
+        el.style.backgroundColor = "#28a745";
+      } else {
+        el.style.backgroundColor = "#dc3545";
+      }
+
+      setTimeout(() => {
+        if (answered >= 5) {
+          document.getElementById("resultText").innerText = `Você acertou ${score} de 5 perguntas!`;
+          currentSlide = slides.length - 1;
+        } else {
+          currentSlide++;
+        }
+        slider.scrollTo({ left: slides[currentSlide].offsetLeft, behavior: 'smooth' });
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

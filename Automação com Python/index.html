@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automação com Python</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #f2f2f2;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid #ffa50022;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ff9900;
+      margin-bottom: 0.5rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #ffd700;
+      border-bottom: 2px solid #444;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #e0e0e0;
+      text-align: justify;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    pre {
+      background-color: #1f1f1f;
+      color: #fff;
+      padding: 1rem;
+      border-left: 4px solid #ff8c00;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      border-top: 1px solid #2a2a2a;
+    }
+
+    footer strong {
+      color: #ff8c00;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Automação com Python</h1>
+</header>
+
+<main>
+
+  <section>
+    <h2>1. O que é Automação com Python?</h2>
+    <p>
+      Automação com Python é o processo de utilizar scripts Python para executar tarefas repetitivas, complexas ou demoradas de forma automática. Isso pode incluir atividades como mover arquivos, preencher planilhas, fazer scraping de dados de sites, interagir com APIs, automatizar tarefas no navegador, enviar e-mails automáticos e muito mais. Python é ideal para automação por sua sintaxe clara, grande biblioteca padrão e centenas de pacotes externos que facilitam essas integrações.
+    </p>
+  </section>
+
+  <section>
+    <h2>2. Exemplos Práticos de Automação com Python</h2>
+
+    <h3>2.1. Renomear Arquivos em Massa</h3>
+    <p>
+      Imagine que você tem centenas de arquivos em uma pasta e deseja renomeá-los automaticamente.
+    </p>
+    <pre><code>import os
+
+folder = "caminho/para/a/pasta"
+for count, filename in enumerate(os.listdir(folder)):
+    new_name = f"arquivo_{count}.txt"
+    os.rename(os.path.join(folder, filename), os.path.join(folder, new_name))</code></pre>
+
+    <h3>2.2. Preencher uma Planilha Excel Automaticamente</h3>
+    <p>
+      Com a biblioteca <code>openpyxl</code>, é possível criar e manipular planilhas Excel.
+    </p>
+    <pre><code>from openpyxl import Workbook
+
+wb = Workbook()
+ws = wb.active
+
+# Inserindo dados
+ws['A1'] = "Nome"
+ws['B1'] = "Idade"
+ws.append(["Alice", 30])
+ws.append(["Bob", 25])
+
+wb.save("dados.xlsx")</code></pre>
+
+    <h3>2.3. Automatizar o Envio de E-mails</h3>
+    <p>
+      Python permite enviar e-mails programaticamente com a biblioteca <code>smtplib</code>.
+    </p>
+    <pre><code>import smtplib
+from email.message import EmailMessage
+
+msg = EmailMessage()
+msg.set_content("Olá, isso é um e-mail enviado automaticamente.")
+msg['Subject'] = "Automação com Python"
+msg['From'] = "seuemail@exemplo.com"
+msg['To'] = "destinatario@exemplo.com"
+
+with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+    smtp.login("seuemail@exemplo.com", "sua_senha")
+    smtp.send_message(msg)</code></pre>
+
+    <h3>2.4. Web Scraping com BeautifulSoup</h3>
+    <p>
+      Capturar informações de um site para análise ou relatórios automatizados.
+    </p>
+    <pre><code>import requests
+from bs4 import BeautifulSoup
+
+url = "https://quotes.toscrape.com"
+res = requests.get(url)
+soup = BeautifulSoup(res.text, 'html.parser')
+
+for quote in soup.select(".quote"):
+    texto = quote.select_one(".text").get_text()
+    autor = quote.select_one(".author").get_text()
+    print(f"{texto} - {autor}")</code></pre>
+  </section>
+
+  <section>
+    <h2>3. Conclusão</h2>
+    <p>
+      A automação com Python é uma habilidade extremamente valiosa e cada vez mais requisitada. Com ela, é possível economizar tempo, aumentar a produtividade, reduzir erros e criar soluções eficientes para problemas do dia a dia. Desde tarefas simples até integrações corporativas complexas, o Python se destaca por sua flexibilidade, legibilidade e comunidade vibrante. Se você deseja dominar a automação, começar com esses exemplos é um ótimo primeiro passo.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  Conteúdo criado por <strong>DEV RUBY</strong>.
+</footer>
+
+</body>
+</html>

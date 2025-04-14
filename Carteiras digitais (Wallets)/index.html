@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carteiras Digitais (Wallets)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #0a0a0a;
+      color: #e6c87b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.6em;
+      color: #ffd700;
+      margin-bottom: 30px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 960px;
+      width: 95%;
+      background-color: #1a1a1a;
+      padding: 35px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlide 0.6s ease-in-out;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {opacity: 0; transform: translateX(40px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .controls button {
+      background-color: #2e2e2e;
+      color: #ffda6b;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .controls button:hover {
+      background-color: #444;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7em;
+    }
+
+    strong {
+      color: #ffdd55;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .controls button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💼 Carteiras Digitais (Wallets)</h1>
+
+  <div class="slider-container">
+
+    <div class="slide active">
+      <p>📱 <strong>O que são carteiras digitais?</strong></p>
+      <p>São aplicativos ou dispositivos que armazenam, enviam e recebem ativos digitais como criptomoedas com segurança e praticidade.</p>
+    </div>
+
+    <div class="slide">
+      <p>🔐 <strong>Como funcionam?</strong></p>
+      <p>Elas armazenam suas <strong>chaves privadas</strong>, permitindo a assinatura de transações e o controle sobre seus ativos.</p>
+    </div>
+
+    <div class="slide">
+      <p>🏦 <strong>Tipos principais</strong></p>
+      <ul>
+        <li>📲 <strong>Hot Wallets:</strong> conectadas à internet, mais práticas e vulneráveis.</li>
+        <li>🧊 <strong>Cold Wallets:</strong> offline, como hardware wallets, mais seguras para grandes quantias.</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>⚖️ <strong>Vantagens e desvantagens</strong></p>
+      <ul>
+        <li>✅ Agilidade nas transações</li>
+        <li>✅ Controle direto dos seus fundos</li>
+        <li>⚠️ Responsabilidade total pela segurança</li>
+        <li>⚠️ Risco de perda de acesso sem backup</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🔎 <strong>Critérios para escolher uma wallet</strong></p>
+      <ul>
+        <li>🛡️ Segurança e reputação</li>
+        <li>📱 Facilidade de uso e interface</li>
+        <li>🔄 Compatibilidade com criptos desejadas</li>
+        <li>📁 Opções de backup e recuperação</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>📈 <strong>Carteiras populares</strong></p>
+      <ul>
+        <li>MetaMask (Ethereum e tokens ERC-20)</li>
+        <li>Trust Wallet (multiativos)</li>
+        <li>Ledger & Trezor (hardware wallets)</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🔄 <strong>Importância do backup</strong></p>
+      <p>Anote e armazene com segurança sua <strong>seed phrase</strong> (palavras de recuperação). Sem ela, perder o acesso significa perda total dos fundos.</p>
+    </div>
+
+    <div class="slide">
+      <p>🧠 <strong>Boas práticas de uso</strong></p>
+      <ul>
+        <li>Não compartilhe suas chaves privadas</li>
+        <li>Evite redes Wi-Fi públicas</li>
+        <li>Mantenha software e firmware atualizados</li>
+        <li>Use autenticação em duas etapas</li>
+      </ul>
+    </div>
+
+    <div class="slide">
+      <p>🌐 <strong>Wallets e Web 3.0</strong></p>
+      <p>Carteiras digitais serão essenciais na Web 3.0, atuando como identidade digital para interações seguras em ambientes descentralizados.</p>
+    </div>
+
+    <div class="slide">
+      <p>🚀 <strong>O futuro das wallets</strong></p>
+      <p>Integração com biometria, autenticação descentralizada, smart contracts e NFTs transformarão carteiras em verdadeiros cofres digitais inteligentes.</p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevSlide()">⬅️ Anterior</button>
+      <button onclick="nextSlide()">Próximo ➡️</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) {
+          slide.classList.add("active");
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+
+</body>
+</html>

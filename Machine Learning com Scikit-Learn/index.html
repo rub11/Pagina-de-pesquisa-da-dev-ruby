@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning com Scikit-Learn</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #1a1a1a;
+            color: #f5d76e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #262626;
+            box-shadow: inset 0 0 60px rgba(255, 215, 0, 0.05);
+        }
+
+        h1, h2 {
+            color: #f5d76e;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        pre {
+            background-color: #333;
+            color: #f5d76e;
+            padding: 20px;
+            border-radius: 5px;
+            overflow: auto;
+            max-width: 90%;
+            margin: 20px 0;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            font-size: 3em;
+            color: #f5d76e;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <div class="slide">
+                <h1>Machine Learning com Scikit-Learn</h1>
+                <p>O Scikit-Learn é uma das bibliotecas mais populares para aprendizado de máquina em Python, oferecendo uma ampla gama de ferramentas para análise de dados, modelagem preditiva e avaliação de modelos.</p>
+            </div>
+            <div class="slide">
+                <h2>O que é o Scikit-Learn?</h2>
+                <p>Scikit-Learn é uma biblioteca de aprendizado de máquina que fornece ferramentas simples e eficientes para análise de dados, sendo ideal para iniciantes e especialistas. Ela oferece algoritmos para classificação, regressão, clustering, e muito mais.</p>
+            </div>
+            <div class="slide">
+                <h2>Instalando o Scikit-Learn</h2>
+                <p>Para começar a usar o Scikit-Learn, basta instalar a biblioteca com o pip:</p>
+                <pre><code>
+pip install scikit-learn
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Importando Bibliotecas</h2>
+                <p>Para começar, você precisa importar o Scikit-Learn e outras bibliotecas úteis como o NumPy e o Pandas:</p>
+                <pre><code>
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Exemplo de Classificação com RandomForest</h2>
+                <p>Vamos treinar um modelo de classificação usando o algoritmo RandomForest:</p>
+                <pre><code>
+# Carregar dados (exemplo)
+data = pd.read_csv('dados.csv')
+
+# Separar em variáveis independentes e dependentes
+X = data.drop('target', axis=1)
+y = data['target']
+
+# Dividir em treino e teste
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+# Criar e treinar o modelo
+model = RandomForestClassifier()
+model.fit(X_train, y_train)
+
+# Prever e avaliar
+predictions = model.predict(X_test)
+print("Acurácia:", model.score(X_test, y_test))
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Regressão com Scikit-Learn</h2>
+                <p>O Scikit-Learn também permite realizar tarefas de regressão. Veja um exemplo usando o modelo de regressão linear:</p>
+                <pre><code>
+from sklearn.linear_model import LinearRegression
+
+# Criar o modelo de regressão
+regressor = LinearRegression()
+
+# Treinar o modelo
+regressor.fit(X_train, y_train)
+
+# Fazer previsões
+y_pred = regressor.predict(X_test)
+print("Acurácia:", regressor.score(X_test, y_test))
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Clustering com K-Means</h2>
+                <p>O K-Means é um algoritmo popular para clustering. Veja como aplicá-lo:</p>
+                <pre><code>
+from sklearn.cluster import KMeans
+
+# Criar o modelo de clustering
+kmeans = KMeans(n_clusters=3)
+
+# Ajustar o modelo aos dados
+kmeans.fit(X)
+
+# Ver os centros dos clusters
+print(kmeans.cluster_centers_)
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Avaliação de Modelos</h2>
+                <p>A avaliação de modelos é essencial para medir a performance de seu modelo de aprendizado de máquina. O Scikit-Learn fornece diversas métricas como Acurácia, Precisão, Recall, etc.</p>
+                <pre><code>
+from sklearn.metrics import accuracy_score, confusion_matrix
+
+# Acurácia
+accuracy = accuracy_score(y_test, predictions)
+print("Acurácia:", accuracy)
+
+# Matriz de Confusão
+conf_matrix = confusion_matrix(y_test, predictions)
+print("Matriz de Confusão:\n", conf_matrix)
+                </code></pre>
+            </div>
+            <div class="slide">
+                <h2>Considerações Finais</h2>
+                <p>Scikit-Learn oferece uma plataforma robusta para machine learning em Python. Com ela, você pode treinar modelos, avaliá-los e realizar predições de maneira simples e eficaz.</p>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="changeSlide(-1)">&#8592;</button>
+            <button class="nav-btn" onclick="changeSlide(1)">&#8594;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slider = document.getElementById('slider');
+        const totalSlides = slider.children.length;
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Suporte ao toque
+        let startTouch = 0;
+
+        document.querySelector('.slider-container').addEventListener('touchstart', function(e) {
+            startTouch = e.touches[0].clientX;
+        });
+
+        document.querySelector('.slider-container').addEventListener('touchmove', function(e) {
+            if (startTouch - e.touches[0].clientX > 50) {
+                changeSlide(1);
+            } else if (e.touches[0].clientX - startTouch > 50) {
+                changeSlide(-1);
+            }
+        });
+    </script>
+
+</body>
+</html>

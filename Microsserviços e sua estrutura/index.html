@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsserviços e Sua Estrutura</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff6600;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #1c1c1c;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            transition: all 0.3s ease;
+            color: #fff;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            background-color: #333;
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 1.5em;
+            color: #ff6600;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 1em;
+            color: #ccc;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .card {
+                height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .cards-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Microsserviços e Sua Estrutura</h1>
+
+    <div class="cards-container">
+        <div class="card">
+            <h3>O que são Microsserviços?</h3>
+            <p>Microsserviços são uma arquitetura onde um sistema é dividido em serviços modulares e independentes, interagindo via APIs.</p>
+        </div>
+        <div class="card">
+            <h3>Escalabilidade</h3>
+            <p>Microsserviços permitem escalabilidade independente, onde apenas os serviços sobrecarregados são escalados.</p>
+        </div>
+        <div class="card">
+            <h3>Desenvolvimento Independente</h3>
+            <p>Cada microsserviço pode ser desenvolvido, testado e implantado independentemente, promovendo a agilidade.</p>
+        </div>
+        <div class="card">
+            <h3>Tecnologia Heterogênea</h3>
+            <p>Microsserviços podem ser desenvolvidos com diferentes linguagens ou plataformas, conforme a necessidade de cada serviço.</p>
+        </div>
+        <div class="card">
+            <h3>Resiliência</h3>
+            <p>A falha de um microsserviço não compromete o sistema como um todo, garantindo maior resiliência.</p>
+        </div>
+        <div class="card">
+            <h3>Manutenção Facilitada</h3>
+            <p>Com a modularização, as atualizações e manutenções podem ser feitas sem impacto em outros serviços.</p>
+        </div>
+        <div class="card">
+            <h3>Exemplo: E-commerce</h3>
+            <p>Em um sistema de e-commerce, os microsserviços podem ser separados por funções como pagamento, inventário, etc.</p>
+        </div>
+        <div class="card">
+            <h3>Exemplo: Streaming</h3>
+            <p>Serviços como Netflix podem dividir funcionalidades como recomendação de filmes e streaming de vídeos em microsserviços independentes.</p>
+        </div>
+        <div class="card">
+            <h3>Comunicação via APIs</h3>
+            <p>Microsserviços se comunicam entre si por meio de APIs bem definidas, usando REST, gRPC ou outros protocolos.</p>
+        </div>
+        <div class="card">
+            <h3>Banco de Dados Independente</h3>
+            <p>Cada microsserviço tem seu próprio banco de dados, evitando a dependência de um único banco centralizado.</p>
+        </div>
+        <div class="card">
+            <h3>Desdobramento Independente</h3>
+            <p>Cada microsserviço pode ser desdobrado independentemente, geralmente usando ferramentas como Kubernetes.</p>
+        </div>
+        <div class="card">
+            <h3>Benefícios</h3>
+            <p>Escalabilidade, facilidade de manutenção, e resiliência são algumas das vantagens dos microsserviços.</p>
+        </div>
+        <div class="card">
+            <h3>Desafios</h3>
+            <p>Embora poderosos, os microsserviços exigem boas práticas de orquestração e gestão de comunicação.</p>
+        </div>
+    </div>
+
+</body>
+</html>

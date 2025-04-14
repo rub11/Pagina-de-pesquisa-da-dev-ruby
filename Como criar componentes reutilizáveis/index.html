@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SASS e Pré-processadores</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0e0e0e;
+      color: #e4e4e4;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      background-color: #151515;
+      padding: 60px 20px 40px;
+      box-shadow: 0 0 25px rgba(255, 180, 80, 0.08);
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #f0b93a;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1000px;
+      padding: 40px 20px;
+    }
+
+    section {
+      background-color: #1a1a1a;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 16px rgba(255, 180, 80, 0.05);
+    }
+
+    h2 {
+      color: #f0b947;
+      font-size: 1.6em;
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      line-height: 1.7;
+      color: #ccc;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    code {
+      background-color: #2b2b2b;
+      color: #ffd700;
+      padding: 6px 10px;
+      border-radius: 6px;
+      display: block;
+      margin: 12px 0;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      background-color: #111;
+      color: #999;
+      padding: 30px 20px;
+      border-top: 1px solid #222;
+    }
+
+    footer span {
+      color: #d4af37;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>SASS e Pré-processadores</h1>
+    <p>Estilização avançada e produtiva com poder e elegância</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é SASS?</h2>
+      <p><strong>SASS</strong> (Syntactically Awesome Stylesheets) é um pré-processador CSS que adiciona recursos como variáveis, mixins, funções, herança e aninhamento, tornando o desenvolvimento de estilos muito mais eficiente e organizado.</p>
+    </section>
+
+    <section>
+      <h2>Por que usar um Pré-processador?</h2>
+      <ul>
+        <li>✅ Organização com arquivos modulares.</li>
+        <li>🎯 Reutilização de código com <strong>mixins</strong> e <strong>funções</strong>.</li>
+        <li>🎨 Uso de <strong>variáveis</strong> para cores, espaçamentos e fontes.</li>
+        <li>📐 Estrutura hierárquica com <strong>aninhamento</strong> de seletores.</li>
+        <li>⚙️ Automatização com ferramentas como <code>vite</code>, <code>webpack</code> ou <code>gulp</code>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Exemplo de SASS</h2>
+      <code>
+{`$cor-primaria: #f0b93a;
+
+.container {
+  background: #121212;
+  padding: 20px;
+
+  h1 {
+    color: $cor-primaria;
+    font-size: 2.5em;
+  }
+
+  button {
+    background-color: $cor-primaria;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+
+    &:hover {
+      background-color: darken($cor-primaria, 10%);
+    }
+  }
+}`}
+      </code>
+    </section>
+
+    <section>
+      <h2>Como compilar o SASS</h2>
+      <p>Você pode compilar SASS com o comando:</p>
+      <code>sass estilos.scss estilos.css</code>
+      <p>Ou assistir alterações em tempo real com:</p>
+      <code>sass --watch estilos.scss:estilos.css</code>
+    </section>
+
+    <section>
+      <h2>Conclusão</h2>
+      <p><strong>SASS</strong> e outros pré-processadores como <em>LESS</em> ou <em>Stylus</em> tornam o CSS muito mais poderoso, facilitando o desenvolvimento de grandes projetos com padrões de organização, modularidade e reutilização de estilos.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Conteúdo criado por <span>DEV RUBY</span> • Todos os direitos reservados</p>
+  </footer>
+
+</body>
+</html>
