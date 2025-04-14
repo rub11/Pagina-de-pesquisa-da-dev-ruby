@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal de Conhecimento Geral</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f0f0f;
+      --bg-card: #1c1c1c;
+      --primary: #ff8800;
+      --primary-hover: #e67600;
+      --text: #ffffff;
+      --muted: #aaaaaa;
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .logo:hover {
+      text-decoration: underline;
+    }
+
+    .search-bar {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .content-bar {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      background: #2a2a2a;
+      transform: translateY(-5px);
+    }
+
+    .card a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+
+    .testeaquilink{
+      color: red;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      Portal de Pesquisa da DEV RUBY
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Digite o nome do conteúdo que deseja encontrar...">
+    </div>
+  </header>
+  
+  
+  <div class="content-bar"><a class="testeaquilink" href="teste seu conhecimento aqui/index.html">CLIQUE AQUI E Teste seus conhecimentos conosco</a></div>
+ 
+  <br> <br> <br>
+
+  <div class="content-bar">Conteúdos Disponíveis</div>
+
+  <div class="cards">
+    <!-- Aqui vão os 250 tópicos -->
+    <!-- Exemplo de 10 para visualização, substitua pelos 250 -->
+    <div class="card"><a href="Estudo Eficiente/index.html">Estudo Eficiente</a></div>
+    <div class="card"><a href="Rotina de um Dev/index.html">Rotina de um Dev</a></div>
+    <div class="card"><a href="Como iniciar na programação/index.html">Como iniciar na programação</a></div>
+    
+    <div class="card"><a href="História dos Sistemas Operacionais/index.html">História dos Sistemas Operacionais</a></div>
+    <div class="card"><a href="Como funciona a Memória RAM/index.html">Como funciona a Memória RAM</a></div>
+    <div class="card"><a href="Processadores e Arquiteturas/index.html">Processadores e Arquiteturas</a></div>
+    <div class="card"><a href="Virtualização e Máquinas Virtuais/index.html">Virtualização e Máquinas Virtuais</a></div>
+    <div class="card"><a href="História da Microsoft/index.html">História da Microsoft</a></div>
+    <div class="card"><a href="História da Apple/index.html">História da Apple</a></div>
+    <div class="card"><a href="Como funcionam as Redes de Computadores/index.html">Como funcionam as Redes de Computadores</a></div>
+    <div class="card"><a href="O que é IPv4 e IPv6/index.html">O que é IPv4 e IPv6</a></div>
+    <div class="card"><a href="Tipos de Protocolo na Internet/index.html">Tipos de Protocolo na Internet</a></div>
+    <div class="card"><a href="O que é DNS/index.html">O que é DNS</a></div>
+    <div class="card"><a href="Como funciona o HTTP/HTTPS/index.html">Como funciona o HTTP/HTTPS</a></div>
+    <div class="card"><a href="Hospedagem de Sites/index.html">Hospedagem de Sites</a></div>
+    <div class="card"><a href="Domínios e Subdomínios/index.html">Domínios e Subdomínios</a></div>
+    <div class="card"><a href="Como funcionam os Firewalls/index.html">Como funcionam os Firewalls</a></div>
+    <div class="card"><a href="VPNs e Privacidade Online/index.html">VPNs e Privacidade Online</a></div>
+    <div class="card"><a href="Deep Web vs Dark Web/index.html">Deep Web vs Dark Web</a></div>
+    <div class="card"><a href="O que é Phishing/index.html">O que é Phishing</a></div>
+    <div class="card"><a href="Ataques cibernéticos comuns/index.html">Ataques cibernéticos comuns</a></div>
+    <div class="card"><a href="Como proteger seus dados online/index.html">Como proteger seus dados online</a></div>
+    <div class="card"><a href="Biometria e autenticação/index.html">Biometria e autenticação</a></div>
+    <div class="card"><a href="O que são Cookies/index.html">O que são Cookies</a></div>
+    <div class="card"><a href="História do E-commerce/index.html">História do E-commerce</a></div>
+    <div class="card"><a href="Plataformas de Loja Virtual/index.html">Plataformas de Loja Virtual</a></div>
+    <div class="card"><a href="Pagamentos Digitais/index.html">Pagamentos Digitais</a></div>
+    <div class="card"><a href="Pix, TED e DOC/index.html">Pix, TED e DOC</a></div>
+    <div class="card"><a href="Fintechs e o Futuro Bancário/index.html">Fintechs e o Futuro Bancário</a></div>
+    <div class="card"><a href="História do Google/index.html">História do Google</a></div>
+    <div class="card"><a href="História do Facebook/index.html">História do Facebook</a></div>
+    <div class="card"><a href="História do YouTube/index.html">História do YouTube</a></div>
+    <div class="card"><a href="História do WhatsApp/index.html">História do WhatsApp</a></div>
+    <div class="card"><a href="História do Instagram/index.html">História do Instagram</a></div>
+    <div class="card"><a href="Redes Sociais e Algoritmos/index.html">Redes Sociais e Algoritmos</a></div>
+    <div class="card"><a href="Como funciona o TikTok/index.html">Como funciona o TikTok</a></div>
+    <div class="card"><a href="Streaming e o futuro da mídia/index.html">Streaming e o futuro da mídia</a></div>
+    <div class="card"><a href="O que é Cloud Computing/index.html">O que é Cloud Computing</a></div>
+    <div class="card"><a href="Serviços AWS, Azure e Google Cloud/index.html">Serviços AWS, Azure e Google Cloud</a></div>
+    <div class="card"><a href="Computação em Nuvem na prática/index.html">Computação em Nuvem na prática</a></div>
+    <div class="card"><a href="Como funcionam os Data Centers/index.html">Como funcionam os Data Centers</a></div>
+    <div class="card"><a href="Edge Computing/index.html">Edge Computing</a></div>
+    <div class="card"><a href="IoT - Internet das Coisas/index.html">IoT - Internet das Coisas</a></div>
+    <div class="card"><a href="Casas Inteligentes/index.html">Casas Inteligentes</a></div>
+    <div class="card"><a href="Automóveis Autônomos/index.html">Automóveis Autônomos</a></div>
+    <div class="card"><a href="Robótica e Programação/index.html">Robótica e Programação</a></div>
+    <div class="card"><a href="História dos Videogames/index.html">História dos Videogames</a></div>
+    <div class="card"><a href="Desenvolvimento de Jogos/index.html">Desenvolvimento de Jogos</a></div>
+
+
+
+    
+    <div class="card"><a href="Engines de Jogos Unity vs Unreal/index.html">Engines de Jogos: Unity vs Unreal</a></div>
+    <div class="card"><a href="Realidade Aumentada/index.html">Realidade Aumentada</a></div>
+
+
+
+
+    <div class="card"><a href="Realidade Virtual/index.html">Realidade Virtual</a></div>
+    <div class="card"><a href="Como funciona o 5G/index.html">Como funciona o 5G</a></div>
+    
+
+    <div class="card"><a href="História do 5G e suas aplicações/index.html">História do 5G e suas aplicações</a></div>
+    <div class="card"><a href="Tecnologias 6G e o futuro das comunicações/index.html">Tecnologias 6G e o futuro das comunicações</a></div>
+    <div class="card"><a href="Tipos de Inteligência Artificial/index.html">Tipos de Inteligência Artificial</a></div>
+    <div class="card"><a href="IA Generativa vs IA Tradicional/index.html">IA Generativa vs IA Tradicional</a></div>
+    <div class="card"><a href="Uso da IA na medicina/index.html">Uso da IA na medicina</a></div>
+    <div class="card"><a href="IA na educação/index.html">IA na educação</a></div>
+    
+    <div class="card"><a href="Privacidade de Dados/index.html">Privacidade de Dados</a></div>
+    <div class="card"><a href="LGPD e proteção no Brasil/index.html">LGPD e proteção no Brasil</a></div>
+    <div class="card"><a href="GDPR na Europa/index.html">GDPR na Europa</a></div>
+    <div class="card"><a href="Deep Learning/index.html">Deep Learning</a></div>
+    <div class="card"><a href="Redes Neurais Artificiais/index.html">Redes Neurais Artificiais</a></div>
+    <div class="card"><a href="Visão Computacional/index.html">Visão Computacional</a></div>
+    <div class="card"><a href="Reconhecimento de Imagem/index.html">Reconhecimento de Imagem</a></div>
+    <div class="card"><a href="Processamento de Linguagem Natural/index.html">Processamento de Linguagem Natural</a></div>
+    
+
+    <div class="card"><a href="Criação de Chatbots/index.html">Criação de Chatbots</a></div>
+    <div class="card"><a href="Modelos de Linguagem como o GPT/index.html">Modelos de Linguagem como o GPT</a></div>
+    <div class="card"><a href="Tradução Automática/index.html">Tradução Automática</a></div>
+    <div class="card"><a href="Como funciona o reconhecimento de voz/index.html">Como funciona o reconhecimento de voz</a></div>
+    <div class="card"><a href="Inteligência Artificial no cotidiano/index.html">Inteligência Artificial no cotidiano</a></div>
+    <div class="card"><a href="História da Computação/index.html">História da Computação</a></div>
+    <div class="card"><a href="Linha do Tempo da Internet/index.html">Linha do Tempo da Internet</a></div>
+    <div class="card"><a href="Grandes nomes da Tecnologia/index.html">Grandes nomes da Tecnologia</a></div>
+    <div class="card"><a href="Alan Turing e a computação moderna/index.html">Alan Turing e a computação moderna</a></div>
+    <div class="card"><a href="Ada Lovelace e o primeiro algoritmo/index.html">Ada Lovelace e o primeiro algoritmo</a></div>
+    <div class="card"><a href="Steve Jobs e a Apple/index.html">Steve Jobs e a Apple</a></div>
+    <div class="card"><a href="Bill Gates e a Microsoft/index.html">Bill Gates e a Microsoft</a></div>
+    <div class="card"><a href="Mark Zuckerberg e o Facebook/index.html">Mark Zuckerberg e o Facebook</a></div>
+    <div class="card"><a href="Elon Musk e a Tecnologia/index.html">Elon Musk e a Tecnologia</a></div>
+    <div class="card"><a href="Jeff Bezos e a Amazon/index.html">Jeff Bezos e a Amazon</a></div>
+    <div class="card"><a href="Larry Page e o Google/index.html">Larry Page e o Google</a></div>
+    <div class="card"><a href="Linus Torvalds e o Linux/index.html">Linus Torvalds e o Linux</a></div>
+    <div class="card"><a href="Richard Stallman e o software livre/index.html">Richard Stallman e o software livre</a></div>
+    <div class="card"><a href="História dos Sistemas de Código Aberto/index.html">História dos Sistemas de Código Aberto</a></div>
+    <div class="card"><a href="Software Proprietário vs Livre/index.html">Software Proprietário vs Livre</a></div>
+    <div class="card"><a href="Open Source e suas vantagens/index.html">Open Source e suas vantagens</a></div>
+    <div class="card"><a href="Como colaborar com projetos no GitHub/index.html">Como colaborar com projetos no GitHub</a></div>
+    <div class="card"><a href="História do Git/index.html">História do Git</a></div>
+    <div class="card"><a href="Comandos Git essenciais/index.html">Comandos Git essenciais</a></div>
+    <div class="card"><a href="Branches e Merge/index.html">Branches e Merge</a></div>
+    <div class="card"><a href="Pull Requests e revisão de código/index.html">Pull Requests e revisão de código</a></div>
+    <div class="card"><a href="Git Flow e Fluxos de trabalho/index.html">Git Flow e Fluxos de trabalho</a></div>
+    <div class="card"><a href="DevOps e Integração Contínua/index.html">DevOps e Integração Contínua</a></div>
+    <div class="card"><a href="Docker e Contêineres/index.html">Docker e Contêineres</a></div>
+    <div class="card"><a href="Kubernetes e orquestração/index.html">Kubernetes e orquestração</a></div>
+    <div class="card"><a href="Automatizando testes com CI/CD/index.html">Automatizando testes com CI/CD</a></div>
+    <div class="card"><a href="Testes automatizados vs manuais/index.html">Testes automatizados vs manuais</a></div>
+    <div class="card"><a href="Frameworks de Testes/index.html">Frameworks de Testes</a></div>
+    
+
+    <div class="card"><a href="Padrões de Projeto (Design Patterns)/index.html">Padrões de Projeto (Design Patterns)</a></div>
+    <div class="card"><a href="SOLID na prática/index.html">SOLID na prática</a></div>
+    <div class="card"><a href="Clean Code - Código limpo/index.html">Clean Code: Código limpo</a></div>
+    <div class="card"><a href="Refatoração de código/index.html">Refatoração de código</a></div>
+    <div class="card"><a href="Boas práticas em JavaScript/index.html">Boas práticas em JavaScript</a></div>
+    <div class="card"><a href="Boas práticas em Python/index.html">Boas práticas em Python</a></div>
+    <div class="card"><a href="Boas práticas em HTML e CSS/index.html">Boas práticas em HTML e CSS</a></div>
+    <div class="card"><a href="O que é TypeScript/index.html">O que é TypeScript</a></div>
+    <div class="card"><a href="Vite vs Webpack/index.html">Vite vs Webpack</a></div>
+    <div class="card"><a href="Next.js e SSR/index.html">Next.js e SSR</a></div>
+    <div class="card"><a href="Frameworks CSS (Tailwind, Bootstrap)/index.html">Frameworks CSS (Tailwind, Bootstrap)</a></div>
+    <div class="card"><a href="Styled Components/index.html">Styled Components</a></div>
+    <div class="card"><a href="SASS e pré-processadores/index.html">SASS e pré-processadores</a></div>
+    <div class="card"><a href="Como criar componentes reutilizáveis/index.html">Como criar componentes reutilizáveis</a></div>
+    <div class="card"><a href="State Management com Redux/index.html">State Management com Redux</a></div>
+    <div class="card"><a href="Context API no React/index.html">Context API no React</a></div>
+    <div class="card"><a href="Hooks avançados/index.html">Hooks avançados</a></div>
+    <div class="card"><a href="React Native do zero ao app/index.html">React Native: do zero ao app</a></div>
+    <div class="card"><a href="Flutter vs React Native/index.html">Flutter vs React Native</a></div>
+    <div class="card"><a href="Desenvolvimento de APIs REST/index.html">Desenvolvimento de APIs REST</a></div>
+    <div class="card"><a href="APIs GraphQL/index.html">APIs GraphQL</a></div>
+    <div class="card"><a href="RESTful vs GraphQL/index.html">RESTful vs GraphQL</a></div>
+    <div class="card"><a href="Consumo de API com Axios e Fetch/index.html">Consumo de API com Axios e Fetch</a></div>
+    <div class="card"><a href="Firebase e autenticação/index.html">Firebase e autenticação</a></div>
+    <div class="card"><a href="OAuth e autenticação segura/index.html">OAuth e autenticação segura</a></div>
+    <div class="card"><a href="JWT JSON Web Tokens/index.html">JWT: JSON Web Tokens</a></div>
+    <div class="card"><a href="Criando sistemas de login/index.html">Criando sistemas de login</a></div>
+    
+
+
+    <div class="card"><a href="VPNs e Privacidade Online/index.html">VPNs e Privacidade Online</a></div>
+    <div class="card"><a href="Deep Web vs Dark Web/index.html">Deep Web vs Dark Web</a></div>
+    <div class="card"><a href="O que é Phishing/index.html">O que é Phishing</a></div>
+    <div class="card"><a href="Ataques cibernéticos comuns/index.html">Ataques cibernéticos comuns</a></div>
+    <div class="card"><a href="Como proteger seus dados online/index.html">Como proteger seus dados online</a></div>
+    <div class="card"><a href="Biometria e autenticação/index.html">Biometria e autenticação</a></div>
+    <div class="card"><a href="O que são Cookies/index.html">O que são Cookies</a></div>
+    <div class="card"><a href="História do E-commerce/index.html">História do E-commerce</a></div>
+    <div class="card"><a href="Pagamentos Digitais/index.html">Pagamentos Digitais</a></div>
+    <div class="card"><a href="Pix, TED e DOC/index.html">Pix, TED e DOC</a></div>
+    <div class="card"><a href="Fintechs e o Futuro Bancário/index.html">Fintechs e o Futuro Bancário</a></div>
+    <div class="card"><a href="História do Google/index.html">História do Google</a></div>
+    <div class="card"><a href="História do Facebook/index.html">História do Facebook</a></div>
+    <div class="card"><a href="História do YouTube/index.html">História do YouTube</a></div>
+    <div class="card"><a href="História do WhatsApp/index.html">História do WhatsApp</a></div>
+    <div class="card"><a href="História do Instagram/index.html">História do Instagram</a></div>
+    <div class="card"><a href="Redes Sociais e Algoritmos/index.html">Redes Sociais e Algoritmos</a></div>
+    <div class="card"><a href="Como funciona o TikTok/index.html">Como funciona o TikTok</a></div>
+    <div class="card"><a href="Streaming e o futuro da mídia/index.html">Streaming e o futuro da mídia</a></div>
+    <div class="card"><a href="O que é Cloud Computing/index.html">O que é Cloud Computing</a></div>
+    <div class="card"><a href="Serviços AWS, Azure e Google Cloud/index.html">Serviços AWS, Azure e Google Cloud</a></div>
+    <div class="card"><a href="Computação em Nuvem na prática/index.html">Computação em Nuvem na prática</a></div>
+    <div class="card"><a href="Como funcionam os Data Centers/index.html">Como funcionam os Data Centers</a></div>
+    <div class="card"><a href="Edge Computing/index.html">Edge Computing</a></div>
+    <div class="card"><a href="IoT - Internet das Coisas/index.html">IoT - Internet das Coisas</a></div>
+    <div class="card"><a href="Casas Inteligentes/index.html">Casas Inteligentes</a></div>
+    <div class="card"><a href="Automóveis Autônomos/index.html">Automóveis Autônomos</a></div>
+    <div class="card"><a href="Robótica e Programação/index.html">Robótica e Programação</a></div>
+    <div class="card"><a href="História dos Videogames/index.html">História dos Videogames</a></div>
+    <div class="card"><a href="Desenvolvimento de Jogos/index.html">Desenvolvimento de Jogos</a></div>
+    <div class="card"><a href="Engines de Jogos Unity vs Unreal/index.html">Engines de Jogos: Unity vs Unreal</a></div>
+    <div class="card"><a href="Realidade Aumentada/index.html">Realidade Aumentada</a></div>
+    <div class="card"><a href="Realidade Virtual/index.html">Realidade Virtual</a></div>
+    <div class="card"><a href="Como funciona o 5G/index.html">Como funciona o 5G</a></div>
+    <div class="card"><a href="História do 5G e suas aplicações/index.html">História do 5G e suas aplicações</a></div>
+    <div class="card"><a href="Tipos de Inteligência Artificial/index.html">Tipos de Inteligência Artificial</a></div>
+    <div class="card"><a href="Tecnologias 6G e o futuro das comunicações/index.html">Tecnologias 6G e o futuro das comunicações</a></div>
+    <div class="card"><a href="IA Generativa vs IA Tradicional/index.html">IA Generativa vs IA Tradicional</a></div>
+    <div class="card"><a href="Uso da IA na medicina/index.html">Uso da IA na medicina</a></div>
+    <div class="card"><a href="IA na educação/index.html">IA na educação</a></div>
+    <div class="card"><a href="Ética na Inteligência Artificial/index.html">Ética na Inteligência Artificial</a></div>
+    <div class="card"><a href="Privacidade de Dados/index.html">Privacidade de Dados</a></div>
+    <div class="card"><a href="LGPD e proteção no Brasil/index.html">LGPD e proteção no Brasil</a></div>
+    <div class="card"><a href="GDPR na Europa/index.html">GDPR na Europa</a></div>
+    <div class="card"><a href="Deep Learning/index.html">Deep Learning</a></div>
+    <div class="card"><a href="Redes Neurais Artificiais/index.html">Redes Neurais Artificiais</a></div>
+    <div class="card"><a href="Visão Computacional/index.html">Visão Computacional</a></div>
+    <div class="card"><a href="Reconhecimento de Imagem/index.html">Reconhecimento de Imagem</a></div>
+    <div class="card"><a href="Processamento de Linguagem Natural/index.html">Processamento de Linguagem Natural</a></div>
+    <div class="card"><a href="Arquitetura de Software Moderna/index.html">Arquitetura de Software Moderna</a></div>
+    <div class="card"><a href="Microsserviços e sua estrutura/index.html">Microsserviços e sua estrutura</a></div>
+    <div class="card"><a href="Monolitos vs Microsserviços/index.html">Monolitos vs Microsserviços</a></div>
+    <div class="card"><a href="Mensageria com RabbitMQ/index.html">Mensageria com RabbitMQ</a></div>
+    <div class="card"><a href="Apache Kafka na prática/index.html">Apache Kafka na prática</a></div>
+    <div class="card"><a href="Event Sourcing e CQRS/index.html">Event Sourcing e CQRS</a></div>
+    <div class="card"><a href="REST APIs bem definidas/index.html">REST APIs bem definidas</a></div>
+    <div class="card"><a href="GraphQL Conceitos e prática/index.html">GraphQL: Conceitos e prática</a></div>
+    <div class="card"><a href="gRPC: Comunicação eficiente/index.html">gRPC: Comunicação eficiente</a></div>
+    <div class="card"><a href="WebSockets e tempo real/index.html">WebSockets e tempo real</a></div>
+    <div class="card"><a href="OAuth2 e autenticação segura/index.html">OAuth2 e autenticação segura</a></div>
+    <div class="card"><a href="JWT: JSON Web Tokens/index.html">JWT: JSON Web Tokens</a></div>
+    <div class="card"><a href="Single Sign-On (SSO)/index.html">Single Sign-On (SSO)</a></div>
+    <div class="card"><a href="Autenticação biométrica/index.html">Autenticação biométrica</a></div>
+    <div class="card"><a href="Senhas seguras e hash/index.html">Senhas seguras e hash</a></div>
+    <div class="card"><a href="Criptografia de ponta a ponta/index.html">Criptografia de ponta a ponta</a></div>
+    <div class="card"><a href="Blockchain além do Bitcoin/index.html">Blockchain além do Bitcoin</a></div>
+    <div class="card"><a href="Smart Contracts/index.html">Smart Contracts</a></div>
+    <div class="card"><a href="Web 3.0 e descentralização/index.html">Web 3.0 e descentralização</a></div>
+    <div class="card"><a href="Criptomoedas e segurança/index.html">Criptomoedas e segurança</a></div>
+    <div class="card"><a href="Carteiras digitais (Wallets)/index.html">Carteiras digitais (Wallets)</a></div>
+    <div class="card"><a href="NFTs Aplicações práticas/index.html">NFTs: Aplicações práticas</a></div>
+    <div class="card"><a href="Metaverso: Realidade digital/index.html">Metaverso: Realidade digital</a></div>
+    <div class="card"><a href="Avanços em Realidade Mista/index.html">Avanços em Realidade Mista</a></div>
+    <div class="card"><a href="IA em Assistentes Virtuais/index.html">IA em Assistentes Virtuais</a></div>
+    <div class="card"><a href="Big Data Fundamentos/index.html">Big Data: Fundamentos</a></div>
+    <div class="card"><a href="Hadoop e MapReduce/index.html">Hadoop e MapReduce</a></div>
+    <div class="card"><a href="Apache Spark e análises rápidas/index.html">Apache Spark e análises rápidas</a></div>
+    <div class="card"><a href="Data Lakes vs Data Warehouses/index.html">Data Lakes vs Data Warehouses</a></div>
+    <div class="card"><a href="ETL: Extração, Transformação e Carga/index.html">ETL: Extração, Transformação e Carga</a></div>
+    <div class="card"><a href="Business Intelligence (BI)/index.html">Business Intelligence (BI)</a></div>
+    <div class="card"><a href="Ferramentas de BI Power BI vs Tableau/index.html">Ferramentas de BI: Power BI vs Tableau</a></div>
+    <div class="card"><a href="Análise Preditiva com IA/index.html">Análise Preditiva com IA</a></div>
+    <div class="card"><a href="Cibersegurança no mundo moderno/index.html">Cibersegurança no mundo moderno</a></div>
+    <div class="card"><a href="Zero Trust Architecture/index.html">Zero Trust Architecture</a></div>
+    <div class="card"><a href="Pentest Testes de invasão/index.html">Pentest: Testes de invasão</a></div>
+    <div class="card"><a href="Forense Digital/index.html">Forense Digital</a></div>
+    <div class="card"><a href="Segurança na nuvem/index.html">Segurança na nuvem</a></div>
+    <div class="card"><a href="Segurança em redes corporativas/index.html">Segurança em redes corporativas</a></div>
+    <div class="card"><a href="Educação Financeira Digital/index.html">Educação Financeira Digital</a></div>
+    <div class="card"><a href="Criptografia no cotidiano/index.html">Criptografia no cotidiano</a></div>
+    <div class="card"><a href="Sistemas embarcados/index.html">Sistemas embarcados</a></div>
+    <div class="card"><a href="Tecnologias vestíveis (Wearables)/index.html">Tecnologias vestíveis (Wearables)</a></div>
+    <div class="card"><a href="Reconhecimento facial/index.html">Reconhecimento facial</a></div>
+    <div class="card"><a href="Análise de sentimentos com IA/index.html">Análise de sentimentos com IA</a></div>
+    <div class="card"><a href="Plataformas no-code/low-code/index.html">Plataformas no-code/low-code</a></div>
+    <div class="card"><a href="Automação com Zapier e Make/index.html">Automação com Zapier e Make</a></div>
+    <div class="card"><a href="Construindo APIs com Node.js/index.html">Construindo APIs com Node.js</a></div>
+    <div class="card"><a href="Deploy contínuo com Vercel e Netlify/index.html">Deploy contínuo com Vercel e Netlify</a></div>
+    <div class="card"><a href="RESTful APIs com Python/index.html">RESTful APIs com Python</a></div>
+    <div class="card"><a href="FastAPI Rápido e elegante/index.html">FastAPI: Rápido e elegante</a></div>
+    <div class="card"><a href="Django Framework completo/index.html">Django: Framework completo</a></div>
+    <div class="card"><a href="Flask Microframework poderoso/index.html">Flask: Microframework poderoso</a></div>
+    <div class="card"><a href="Web Scraping com BeautifulSoup/index.html">Web Scraping com BeautifulSoup</a></div>
+    <div class="card"><a href="Automação com Python/index.html">Automação com Python</a></div>
+    <div class="card"><a href="Bots com Python e Selenium/index.html">Bots com Python e Selenium</a></div>
+    <div class="card"><a href="Manipulação de dados com Pandas/index.html">Manipulação de dados com Pandas</a></div>
+    <div class="card"><a href="Visualização com Matplotlib e Seaborn/index.html">Visualização com Matplotlib e Seaborn</a></div>
+    <div class="card"><a href="Machine Learning com Scikit-Learn/index.html">Machine Learning com Scikit-Learn</a></div>
+    <div class="card"><a href="Deep Learning com TensorFlow/index.html">Deep Learning com TensorFlow</a></div>
+    <div class="card"><a href="Keras Criação de modelos IA/index.html">Keras: Criação de modelos IA</a></div>
+    <div class="card"><a href="PyTorch Flexibilidade e controle/index.html">PyTorch: Flexibilidade e controle</a></div>
+    <div class="card"><a href="Data Science Do zero ao avançado/index.html">Data Science: Do zero ao avançado</a></div>
+    <div class="card"><a href="Deploy de modelos com Flask/index.html">Deploy de modelos com Flask</a></div>
+    <div class="card"><a href="Deploy com Streamlit/index.html">Deploy com Streamlit</a></div>
+    <div class="card"><a href="Google Colab IA na nuvem/index.html">Google Colab: IA na nuvem</a></div>
+   
+    
+
+
+
+    <!-- Continue inserindo seus outros 240 cards no mesmo padrão acima -->
+  </div>
+
+  <script>
+    const input = document.querySelector('.search-bar input');
+    const cards = document.querySelectorAll('.card');
+
+    input.addEventListener('input', () => {
+      const query = input.value.toLowerCase();
+
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
