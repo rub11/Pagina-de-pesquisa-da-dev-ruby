@@ -51,17 +51,6 @@
       background-color: #dc3545; /* Vermelho */
     }
 
-    .next-btn {
-      margin-top: 20px;
-      background-color: #28a745;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      display: none;
-    }
-
     .result {
       text-align: center;
       font-size: 1.5em;
@@ -229,20 +218,15 @@
 
       options.forEach(option => option.style.pointerEvents = 'none'); // Disable further clicks
 
-      // Show the next button
-      const nextButton = document.createElement('button');
-      nextButton.textContent = 'Próxima pergunta';
-      nextButton.classList.add('next-btn');
-      nextButton.style.display = 'block';
-      nextButton.onclick = () => {
+      // Wait for a few seconds and then go to next question
+      setTimeout(() => {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
           loadQuestion();
         } else {
           showResult();
         }
-      };
-      document.body.appendChild(nextButton);
+      }, 1500); // 1.5 seconds de delay
     }
 
     function showResult() {

@@ -1,66 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quiz: Big Data</title>
   <style>
     body {
-      background-color: #0a0a0a;
+      margin: 0;
+      background: #0a0a0a;
       color: #f2f2f2;
       font-family: 'Segoe UI', sans-serif;
-      max-width: 900px;
-      margin: auto;
-      padding: 30px;
+      overflow-x: hidden;
     }
     h1 {
       text-align: center;
       color: #ffd54f;
-      font-size: 2.2em;
-      margin-bottom: 30px;
+      font-size: 2.5em;
+      margin: 30px 0;
     }
-    .slide, .result {
-      display: none;
+    .slider-container {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100vw;
     }
-    .active {
-      display: block;
+    .slide {
+      min-width: 100vw;
+      padding: 40px;
+      box-sizing: border-box;
     }
     .slide p {
-      font-size: 1.1em;
+      font-size: 1.2em;
       line-height: 1.6;
-      margin-bottom: 20px;
     }
     .question {
-      font-size: 1.3em;
+      font-size: 1.4em;
       color: #fbc02d;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
     .answers {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
     }
     .answer {
       background-color: #1a1a1a;
-      padding: 14px;
+      padding: 15px;
       border-radius: 10px;
-      cursor: pointer;
       border: 1px solid #333;
+      cursor: pointer;
       text-align: center;
       transition: background 0.3s;
     }
     .answer:hover {
       background-color: #2a2a2a;
     }
-    .correct {
-      background-color: #4caf50 !important;
+    .navigation {
+      text-align: center;
+      margin-top: 30px;
     }
-    .incorrect {
-      background-color: #e53935 !important;
+    .btn {
+      background-color: #ffd54f;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      margin: 5px;
     }
     .result {
+      font-size: 1.5em;
       text-align: center;
-      font-size: 1.3em;
       margin-top: 40px;
     }
     .result.good {
@@ -69,114 +79,109 @@
     .result.bad {
       color: #ef5350;
     }
-    .next-btn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #ffd54f;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
+
   <h1>Quiz: Big Data</h1>
 
-  <div id="slides">
-    <div class="slide active">
-      <p><strong>Big Data</strong> refere-se a conjuntos de dados grandes e complexos, que não podem ser tratados por ferramentas tradicionais de gerenciamento de dados. O conceito envolve três características principais: volume, velocidade e variedade. A análise de Big Data utiliza tecnologias como Hadoop, Spark e bancos de dados NoSQL para processar e extrair informações valiosas desses dados.</p>
-      <p>Vamos testar seus conhecimentos sobre Big Data!</p>
-      <button class="next-btn" onclick="nextSlide()">Começar Quiz</button>
-    </div>
-    <!-- Perguntas e respostas -->
+  <div id="slider" class="slider-container">
+    <!-- Slide 0 - Introdução -->
     <div class="slide">
-      <p class="question">O que caracteriza o Big Data?</p>
+      <p><strong>Big Data</strong> refere-se a conjuntos de dados muito grandes ou complexos que métodos tradicionais de processamento de dados não conseguem lidar de forma eficiente. Envolve características como grande volume, alta velocidade de geração e variedade de formatos.</p>
+      <p>Vamos testar seus conhecimentos sobre esse tema!</p>
+      <div class="navigation">
+        <button class="btn" onclick="nextSlide()">Começar</button>
+      </div>
+    </div>
+
+    <!-- Perguntas -->
+    <div class="slide">
+      <p class="question">1. O que caracteriza o Big Data?</p>
       <div class="answers">
-        <div class="answer" onclick="checkAnswer(0, 1)">Grande volume de dados, processados rapidamente em tempo real</div>
+        <div class="answer" onclick="checkAnswer(0, 0)">Grande volume de dados, processados rapidamente em tempo real</div>
         <div class="answer" onclick="checkAnswer(0, 1)">Somente dados armazenados em bancos de dados relacionais</div>
-        <div class="answer" onclick="checkAnswer(0, 1)">Dados exclusivamente estruturados e organizados</div>
-        <div class="answer" onclick="checkAnswer(0, 1)">Uso exclusivo de inteligência artificial para análise</div>
-        <div class="answer" onclick="checkAnswer(0, 1)">Dados que são processados por programas tradicionais</div>
+        <div class="answer" onclick="checkAnswer(0, 2)">Dados exclusivamente estruturados</div>
       </div>
     </div>
-    <!-- Outras perguntas -->
+
     <div class="slide">
-      <p class="question">Quais são as 3 características principais do Big Data?</p>
+      <p class="question">2. Quais são as 3 principais características do Big Data?</p>
       <div class="answers">
-        <div class="answer" onclick="checkAnswer(1, 1)">Volume, Velocidade e Variedade</div>
+        <div class="answer" onclick="checkAnswer(1, 0)">Volume, Velocidade e Variedade</div>
         <div class="answer" onclick="checkAnswer(1, 1)">Segurança, Armazenamento e Processamento</div>
-        <div class="answer" onclick="checkAnswer(1, 1)">Diversidade, Integração e Análise</div>
-        <div class="answer" onclick="checkAnswer(1, 1)">Escalabilidade, Performance e Velocidade</div>
-        <div class="answer" onclick="checkAnswer(1, 1)">Estrutura, Conectividade e Processamento</div>
+        <div class="answer" onclick="checkAnswer(1, 2)">Conectividade, Escalabilidade e Velocidade</div>
       </div>
     </div>
-    <!-- Outras perguntas -->
-    <div class="result" id="result"></div>
+
+    <div class="slide">
+      <p class="question">3. Qual destas tecnologias é amplamente usada em Big Data?</p>
+      <div class="answers">
+        <div class="answer" onclick="checkAnswer(2, 0)">Hadoop</div>
+        <div class="answer" onclick="checkAnswer(2, 1)">Photoshop</div>
+        <div class="answer" onclick="checkAnswer(2, 2)">Excel básico</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <p class="question">4. O que significa "variedade" no contexto de Big Data?</p>
+      <div class="answers">
+        <div class="answer" onclick="checkAnswer(3, 0)">Tipos diferentes de dados (texto, vídeo, imagem, etc.)</div>
+        <div class="answer" onclick="checkAnswer(3, 1)">Diferentes formas de velocidade de transmissão</div>
+        <div class="answer" onclick="checkAnswer(3, 2)">Variação dos preços de armazenamento</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <p class="question">5. Qual das opções não é uma ferramenta usada em Big Data?</p>
+      <div class="answers">
+        <div class="answer" onclick="checkAnswer(4, 0)">MySQL</div>
+        <div class="answer" onclick="checkAnswer(4, 1)">Hadoop</div>
+        <div class="answer" onclick="checkAnswer(4, 2)">Spark</div>
+      </div>
+    </div>
+
+    <!-- Slide final -->
+    <div class="slide">
+      <div class="result" id="resultText"></div>
+    </div>
   </div>
 
   <script>
-    const quizData = [
-      {
-        question: "O que caracteriza o Big Data?",
-        options: [
-          "Grande volume de dados, processados rapidamente em tempo real",
-          "Somente dados armazenados em bancos de dados relacionais",
-          "Dados exclusivamente estruturados e organizados",
-          "Uso exclusivo de inteligência artificial para análise",
-          "Dados que são processados por programas tradicionais"
-        ],
-        correct: 1
-      },
-      {
-        question: "Quais são as 3 características principais do Big Data?",
-        options: [
-          "Volume, Velocidade e Variedade",
-          "Segurança, Armazenamento e Processamento",
-          "Diversidade, Integração e Análise",
-          "Escalabilidade, Performance e Velocidade",
-          "Estrutura, Conectividade e Processamento"
-        ],
-        correct: 1
-      },
-      // Adicionar mais perguntas conforme necessário
-    ];
-    
+    const slider = document.getElementById("slider");
     let currentSlide = 0;
     let score = 0;
-    
+
+    const correctAnswers = [0, 0, 0, 0, 0]; // índice das respostas corretas
+
     function nextSlide() {
-      const slides = document.querySelectorAll('.slide');
-      slides[currentSlide].classList.remove('active');
       currentSlide++;
-      if (currentSlide < slides.length) {
-        slides[currentSlide].classList.add('active');
-      } else {
+      updateSlidePosition();
+    }
+
+    function updateSlidePosition() {
+      slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+    }
+
+    function checkAnswer(questionIndex, selectedIndex) {
+      if (selectedIndex === correctAnswers[questionIndex]) {
+        score++;
+      }
+      nextSlide();
+
+      if (questionIndex === correctAnswers.length - 1) {
         showResult();
       }
     }
-    
-    function checkAnswer(questionIndex, answerIndex) {
-      const answers = document.querySelectorAll('.answer');
-      const correctAnswerIndex = quizData[questionIndex].correct;
-      
-      if (answerIndex === correctAnswerIndex) {
-        answers[answerIndex].classList.add('correct');
-        score++;
-      } else {
-        answers[answerIndex].classList.add('incorrect');
-      }
-      setTimeout(nextSlide, 1000); // Avançar após 1 segundo
-    }
-    
+
     function showResult() {
-      const resultElement = document.getElementById('result');
-      const percentage = (score / quizData.length) * 100;
-      resultElement.classList.add(percentage >= 70 ? 'good' : 'bad');
-      resultElement.innerHTML = percentage >= 70
-        ? `Parabéns! Você acertou ${score} de ${quizData.length} perguntas.`
-        : `Você acertou ${score} de ${quizData.length} perguntas. Estude mais e melhore!`;
+      const result = document.getElementById("resultText");
+      const percent = (score / correctAnswers.length) * 100;
+      result.className = "result " + (percent >= 60 ? "good" : "bad");
+      result.innerHTML =
+        percent >= 60
+          ? `Parabéns! Você acertou ${score} de ${correctAnswers.length} perguntas.`
+          : `Você acertou ${score} de ${correctAnswers.length}. Tente novamente e aprenda mais!`;
     }
   </script>
 </body>

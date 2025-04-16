@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Quiz: Programação Orientada a Objetos</title>
   <style>
     body {
@@ -35,10 +35,10 @@
       background-color: #444;
     }
     .correct {
-      background-color: #4CAF50;
+      background-color: #4CAF50 !important;
     }
     .incorrect {
-      background-color: #F44336;
+      background-color: #F44336 !important;
     }
     .hidden {
       display: none;
@@ -54,16 +54,9 @@
   <h1>Quiz: Programação Orientada a Objetos</h1>
   <div id="quiz-container">
     <div class="question-container" id="question-container">
-      <p class="question" id="question-text">O que é uma classe em Programação Orientada a Objetos?</p>
-      <ul class="answers" id="answer-list">
-        <li data-correct="false">a) Um tipo de objeto</li>
-        <li data-correct="true">b) Um molde para criar objetos</li>
-        <li data-correct="false">c) Um tipo de método</li>
-        <li data-correct="false">d) Uma instância de um objeto</li>
-        <li data-correct="false">e) Nenhuma das alternativas</li>
-      </ul>
+      <p class="question" id="question-text"></p>
+      <ul class="answers" id="answer-list"></ul>
     </div>
-    <button class="hidden" id="next-button">Próxima Pergunta</button>
     <div id="result" class="hidden"></div>
   </div>
 
@@ -176,7 +169,6 @@
 
     const questionText = document.getElementById("question-text");
     const answerList = document.getElementById("answer-list");
-    const nextButton = document.getElementById("next-button");
     const resultContainer = document.getElementById("result");
 
     function loadQuestion() {
@@ -184,51 +176,51 @@
       questionText.textContent = question.question;
       answerList.innerHTML = "";
 
-      question.answers.forEach((answer, index) => {
-        const answerItem = document.createElement("li");
-        answerItem.textContent = answer.text;
-        answerItem.addEventListener("click", () => checkAnswer(answerItem, answer.correct));
-        answerList.appendChild(answerItem);
+      question.answers.forEach(answer => {
+        const li = document.createElement("li");
+        li.textContent = answer.text;
+        li.addEventListener("click", () => handleAnswer(li, answer.correct));
+        answerList.appendChild(li);
       });
-
-      nextButton.classList.add("hidden");
     }
 
-    function checkAnswer(answerItem, isCorrect) {
+    function handleAnswer(selectedItem, isCorrect) {
+      const items = answerList.querySelectorAll("li");
+      items.forEach(item => item.style.pointerEvents = "none");
+
       if (isCorrect) {
-        answerItem.classList.add("correct");
+        selectedItem.classList.add("correct");
         correctAnswers++;
       } else {
-        answerItem.classList.add("incorrect");
+        selectedItem.classList.add("incorrect");
+        const correctItem = [...items].find(li => {
+          const text = li.textContent.trim().toLowerCase();
+          return questions[currentQuestion].answers.find(a => a.text.toLowerCase() === text && a.correct);
+        });
+        if (correctItem) correctItem.classList.add("correct");
       }
-      nextButton.classList.remove("hidden");
-      const answerItems = answerList.querySelectorAll("li");
-      answerItems.forEach(item => item.removeEventListener("click", checkAnswer));
+
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          loadQuestion();
+        } else {
+          showResults();
+        }
+      }, 1500);
     }
 
     function showResults() {
       const score = (correctAnswers / questions.length) * 100;
-      let message = "";
+      let message = score >= 70
+        ? "Parabéns! Você acertou mais de 70%! 🎉"
+        : "Não tem problema, continue estudando! A DevRub está aqui para ajudar você a melhorar. 💪";
 
-      if (score >= 70) {
-        message = "Parabéns! Você acertou mais de 70%! 🎉";
-      } else {
-        message = "Não tem problema, continue estudando! A DevRub está aqui para ajudar você a melhorar. 💪";
-      }
-
-      resultContainer.textContent = `Você acertou ${correctAnswers} de ${questions.length} (${score.toFixed(2)}%). ${message}`;
+      questionText.classList.add("hidden");
+      answerList.classList.add("hidden");
+      resultContainer.innerHTML = `Você acertou ${correctAnswers} de ${questions.length} (${score.toFixed(2)}%).<br><br>${message}`;
       resultContainer.classList.remove("hidden");
     }
-
-    nextButton.addEventListener("click", () => {
-      currentQuestion++;
-      if (currentQuestion < questions.length) {
-        loadQuestion();
-        nextButton.classList.add("hidden");
-      } else {
-        showResults();
-      }
-    });
 
     loadQuestion();
   </script>

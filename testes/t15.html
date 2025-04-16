@@ -90,31 +90,9 @@
       <p>Vamos testar seus conhecimentos sobre redes neurais!</p>
       <button class="next-btn" onclick="nextSlide()">Começar Quiz</button>
     </div>
-    <!-- Perguntas e respostas -->
-    <div class="slide">
-      <p class="question">O que é uma Rede Neural?</p>
-      <div class="answers">
-        <div class="answer" onclick="checkAnswer(0, 1)">Uma máquina que simula o cérebro humano para aprender e resolver problemas</div>
-        <div class="answer" onclick="checkAnswer(0, 1)">Um tipo de software que organiza dados em grandes bancos de dados</div>
-        <div class="answer" onclick="checkAnswer(0, 1)">Um algoritmo de busca em redes sociais</div>
-        <div class="answer" onclick="checkAnswer(0, 1)">Um sistema operacional inteligente</div>
-        <div class="answer" onclick="checkAnswer(0, 1)">Uma estrutura de dados que armazena informações temporárias</div>
-      </div>
-    </div>
-    <!-- Outras perguntas -->
-    <div class="slide">
-      <p class="question">Qual é a principal função das camadas ocultas em uma rede neural?</p>
-      <div class="answers">
-        <div class="answer" onclick="checkAnswer(1, 1)">Processar as informações e aprender a partir delas</div>
-        <div class="answer" onclick="checkAnswer(1, 1)">Armazenar as informações de entrada</div>
-        <div class="answer" onclick="checkAnswer(1, 1)">Conectar a camada de entrada com a camada de saída</div>
-        <div class="answer" onclick="checkAnswer(1, 1)">Garantir a precisão do treinamento</div>
-        <div class="answer" onclick="checkAnswer(1, 1)">Exibir o resultado final do modelo</div>
-      </div>
-    </div>
-    <!-- Outras perguntas -->
-    <div class="result" id="result"></div>
   </div>
+
+  <div class="result" id="result"></div>
 
   <script>
     const quizData = [
@@ -127,7 +105,7 @@
           "Um sistema operacional inteligente",
           "Uma estrutura de dados que armazena informações temporárias"
         ],
-        correct: 1
+        correct: 0
       },
       {
         question: "Qual é a principal função das camadas ocultas em uma rede neural?",
@@ -138,38 +116,141 @@
           "Garantir a precisão do treinamento",
           "Exibir o resultado final do modelo"
         ],
-        correct: 1
+        correct: 0
       },
-      // Adicionar mais perguntas conforme necessário
+      {
+        question: "O que é o processo de treinamento de uma rede neural?",
+        options: [
+          "Ajustar os pesos para melhorar os resultados",
+          "Instalar bibliotecas de aprendizado de máquina",
+          "Criar gráficos para visualizar dados",
+          "Executar testes em ambientes de produção",
+          "Coletar dados históricos para análise"
+        ],
+        correct: 0
+      },
+      {
+        question: "O que são pesos em uma rede neural?",
+        options: [
+          "Valores que determinam a importância das conexões",
+          "Os dados de entrada do sistema",
+          "As respostas finais geradas pela rede",
+          "O tempo necessário para treinar o modelo",
+          "A quantidade de memória usada na computação"
+        ],
+        correct: 0
+      },
+      {
+        question: "O que representa uma função de ativação?",
+        options: [
+          "A decisão de um neurônio ser ativado ou não",
+          "A quantidade de memória utilizada na rede",
+          "A forma como os dados são armazenados",
+          "O tempo de resposta de uma rede neural",
+          "A arquitetura da rede"
+        ],
+        correct: 0
+      },
+      {
+        question: "Qual destas é uma função de ativação comum?",
+        options: [
+          "ReLU",
+          "MD5",
+          "HTML",
+          "DNS",
+          "SSL"
+        ],
+        correct: 0
+      },
+      {
+        question: "O que é overfitting em redes neurais?",
+        options: [
+          "Quando a rede aprende demais os dados de treino e vai mal nos novos dados",
+          "Quando os dados de entrada são insuficientes",
+          "Quando a rede treina muito rápido",
+          "Quando os pesos são todos iguais",
+          "Quando não há camadas ocultas"
+        ],
+        correct: 0
+      },
+      {
+        question: "O que é backpropagation?",
+        options: [
+          "Algoritmo usado para ajustar os pesos da rede neural",
+          "Uma técnica para reduzir o número de camadas",
+          "Um método para testar diferentes modelos",
+          "Uma forma de coletar dados de entrada",
+          "Uma estrutura para definir camadas de saída"
+        ],
+        correct: 0
+      },
+      {
+        question: "Qual é o papel dos dados de validação?",
+        options: [
+          "Avaliar o desempenho da rede em dados não vistos",
+          "Fornecer dados extras para o treinamento",
+          "Armazenar os resultados finais do modelo",
+          "Aumentar o número de camadas ocultas",
+          "Definir os pesos iniciais da rede"
+        ],
+        correct: 0
+      },
+      {
+        question: "Qual dos seguintes NÃO é um tipo de rede neural?",
+        options: [
+          "RNN",
+          "CNN",
+          "LSTM",
+          "CSV",
+          "GAN"
+        ],
+        correct: 3
+      }
     ];
-    
+
     let currentSlide = 0;
     let score = 0;
-    
+
+    const slidesContainer = document.getElementById('slides');
+
+    quizData.forEach((q, index) => {
+      const slide = document.createElement("div");
+      slide.className = "slide";
+      const questionElem = `<p class="question">${q.question}</p>`;
+      const answersElem = q.options.map((opt, i) =>
+        `<div class="answer" onclick="checkAnswer(${index}, ${i}, this)">${opt}</div>`
+      ).join("");
+      slide.innerHTML = `${questionElem}<div class="answers">${answersElem}</div>`;
+      slidesContainer.appendChild(slide);
+    });
+
     function nextSlide() {
       const slides = document.querySelectorAll('.slide');
-      slides[currentSlide].classList.remove('active');
-      currentSlide++;
       if (currentSlide < slides.length) {
-        slides[currentSlide].classList.add('active');
-      } else {
-        showResult();
+        slides[currentSlide].classList.remove('active');
+        currentSlide++;
+        if (currentSlide < slides.length) {
+          slides[currentSlide].classList.add('active');
+        } else {
+          showResult();
+        }
       }
     }
-    
-    function checkAnswer(questionIndex, answerIndex) {
-      const answers = document.querySelectorAll('.answer');
-      const correctAnswerIndex = quizData[questionIndex].correct;
-      
-      if (answerIndex === correctAnswerIndex) {
-        answers[answerIndex].classList.add('correct');
-        score++;
-      } else {
-        answers[answerIndex].classList.add('incorrect');
-      }
-      setTimeout(nextSlide, 1000); // Avançar após 1 segundo
+
+    function checkAnswer(questionIndex, answerIndex, el) {
+      const correctIndex = quizData[questionIndex].correct;
+      const answers = el.parentElement.querySelectorAll('.answer');
+
+      answers.forEach((a, i) => {
+        a.classList.remove('correct', 'incorrect');
+        if (i === correctIndex) a.classList.add('correct');
+        else if (i === answerIndex) a.classList.add('incorrect');
+      });
+
+      if (answerIndex === correctIndex) score++;
+      setTimeout(nextSlide, 1000);
     }
-    
+
     function showResult() {
       const resultElement = document.getElementById('result');
       const percentage = (score / quizData.length) * 100;
@@ -178,6 +259,8 @@
         ? `Parabéns! Você acertou ${score} de ${quizData.length} perguntas.`
         : `Você acertou ${score} de ${quizData.length} perguntas. Estude mais e melhore!`;
     }
+
+    document.querySelectorAll('.slide')[0].classList.add('active');
   </script>
 </body>
 </html>

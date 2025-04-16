@@ -12,6 +12,7 @@
       padding: 20px;
       max-width: 800px;
       margin: 0 auto;
+      transition: all 0.5s ease-in-out;
     }
 
     h1 {
@@ -36,7 +37,7 @@
       padding: 10px;
       border-radius: 5px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background-color 0.3s ease;
     }
 
     .options li:hover {
@@ -44,22 +45,11 @@
     }
 
     .correct {
-      background-color: #28a745; /* Verde */
+      background-color: #28a745 !important;
     }
 
     .incorrect {
-      background-color: #dc3545; /* Vermelho */
-    }
-
-    .next-btn {
-      margin-top: 20px;
-      background-color: #28a745;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      display: none;
+      background-color: #dc3545 !important;
     }
 
     .result {
@@ -71,13 +61,22 @@
     .result p {
       font-size: 1.2em;
     }
+
+    .fade {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
   </style>
 </head>
 <body>
 
   <h1>Quiz sobre Quantum Computing</h1>
   
-  <div id="quiz-container">
+  <div id="quiz-container" class="fade">
     <!-- Perguntas e opções serão carregadas aqui -->
   </div>
   
@@ -206,18 +205,22 @@
     function loadQuestion() {
       const question = questions[currentQuestionIndex];
       const quizContainer = document.getElementById("quiz-container");
-      quizContainer.innerHTML = `
-        <div class="question">${question.question}</div>
-        <ul class="options">
-          ${question.options.map((option, index) => `
-            <li onclick="checkAnswer(${index}, ${currentQuestionIndex})">${option}</li>
-          `).join('')}
-        </ul>
-      `;
+      quizContainer.classList.remove("fade");
+      setTimeout(() => {
+        quizContainer.innerHTML = `
+          <div class="question">${question.question}</div>
+          <ul class="options">
+            ${question.options.map((option, index) => `
+              <li onclick="checkAnswer(${index})">${option}</li>
+            `).join('')}
+          </ul>
+        `;
+        quizContainer.classList.add("fade");
+      }, 100);
     }
 
-    function checkAnswer(selectedIndex, questionIndex) {
-      const correctIndex = questions[questionIndex].answer;
+    function checkAnswer(selectedIndex) {
+      const correctIndex = questions[currentQuestionIndex].answer;
       const options = document.querySelectorAll('.options li');
       
       if (selectedIndex === correctIndex) {
@@ -225,24 +228,19 @@
         score++;
       } else {
         options[selectedIndex].classList.add('incorrect');
+        options[correctIndex].classList.add('correct');
       }
 
-      options.forEach(option => option.style.pointerEvents = 'none'); // Disable further clicks
+      options.forEach(option => option.style.pointerEvents = 'none');
 
-      // Show the next button
-      const nextButton = document.createElement('button');
-      nextButton.textContent = 'Próxima pergunta';
-      nextButton.classList.add('next-btn');
-      nextButton.style.display = 'block';
-      nextButton.onclick = () => {
+      setTimeout(() => {
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
           loadQuestion();
         } else {
           showResult();
         }
-      };
-      document.body.appendChild(nextButton);
+      }, 1200); // Espera 1.2 segundos antes de ir pra próxima pergunta
     }
 
     function showResult() {
@@ -258,11 +256,12 @@
       } else {
         resultMessage.textContent += " Estude mais! Não tem problema errar, o importante é aprender!";
       }
-      
+
+      document.getElementById('quiz-container').style.display = 'none';
       document.getElementById('result').style.display = 'block';
     }
 
-    loadQuestion(); // Load the first question
+    loadQuestion();
   </script>
 </body>
 </html>
