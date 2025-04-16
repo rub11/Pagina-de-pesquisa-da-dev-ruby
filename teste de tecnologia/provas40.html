@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Realidade Aumentada Industrial</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Realidade Aumentada Industrial</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é Realidade Aumentada Industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">Uso de tecnologia para sobrepor elementos digitais ao ambiente físico no setor industrial.</li>
+        <li onclick="selectAnswer(this, 1, 1)">Uma forma de realidade virtual aplicada a jogos e entretenimento.</li>
+        <li onclick="selectAnswer(this, 2, 1)">Tecnologia para melhorar as condições de trabalho em escritórios.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual a principal vantagem da Realidade Aumentada Industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Aumento da eficiência e redução de erros operacionais no processo industrial.</li>
+        <li onclick="selectAnswer(this, 1, 2)">Facilidade de criação de jogos interativos.</li>
+        <li onclick="selectAnswer(this, 2, 2)">Melhorar a comunicação entre departamentos administrativos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. Qual tecnologia é frequentemente usada para implementar a Realidade Aumentada Industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Dispositivos de visão como óculos e visores AR, além de smartphones e tablets.</li>
+        <li onclick="selectAnswer(this, 1, 3)">Software de modelagem 3D para ambientes de jogos.</li>
+        <li onclick="selectAnswer(this, 2, 3)">Plataformas de e-commerce.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. Como a Realidade Aumentada pode melhorar a manutenção industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Fornecendo informações em tempo real sobre máquinas e equipamentos durante o processo de manutenção.</li>
+        <li onclick="selectAnswer(this, 1, 4)">Substituindo completamente os engenheiros de manutenção.</li>
+        <li onclick="selectAnswer(this, 2, 4)">Ajudando a vender mais peças de reposição online.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é um exemplo de aplicação de Realidade Aumentada no setor industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Utilização de óculos AR para guiar operadores durante a montagem de peças e equipamentos.</li>
+        <li onclick="selectAnswer(this, 1, 5)">Uso de fones de ouvido em fábricas para melhorar a comunicação.</li>
+        <li onclick="selectAnswer(this, 2, 5)">Exibição de vídeos de treinamento de operações em um computador comum.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Quais tipos de dados podem ser utilizados pela Realidade Aumentada Industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Informações em tempo real sobre o estado de máquinas, sensores e dados de operação.</li>
+        <li onclick="selectAnswer(this, 1, 6)">Somente dados sobre o funcionamento da produção da fábrica.</li>
+        <li onclick="selectAnswer(this, 2, 6)">Apenas informações financeiras sobre a produção industrial.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. Qual setor se beneficia mais com a Realidade Aumentada Industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Indústria de manufatura, especialmente na montagem e manutenção de equipamentos.</li>
+        <li onclick="selectAnswer(this, 1, 7)">Indústria do entretenimento, especialmente em estúdios de cinema.</li>
+        <li onclick="selectAnswer(this, 2, 7)">Setor de comércio eletrônico.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. Quais são os principais desafios para a implementação da Realidade Aumentada Industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Alto custo de equipamentos, treinamento de pessoal e integração com sistemas existentes.</li>
+        <li onclick="selectAnswer(this, 1, 8)">Falta de interesse das empresas em tecnologias novas.</li>
+        <li onclick="selectAnswer(this, 2, 8)">Problemas com segurança de dados no uso de dispositivos móveis.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. Qual é a vantagem do uso de Realidade Aumentada no treinamento de operadores?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Simulação de situações reais de forma segura e eficiente, reduzindo erros.</li>
+        <li onclick="selectAnswer(this, 1, 9)">Elimina a necessidade de treinamentos presenciais.</li>
+        <li onclick="selectAnswer(this, 2, 9)">Faz com que o operador se sinta mais relaxado no trabalho.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. Como a Realidade Aumentada pode impactar a logística industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Ajudando a visualizar os processos de movimentação de materiais em tempo real.</li>
+        <li onclick="selectAnswer(this, 1, 10)">Substituindo completamente os motoristas de caminhões.</li>
+        <li onclick="selectAnswer(this, 2, 10)">Reduzindo a necessidade de supervisores de logística.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+    const answersList = element.parentNode.querySelectorAll('li');
+    answersList.forEach(li => li.classList.remove('selected'));
+    element.classList.add('selected');
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    document.getElementById('result').innerText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Comunicação via APIs</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Comunicação via APIs</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é uma API?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">API (Interface de Programação de Aplicações) é um conjunto de definições e protocolos que permite que sistemas diferentes se comuniquem entre si.</li>
+        <li onclick="selectAnswer(this, 1, 1)">API é uma ferramenta que permite a comunicação entre o hardware do computador e o sistema operacional.</li>
+        <li onclick="selectAnswer(this, 2, 1)">API é uma linguagem de programação específica para web, que facilita a criação de sites dinâmicos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. O que significa REST em comunicação de APIs?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">REST (Representational State Transfer) é um estilo arquitetônico que utiliza métodos HTTP para comunicação, como GET, POST, PUT e DELETE.</li>
+        <li onclick="selectAnswer(this, 1, 2)">REST significa Real-time Extension Server Technology, e é usado para comunicação em tempo real entre sistemas.</li>
+        <li onclick="selectAnswer(this, 2, 2)">REST é um tipo de banco de dados usado para armazenar dados em uma API.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que é uma solicitação HTTP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Uma solicitação HTTP é uma requisição enviada de um cliente para um servidor, pedindo algum recurso ou realizando alguma ação.</li>
+        <li onclick="selectAnswer(this, 1, 3)">Uma solicitação HTTP é uma requisição entre dois servidores para estabelecer uma conexão de rede.</li>
+        <li onclick="selectAnswer(this, 2, 3)">Uma solicitação HTTP é uma requisição para transferir dados entre dois aplicativos no mesmo sistema operacional.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que é JSON em comunicação via API?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">JSON (JavaScript Object Notation) é um formato de dados leve e legível por humanos, frequentemente usado para transmitir dados entre cliente e servidor.</li>
+        <li onclick="selectAnswer(this, 1, 4)">JSON é uma tecnologia de compressão usada para reduzir o tamanho das requisições API.</li>
+        <li onclick="selectAnswer(this, 2, 4)">JSON é uma linguagem de programação usada para desenvolver APIs em sistemas de grande porte.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é o método GET em uma API?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">O método GET é usado para solicitar dados de um servidor sem realizar alterações nos dados do servidor.</li>
+        <li onclick="selectAnswer(this, 1, 5)">O método GET é utilizado para enviar dados ao servidor, alterando os dados existentes.</li>
+        <li onclick="selectAnswer(this, 2, 5)">O método GET é usado apenas para buscar arquivos de mídia em APIs de sites de streaming.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que é o cabeçalho (header) em uma solicitação de API?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">O cabeçalho contém informações adicionais sobre a requisição, como o tipo de conteúdo e as credenciais de autenticação.</li>
+        <li onclick="selectAnswer(this, 1, 6)">O cabeçalho contém dados da resposta que serão exibidos na interface do usuário.</li>
+        <li onclick="selectAnswer(this, 2, 6)">O cabeçalho é utilizado para definir as permissões de acesso do servidor à API.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que é uma resposta HTTP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Uma resposta HTTP é a resposta do servidor à solicitação do cliente, que pode incluir dados ou uma mensagem de status.</li>
+        <li onclick="selectAnswer(this, 1, 7)">Uma resposta HTTP é a resposta do cliente para um erro de requisição não encontrada no servidor.</li>
+        <li onclick="selectAnswer(this, 2, 7)">Uma resposta HTTP é um protocolo que garante a comunicação entre dois servidores de APIs diferentes.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que é OAuth em comunicação via APIs?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">OAuth é um protocolo de autorização usado para permitir que um aplicativo acesse recursos de outro aplicativo em nome do usuário.</li>
+        <li onclick="selectAnswer(this, 1, 8)">OAuth é uma biblioteca de criptografia usada para proteger a comunicação em APIs.</li>
+        <li onclick="selectAnswer(this, 2, 8)">OAuth é um framework de segurança utilizado para validar chaves de acesso em APIs de serviços bancários.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que significa a sigla API RESTful?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">API RESTful refere-se a APIs que seguem os princípios de REST, utilizando métodos HTTP e focando em recursos e operações simples.</li>
+        <li onclick="selectAnswer(this, 1, 9)">API RESTful é uma arquitetura que utiliza uma única requisição para obter todos os dados necessários em uma aplicação.</li>
+        <li onclick="selectAnswer(this, 2, 9)">API RESTful é uma tecnologia usada apenas para comunicação entre aplicativos móveis e servidores de dados.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é um token de acesso em uma API?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Um token de acesso é um código gerado para permitir que o usuário acesse recursos protegidos de uma API, após autenticação.</li>
+        <li onclick="selectAnswer(this, 1, 10)">Um token de acesso é um identificador único de cada servidor que comunica via API.</li>
+        <li onclick="selectAnswer(this, 2, 10)">Um token de acesso é uma chave de criptografia usada para ocultar os dados transmitidos nas APIs.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+
+    <div id="result" class="result"></div>
+
+  </div>
+</div>
+
+<script>
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const userAnswers = new Array(10).fill(null);
+
+  function selectAnswer(element, answerIndex, questionIndex) {
+    const answers = element.parentElement.children;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    userAnswers[questionIndex] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>

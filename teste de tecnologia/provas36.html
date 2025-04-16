@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Design de Sistemas</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Design de Sistemas</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é Design de Sistemas?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">Processo de criação de um sistema para resolver problemas específicos</li>
+        <li onclick="selectAnswer(this, 1, 1)">Apenas o design visual de interfaces</li>
+        <li onclick="selectAnswer(this, 2, 1)">A construção de servidores para aplicações</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Quais são as principais etapas do Design de Sistemas?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Análise, Design, Implementação e Manutenção</li>
+        <li onclick="selectAnswer(this, 1, 2)">Apenas a análise de requisitos</li>
+        <li onclick="selectAnswer(this, 2, 2)">Desenvolvimento de interfaces gráficas</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que define a arquitetura de um sistema?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">A estrutura de componentes e suas interações</li>
+        <li onclick="selectAnswer(this, 1, 3)">Somente o design da interface de usuário</li>
+        <li onclick="selectAnswer(this, 2, 3)">A escolha da linguagem de programação</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que são requisitos não funcionais?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Requisitos relacionados à performance, segurança e usabilidade</li>
+        <li onclick="selectAnswer(this, 1, 4)">Requisitos relacionados ao design visual</li>
+        <li onclick="selectAnswer(this, 2, 4)">Requisitos para a configuração do servidor</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. Qual é a diferença entre análise e design de sistemas?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Análise define os requisitos, e design cria soluções para atendê-los</li>
+        <li onclick="selectAnswer(this, 1, 5)">Análise é sobre escrever código, design é sobre a estética</li>
+        <li onclick="selectAnswer(this, 2, 5)">Não há diferença entre análise e design</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que é uma arquitetura monolítica?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Uma arquitetura onde todos os componentes são interligados em um único bloco</li>
+        <li onclick="selectAnswer(this, 1, 6)">Uma arquitetura baseada em microservices</li>
+        <li onclick="selectAnswer(this, 2, 6)">Uma arquitetura distribuída com muitos servidores independentes</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que é uma API em sistemas?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Interface de Programação de Aplicações, que permite a comunicação entre sistemas</li>
+        <li onclick="selectAnswer(this, 1, 7)">Uma interface gráfica para o usuário final</li>
+        <li onclick="selectAnswer(this, 2, 7)">Um tipo de banco de dados relacional</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que são sistemas distribuídos?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Sistemas que utilizam múltiplos computadores para processar informações</li>
+        <li onclick="selectAnswer(this, 1, 8)">Sistemas que rodam em um único computador</li>
+        <li onclick="selectAnswer(this, 2, 8)">Sistemas focados apenas na interação com o usuário</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. Qual é a principal vantagem de sistemas baseados em nuvem?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Escalabilidade e flexibilidade</li>
+        <li onclick="selectAnswer(this, 1, 9)">Maior controle sobre hardware</li>
+        <li onclick="selectAnswer(this, 2, 9)">Acesso mais rápido à memória local</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é um Diagrama de Fluxo de Dados (DFD)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Um modelo gráfico que representa o fluxo de informações em um sistema</li>
+        <li onclick="selectAnswer(this, 1, 10)">Um diagrama que descreve a estrutura de um banco de dados</li>
+        <li onclick="selectAnswer(this, 2, 10)">Um tipo de diagrama de interfaces de usuário</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+    const answersList = element.parentNode.querySelectorAll('li');
+    answersList.forEach(li => li.classList.remove('selected'));
+    element.classList.add('selected');
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    document.getElementById('result').innerText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+  }
+</script>
+
+</body>
+</html>

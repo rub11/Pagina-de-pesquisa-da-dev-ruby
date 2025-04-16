@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Realidade Virtual</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e5e5e5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: gold;
+            padding-top: 20px;
+        }
+
+        .quiz-container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 30px;
+        }
+
+        .question {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .answers {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .answer {
+            background-color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .answer:hover {
+            background-color: #444;
+        }
+
+        .answer.correct {
+            background-color: green;
+        }
+
+        .answer.incorrect {
+            background-color: red;
+        }
+
+        .result {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .result p {
+            font-size: 20px;
+        }
+
+        .btn {
+            padding: 15px;
+            background-color: gold;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        .btn:hover {
+            background-color: #f7d400;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quiz sobre Realidade Virtual</h1>
+<div class="quiz-container">
+    <div class="question" data-question-id="1">
+        <p><strong>1. O que é Realidade Virtual?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Tecnologia que permite simular ambientes reais através de equipamentos eletrônicos</div>
+            <div class="answer" data-answer-id="2">Tecnologia usada para criar filmes de animação</div>
+            <div class="answer" data-answer-id="3">Tecnologia para gravar e editar vídeos 3D</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="2">
+        <p><strong>2. Qual é o principal equipamento usado para a Realidade Virtual?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Smartphone</div>
+            <div class="answer" data-answer-id="2">Óculos de Realidade Virtual</div>
+            <div class="answer" data-answer-id="3">Câmera 360°</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="3">
+        <p><strong>3. Qual é a diferença entre Realidade Virtual e Realidade Aumentada?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">A Realidade Virtual substitui a realidade, enquanto a Realidade Aumentada adiciona elementos ao mundo real</div>
+            <div class="answer" data-answer-id="2">A Realidade Virtual é usada para filmes e a Realidade Aumentada é usada apenas para jogos</div>
+            <div class="answer" data-answer-id="3">Ambas têm o mesmo conceito e são usadas para criar jogos virtuais</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="4">
+        <p><strong>4. Qual é um exemplo de aplicação da Realidade Virtual?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Assistir a filmes em 3D</div>
+            <div class="answer" data-answer-id="2">Simulações de voo para treinamento de pilotos</div>
+            <div class="answer" data-answer-id="3">Gravar vídeos de viagem em 360°</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="5">
+        <p><strong>5. Quais são os principais benefícios da Realidade Virtual para o setor da saúde?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Aumentar a qualidade das imagens médicas</div>
+            <div class="answer" data-answer-id="2">Permitir cirurgias à distância com controle remoto</div>
+            <div class="answer" data-answer-id="3">Criar simulações para treinamento médico sem riscos reais</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="6">
+        <p><strong>6. Em qual área a Realidade Virtual é mais utilizada?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Educação e treinamento</div>
+            <div class="answer" data-answer-id="2">Turismo e fotografia</div>
+            <div class="answer" data-answer-id="3">Artes plásticas e pintura</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="7">
+        <p><strong>7. Quais são os principais desafios da Realidade Virtual?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Alta latência e dificuldade de integração com outras tecnologias</div>
+            <div class="answer" data-answer-id="2">O preço elevado dos óculos de VR e falta de conteúdo</div>
+            <div class="answer" data-answer-id="3">Conectividade lenta com a internet</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="8">
+        <p><strong>8. O que é "motion sickness" na Realidade Virtual?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Sentimento de enjoo devido ao movimento dentro do ambiente virtual</div>
+            <div class="answer" data-answer-id="2">Dificuldade de adaptação ao uso dos óculos VR</div>
+            <div class="answer" data-answer-id="3">Fadiga ocular causada pela luz intensa dos dispositivos VR</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="9">
+        <p><strong>9. Quais tipos de dispositivos são necessários para a experiência completa de Realidade Virtual?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Óculos VR e controladores de movimento</div>
+            <div class="answer" data-answer-id="2">Fones de ouvido e câmera 360°</div>
+            <div class="answer" data-answer-id="3">Smartphone e tela 3D</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="10">
+        <p><strong>10. Qual é a previsão para o futuro da Realidade Virtual?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">A Realidade Virtual se tornará obsoleta com a chegada da Realidade Aumentada</div>
+            <div class="answer" data-answer-id="2">A Realidade Virtual se expandirá para novas áreas, como entretenimento, educação e trabalho remoto</div>
+            <div class="answer" data-answer-id="3">Os óculos de VR se tornarão mais baratos, mas não mais comuns</div>
+        </div>
+    </div>
+    <div class="result" id="result-container">
+        <p id="result-text"></p>
+    </div>
+    <button class="btn" onclick="submitQuiz()">Ver Resultado</button>
+</div>
+
+<script>
+    const correctAnswers = {
+        1: 1, // O que é Realidade Virtual
+        2: 2, // Principal equipamento de VR
+        3: 1, // Diferença entre Realidade Virtual e Aumentada
+        4: 2, // Exemplo de aplicação de VR
+        5: 3, // Benefícios no setor de saúde
+        6: 1, // Área mais utilizada de VR
+        7: 2, // Desafios da VR
+        8: 1, // Motion sickness
+        9: 1, // Dispositivos necessários para VR
+        10: 2 // Futuro da Realidade Virtual
+    };
+
+    function submitQuiz() {
+        let score = 0;
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(question => {
+            const questionId = question.getAttribute('data-question-id');
+            const selectedAnswer = question.querySelector('.answer.selected');
+            if (selectedAnswer) {
+                const answerId = selectedAnswer.getAttribute('data-answer-id');
+                if (parseInt(answerId) === correctAnswers[questionId]) {
+                    score++;
+                    selectedAnswer.classList.add('correct');
+                } else {
+                    selectedAnswer.classList.add('incorrect');
+                }
+            }
+        });
+
+        const resultContainer = document.getElementById('result-container');
+        const resultText = document.getElementById('result-text');
+        const percentage = (score / 10) * 100;
+        resultText.textContent = `Você acertou ${score} de 10 questões (${percentage.toFixed(2)}%)`;
+        resultContainer.style.display = 'block';
+    }
+
+    document.querySelectorAll('.answer').forEach(answer => {
+        answer.addEventListener('click', function() {
+            const question = this.closest('.question');
+            const selectedAnswer = question.querySelector('.answer.selected');
+            if (selectedAnswer) {
+                selectedAnswer.classList.remove('selected');
+            }
+            this.classList.add('selected');
+        });
+    });
+</script>
+
+</body>
+</html>

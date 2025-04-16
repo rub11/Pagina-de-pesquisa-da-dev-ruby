@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Computação em Nuvem</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Computação em Nuvem</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é Computação em Nuvem?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">O fornecimento de recursos de computação pela internet</li>
+        <li onclick="selectAnswer(this, 1, 1)">O armazenamento de dados em dispositivos locais</li>
+        <li onclick="selectAnswer(this, 2, 1)">Uma técnica de processamento de dados em tempo real</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Quais são os três principais modelos de serviço da computação em nuvem?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">SaaS, PaaS e IaaS</li>
+        <li onclick="selectAnswer(this, 1, 2)">TCP, IP e DNS</li>
+        <li onclick="selectAnswer(this, 2, 2)">HTTP, FTP e SSH</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que significa a sigla IaaS?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Infrastructure as a Service (Infraestrutura como Serviço)</li>
+        <li onclick="selectAnswer(this, 1, 3)">Internet as a Service (Internet como Serviço)</li>
+        <li onclick="selectAnswer(this, 2, 3)">Information as a Service (Informação como Serviço)</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. Quais são as vantagens da computação em nuvem?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Escalabilidade, flexibilidade e redução de custos</li>
+        <li onclick="selectAnswer(this, 1, 4)">Menor desempenho e maior custo com armazenamento local</li>
+        <li onclick="selectAnswer(this, 2, 4)">Dependência de servidores locais e maior complexidade</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é um provedor de nuvem?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Uma empresa que fornece infraestrutura de nuvem como serviço</li>
+        <li onclick="selectAnswer(this, 1, 5)">Uma pessoa que usa serviços de nuvem para seus dados pessoais</li>
+        <li onclick="selectAnswer(this, 2, 5)">Um servidor físico que hospeda arquivos e dados locais</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que significa SaaS?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Software as a Service (Software como Serviço)</li>
+        <li onclick="selectAnswer(this, 1, 6)">System as a Service (Sistema como Serviço)</li>
+        <li onclick="selectAnswer(this, 2, 6)">Server as a Service (Servidor como Serviço)</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que é a escalabilidade na nuvem?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">A capacidade de aumentar ou diminuir os recursos conforme a necessidade</li>
+        <li onclick="selectAnswer(this, 1, 7)">A velocidade de transmissão de dados entre servidores</li>
+        <li onclick="selectAnswer(this, 2, 7)">A segurança dos dados armazenados na nuvem</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que é a nuvem pública?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Uma nuvem oferecida por provedores de serviços para o público geral</li>
+        <li onclick="selectAnswer(this, 1, 8)">Uma nuvem que só pode ser acessada por empresas privadas</li>
+        <li onclick="selectAnswer(this, 2, 8)">Uma nuvem para armazenar dados pessoais, sem a necessidade de um servidor</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é a nuvem híbrida?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Uma combinação de nuvem pública e privada</li>
+        <li onclick="selectAnswer(this, 1, 9)">Uma nuvem para fins educacionais</li>
+        <li onclick="selectAnswer(this, 2, 9)">Uma nuvem privada acessada apenas por um único usuário</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é a segurança em nuvem?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">A prática de proteger os dados e aplicativos na nuvem contra acessos não autorizados</li>
+        <li onclick="selectAnswer(this, 1, 10)">A proteção contra falhas nos servidores locais de uma empresa</li>
+        <li onclick="selectAnswer(this, 2, 10)">A implementação de backups apenas no armazenamento local</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+    const answersList = element.parentNode.querySelectorAll('li');
+    answersList.forEach(li => li.classList.remove('selected'));
+    element.classList.add('selected');
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    document.getElementById('result').innerText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+  }
+</script>
+
+</body>
+</html>

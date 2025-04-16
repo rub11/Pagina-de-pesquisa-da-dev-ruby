@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz: Programação em Python</title>
+  <style>
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #111;
+      color: #d4af37;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .quiz-container {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    #question-text {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    #answer-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    #answer-list li {
+      background-color: #333;
+      margin: 10px;
+      padding: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    #answer-list li:hover {
+      background-color: #444;
+    }
+
+    #next-btn {
+      background-color: #d4af37;
+      color: #111;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #next-btn:hover {
+      background-color: #b08d30;
+    }
+
+    #result-container {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Quiz: Programação em Python</h1>
+    <div class="quiz-container">
+      <div id="question-container">
+        <h2 id="question-text"></h2>
+        <ul id="answer-list">
+          <!-- As alternativas aparecerão aqui -->
+        </ul>
+      </div>
+      <div id="quiz-controls">
+        <button id="next-btn" onclick="nextQuestion()">Próxima Pergunta</button>
+      </div>
+      <div id="result-container">
+        <h2>Resultado</h2>
+        <p id="result-text"></p>
+        <button onclick="resetQuiz()">Reiniciar Prova</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Banco de questões e alternativas
+    const quizData = [
+      {
+        question: "O que é uma lista em Python?",
+        options: [
+          "Uma coleção ordenada de elementos mutáveis",
+          "Uma função que retorna um valor",
+          "Uma variável que armazena um valor",
+          "Um tipo de dado imutável",
+          "Uma estrutura de dados para strings"
+        ],
+        correct: 0
+      },
+      {
+        question: "Como se cria uma função em Python?",
+        options: [
+          "function nome_da_funcao():",
+          "def nome_da_funcao():",
+          "create nome_da_funcao():",
+          "func nome_da_funcao():",
+          "definir nome_da_funcao()"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual é o comando para imprimir algo na tela em Python?",
+        options: [
+          "echo()",
+          "printf()",
+          "println()",
+          "print()",
+          "out()"
+        ],
+        correct: 3
+      },
+      {
+        question: "Qual a saída do código: print(2 + 3 * 4)?",
+        options: [
+          "14",
+          "20",
+          "10",
+          "12",
+          "5"
+        ],
+        correct: 0
+      },
+      {
+        question: "O que é uma tupla em Python?",
+        options: [
+          "Uma coleção ordenada e mutável de elementos",
+          "Uma coleção ordenada e imutável de elementos",
+          "Uma coleção de pares chave-valor",
+          "Uma função que retorna uma lista",
+          "Uma coleção que permite duplicatas"
+        ],
+        correct: 1
+      },
+      {
+        question: "Como verificar o tipo de uma variável em Python?",
+        options: [
+          "checktype()",
+          "type()",
+          "typeof()",
+          "isinstance()",
+          "gettype()"
+        ],
+        correct: 1
+      },
+      {
+        question: "Qual é o operador para exponenciação em Python?",
+        options: [
+          "+",
+          "-",
+          "*",
+          "/",
+          "**"
+        ],
+        correct: 4
+      },
+      {
+  question: "Qual é a função para obter a entrada do usuário em Python?",
+  options: [
+    "input()",
+    "read()",
+    "get()",
+    "fetch()",
+    "scan()"
+  ],
+  correct: 0
+},
+{
+  question: "O que é um 'loop' em Python?",
+  options: [
+    "Uma estrutura de repetição de código",
+    "Uma condição de decisão",
+    "Uma função que retorna um valor",
+    "Uma forma de manipulação de strings",
+    "Uma variável"
+  ],
+  correct: 0
+},
+{
+  question: "Qual é a função que retorna o maior número em uma lista?",
+  options: [
+    "max()",
+    "largest()",
+    "biggest()",
+    "high()",
+    "top()"
+  ],
+  correct: 0
+},
+{
+  question: "Qual é a principal característica de um 'set' em Python?",
+  options: [
+    "Permite duplicatas",
+    "É ordenado",
+    "É mutável e não permite duplicatas",
+    "É uma estrutura de dados para dicionários",
+    "É imutável"
+  ],
+  correct: 2
+},
+{
+  question: "Como se cria um 'dicionário' em Python?",
+  options: [
+    "{}",
+    "[]",
+    "()",
+    "dict()",
+    "set()"
+  ],
+  correct: 0
+},
+{
+  question: "O que significa a expressão 'list comprehension' em Python?",
+  options: [
+    "Criação de listas de forma compacta",
+    "Compreensão de funções",
+    "Criação de objetos de forma eficiente",
+    "Leitura de dados em arquivos",
+    "Criação de tuplas com base em listas"
+  ],
+  correct: 0
+},
+{
+  question: "O que é o operador 'in' em Python?",
+  options: [
+    "Verifica se um valor está presente em uma sequência",
+    "Realiza a operação de soma",
+    "Define uma variável",
+    "Cria uma nova lista",
+    "Faz uma comparação"
+  ],
+  correct: 0
+},
+{
+  question: "Como se cria uma exceção personalizada em Python?",
+  options: [
+    "raise CustomException",
+    "create Exception()",
+    "throw CustomException",
+    "raise new Exception",
+    "custom Exception = Exception"
+  ],
+  correct: 0
+},
+{
+  question: "Como obter o valor de uma chave em um dicionário?",
+  options: [
+    "dict.get()",
+    "dict[]",
+    "dict()",
+    "dict.item()",
+    "dict.value()"
+  ],
+  correct: 0
+},
+{
+  question: "Como se importa um módulo em Python?",
+  options: [
+    "import module",
+    "include module",
+    "use module",
+    "load module",
+    "importation module"
+  ],
+  correct: 0
+},
+{
+  question: "Qual função converte um valor em string?",
+  options: [
+    "str()",
+    "string()",
+    "to_str()",
+    "convert()",
+    "strify()"
+  ],
+  correct: 0
+},
+{
+  question: "Como você pode combinar dois ou mais strings em Python?",
+  options: [
+    "using + operator",
+    "using join() method",
+    "using append() method",
+    "using combine() method",
+    "using concat()"
+  ],
+  correct: 0
+},
+{
+  question: "Qual é a principal diferença entre listas e tuplas em Python?",
+  options: [
+    "Listas são imutáveis, tuplas são mutáveis",
+    "Listas permitem duplicatas, tuplas não",
+    "Tuplas são imutáveis, listas são mutáveis",
+    "Tuplas podem conter apenas números",
+    "Listas têm mais métodos que tuplas"
+  ],
+  correct: 2
+},
+{
+  question: "Como se verifica o tipo de um objeto em Python?",
+  options: [
+    "type()",
+    "typeof()",
+    "check()",
+    "instanceof()",
+    "is()"
+  ],
+  correct: 0
+},
+{
+  question: "O que é o método 'strip()' em Python?",
+  options: [
+    "Remove espaços no início e no final de uma string",
+    "Cria uma nova string",
+    "Remove elementos duplicados de uma lista",
+    "Divide uma string",
+    "Adiciona caracteres a uma string"
+  ],
+  correct: 0
+},
+{
+  question: "O que é um 'lambda' em Python?",
+  options: [
+    "Uma função anônima",
+    "Uma estrutura de repetição",
+    "Uma variável mutável",
+    "Uma classe",
+    "Um tipo de dado"
+  ],
+  correct: 0
+},
+{
+  question: "Qual é o comando para criar uma nova pasta (diretório) em Python?",
+  options: [
+    "mkdir()",
+    "create_folder()",
+    "new_dir()",
+    "make()",
+    "dir_create()"
+  ],
+  correct: 0
+},
+{
+  question: "Qual é a diferença entre os métodos 'append()' e 'extend()' em listas?",
+  options: [
+    "append adiciona um elemento, extend adiciona uma lista de elementos",
+    "append remove elementos, extend adiciona elementos",
+    "extend adiciona um elemento, append adiciona vários elementos",
+    "não há diferença",
+    "extend não funciona com listas"
+  ],
+  correct: 0
+},
+{
+  question: "O que faz o método 'split()' em uma string?",
+  options: [
+    "Divide a string em uma lista",
+    "Substitui caracteres",
+    "Cria uma nova string",
+    "Combina duas strings",
+    "Converte uma string em maiúsculas"
+  ],
+  correct: 0
+},
+{
+  question: "O que é o método 'join()' em Python?",
+  options: [
+    "Combina elementos de uma lista em uma string",
+    "Divide uma string em uma lista",
+    "Verifica se uma string existe em uma lista",
+    "Remove espaços de uma string",
+    "Adiciona elementos a uma lista"
+  ],
+  correct: 0
+},
+{
+  question: "O que a função 'range()' retorna em Python?",
+  options: [
+    "Uma sequência de números",
+    "Uma lista de valores",
+    "Uma string",
+    "Um valor aleatório",
+    "Um valor booleano"
+  ],
+  correct: 0
+},
+{
+  question: "Como se define uma classe em Python?",
+  options: [
+    "class NomeDaClasse:",
+    "class NomeDaClasse()",
+    "class NomeDaClasse{}",
+    "class(NomeDaClasse)",
+    "define NomeDaClasse:"
+  ],
+  correct: 0
+},
+{
+  question: "Como você pode criar um arquivo em Python?",
+  options: [
+    "open('arquivo.txt', 'w')",
+    "create('arquivo.txt')",
+    "write('arquivo.txt')",
+    "make('arquivo.txt')",
+    "create_file('arquivo.txt')"
+  ],
+  correct: 0
+},
+{
+  question: "Qual é o operador para comparação de igualdade em Python?",
+  options: [
+    "==",
+    "===",
+    "!=",
+    "=",
+    "<>"
+  ],
+  correct: 0
+},
+{
+  question: "O que significa o método 'pop()' em listas?",
+  options: [
+    "Remove e retorna o último item da lista",
+    "Adiciona um item à lista",
+    "Cria uma cópia da lista",
+    "Inverte a lista",
+    "Remove o primeiro item da lista"
+  ],
+  correct: 0
+},
+{
+  question: "Como você pode verificar se uma chave existe em um dicionário?",
+  options: [
+    "key in dict",
+    "dict.contains(key)",
+    "dict.has_key(key)",
+    "key.exists()",
+    "key in dict.keys()"
+  ],
+  correct: 0
+},
+{
+  question: "Qual é a forma correta de abrir um arquivo para leitura em Python?",
+  options: [
+    "open('arquivo.txt', 'r')",
+    "open('arquivo.txt', 'w')",
+    "open('arquivo.txt', 'rb')",
+    "open('arquivo.txt', 'rw')",
+    "open('arquivo.txt')"
+  ],
+  correct: 0
+},
+{
+  question: "Como você pode verificar se uma lista está vazia em Python?",
+  options: [
+    "if not lista",
+    "if lista == []",
+    "if len(lista) == 0",
+    "if lista.empty()",
+    "if lista is None"
+  ],
+  correct: 0
+},
+{
+  question: "O que a função 'len()' faz em Python?",
+  options: [
+    "Retorna o número de itens de uma sequência",
+    "Calcula a soma de uma lista",
+    "Converte um valor em uma string",
+    "Verifica o tipo de um valor",
+    "Encontra o maior valor de uma lista"
+  ],
+  correct: 0
+},
+{
+  question: "O que significa a palavra-chave 'global' em Python?",
+  options: [
+    "Declara uma variável como global",
+    "Define uma função global",
+    "Chama uma função global",
+    "Cria uma variável global",
+    "Torna uma variável imutável"
+  ],
+  correct: 0
+},
+{
+  question: "Qual método é usado para ordenar uma lista em Python?",
+  options: [
+    "sort()",
+    "order()",
+    "arrange()",
+    "sortlist()",
+    "sequence()"
+  ],
+  correct: 0
+},
+{
+  question: "O que significa o erro 'IndexError' em Python?",
+  options: [
+    "Quando se tenta acessar um índice que não existe em uma lista",
+    "Quando uma variável não é definida",
+    "Quando uma operação não pode ser realizada",
+    "Quando uma chave não é encontrada em um dicionário",
+    "Quando uma função não retorna um valor"
+  ],
+  correct: 0
+},
+{
+  question: "Qual método é utilizado para adicionar um item no final de uma lista?",
+  options: [
+    "append()",
+    "add()",
+    "insert()",
+    "extend()",
+    "push()"
+  ],
+  correct: 0
+},
+{
+  question: "Como se cria uma tupla em Python?",
+  options: [
+    "(1, 2, 3)",
+    "[1, 2, 3]",
+    "{1, 2, 3}",
+    "tuple(1, 2, 3)",
+    "tuple(1; 2; 3)"
+  ],
+  correct: 0
+},
+{
+  question: "O que é uma expressão 'try...except' em Python?",
+  options: [
+    "Uma estrutura para tratar erros e exceções",
+    "Uma estrutura para criar loops",
+    "Uma maneira de comparar valores",
+    "Uma função para retornar um valor",
+    "Uma maneira de importar módulos"
+  ],
+  correct: 0
+},
+{
+  question: "Qual é a diferença entre 'deepcopy' e 'copy' em Python?",
+  options: [
+    "deepcopy cria uma cópia completa de um objeto, copy faz uma cópia superficial",
+    "deepcopy faz uma cópia mais rápida",
+    "copy cria um objeto vazio, deepcopy cria um novo objeto",
+    "não há diferença",
+    "deepcopy é usado apenas em listas"
+  ],
+  correct: 0
+},
+{
+  question: "Qual é a principal vantagem de usar o módulo 'os' em Python?",
+  options: [
+    "Permite interagir com o sistema operacional, como manipulação de arquivos e diretórios",
+    "É utilizado para realizar cálculos matemáticos",
+    "Gerencia exceções em programas",
+    "Auxilia na criação de interfaces gráficas",
+    "Faz a comunicação entre programas"
+  ],
+  correct: 0
+},
+{
+  question: "Qual comando pode ser usado para ler um arquivo linha por linha em Python?",
+  options: [
+    "for line in open('arquivo.txt'):",
+    "readlines('arquivo.txt')",
+    "for line in file('arquivo.txt'):",
+    "open('arquivo.txt').read()",
+    "open('arquivo.txt').lines()"
+  ],
+  correct: 0
+},
+{
+  question: "O que é um 'decorator' em Python?",
+  options: [
+    "Uma função que modifica outra função",
+    "Uma estrutura de dados",
+    "Uma forma de otimizar o código",
+    "Um tipo de variável",
+    "Uma estrutura de repetição"
+  ],
+  correct: 0
+},
+
+{
+  question: "Como você cria um arquivo para escrita em Python?",
+  options: [
+    "open('arquivo.txt', 'w')",
+    "create('arquivo.txt')",
+    "new_file('arquivo.txt')",
+    "write('arquivo.txt')",
+    "open('arquivo.txt', 'rw')"
+  ],
+  correct: 0
+},
+      {
+        question: "Como se declara uma variável em Python?",
+        options: [
+          "var x = 10",
+          "x := 10",
+          "x = 10",
+          "int x = 10",
+          "let x = 10"
+        ],
+        correct: 2
+      },
+      {
+        question: "Como fazer um comentário de uma linha em Python?",
+        options: [
+          "/* comentário */",
+          "// comentário",
+          "# comentário",
+          "<!-- comentário -->",
+          "-- comentário"
+        ],
+        correct: 2
+      },
+      {
+        question: "O que é um dicionário em Python?",
+        options: [
+          "Uma coleção não ordenada de pares chave-valor",
+          "Uma lista de tuplas",
+          "Uma estrutura de dados de arrays",
+          "Uma sequência ordenada de valores",
+          "Uma função que retorna um valor"
+        ],
+        correct: 0
+      }
+      // Continue adicionando mais questões aqui até completar 30
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const currentQuestion = quizData[currentQuestionIndex];
+      document.getElementById("question-text").innerText = currentQuestion.question;
+      const answerList = document.getElementById("answer-list");
+      answerList.innerHTML = "";
+
+      currentQuestion.options.forEach((option, index) => {
+        const li = document.createElement("li");
+        li.innerText = option;
+        li.onclick = () => checkAnswer(index);
+        answerList.appendChild(li);
+      });
+    }
+
+    function checkAnswer(selectedIndex) {
+      const correctIndex = quizData[currentQuestionIndex].correct;
+      if (selectedIndex === correctIndex) {
+        score++;
+      }
+
+      const nextBtn = document.getElementById("next-btn");
+      nextBtn.style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizData.length) {
+        loadQuestion();
+        document.getElementById("next-btn").style.display = "none";
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById("result-text").innerText = `Você acertou ${score} de ${quizData.length} perguntas!`;
+      document.getElementById("question-container").style.display = "none";
+      document.getElementById("quiz-controls").style.display = "none";
+      document.getElementById("result-container").style.display = "block";
+    }
+
+    function resetQuiz() {
+      score = 0;
+      currentQuestionIndex = 0;
+      document.getElementById("question-container").style.display = "block";
+      document.getElementById("quiz-controls").style.display = "block";
+      document.getElementById("result-container").style.display = "none";
+      loadQuestion();
+    }
+
+    loadQuestion();
+  </script>
+</body>
+</html>

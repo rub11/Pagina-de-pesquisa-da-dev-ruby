@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Computação Paralela</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Computação Paralela</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é Computação Paralela?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">É a técnica de usar múltiplos processadores para resolver um problema simultaneamente, dividindo as tarefas.</li>
+        <li onclick="selectAnswer(this, 1, 1)">É a execução de programas sequenciais, um após o outro, sem dividir a carga de trabalho.</li>
+        <li onclick="selectAnswer(this, 2, 1)">É a técnica de aumentar a velocidade do processador para melhorar a performance do programa.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual é a principal vantagem da Computação Paralela?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Permite a execução mais rápida de tarefas, dividindo a carga de trabalho entre vários processadores.</li>
+        <li onclick="selectAnswer(this, 1, 2)">Aumenta a complexidade do programa, tornando-o mais difícil de implementar.</li>
+        <li onclick="selectAnswer(this, 2, 2)">Reduz o custo de execução de programas em servidores.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que são threads em Computação Paralela?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">São unidades de execução que podem ser executadas simultaneamente, dentro de um mesmo processo.</li>
+        <li onclick="selectAnswer(this, 1, 3)">São recursos físicos que são alocados para aumentar a capacidade de memória.</li>
+        <li onclick="selectAnswer(this, 2, 3)">São módulos de armazenamento de dados que ajudam a acelerar a computação.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que é a Lei de Amdahl em Computação Paralela?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">É uma fórmula que descreve a melhoria teórica da performance de um sistema paralelo com a adição de processadores.</li>
+        <li onclick="selectAnswer(this, 1, 4)">É uma técnica que permite a multiplicação de tarefas em máquinas com um único processador.</li>
+        <li onclick="selectAnswer(this, 2, 4)">É uma lei que trata da limitação de largura de banda em sistemas de computação distribuída.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é um modelo de memória compartilhada?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">É um modelo em que múltiplos processadores acessam a mesma memória principal.</li>
+        <li onclick="selectAnswer(this, 1, 5)">É um modelo em que cada processador tem sua própria memória, sem comunicação entre eles.</li>
+        <li onclick="selectAnswer(this, 2, 5)">É um modelo onde a memória é alocada de forma dinâmica entre os processadores conforme a demanda.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que é o modelo de passagem de mensagens?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">É um modelo onde os processadores se comunicam enviando e recebendo mensagens entre si.</li>
+        <li onclick="selectAnswer(this, 1, 6)">É um modelo onde os processadores têm memória compartilhada e não precisam trocar mensagens.</li>
+        <li onclick="selectAnswer(this, 2, 6)">É um modelo de execução sequencial onde não há comunicação entre os processadores.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que é um supercomputador?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">É um computador projetado para realizar cálculos extremamente rápidos e complexos, utilizando Computação Paralela.</li>
+        <li onclick="selectAnswer(this, 1, 7)">É um computador com grande capacidade de armazenamento, mas sem suporte para Computação Paralela.</li>
+        <li onclick="selectAnswer(this, 2, 7)">É um computador comum, mas com capacidade de suportar múltiplos usuários simultaneamente.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. Qual é a diferença entre Computação Paralela e Computação Distribuída?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Computação Paralela envolve a execução simultânea de processos no mesmo computador, enquanto Computação Distribuída envolve a execução de processos em vários computadores.</li>
+        <li onclick="selectAnswer(this, 1, 8)">Computação Paralela é mais eficaz, pois envolve apenas computadores centralizados.</li>
+        <li onclick="selectAnswer(this, 2, 8)">Não há diferença significativa entre Computação Paralela e Computação Distribuída.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é uma condição de corrida em Computação Paralela?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">É um erro que ocorre quando múltiplos processos tentam acessar ou modificar dados simultaneamente, resultando em um comportamento inesperado.</li>
+        <li onclick="selectAnswer(this, 1, 9)">É uma condição em que todos os processos devem esperar um pelo outro para garantir a execução sequencial.</li>
+        <li onclick="selectAnswer(this, 2, 9)">É uma situação em que o sistema opera mais rapidamente, sem qualquer erro ou concorrência.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é o modelo de programação CUDA?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">É uma plataforma e modelo de programação que permite que os programadores usem GPUs para executar cálculos paralelos.</li>
+        <li onclick="selectAnswer(this, 1, 10)">É uma técnica de programação para otimizar o desempenho de CPUs em ambientes de computação sequenciais.</li>
+        <li onclick="selectAnswer(this, 2, 10)">É um modelo de programação voltado para aumentar a capacidade de armazenamento de dados em computadores.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+    <div id="result" class="result"></div>
+  </div>
+</div>
+
+<script>
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const userAnswers = new Array(10).fill(null);
+
+  function selectAnswer(element, answerIndex, questionIndex) {
+    const answers = element.parentElement.children;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    userAnswers[questionIndex] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>

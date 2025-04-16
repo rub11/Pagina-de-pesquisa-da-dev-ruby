@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Banco de Dados</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: #d4af37; /* Dourado */
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      justify-content: center;
+    }
+
+    .question-card {
+      background-color: #2c2c2c;
+      border: 3px solid #d4af37;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .question-card h3 {
+      font-size: 1.8rem;
+      color: #d4af37;
+    }
+
+    .answer-option {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .answer-option:hover {
+      background-color: #d4af37;
+    }
+
+    .result {
+      font-size: 1.5rem;
+      color: #fff;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .next-btn {
+      background-color: #d4af37;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .next-btn:hover {
+      background-color: #c89f32;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="question-card" id="question-card">
+      <h3 id="question-text">Carregando pergunta...</h3>
+      <div id="answers-container"></div>
+    </div>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    const questions = [
+      { 
+        question: "O que é um banco de dados?", 
+        options: ["Um software que organiza dados", "Um tipo de rede de computadores", "Um protocolo de comunicação entre servidores"], 
+        answer: 0 
+      },
+      { 
+        question: "O que significa a sigla DBMS?", 
+        options: ["Database Management System", "Data Base Multiple Systems", "Distributed Basic Management System"], 
+        answer: 0 
+      },
+      { 
+        question: "Qual é a principal função de um SGBD?", 
+        options: ["Gerenciar o armazenamento e acesso aos dados", "Conectar computadores em uma rede", "Proteger os dados contra ataques externos"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é SQL?", 
+        options: ["Linguagem de consulta estruturada", "Um sistema de backup de dados", "Um tipo de banco de dados NoSQL"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é um banco de dados relacional?", 
+        options: ["Um banco de dados que organiza dados em tabelas inter-relacionadas", "Um banco de dados sem estrutura definida", "Um banco de dados que armazena dados como documentos"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é uma chave primária?", 
+        options: ["Uma coluna que identifica de forma única cada registro em uma tabela", "Uma coluna que armazena os dados mais importantes", "Uma tabela que armazena as chaves estrangeiras"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é uma chave estrangeira?", 
+        options: ["Uma coluna em uma tabela que faz referência à chave primária de outra tabela", "Uma chave usada para criptografar dados", "Uma chave que organiza os dados em uma tabela"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é normalização em banco de dados?", 
+        options: ["Processo de remover redundância e dependência nos dados", "Processo de criptografar dados sensíveis", "Processo de criação de índices para melhorar a performance"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é uma consulta SQL?", 
+        options: ["Uma instrução usada para recuperar dados de um banco de dados", "Uma técnica para otimizar o desempenho do banco de dados", "Uma linguagem usada para criar backups"], 
+        answer: 0 
+      },
+      { 
+        question: "O que significa o comando SELECT no SQL?", 
+        options: ["Selecionar dados de uma tabela", "Atualizar dados em uma tabela", "Excluir dados de uma tabela"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é um índice em um banco de dados?", 
+        options: ["Uma estrutura que melhora a velocidade das consultas", "Uma tabela com dados de backup", "Um tipo de dado que armazena registros duplicados"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é um banco de dados NoSQL?", 
+        options: ["Um banco de dados que não usa a estrutura relacional tradicional", "Um banco de dados que usa SQL como linguagem de consulta", "Um banco de dados usado apenas para armazenar documentos"], 
+        answer: 0 
+      },
+      { 
+        question: "Qual é a principal diferença entre bancos de dados relacionais e NoSQL?", 
+        options: ["Relacional usa tabelas, NoSQL usa dados não estruturados", "Relacional armazena dados em arquivos, NoSQL em servidores de nuvem", "Relacional é mais rápido que NoSQL"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é uma transação em um banco de dados?", 
+        options: ["Um conjunto de operações que são executadas como uma unidade", "Uma consulta que retorna dados de uma tabela", "Uma operação de backup de dados"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é a integridade referencial?", 
+        options: ["Garantir que os dados em tabelas relacionadas sejam consistentes", "Garantir que os dados não sejam modificados por usuários não autorizados", "Garantir que os dados estejam sempre criptografados"], 
+        answer: 0 
+      },
+      { 
+        question: "O que significa o comando INSERT no SQL?", 
+        options: ["Inserir novos dados em uma tabela", "Selecionar dados de uma tabela", "Atualizar dados em uma tabela"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é um modelo de dados?", 
+        options: ["Uma representação estruturada dos dados e suas relações", "Um conjunto de índices de um banco de dados", "Um tipo de consulta SQL para recuperar dados"], 
+        answer: 0 
+      },
+      { 
+        question: "O que significa o comando DELETE no SQL?", 
+        options: ["Excluir dados de uma tabela", "Alterar dados existentes em uma tabela", "Criar uma nova tabela"], 
+        answer: 0 
+      },
+      { 
+        question: "O que é a cláusula WHERE no SQL?", 
+        options: ["Usada para filtrar dados com base em uma condição", "Usada para selecionar os dados de uma tabela", "Usada para criar novos registros em uma tabela"], 
+        answer: 0 
+      },
+      { 
+  question: "O que é um banco de dados distribuído?", 
+  options: ["Um banco de dados que armazena dados em múltiplos servidores", "Um banco de dados com dados não estruturados", "Um banco de dados apenas para consultas rápidas"], 
+  answer: 0 
+},
+{ 
+  question: "O que é o modelo entidade-relacionamento (ER)?", 
+  options: ["Uma técnica para modelar dados em um banco de dados", "Um tipo de consulta SQL", "Uma estrutura de armazenamento de dados em disco"], 
+  answer: 0 
+},
+{ 
+  question: "O que é um Data Warehouse?", 
+  options: ["Uma grande base de dados usada para análises e relatórios", "Um banco de dados usado para armazenar apenas dados temporários", "Um banco de dados usado para armazenar imagens e vídeos"], 
+  answer: 0 
+},
+{ 
+  question: "O que é uma tabela normalizada?", 
+  options: ["Uma tabela onde os dados são organizados para eliminar redundâncias", "Uma tabela que armazena dados temporários", "Uma tabela com dados criptografados"], 
+  answer: 0 
+},
+{ 
+  question: "O que é um banco de dados em nuvem?", 
+  options: ["Um banco de dados que é hospedado e acessado via internet", "Um banco de dados que usa apenas tabelas", "Um banco de dados que não tem capacidade de backup"], 
+  answer: 0 
+},
+{ 
+  question: "O que é a técnica de particionamento de dados?", 
+  options: ["Dividir os dados em partes menores para melhorar o desempenho", "Criptografar dados para garantir segurança", "Remover dados antigos de um banco de dados"], 
+  answer: 0 
+},
+{ 
+  question: "O que é um banco de dados em tempo real?", 
+  options: ["Um banco de dados que processa e fornece dados em tempo quase imediato", "Um banco de dados que armazena apenas informações financeiras", "Um banco de dados que é usado apenas para backup"], 
+  answer: 0 
+},
+{ 
+  question: "O que significa a sigla ACID em bancos de dados?", 
+  options: ["Atomicidade, Consistência, Isolamento e Durabilidade", "Automação, Cálculo, Integridade e Distribuição", "Acessibilidade, Compatibilidade, Interatividade e Design"], 
+  answer: 0 
+},
+{ 
+  question: "O que é um banco de dados OLTP?", 
+  options: ["Online Transaction Processing – processa transações em tempo real", "Online Logical Table Processing – processa tabelas lógicas", "Open Large Table Processing – processa grandes volumes de dados"], 
+  answer: 0 
+},
+{ 
+  question: "O que é um banco de dados NoSQL document-based?", 
+  options: ["Um banco de dados que armazena dados como documentos JSON ou XML", "Um banco de dados que usa apenas tabelas", "Um banco de dados com estrutura de dados somente numérica"], 
+  answer: 0 
+},
+
+      { 
+        question: "O que é um backup de banco de dados?", 
+        options: ["Cópia de segurança dos dados para prevenir perda de informações", "Operação que melhora o desempenho do banco de dados", "Processo de criptografar dados sensíveis"], 
+        answer: 0 
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const currentQuestion = questions[currentQuestionIndex];
+      const questionText = document.getElementById('question-text');
+      const answersContainer = document.getElementById('answers-container');
+
+      questionText.textContent = currentQuestion.question;
+      answersContainer.innerHTML = '';
+
+      currentQuestion.options.forEach((option, index) => {
+        const answerOption = document.createElement('div');
+        answerOption.classList.add('answer-option');
+        answerOption.textContent = option;
+        answerOption.onclick = () => checkAnswer(index);
+        answersContainer.appendChild(answerOption);
+      });
+    }
+
+    function checkAnswer(selectedIndex) {
+      const currentQuestion = questions[currentQuestionIndex];
+
+      if (selectedIndex === currentQuestion.answer) {
+        score++;
+      }
+
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.textContent = `Você acertou ${score} de ${questions.length} perguntas!`;
+    }
+
+    // Começar o quiz automaticamente
+    loadQuestion();
+  </script>
+
+</body>
+</html>

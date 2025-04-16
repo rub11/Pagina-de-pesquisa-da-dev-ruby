@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prova de Desenvolvimento Web</title>
+  <style>
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #111;
+      color: #d4af37;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .title {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .quiz-container {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    #question-text {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    #answer-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    #answer-list li {
+      background-color: #333;
+      margin: 10px;
+      padding: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    #answer-list li:hover {
+      background-color: #444;
+    }
+
+    #next-btn {
+      background-color: #d4af37;
+      color: #111;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #next-btn:hover {
+      background-color: #b08d30;
+    }
+
+    #result-container {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Prova de Desenvolvimento Web</h1>
+    <div class="quiz-container">
+      <div id="question-container">
+        <h2 id="question-text"></h2>
+        <ul id="answer-list">
+          <!-- As alternativas aparecerão aqui -->
+        </ul>
+      </div>
+      <div id="quiz-controls">
+        <button id="next-btn" onclick="nextQuestion()">Próxima Pergunta</button>
+      </div>
+      <div id="result-container">
+        <h2>Resultado</h2>
+        <p id="result-text"></p>
+        <button onclick="resetQuiz()">Reiniciar Prova</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Banco de questões e alternativas
+    const quizData = [
+      {
+        question: "O que significa HTML?",
+        options: ["HyperText Markup Language", "HyperText Machine Language", "HighText Markup Language", "HyperTransfer Markup Language", "None of the above"],
+        answer: 0
+      },
+      {
+        question: "Qual das alternativas é uma propriedade CSS para cor de fundo?",
+        options: ["color", "background-color", "background", "font-color", "none of these"],
+        answer: 1
+      },
+      {
+        question: "Qual o comando JavaScript para exibir algo no console?",
+        options: ["alert()", "console.log()", "echo()", "print()", "printf()"],
+        answer: 1
+      },
+      {
+        question: "O que é o CSS Grid?",
+        options: ["Uma biblioteca JavaScript", "Uma técnica de layout em CSS", "Uma estrutura de backend", "Um tipo de framework", "None of the above"],
+        answer: 1
+      },
+      {
+        question: "Qual o principal propósito do JavaScript?",
+        options: ["Estilizar páginas", "Criar gráficos", "Adicionar interatividade", "Criar backends", "Armazenar dados"],
+        answer: 2
+      },
+      {
+        question: "Qual a tag HTML utilizada para criar uma quebra de linha?",
+        options: ["<br>", "<break>", "<line>", "<lb>", "<breakline>"],
+        answer: 0
+      },
+      {
+        question: "Qual é a principal função do Flexbox no CSS?",
+        options: ["Criar grids", "Distribuir itens dentro de um contêiner", "Estilizar o conteúdo de uma página", "Criar animações", "Formatar textos"],
+        answer: 1
+      },
+      {
+        question: "O que é o DOM em JavaScript?",
+        options: ["Document Object Model", "Data Object Management", "Dynamic Object Module", "Data Order Management", "Dynamic Object Manipulation"],
+        answer: 0
+      },
+      {
+        question: "Como você seleciona um elemento pelo ID em JavaScript?",
+        options: ["document.querySelector('#id')", "document.getElementById('#id')", "document.getElementByClass('id')", "document.getElementById('id')", "document.querySelector('.id')"],
+        answer: 3
+      },
+      {
+        question: "Qual framework JavaScript é usado para criar interfaces reativas?",
+        options: ["Vue.js", "Angular", "React", "Svelte", "Todos os anteriores"],
+        answer: 4
+      },
+      {
+        question: "O que é um 'box model' no CSS?",
+        options: ["Uma técnica de layout", "Uma maneira de estilizar imagens", "Uma maneira de definir o tamanho e o espaçamento de elementos", "Um tipo de animação", "Nenhuma das anteriores"],
+        answer: 2
+      },
+      {
+        question: "O que significa 'responsive design'?",
+        options: ["Design que reage ao conteúdo", "Design que se adapta ao tamanho da tela", "Design fixo que não muda", "Design com animações", "Nenhuma das anteriores"],
+        answer: 1
+      },
+      {
+        question: "Qual é a tag HTML que define um cabeçalho?",
+        options: ["<header>", "<h1>", "<title>", "<section>", "<div>"],
+        answer: 1
+      },
+      {
+        question: "Qual é a função do 'use strict' no JavaScript?",
+        options: ["Desabilita erros", "Enforce stricter parsing and error handling", "Cria variáveis automaticamente", "Cria funções globalmente", "Nenhuma das alternativas"],
+        answer: 1
+      },
+      {
+        question: "Qual é a principal diferença entre var, let e const?",
+        options: ["A área de escopo", "O tipo de dados", "A velocidade", "O tempo de execução", "Nenhuma das alternativas"],
+        answer: 0
+      },
+      {
+        question: "O que é o conceito de 'callback' em JavaScript?",
+        options: ["Uma função que é chamada após uma operação ser concluída", "Uma variável global", "Uma técnica de renderização de conteúdo", "Uma estrutura de controle de fluxo", "Nenhuma das alternativas"],
+        answer: 0
+      },
+      {
+        question: "Qual a principal vantagem do Sass sobre o CSS tradicional?",
+        options: ["Compilação em tempo real", "Sintaxe mais limpa e reutilizável", "Maior controle de fontes", "Facilidade de integração com HTML", "Não há vantagem significativa"],
+        answer: 1
+      },
+      {
+        question: "Qual método CSS é usado para adicionar sombras a elementos?",
+        options: ["text-shadow", "box-shadow", "background-shadow", "shadow-effect", "none of these"],
+        answer: 1
+      },
+      {
+        question: "O que é um 'promise' em JavaScript?",
+        options: ["Um tipo de variável", "Uma função assíncrona", "Uma estrutura de dados", "Um modelo de design", "Um tipo de framework"],
+        answer: 1
+      },
+      {
+        question: "Como você cria uma variável de escopo global em JavaScript?",
+        options: ["Declarando-a fora de qualquer função", "Usando 'var' dentro de uma função", "Usando 'let' dentro de uma função", "Declarando-a dentro de um loop", "Nenhuma das alternativas"],
+        answer: 0
+      },
+      {
+        question: "O que o framework Bootstrap facilita?",
+        options: ["Layout responsivo", "Gerenciamento de banco de dados", "Criação de gráficos", "Animações CSS", "Manipulação de dados em tempo real"],
+        answer: 0
+      },
+      {
+        question: "Qual das alternativas é usada para inserir um link em HTML?",
+        options: ["<link>", "<a>", "<href>", "<url>", "<hyperlink>"],
+        answer: 1
+      },
+      {
+        question: "O que é o método 'fetch' em JavaScript?",
+        options: ["Uma forma de buscar dados de uma API", "Uma maneira de modificar o DOM", "Uma técnica de animação", "Uma função matemática", "Nenhuma das alternativas"],
+        answer: 0
+      },
+      {
+        question: "Qual é a tag HTML que define uma imagem?",
+        options: ["<img>", "<image>", "<src>", "<picture>", "<imgurl>"],
+        answer: 0
+      },
+      {
+        question: "Como você cria uma função em JavaScript?",
+        options: ["function minhaFuncao()", "create function minhaFuncao()", "def minhaFuncao()", "function: minhaFuncao()", "Nenhuma das alternativas"],
+        answer: 0
+      },
+
+      {
+  question: "Qual a diferença entre uma tag <div> e <section>?",
+  options: ["<div> é um contêiner geral, <section> é usado para definir seções do conteúdo", "<div> é usado para cabeçalhos, <section> para parágrafos", "<div> é para layout, <section> para estilizar", "<div> é sempre fixo, <section> é fluído", "Nenhuma das alternativas"],
+  answer: 0
+},
+{
+  question: "Qual a principal vantagem de usar frameworks como Angular ou React?",
+  options: ["Facilitam a criação de layouts responsivos", "Permitem a criação de componentes reutilizáveis", "Aumentam a compatibilidade com navegadores", "Melhoram a velocidade de carregamento", "Nenhuma das alternativas"],
+  answer: 1
+},
+{
+  question: "Qual é a principal função do atributo 'href' em HTML?",
+  options: ["Indicar o caminho de uma imagem", "Definir o link de uma âncora", "Definir o nome de uma página", "Definir a cor do link", "Nenhuma das alternativas"],
+  answer: 1
+},
+{
+  question: "Qual método CSS é usado para definir o tamanho das fontes?",
+  options: ["font-size", "font-family", "text-size", "font-weight", "font-style"],
+  answer: 0
+},
+{
+  question: "Qual é o propósito de usar o 'data-*' no HTML?",
+  options: ["Armazenar dados personalizados no elemento", "Definir o tipo de dado no formulário", "Designar uma classe de estilo para o elemento", "Controlar o comportamento do JavaScript", "Nenhuma das alternativas"],
+  answer: 0
+},
+{
+  question: "Como você aplica uma transição CSS?",
+  options: ["transition-property", "transition-effect", "transition-style", "transition-time", "Nenhuma das alternativas"],
+  answer: 0
+},
+{
+  question: "Qual a diferença entre o 'position: relative' e 'position: absolute' no CSS?",
+  options: ["relative posiciona em relação ao seu normal, absolute em relação ao contêiner mais próximo", "relative posiciona fixo, absolute posiciona de forma fluída", "relative afeta o layout, absolute não", "relative não pode ser combinado com outros posicionamentos", "Nenhuma das alternativas"],
+  answer: 0
+},
+{
+  question: "Qual comando JavaScript é usado para parar a execução de um loop?",
+  options: ["continue", "break", "exit", "stop", "exitloop"],
+  answer: 1
+},
+{
+  question: "Qual é a função do 'localStorage' em JavaScript?",
+  options: ["Armazenar dados temporários na memória", "Armazenar dados permanentes no navegador", "Armazenar cookies", "Controlar requisições API", "Nenhuma das alternativas"],
+  answer: 1
+},
+{
+  question: "Qual é o propósito de um 'callback' em JavaScript?",
+  options: ["Executar código após outra função", "Definir a função que irá manipular dados do usuário", "Alterar o comportamento do DOM", "Lidar com erros de execução", "Nenhuma das alternativas"],
+  answer: 0
+},
+{
+  question: "Qual é o objetivo do 'Vue.js'?",
+  options: ["Framework JavaScript para construir interfaces de usuário", "Framework CSS para criar páginas responsivas", "Biblioteca para animações web", "Sistema de gerenciamento de banco de dados", "Nenhuma das alternativas"],
+  answer: 0
+},
+{
+  question: "Como você define uma variável global em JavaScript?",
+  options: ["var minhaVariavel", "let minhaVariavel", "const minhaVariavel", "minhaVariavel = 10", "Nenhuma das alternativas"],
+  answer: 0
+},
+{
+  question: "Qual é o propósito do 'git push'?",
+  options: ["Enviar alterações locais para o repositório remoto", "Criar um novo repositório no GitHub", "Baixar alterações do repositório remoto", "Criar um novo branch no Git", "Nenhuma das alternativas"],
+  answer: 0
+},
+{
+  question: "O que é o 'npm'?",
+  options: ["Gerenciador de pacotes do Node.js", "Editor de código-fonte", "Framework para desenvolvimento frontend", "Ambiente de execução para JavaScript", "Nenhuma das alternativas"],
+  answer: 0
+},
+      {
+        question: "Qual a principal função do Node.js?",
+        options: ["Construir páginas web", "Criar servidores back-end", "Gerenciar banco de dados", "Manipular imagens", "Nenhuma das alternativas"],
+        answer: 1
+      },
+      {
+        question: "Qual a principal funcionalidade do Git?",
+        options: ["Armazenar dados", "Gerenciar versão de arquivos", "Criar sites", "Editar imagens", "Encriptar dados"],
+        answer: 1
+      },
+      {
+        question: "Qual comando é usado para clonar um repositório Git?",
+        options: ["git clone", "git pull", "git fork", "git init", "git commit"],
+        answer: 0
+      },
+      {
+        question: "Qual a tag HTML usada para criar uma lista não ordenada?",
+        options: ["<ul>", "<ol>", "<li>", "<list>", "<ulol>"],
+        answer: 0
+      },
+      {
+        question: "Qual é a principal vantagem de usar um framework como React?",
+        options: ["Reutilização de componentes", "Melhor desempenho", "Maior segurança", "Menor necessidade de código", "Todas as anteriores"],
+        answer: 4
+      },
+      {
+        question: "O que é o conceito de 'responsividade' em desenvolvimento web?",
+        options: ["Sites que funcionam bem em diferentes dispositivos", "Sites que carregam mais rápido", "Sites que são compatíveis com qualquer servidor", "Sites que são protegidos por criptografia", "Sites que possuem animações interativas"],
+        answer: 0
+      },
+      {
+        question: "O que é um 'API'?",
+        options: ["Interface de Programação de Aplicações", "Advanced Programming Interface", "Applied Programming Interface", "Acess Point Identifier", "Acess Control Interface"],
+        answer: 0
+      },
+      {
+        question: "Qual comando Git é usado para adicionar um arquivo ao repositório?",
+        options: ["git add", "git commit", "git push", "git pull", "git status"],
+        answer: 0
+      },
+      {
+        question: "Qual estrutura é usada no HTML para agrupar conteúdos?",
+        options: ["<section>", "<div>", "<article>", "<group>", "<content>"],
+        answer: 1
+      },
+      {
+        question: "O que significa a sigla 'CSS'?",
+        options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets", "Complex Style Sheets", "Color Style Sheets"],
+        answer: 0
+      }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    // Função para carregar a pergunta
+    function loadQuestion() {
+      const questionData = quizData[currentQuestionIndex];
+      document.getElementById("question-text").textContent = questionData.question;
+
+      const answerList = document.getElementById("answer-list");
+      answerList.innerHTML = "";
+
+      questionData.options.forEach((option, index) => {
+        const li = document.createElement("li");
+        li.textContent = option;
+        li.onclick = () => checkAnswer(index);
+        answerList.appendChild(li);
+      });
+    }
+
+    // Função para verificar se a resposta está correta
+    function checkAnswer(selectedIndex) {
+      const questionData = quizData[currentQuestionIndex];
+      if (selectedIndex === questionData.answer) {
+        score++;
+      }
+      nextQuestion();
+    }
+
+    // Função para ir para a próxima questão
+    function nextQuestion() {
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < quizData.length) {
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    // Função para mostrar o resultado final
+    function showResult() {
+      const resultContainer = document.getElementById("result-container");
+      const resultText = document.getElementById("result-text");
+
+      resultContainer.style.display = "block";
+      resultText.textContent = `Você acertou ${score} de ${quizData.length} questões.`;
+
+      document.getElementById("quiz-controls").style.display = "none";
+    }
+
+    // Função para reiniciar o quiz
+    function resetQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      loadQuestion();
+      document.getElementById("quiz-controls").style.display = "block";
+      document.getElementById("result-container").style.display = "none";
+    }
+
+    // Carregar a primeira questão
+    loadQuestion();
+  </script>
+</body>
+</html>

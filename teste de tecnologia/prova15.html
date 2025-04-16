@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Big Data</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e5e5e5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: gold;
+            padding-top: 20px;
+        }
+
+        .quiz-container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 30px;
+        }
+
+        .question {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .answers {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .answer {
+            background-color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .answer:hover {
+            background-color: #444;
+        }
+
+        .answer.correct {
+            background-color: green;
+        }
+
+        .answer.incorrect {
+            background-color: red;
+        }
+
+        .result {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .result p {
+            font-size: 20px;
+        }
+
+        .btn {
+            padding: 15px;
+            background-color: gold;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        .btn:hover {
+            background-color: #f7d400;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quiz sobre Big Data</h1>
+<div class="quiz-container">
+    <div class="question" data-question-id="1">
+        <p><strong>1. O que significa Big Data?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Conjunto de dados pequenos</div>
+            <div class="answer" data-answer-id="2">Conjunto de dados em grande volume, variedade e velocidade</div>
+            <div class="answer" data-answer-id="3">Conjunto de dados limitados</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="2">
+        <p><strong>2. Qual é a principal característica do Big Data?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Capacidade de armazenar dados apenas locais</div>
+            <div class="answer" data-answer-id="2">Capacidade de processar grandes volumes de dados em tempo real</div>
+            <div class="answer" data-answer-id="3">Capacidade de processar pequenas quantidades de dados de forma rápida</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="3">
+        <p><strong>3. O que é um exemplo de ferramenta usada para Big Data?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Excel</div>
+            <div class="answer" data-answer-id="2">Hadoop</div>
+            <div class="answer" data-answer-id="3">Notepad</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="4">
+        <p><strong>4. Qual é o conceito de "velocidade" em Big Data?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Rapidez na análise de dados</div>
+            <div class="answer" data-answer-id="2">Rapidez na coleta de dados em tempo real</div>
+            <div class="answer" data-answer-id="3">Rapidez na realização de tarefas computacionais</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="5">
+        <p><strong>5. O que são "dados não estruturados"?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Dados organizados em formato de tabelas</div>
+            <div class="answer" data-answer-id="2">Dados que não seguem um formato predefinido, como textos e imagens</div>
+            <div class="answer" data-answer-id="3">Dados coletados apenas de fontes estruturadas como bancos de dados</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="6">
+        <p><strong>6. Quais empresas são conhecidas por usarem Big Data?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Google, Facebook e Amazon</div>
+            <div class="answer" data-answer-id="2">Microsoft, Oracle e SAP</div>
+            <div class="answer" data-answer-id="3">Apple, Spotify e Twitter</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="7">
+        <p><strong>7. O que é "variedade" em Big Data?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Diversidade de tipos de dados coletados</div>
+            <div class="answer" data-answer-id="2">Tamanho dos dados processados</div>
+            <div class="answer" data-answer-id="3">Rapidez na obtenção de dados</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="8">
+        <p><strong>8. O que é uma "base de dados NoSQL"?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Uma base de dados relacional</div>
+            <div class="answer" data-answer-id="2">Uma base de dados não relacional, ideal para Big Data</div>
+            <div class="answer" data-answer-id="3">Uma base de dados usada apenas para dados financeiros</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="9">
+        <p><strong>9. O que significa "análise preditiva" em Big Data?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Análise de dados em tempo real para prever o futuro</div>
+            <div class="answer" data-answer-id="2">Análise de dados históricos para prever tendências futuras</div>
+            <div class="answer" data-answer-id="3">Análise de dados em tempo real sem previsões</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="10">
+        <p><strong>10. Qual é a importância de Big Data para as empresas?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Permite reduzir custos operacionais</div>
+            <div class="answer" data-answer-id="2">Ajuda na tomada de decisões estratégicas baseadas em dados</div>
+            <div class="answer" data-answer-id="3">Aumenta a complexidade das operações diárias</div>
+        </div>
+    </div>
+    <div class="result" id="result-container">
+        <p id="result-text"></p>
+    </div>
+    <button class="btn" onclick="submitQuiz()">Ver Resultado</button>
+</div>
+
+<script>
+    const correctAnswers = {
+        1: 2, // Big Data
+        2: 2, // Processar dados em tempo real
+        3: 2, // Hadoop
+        4: 2, // Velocidade
+        5: 2, // Dados não estruturados
+        6: 1, // Empresas como Google
+        7: 1, // Variedade de dados
+        8: 2, // NoSQL
+        9: 2, // Análise preditiva
+        10: 2 // Tomada de decisões
+    };
+
+    function submitQuiz() {
+        let score = 0;
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(question => {
+            const questionId = question.getAttribute('data-question-id');
+            const selectedAnswer = question.querySelector('.answer.selected');
+            if (selectedAnswer) {
+                const answerId = selectedAnswer.getAttribute('data-answer-id');
+                if (parseInt(answerId) === correctAnswers[questionId]) {
+                    score++;
+                    selectedAnswer.classList.add('correct');
+                } else {
+                    selectedAnswer.classList.add('incorrect');
+                }
+            }
+        });
+
+        const resultContainer = document.getElementById('result-container');
+        const resultText = document.getElementById('result-text');
+        const percentage = (score / 10) * 100;
+        resultText.textContent = `Você acertou ${score} de 10 questões (${percentage.toFixed(2)}%)`;
+        resultContainer.style.display = 'block';
+    }
+
+    document.querySelectorAll('.answer').forEach(answer => {
+        answer.addEventListener('click', function() {
+            const question = this.closest('.question');
+            const selectedAnswer = question.querySelector('.answer.selected');
+            if (selectedAnswer) {
+                selectedAnswer.classList.remove('selected');
+            }
+            this.classList.add('selected');
+        });
+    });
+</script>
+
+</body>
+</html>

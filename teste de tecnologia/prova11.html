@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Programação Funcional</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .question {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .option {
+            background-color: #333;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .option:hover {
+            background-color: #444;
+        }
+        .button {
+            background-color: #f1c40f;
+            color: #1c1c1c;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        .button:disabled {
+            background-color: #7f8c8d;
+            cursor: not-allowed;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz sobre Programação Funcional</h1>
+        <div id="quiz"></div>
+        <button id="submitBtn" class="button" disabled>Finalizar</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <div class="footer">
+        <p>Conteúdo criado por DEV RUBY</p>
+    </div>
+
+    <script>
+        const functionalProgrammingQuestions = [
+            {
+                question: "O que é a programação funcional?",
+                options: [
+                    "Um paradigma de programação que trata a computação como a avaliação de funções matemáticas",
+                    "Uma técnica de programação orientada a objetos",
+                    "Um método de programação baseado em manipulação direta de bits",
+                    "Um tipo de programação com ênfase em repetição e loops",
+                    "Uma abordagem de programação para interfaces gráficas"
+                ],
+                answer: 0
+            },
+            {
+                question: "Qual é a principal característica da programação funcional?",
+                options: [
+                    "Evitar efeitos colaterais e tratar funções como cidadãos de primeira classe",
+                    "Utilizar loops de repetição extensivos",
+                    "Focar na herança de objetos",
+                    "Manipular diretamente a memória do computador",
+                    "Fazer uso intensivo de variáveis globais"
+                ],
+                answer: 0
+            },
+            {
+                question: "Qual das alternativas abaixo é um exemplo de linguagem funcional?",
+                options: [
+                    "Haskell",
+                    "Java",
+                    "C++",
+                    "Ruby",
+                    "C#"
+                ],
+                answer: 0
+            },
+            {
+                question: "O que significa 'função de ordem superior' na programação funcional?",
+                options: [
+                    "Uma função que pode receber outra função como argumento ou retornar uma função como resultado",
+                    "Uma função que manipula diretamente a memória do computador",
+                    "Uma função que é executada em segundo plano",
+                    "Uma função que não pode ser alterada após sua criação",
+                    "Uma função que é executada em uma thread separada"
+                ],
+                answer: 0
+            },
+            {
+                question: "Qual é o propósito de funções puras na programação funcional?",
+                options: [
+                    "Garantir que a saída da função depende apenas de seus argumentos e que não tem efeitos colaterais",
+                    "Alterar o estado global do programa",
+                    "Fazer operações que causam efeitos colaterais intencionais",
+                    "Utilizar loops para realizar cálculos repetitivos",
+                    "Alterar diretamente a memória de variáveis globais"
+                ],
+                answer: 0
+            },
+            {
+                question: "O que é 'imutabilidade' em programação funcional?",
+                options: [
+                    "Objetos e variáveis não podem ser alterados após sua criação",
+                    "Objetos e variáveis podem ser modificados sem restrições",
+                    "O valor de uma variável pode ser alterado apenas dentro de funções específicas",
+                    "A memória do computador é automaticamente gerenciada",
+                    "As variáveis podem ser alteradas, mas nunca dentro de funções"
+                ],
+                answer: 0
+            },
+            {
+                question: "O que é 'recursão' na programação funcional?",
+                options: [
+                    "Uma função que chama a si mesma",
+                    "Uma técnica de iteração com loops",
+                    "A utilização de variáveis globais para realizar cálculos",
+                    "A criação de funções anônimas",
+                    "O uso de funções que retornam valores fixos"
+                ],
+                answer: 0
+            },
+            {
+                question: "Qual é a diferença entre programação funcional e programação imperativa?",
+                options: [
+                    "A programação funcional foca em funções e evita efeitos colaterais, enquanto a imperativa foca no estado e sequência de comandos",
+                    "A programação funcional não usa funções, enquanto a imperativa utiliza amplamente",
+                    "A programação funcional é mais difícil de aprender do que a imperativa",
+                    "A programação funcional depende de loops, enquanto a imperativa usa recursão",
+                    "Não há diferença significativa entre os dois paradigmas"
+                ],
+                answer: 0
+            },
+            {
+                question: "Qual conceito de programação funcional é geralmente utilizado em frameworks de JavaScript como React?",
+                options: [
+                    "Componentes como funções puras",
+                    "Uso intensivo de loops",
+                    "Manipulação direta do DOM",
+                    "Alteração do estado global",
+                    "Execução sequencial de comandos"
+                ],
+                answer: 0
+            },
+            {
+                question: "O que é 'lazy evaluation' em programação funcional?",
+                options: [
+                    "A avaliação de uma expressão é adiada até que seu valor seja realmente necessário",
+                    "As expressões são avaliadas imediatamente após sua definição",
+                    "Todas as funções devem ser avaliadas de forma recursiva",
+                    "A avaliação de expressões é feita apenas por um número limitado de iterações",
+                    "Funções são avaliadas em paralelo em vez de sequencialmente"
+                ],
+                answer: 0
+            },
+            {
+            question: "O que é a programação funcional?",
+            options: [
+                "Um paradigma de programação que trata a computação como a avaliação de funções matemáticas",
+                "Uma técnica de programação orientada a objetos",
+                "Um método de programação baseado em manipulação direta de bits",
+                "Um tipo de programação com ênfase em repetição e loops",
+                "Uma abordagem de programação para interfaces gráficas"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é a principal característica da programação funcional?",
+            options: [
+                "Evitar efeitos colaterais e tratar funções como cidadãos de primeira classe",
+                "Utilizar loops de repetição extensivos",
+                "Focar na herança de objetos",
+                "Manipular diretamente a memória do computador",
+                "Fazer uso intensivo de variáveis globais"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual das alternativas abaixo é um exemplo de linguagem funcional?",
+            options: [
+                "Haskell",
+                "Java",
+                "C++",
+                "Ruby",
+                "C#"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que significa 'função de ordem superior' na programação funcional?",
+            options: [
+                "Uma função que pode receber outra função como argumento ou retornar uma função como resultado",
+                "Uma função que manipula diretamente a memória do computador",
+                "Uma função que é executada em segundo plano",
+                "Uma função que não pode ser alterada após sua criação",
+                "Uma função que é executada em uma thread separada"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é o propósito de funções puras na programação funcional?",
+            options: [
+                "Garantir que a saída da função depende apenas de seus argumentos e que não tem efeitos colaterais",
+                "Alterar o estado global do programa",
+                "Fazer operações que causam efeitos colaterais intencionais",
+                "Utilizar loops para realizar cálculos repetitivos",
+                "Alterar diretamente a memória de variáveis globais"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é 'imutabilidade' em programação funcional?",
+            options: [
+                "Objetos e variáveis não podem ser alterados após sua criação",
+                "Objetos e variáveis podem ser modificados sem restrições",
+                "O valor de uma variável pode ser alterado apenas dentro de funções específicas",
+                "A memória do computador é automaticamente gerenciada",
+                "As variáveis podem ser alteradas, mas nunca dentro de funções"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é 'recursão' na programação funcional?",
+            options: [
+                "Uma função que chama a si mesma",
+                "Uma técnica de iteração com loops",
+                "A utilização de variáveis globais para realizar cálculos",
+                "A criação de funções anônimas",
+                "O uso de funções que retornam valores fixos"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é a diferença entre programação funcional e programação imperativa?",
+            options: [
+                "A programação funcional foca em funções e evita efeitos colaterais, enquanto a imperativa foca no estado e sequência de comandos",
+                "A programação funcional não usa funções, enquanto a imperativa utiliza amplamente",
+                "A programação funcional é mais difícil de aprender do que a imperativa",
+                "A programação funcional depende de loops, enquanto a imperativa usa recursão",
+                "Não há diferença significativa entre os dois paradigmas"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual conceito de programação funcional é geralmente utilizado em frameworks de JavaScript como React?",
+            options: [
+                "Componentes como funções puras",
+                "Uso intensivo de loops",
+                "Manipulação direta do DOM",
+                "Alteração do estado global",
+                "Execução sequencial de comandos"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é 'lazy evaluation' em programação funcional?",
+            options: [
+                "A avaliação de uma expressão é adiada até que seu valor seja realmente necessário",
+                "As expressões são avaliadas imediatamente após sua definição",
+                "Todas as funções devem ser avaliadas de forma recursiva",
+                "A avaliação de expressões é feita apenas por um número limitado de iterações",
+                "Funções são avaliadas em paralelo em vez de sequencialmente"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é uma 'função anônima' em programação funcional?",
+            options: [
+                "Uma função sem nome que pode ser atribuída a variáveis e passada como argumento",
+                "Uma função que não pode ser usada fora de seu escopo",
+                "Uma função que sempre retorna o mesmo valor",
+                "Uma função que só pode ser usada para alterar o estado do sistema",
+                "Uma função com efeitos colaterais explícitos"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é a principal vantagem de se usar a programação funcional em sistemas concorrentes?",
+            options: [
+                "A imutabilidade das variáveis e a ausência de efeitos colaterais evitam problemas de concorrência",
+                "A programação funcional é mais rápida para sistemas com múltiplos threads",
+                "A programação funcional permite o uso de variáveis globais",
+                "A programação funcional não requer uso de funções recursivas",
+                "A programação funcional facilita a manipulação de objetos complexos"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que significa 'currying' em programação funcional?",
+            options: [
+                "Transformar uma função que aceita múltiplos argumentos em uma sequência de funções que aceitam um único argumento cada",
+                "Criar funções que podem ser chamadas em paralelo",
+                "Transformar uma função recursiva em uma função iterativa",
+                "Modularizar funções de acordo com seu tipo de entrada",
+                "Criar funções puras com múltiplas entradas"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual conceito de programação funcional pode ser utilizado para evitar mutação de dados?",
+            options: [
+                "Imutabilidade",
+                "Recursão",
+                "Modularização",
+                "Currying",
+                "Loops"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual das alternativas abaixo é um exemplo de função de ordem superior?",
+            options: [
+                "Uma função que recebe outra função como argumento",
+                "Uma função que manipula diretamente a memória",
+                "Uma função que modifica variáveis globais",
+                "Uma função que sempre retorna um valor fixo",
+                "Uma função que é chamada dentro de um loop"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual técnica de programação funcional é usada para tratar exceções de maneira eficiente?",
+            options: [
+                "Uso de monads",
+                "Uso de loops de repetição",
+                "Uso de herança",
+                "Manipulação de variáveis globais",
+                "Uso de valores de retorno fixos"
+            ],
+            answer: 0
+        },
+        {
+            question: "Como as funções são tratadas na programação funcional?",
+            options: [
+                "Como cidadãos de primeira classe",
+                "Como objetos com comportamentos específicos",
+                "Como variáveis globais",
+                "Como variáveis locais",
+                "Como objetos modificáveis"
+            ],
+            answer: 0
+        },
+        {
+            question: "Em qual situação a recursão é mais vantajosa do que o uso de loops?",
+            options: [
+                "Quando o problema pode ser dividido em subproblemas menores",
+                "Quando se deseja manipular variáveis globais",
+                "Quando é necessário realizar múltiplas iterações",
+                "Quando a memória disponível é limitada",
+                "Quando não é possível utilizar funções puras"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é 'função pura'?",
+            options: [
+                "Uma função que sempre retorna o mesmo resultado para os mesmos argumentos e não causa efeitos colaterais",
+                "Uma função que altera o estado global do programa",
+                "Uma função que pode ter variáveis globais",
+                "Uma função que executa múltiplas tarefas simultaneamente",
+                "Uma função que depende de loops para ser executada"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que significa 'funções de alta ordem' em programação funcional?",
+            options: [
+                "Funções que aceitam outras funções como argumento ou retornam funções como resultado",
+                "Funções que alteram o comportamento de outras funções",
+                "Funções que são sempre recursivas",
+                "Funções que lidam com exceções",
+                "Funções que manipulam variáveis globais"
+            ],
+            answer: 0
+        }
+        ];
+
+        let currentQuestion = 0;
+        let correctAnswers = 0;
+
+        function displayQuestion() {
+            const question = functionalProgrammingQuestions[currentQuestion];
+            const quizContainer = document.getElementById("quiz");
+            quizContainer.innerHTML = `
+                <div class="question">${question.question}</div>
+                <ul class="options">
+                    ${question.options.map((option, index) => `
+                        <li class="option" onclick="selectAnswer(${index})">${option}</li>
+                    `).join('')}
+                </ul>
+            `;
+        }
+
+        function selectAnswer(selectedIndex) {
+            const question = functionalProgrammingQuestions[currentQuestion];
+            if (selectedIndex === question.answer) {
+                correctAnswers++;
+            }
+            currentQuestion++;
+            if (currentQuestion < functionalProgrammingQuestions.length) {
+                displayQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `Você acertou ${correctAnswers} de ${functionalProgrammingQuestions.length} questões.`;
+            document.getElementById("submitBtn").disabled = true;
+        }
+
+        document.getElementById("submitBtn").addEventListener("click", () => {
+            showResults();
+        });
+
+        displayQuestion();
+    </script>
+</body>
+</html>

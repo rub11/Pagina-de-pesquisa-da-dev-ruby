@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Game Engines</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Game Engines</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é uma Game Engine?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 1)">Um software que fornece ferramentas para desenvolvimento de jogos.</li>
+        <li onclick="selectAnswer(1, 1)">Um console de videogame portátil.</li>
+        <li onclick="selectAnswer(2, 1)">Um tipo de joystick avançado.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual é uma das Game Engines mais populares para desenvolvimento 2D e 3D?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 2)">Unity</li>
+        <li onclick="selectAnswer(1, 2)">Photoshop</li>
+        <li onclick="selectAnswer(2, 2)">PowerPoint</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que a Unreal Engine é conhecida por oferecer?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 3)">Gráficos de alta qualidade e motor poderoso.</li>
+        <li onclick="selectAnswer(1, 3)">Edição de planilhas avançada.</li>
+        <li onclick="selectAnswer(2, 3)">Renderização de áudio apenas.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. Qual linguagem de programação é usada comumente na Unity?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 4)">C#</li>
+        <li onclick="selectAnswer(1, 4)">Java</li>
+        <li onclick="selectAnswer(2, 4)">HTML</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. Qual engine é frequentemente usada em jogos mobile e indie?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 5)">Godot</li>
+        <li onclick="selectAnswer(1, 5)">Autodesk Maya</li>
+        <li onclick="selectAnswer(2, 5)">Notepad++</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que é o motor de física em uma engine?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 6)">Componente que simula gravidade, colisões e forças.</li>
+        <li onclick="selectAnswer(1, 6)">Um acelerador de áudio.</li>
+        <li onclick="selectAnswer(2, 6)">Ferramenta de design gráfico.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. Qual engine é mais utilizada para jogos AAA como Fortnite?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 7)">Unreal Engine</li>
+        <li onclick="selectAnswer(1, 7)">Pygame</li>
+        <li onclick="selectAnswer(2, 7)">Scratch</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. Qual vantagem principal das game engines?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 8)">Facilitam o desenvolvimento ao fornecer ferramentas prontas.</li>
+        <li onclick="selectAnswer(1, 8)">Imprimem jogos automaticamente.</li>
+        <li onclick="selectAnswer(2, 8)">Eliminam a necessidade de programação completamente.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. Qual dessas engines é open-source?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 9)">Godot</li>
+        <li onclick="selectAnswer(1, 9)">Unity</li>
+        <li onclick="selectAnswer(2, 9)">CryEngine</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. Qual recurso é comum em engines modernas?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 10)">Renderização em tempo real.</li>
+        <li onclick="selectAnswer(1, 10)">Geração de relatórios fiscais.</li>
+        <li onclick="selectAnswer(2, 10)">Conversão automática para PDF.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0,0,0,0,0,0,0,0,0,0];
+
+  function selectAnswer(answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    const resultText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+    document.getElementById('result').innerText = resultText;
+  }
+</script>
+
+</body>
+</html>

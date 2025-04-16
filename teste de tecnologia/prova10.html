@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Blockchain</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #FBC02D;
+            text-align: center;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #1c1c1c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 10px 0;
+        }
+        .options li button {
+            background-color: #FBC02D;
+            border: none;
+            color: #121212;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .options li button:hover {
+            background-color: #F57C00;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Quiz sobre Blockchain</h1>
+        <div id="quiz"></div>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "O que é a Blockchain?",
+                options: [
+                    "Uma base de dados distribuída e segura usada para registrar transações",
+                    "Uma rede social descentralizada",
+                    "Uma criptomoeda",
+                    "Um tipo de malware",
+                    "Um software de antivírus"
+                ],
+                answer: 0
+            },
+            {
+                question: "Como as transações são validadas em uma Blockchain?",
+                options: [
+                    "Por um sistema de consenso entre os participantes da rede",
+                    "Por uma única entidade centralizada",
+                    "Por meio de contratos legais",
+                    "Por um administrador do sistema",
+                    "Por um software de criptografia"
+                ],
+                answer: 0
+            },
+            {
+                question: "O que é um 'bloco' na Blockchain?",
+                options: [
+                    "Um conjunto de dados que contém transações e é ligado ao anterior",
+                    "Uma criptomoeda usada para pagar transações",
+                    "Uma técnica de segurança para proteger dados",
+                    "Um software para minerar criptomoedas",
+                    "Uma rede de servidores"
+                ],
+                answer: 0
+            },
+            {
+                question: "O que significa 'descentralização' na Blockchain?",
+                options: [
+                    "A ausência de uma autoridade central que controle a rede",
+                    "A utilização de múltiplos servidores para armazenar os dados",
+                    "A segmentação dos dados em diferentes sistemas",
+                    "A proteção contra ataques de malware",
+                    "A criptografia dos dados"
+                ],
+                answer: 0
+            },
+            {
+                question: "O que são contratos inteligentes (smart contracts) na Blockchain?",
+                options: [
+                    "Programas autoexecutáveis que realizam acordos quando condições são atendidas",
+                    "Uma criptomoeda específica",
+                    "Transações criptografadas",
+                    "Ferramentas de mineração de criptomoedas",
+                    "Sistemas de segurança de redes"
+                ],
+                answer: 0
+            },
+            {
+                question: "Qual é o principal benefício da Blockchain?",
+                options: [
+                    "Segurança e transparência nas transações",
+                    "Velocidade de transmissão de dados",
+                    "Facilidade de uso",
+                    "Custos mais baixos de operação",
+                    "Facilidade de adaptação em sistemas centralizados"
+                ],
+                answer: 0
+            },
+            {
+                question: "O que é uma criptomoeda?",
+                options: [
+                    "Uma moeda digital que utiliza a Blockchain para transações seguras",
+                    "Uma rede social descentralizada",
+                    "Uma técnica de ataque cibernético",
+                    "Um tipo de criptografia de dados",
+                    "Uma moeda fiduciária"
+                ],
+                answer: 0
+            },
+            {
+                question: "Qual a diferença entre Bitcoin e Ethereum?",
+                options: [
+                    "Bitcoin é uma moeda digital, enquanto Ethereum é uma plataforma para contratos inteligentes",
+                    "Bitcoin tem contratos inteligentes, enquanto Ethereum não",
+                    "Bitcoin é usado apenas para pagamentos, enquanto Ethereum não",
+                    "Ambos têm a mesma função",
+                    "Bitcoin é mais rápido do que Ethereum"
+                ],
+                answer: 0
+            },
+            {
+                question: "Como a Blockchain é segura?",
+                options: [
+                    "Através de criptografia e consenso descentralizado",
+                    "Com o uso de firewalls em todos os nós",
+                    "Com a verificação manual de todas as transações",
+                    "Apenas com a autenticação de dois fatores",
+                    "Com um servidor centralizado"
+                ],
+                answer: 0
+            },
+            {
+                question: "O que é mineração de criptomoedas?",
+                options: [
+                    "O processo de validar e registrar transações na Blockchain",
+                    "A técnica de criar novas criptomoedas",
+                    "A utilização de criptografia de dados",
+                    "O processo de proteger a Blockchain contra ataques",
+                    "A criação de contratos inteligentes"
+                ],
+                answer: 0
+            },
+            {
+                question: "Qual é a principal desvantagem da Blockchain?",
+                options: [
+                    "Alta demanda de poder computacional e consumo de energia",
+                    "Falta de segurança nas transações",
+                    "Falta de transparência nas transações",
+                    "Dificuldade de adaptação em sistemas centralizados",
+                    "Baixa velocidade de transmissão de dados"
+                ],
+                answer: 0
+            },
+            {
+            question: "Qual é o papel de um minerador de criptomoedas?",
+            options: [
+                "Validar transações e adicionar blocos à blockchain",
+                "Criar novas criptomoedas",
+                "Gerenciar a rede de blockchain",
+                "Desenvolver novos contratos inteligentes",
+                "Auditar transações fraudulentas"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é um 'hash' em blockchain?",
+            options: [
+                "Uma função criptográfica que transforma dados em uma sequência única",
+                "Um tipo de criptomoeda",
+                "Uma rede de computadores que mantém o blockchain",
+                "Uma chave para acessar uma carteira de criptomoedas",
+                "Uma forma de minerar criptomoedas"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual a principal vantagem da descentralização da blockchain?",
+            options: [
+                "Redução do risco de manipulação e controle centralizado",
+                "Aumento da velocidade das transações",
+                "Menor custo de operação",
+                "Aumento da facilidade de uso para iniciantes",
+                "Maior controle sobre a privacidade dos usuários"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é um 'nó' na rede blockchain?",
+            options: [
+                "Um dispositivo que armazena e transmite cópias do blockchain",
+                "Uma criptomoeda que paga mineradores",
+                "Um tipo de transação registrada na blockchain",
+                "Uma chave de criptografia usada para assinar blocos",
+                "Um mecanismo para distribuir moedas digitais"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é 'Proof of Work' (PoW)?",
+            options: [
+                "Um algoritmo de consenso usado para validar transações",
+                "Um tipo de criptomoeda",
+                "Uma carteira de criptomoedas",
+                "Uma técnica de segurança usada em redes descentralizadas",
+                "Um software para minerar bitcoins"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é 'Proof of Stake' (PoS)?",
+            options: [
+                "Um mecanismo de consenso onde validadores são escolhidos com base na quantidade de criptomoeda que possuem",
+                "Um tipo de criptomoeda",
+                "Uma rede de segurança contra ataques cibernéticos",
+                "Um processo para minerar transações",
+                "Uma técnica de criptografia usada em transações"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é a principal criptomoeda associada à blockchain?",
+            options: [
+                "Bitcoin",
+                "Ether",
+                "Ripple",
+                "Litecoin",
+                "Cardano"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é um 'fork' na blockchain?",
+            options: [
+                "Uma mudança no protocolo de uma blockchain, criando uma nova versão",
+                "Uma forma de criptografia usada para proteger transações",
+                "Um tipo de transação na blockchain",
+                "Uma falha de segurança na rede blockchain",
+                "Um tipo de contrato inteligente"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é a principal característica da Ethereum em relação ao Bitcoin?",
+            options: [
+                "A Ethereum suporta contratos inteligentes e dApps",
+                "A Ethereum é mais rápida do que o Bitcoin",
+                "O Bitcoin permite transações anônimas, enquanto a Ethereum não",
+                "O Bitcoin é mais descentralizado do que a Ethereum",
+                "A Ethereum não usa blockchain"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é uma carteira de criptomoedas?",
+            options: [
+                "Uma aplicação para armazenar, enviar e receber criptomoedas",
+                "Uma plataforma para negociar criptomoedas",
+                "Uma forma de proteger transações em blockchain",
+                "Um tipo de minerador de criptomoedas",
+                "Uma ferramenta para auditar transações"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é uma transação 'irreversível' em blockchain?",
+            options: [
+                "Uma transação que não pode ser alterada ou desfeita",
+                "Uma transação que é criptografada",
+                "Uma transação que exige aprovação de um administrador",
+                "Uma transação que só pode ser realizada uma vez",
+                "Uma transação que precisa de validação manual"
+            ],
+            answer: 0
+        },
+        {
+            question: "Como a blockchain ajuda a combater fraudes?",
+            options: [
+                "Registrando todas as transações de forma transparente e imutável",
+                "Usando senhas criptografadas",
+                "Tendo um sistema de validação manual",
+                "Armazenando dados em servidores centralizados",
+                "Utilizando contratos inteligentes"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é o impacto da blockchain no setor bancário?",
+            options: [
+                "Ela pode reduzir a necessidade de intermediários, diminuindo custos e aumentando a transparência",
+                "Ela pode substituir completamente os bancos",
+                "Ela aumenta a velocidade das transações bancárias",
+                "Ela elimina a necessidade de criptomoedas",
+                "Ela reduz a segurança das transações"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é um token em blockchain?",
+            options: [
+                "Uma unidade digital representando um ativo ou utilitário dentro de um ecossistema blockchain",
+                "Uma forma de criptomoeda usada em transações",
+                "Uma chave de criptografia usada para validar transações",
+                "Uma plataforma para minerar criptomoedas",
+                "Uma forma de proteger dados pessoais"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é a relação entre Blockchain e contratos inteligentes?",
+            options: [
+                "Contratos inteligentes são executados automaticamente dentro da Blockchain quando as condições são atendidas",
+                "Contratos inteligentes são a principal forma de criptomoeda utilizada na Blockchain",
+                "Contratos inteligentes permitem maior centralização da Blockchain",
+                "Contratos inteligentes são um tipo de firewall usado na Blockchain",
+                "Contratos inteligentes são usados apenas em Bitcoin"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é o nome do fundador do Bitcoin?",
+            options: [
+                "Satoshi Nakamoto",
+                "Vitalik Buterin",
+                "Charlie Lee",
+                "Roger Ver",
+                "Brian Armstrong"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual a diferença entre uma blockchain pública e uma privada?",
+            options: [
+                "Uma blockchain pública é acessível a todos, enquanto a privada é restrita a participantes específicos",
+                "A blockchain pública é mais rápida que a privada",
+                "A blockchain privada é mais segura que a pública",
+                "A blockchain pública não exige criptografia",
+                "Não existe diferença"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é um 'blockchain explorer'?",
+            options: [
+                "Uma ferramenta usada para visualizar as transações em uma blockchain pública",
+                "Uma criptomoeda usada para explorar transações",
+                "Uma forma de minerar criptomoedas",
+                "Uma plataforma de negociação de criptomoedas",
+                "Uma ferramenta de proteção contra ataques de hackers"
+            ],
+            answer: 0
+        },
+        {
+            question: "Qual é o significado de 'immutabilidade' na Blockchain?",
+            options: [
+                "Os dados registrados na blockchain não podem ser alterados ou apagados",
+                "As transações podem ser revertidas a qualquer momento",
+                "Os contratos inteligentes podem ser modificados após sua execução",
+                "A blockchain permite alterações constantes nas transações",
+                "Os dados podem ser atualizados por administradores"
+            ],
+            answer: 0
+        },
+        {
+            question: "O que é um 'token ERC-20'?",
+            options: [
+                "Um tipo de token criado na plataforma Ethereum que segue um padrão específico",
+                "Uma criptomoeda exclusiva do Bitcoin",
+                "Uma rede de segurança na blockchain",
+                "Uma carteira para armazenar criptomoedas Ethereum",
+                "Uma ferramenta de mineração para Ethereum"
+            ],
+            answer: 0
+        }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function showQuestion() {
+            if (currentQuestion < questions.length) {
+                const question = questions[currentQuestion];
+                let optionsHtml = '';
+                question.options.forEach((option, index) => {
+                    optionsHtml += `
+                        <li>
+                            <button onclick="checkAnswer(${index})">${option}</button>
+                        </li>
+                    `;
+                });
+
+                document.getElementById('quiz').innerHTML = `
+                    <div class="question">${question.question}</div>
+                    <ul class="options">
+                        ${optionsHtml}
+                    </ul>
+                `;
+            } else {
+                showResult();
+            }
+        }
+
+        function checkAnswer(selected) {
+            if (selected === questions[currentQuestion].answer) {
+                score++;
+            }
+            currentQuestion++;
+            showQuestion();
+        }
+
+        function showResult() {
+            document.getElementById('quiz').innerHTML = '';
+            document.getElementById('result').innerHTML = `Você acertou ${score} de ${questions.length} questões!`;
+        }
+
+        showQuestion();
+    </script>
+</body>
+</html>

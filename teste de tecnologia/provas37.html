@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Cibersegurança</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Cibersegurança</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é um ataque DDoS?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">Um ataque que sobrecarrega o servidor com tráfego de dados</li>
+        <li onclick="selectAnswer(this, 1, 1)">Uma tentativa de obter acesso não autorizado a um sistema</li>
+        <li onclick="selectAnswer(this, 2, 1)">Uma técnica de criptografia de dados</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. O que é phishing?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Um tipo de fraude onde se tenta obter informações sensíveis</li>
+        <li onclick="selectAnswer(this, 1, 2)">Um ataque que sequestra o sistema operacional</li>
+        <li onclick="selectAnswer(this, 2, 2)">Uma técnica para limpar dados do sistema</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que significa a sigla VPN?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Virtual Private Network (Rede Privada Virtual)</li>
+        <li onclick="selectAnswer(this, 1, 3)">Very Private Network (Rede Muito Privada)</li>
+        <li onclick="selectAnswer(this, 2, 3)">Virtual Protection Node (Nó de Proteção Virtual)</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que é um firewall?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Uma barreira de segurança que monitora o tráfego de dados</li>
+        <li onclick="selectAnswer(this, 1, 4)">Uma ferramenta para criptografar dados em sistemas operacionais</li>
+        <li onclick="selectAnswer(this, 2, 4)">Um tipo de malware que invade sistemas de redes</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é um malware?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Um software malicioso projetado para danificar ou roubar dados</li>
+        <li onclick="selectAnswer(this, 1, 5)">Um sistema de segurança usado para proteger redes corporativas</li>
+        <li onclick="selectAnswer(this, 2, 5)">Uma ferramenta para melhorar a velocidade de conexão de redes</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que é criptografia?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Um processo de converter dados em um formato ilegível para proteger informações</li>
+        <li onclick="selectAnswer(this, 1, 6)">Uma técnica de compressão de dados</li>
+        <li onclick="selectAnswer(this, 2, 6)">Um método de aumentar a velocidade de um sistema de rede</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que é autenticação de dois fatores (2FA)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Uma camada extra de segurança onde o usuário precisa de algo mais além da senha</li>
+        <li onclick="selectAnswer(this, 1, 7)">Um método de recuperação de senha através de e-mail</li>
+        <li onclick="selectAnswer(this, 2, 7)">Uma técnica para reduzir o tráfego de dados da rede</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que é um ataque de engenharia social?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Uma tentativa de manipular pessoas para obter informações confidenciais</li>
+        <li onclick="selectAnswer(this, 1, 8)">Um ataque físico à infraestrutura de TI</li>
+        <li onclick="selectAnswer(this, 2, 8)">Um tipo de ataque usando a criptografia para esconder dados</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é um ataque Man-in-the-Middle (MitM)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Um ataque onde o atacante intercepta a comunicação entre duas partes</li>
+        <li onclick="selectAnswer(this, 1, 9)">Um ataque que altera o conteúdo de dados em trânsito</li>
+        <li onclick="selectAnswer(this, 2, 9)">Um ataque que desativa o sistema de defesa de redes</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é uma senha forte?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Uma senha com uma combinação de letras, números e caracteres especiais</li>
+        <li onclick="selectAnswer(this, 1, 10)">Uma senha composta apenas por números sequenciais</li>
+        <li onclick="selectAnswer(this, 2, 10)">Uma senha de apenas uma palavra comum</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+    const answersList = element.parentNode.querySelectorAll('li');
+    answersList.forEach(li => li.classList.remove('selected'));
+    element.classList.add('selected');
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    document.getElementById('result').innerText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+  }
+</script>
+
+</body>
+</html>

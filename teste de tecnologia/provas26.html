@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Redes 5G</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+        }
+        .question-container {
+            margin-bottom: 30px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .answers {
+            list-style: none;
+            padding: 0;
+        }
+        .answers li {
+            background-color: #333;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answers li:hover {
+            background-color: #444;
+        }
+        .next-btn {
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+        .next-btn:hover {
+            background-color: #e6b800;
+        }
+        .result {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Quiz sobre Redes 5G</h1>
+    <div id="quiz">
+        <div class="question-container">
+            <p class="question" id="question1">O que é a rede 5G?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 1)">A quinta geração de redes móveis, com velocidade e latência aprimoradas.</li>
+                <li onclick="selectAnswer(1, 1)">A rede móvel que oferece velocidades superiores a 1 Gbps, mas com latência alta.</li>
+                <li onclick="selectAnswer(2, 1)">A quarta geração de redes móveis, com mais capacidade e menor latência.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question2">Qual é a principal vantagem da tecnologia 5G?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 2)">Velocidade de download e upload muito mais rápidas, além de uma latência extremamente baixa.</li>
+                <li onclick="selectAnswer(1, 2)">Maior cobertura e menor custo de implementação em relação às gerações anteriores.</li>
+                <li onclick="selectAnswer(2, 2)">Redução do consumo de bateria dos dispositivos móveis.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question3">Como o 5G melhora a latência em relação ao 4G?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 3)">A latência no 5G é muito menor, permitindo comunicações quase em tempo real, com menos de 1 ms.</li>
+                <li onclick="selectAnswer(1, 3)">O 5G tem a mesma latência que o 4G, mas a qualidade do sinal é melhor.</li>
+                <li onclick="selectAnswer(2, 3)">O 5G tem uma latência maior devido ao aumento na quantidade de dados transmitidos.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question4">O que permite ao 5G suportar um número maior de dispositivos conectados simultaneamente?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 4)">O uso de bandas de frequência mais altas, permitindo maior capacidade de dispositivos conectados.</li>
+                <li onclick="selectAnswer(1, 4)">A redução da largura de banda para garantir maior conectividade com menos interferências.</li>
+                <li onclick="selectAnswer(2, 4)">A melhoria do sinal de rede, o que permite que os dispositivos se conectem mais rapidamente.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question5">Qual é o impacto do 5G na Internet das Coisas (IoT)?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 5)">O 5G oferece maior capacidade e menor latência, facilitando a comunicação entre dispositivos IoT.</li>
+                <li onclick="selectAnswer(1, 5)">O 5G melhora a segurança da IoT, tornando as conexões mais seguras.</li>
+                <li onclick="selectAnswer(2, 5)">O 5G não tem impacto significativo na IoT, pois é uma evolução da rede móvel apenas para usuários de smartphones.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question6">O que são as ondas milimétricas no contexto do 5G?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 6)">Ondas de alta frequência utilizadas no 5G para transmitir dados a velocidades mais altas.</li>
+                <li onclick="selectAnswer(1, 6)">Ondas de baixa frequência usadas para aumentar a cobertura do sinal 5G.</li>
+                <li onclick="selectAnswer(2, 6)">Ondas de frequência média, ideais para transmitir grandes quantidades de dados.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question7">Qual é o conceito de "network slicing" no 5G?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 7)">A capacidade de dividir a rede 5G em várias partes virtuais para diferentes tipos de tráfego e serviços.</li>
+                <li onclick="selectAnswer(1, 7)">A utilização de diferentes tecnologias para melhorar a cobertura de rede em áreas remotas.</li>
+                <li onclick="selectAnswer(2, 7)">A implementação de múltiplos protocolos de comunicação para dispositivos IoT.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question8">Quais são os benefícios da baixa latência do 5G para a indústria?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 8)">Permite aplicações em tempo real, como veículos autônomos e cirurgias à distância.</li>
+                <li onclick="selectAnswer(1, 8)">Reduz o custo de operação das fábricas e aumenta a produtividade dos trabalhadores.</li>
+                <li onclick="selectAnswer(2, 8)">Melhora a conexão de dispositivos domésticos, mas sem impactos industriais significativos.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question9">Qual é a principal diferença entre 4G e 5G em termos de velocidade?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 9)">O 5G pode atingir velocidades de até 100 vezes mais rápidas que o 4G.</li>
+                <li onclick="selectAnswer(1, 9)">O 5G é mais lento que o 4G, mas tem melhor cobertura.</li>
+                <li onclick="selectAnswer(2, 9)">Não há diferença significativa na velocidade entre 4G e 5G.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question10">O que é a "standalone" no 5G?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 10)">Uma rede 5G que não depende de redes 4G ou anteriores para operar.</li>
+                <li onclick="selectAnswer(1, 10)">Uma rede 5G que se baseia exclusivamente no uso de tecnologias de satélite.</li>
+                <li onclick="selectAnswer(2, 10)">Uma rede 5G que só funciona em áreas urbanas e densamente povoadas.</li>
+            </ul>
+        </div>
+
+        <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+    </div>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    let userAnswers = [];
+    const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    function selectAnswer(answerIndex, questionNumber) {
+        userAnswers[questionNumber - 1] = answerIndex;
+    }
+
+    function showResult() {
+        let correctCount = 0;
+        userAnswers.forEach((answer, index) => {
+            if (answer === correctAnswers[index]) correctCount++;
+        });
+        const resultText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+        document.getElementById('result').innerText = resultText;
+    }
+</script>
+
+</body>
+</html>

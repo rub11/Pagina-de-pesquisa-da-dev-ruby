@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Redes Neurais Convolucionais</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+        }
+        .question-container {
+            margin-bottom: 30px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .answers {
+            list-style: none;
+            padding: 0;
+        }
+        .answers li {
+            background-color: #333;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answers li:hover {
+            background-color: #444;
+        }
+        .next-btn {
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+        .next-btn:hover {
+            background-color: #e6b800;
+        }
+        .result {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Quiz sobre Redes Neurais Convolucionais</h1>
+    <div id="quiz">
+        <div class="question-container">
+            <p class="question" id="question1">O que são redes neurais convolucionais?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 1)">São redes neurais especializadas no processamento de dados em forma de grade, como imagens.</li>
+                <li onclick="selectAnswer(1, 1)">São redes que apenas processam dados sequenciais, como textos e áudio.</li>
+                <li onclick="selectAnswer(2, 1)">São redes que processam apenas dados numéricos.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question2">Qual é a principal característica das CNNs?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 2)">O uso de filtros convolucionais para extrair características de imagens ou sinais.</li>
+                <li onclick="selectAnswer(1, 2)">A capacidade de processar apenas informações textuais.</li>
+                <li onclick="selectAnswer(2, 2)">O processamento sequencial de dados em uma ordem específica.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question3">Quais camadas compõem uma rede neural convolucional?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 3)">Camadas convolucionais, camadas de pooling e camadas totalmente conectadas.</li>
+                <li onclick="selectAnswer(1, 3)">Somente camadas convolucionais e de normalização.</li>
+                <li onclick="selectAnswer(2, 3)">Somente camadas de pooling e camadas ocultas.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question4">O que é uma camada de pooling?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 4)">Uma camada que reduz a resolução das imagens, mantendo as informações mais importantes.</li>
+                <li onclick="selectAnswer(1, 4)">Uma camada que aumenta a resolução das imagens para melhorar a qualidade.</li>
+                <li onclick="selectAnswer(2, 4)">Uma camada que aplica filtros de forma similar às camadas convolucionais.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question5">Quais são os principais tipos de pooling usados em CNNs?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 5)">Max pooling e average pooling.</li>
+                <li onclick="selectAnswer(1, 5)">Mean pooling e deep pooling.</li>
+                <li onclick="selectAnswer(2, 5)">Random pooling e deep convolutional pooling.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question6">O que é uma operação de convolução?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 6)">Uma operação matemática que aplica um filtro sobre uma entrada, gerando um mapa de características.</li>
+                <li onclick="selectAnswer(1, 6)">Uma operação que apenas soma os valores de uma entrada para gerar a saída.</li>
+                <li onclick="selectAnswer(2, 6)">Uma operação de multiplicação entre todos os valores de uma imagem.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question7">Qual é a função de ativação mais comum em CNNs?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 7)">ReLU (Rectified Linear Unit).</li>
+                <li onclick="selectAnswer(1, 7)">Sigmoid.</li>
+                <li onclick="selectAnswer(2, 7)">TanH.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question8">Como as redes neurais convolucionais são aplicadas em visão computacional?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 8)">Elas são usadas para reconhecer objetos e características em imagens e vídeos.</li>
+                <li onclick="selectAnswer(1, 8)">Elas são usadas apenas para interpretar sequências de áudio.</li>
+                <li onclick="selectAnswer(2, 8)">Elas são usadas para transformar imagens em gráficos de dados.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question9">Quais são os principais desafios ao treinar uma CNN?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 9)">Overfitting, falta de dados e alto custo computacional.</li>
+                <li onclick="selectAnswer(1, 9)">Baixo custo computacional e falta de precisão.</li>
+                <li onclick="selectAnswer(2, 9)">Baixa velocidade de processamento e necessidade de grandes bancos de dados de treinamento.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question10">Quais são as vantagens de usar CNNs para tarefas de reconhecimento de imagem?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 10)">Elas são capazes de aprender automaticamente as características importantes das imagens sem necessidade de extração manual.</li>
+                <li onclick="selectAnswer(1, 10)">Elas precisam de menos dados para treinamento do que outros modelos.</li>
+                <li onclick="selectAnswer(2, 10)">Elas são mais rápidas que outros modelos, como redes neurais artificiais convencionais.</li>
+            </ul>
+        </div>
+
+        <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+    </div>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    let userAnswers = [];
+    const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    function selectAnswer(answerIndex, questionNumber) {
+        userAnswers[questionNumber - 1] = answerIndex;
+    }
+
+    function showResult() {
+        let correctCount = 0;
+        userAnswers.forEach((answer, index) => {
+            if (answer === correctAnswers[index]) correctCount++;
+        });
+        const resultText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+        document.getElementById('result').innerText = resultText;
+    }
+</script>
+
+</body>
+</html>

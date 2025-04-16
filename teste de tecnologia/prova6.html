@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz sobre Cloud Computing</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: #d4af37; /* Dourado */
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px;
+      justify-content: center;
+    }
+
+    .question-card {
+      background-color: #2c2c2c;
+      border: 3px solid #d4af37;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .question-card h3 {
+      font-size: 1.8rem;
+      color: #d4af37;
+    }
+
+    .answer-option {
+      background-color: #333;
+      color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .answer-option:hover {
+      background-color: #d4af37;
+    }
+
+    .result {
+      font-size: 1.5rem;
+      color: #fff;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .next-btn {
+      background-color: #d4af37;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .next-btn:hover {
+      background-color: #c89f32;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="question-card" id="question-card">
+      <h3 id="question-text">Carregando pergunta...</h3>
+      <div id="answers-container"></div>
+    </div>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    const questions = [
+      { 
+        question: "1. O que é Cloud Computing?", 
+        options: ["Armazenamento de dados em servidores locais", "Computação baseada em servidores remotos via internet", "Uso de computadores pessoais para processamento de dados", "Armazenamento apenas em discos rígidos", "Processamento em sistemas locais"], 
+        answer: 1 
+      },
+      { 
+        question: "2. Qual é a principal vantagem da Cloud Computing?", 
+        options: ["Aumento da capacidade de processamento local", "Escalabilidade e acesso remoto a recursos", "Redução de custos com equipamentos físicos", "Aumento de custos operacionais", "Dependência de servidores físicos"], 
+        answer: 1 
+      },
+      { 
+        question: "3. O que é um serviço de IaaS (Infrastructure as a Service)?", 
+        options: ["Serviço que fornece software como serviço", "Serviço que fornece infraestrutura como servidores, armazenamento e redes", "Serviço que fornece suporte técnico para aplicativos", "Serviço que fornece apenas servidores físicos", "Serviço que fornece apenas softwares operacionais"], 
+        answer: 1 
+      },
+      { 
+        question: "4. O que é PaaS (Platform as a Service)?", 
+        options: ["Serviço que fornece uma plataforma de desenvolvimento e ferramentas para criar aplicativos", "Serviço que fornece infraestrutura para redes e servidores", "Serviço que fornece softwares pré-configurados para o usuário", "Serviço para armazenamento de dados na nuvem", "Serviço para automação de tarefas"], 
+        answer: 0 
+      },
+      { 
+        question: "5. O que é SaaS (Software as a Service)?", 
+        options: ["Serviço que fornece software através da internet, como o Google Docs", "Serviço que fornece infraestrutura de rede e servidores", "Serviço que fornece acesso a dados em tempo real", "Serviço para análise de dados em tempo real", "Serviço de proteção de dados na nuvem"], 
+        answer: 0 
+      },
+      { 
+        question: "6. O que é o conceito de 'multicloud'?", 
+        options: ["Uso de múltiplos provedores de nuvem para armazenar e gerenciar dados", "Uso de apenas uma nuvem privada para processamento", "Armazenamento de dados apenas em servidores locais", "Uso de uma única nuvem pública para todas as empresas", "Uso de servidores locais para proteger dados em nuvem"], 
+        answer: 0 
+      },
+      { 
+        question: "7. Qual é a diferença entre nuvem pública e nuvem privada?", 
+        options: ["A nuvem pública é acessível ao público em geral, enquanto a privada é restrita a uma organização", "Ambas são usadas apenas por grandes empresas", "A nuvem pública é mais segura do que a privada", "A nuvem privada é mais barata que a pública", "Ambas são iguais em termos de segurança e custo"], 
+        answer: 0 
+      },
+      { 
+        question: "8. O que é escalabilidade em Cloud Computing?", 
+        options: ["Capacidade de aumentar ou reduzir recursos computacionais conforme a demanda", "Capacidade de aumentar a segurança dos dados", "Capacidade de criar novos serviços em nuvem", "Capacidade de bloquear acessos à nuvem", "Capacidade de criar aplicativos mais rápidos"], 
+        answer: 0 
+      },
+      { 
+        question: "9. O que é a nuvem híbrida?", 
+        options: ["Combinação de nuvem pública e privada para melhorar a flexibilidade", "Uso de vários servidores locais para processar dados", "Uso de apenas uma plataforma de nuvem pública para empresas", "Uso de apenas uma plataforma de nuvem privada para empresas", "Armazenamento em redes locais e nuvens públicas"], 
+        answer: 0 
+      },
+      { 
+        question: "10. Qual é um exemplo de serviço de computação em nuvem?", 
+        options: ["Amazon Web Services (AWS)", "Microsoft Word", "Dropbox", "Adobe Photoshop", "Google Analytics"], 
+        answer: 0 
+      },
+      { 
+        question: "11. O que significa 'elasticidade' em nuvem?", 
+        options: ["A capacidade de um serviço de nuvem de se ajustar automaticamente às mudanças na demanda", "A capacidade de armazenar grandes volumes de dados", "A capacidade de executar serviços de alta performance", "A capacidade de armazenar dados de maneira ilimitada", "A capacidade de automatizar processos de armazenamento"], 
+        answer: 0 
+      },
+      { 
+        question: "12. O que é um 'data center'?", 
+        options: ["Um local físico para armazenar dados em servidores", "Um sistema de rede para distribuir dados em nuvem", "Um aplicativo de gerenciamento de dados", "Um serviço para controlar a performance de servidores", "Uma ferramenta de segurança de dados"], 
+        answer: 0 
+      },
+      { 
+        question: "13. O que significa a sigla 'VM' em computação em nuvem?", 
+        options: ["Virtual Machine (Máquina Virtual)", "Variable Memory (Memória Variável)", "Virtual Management (Gerenciamento Virtual)", "Virtual Monitoring (Monitoramento Virtual)", "Viral Machine (Máquina Viral)"], 
+        answer: 0 
+      },
+      { 
+        question: "14. O que é o 'edge computing'?", 
+        options: ["Processamento de dados perto da origem dos dados, reduzindo latência", "Armazenamento de dados em servidores locais", "Distribuição de recursos de rede em várias localidades", "Ajuste de dados a partir de dispositivos móveis", "Uso de grandes servidores centralizados para processamento"], 
+        answer: 0 
+      },
+      { 
+        question: "15. O que é uma API em nuvem?", 
+        options: ["Interface que permite a integração de sistemas diferentes na nuvem", "Um serviço que oferece espaço de armazenamento", "Uma plataforma de desenvolvimento de software para nuvem", "Um sistema de backup automático de dados", "Um tipo de serviço de firewall em nuvem"], 
+        answer: 0 
+      },
+      { 
+        question: "16. O que é a 'falta de conectividade' na nuvem?", 
+        options: ["Quando o acesso à nuvem é interrompido devido a problemas de rede", "Quando não é possível usar a nuvem para fazer backup de dados", "Quando a nuvem não fornece mais espaço de armazenamento", "Quando a segurança da nuvem é comprometida", "Quando o processamento de dados na nuvem fica mais lento"], 
+        answer: 0 
+      },
+      
+      { 
+        question: "17. Qual é a principal vantagem de usar a computação em nuvem em vez de servidores locais?", 
+        options: ["Custo reduzido e maior flexibilidade", "Segurança aprimorada", "Capacidade limitada de processamento", "Dependência de dados centralizados", "Armazenamento mais rápido"], 
+        answer: 0 
+      },
+      { 
+        question: "18. O que é o conceito de 'serverless computing'?", 
+        options: ["Execução de código sem a necessidade de gerenciar servidores", "Armazenamento de dados sem a necessidade de servidores", "Criação de servidores virtuais para operações específicas", "Uso de servidores dedicados para tarefas específicas", "Configuração de ambientes locais para processamento"], 
+        answer: 0 
+      },
+      { 
+        question: "19. O que é o conceito de 'cloud bursting'?", 
+        options: ["Quando uma nuvem pública é usada para expandir a capacidade de uma nuvem privada durante picos de demanda", "Quando a nuvem pública se torna inacessível", "Quando o armazenamento de dados é feito em servidores físicos", "Quando as empresas criam uma nuvem exclusiva", "Quando há um aumento de capacidade sem aumentar os custos"], 
+        answer: 0 
+      },
+      { 
+        question: "20. O que é um 'private cloud'?", 
+        options: ["Uma nuvem dedicada a uma única organização, geralmente interna", "Uma nuvem pública disponível para qualquer usuário", "Uma combinação de nuvens públicas e privadas", "Uma nuvem compartilhada entre várias empresas", "Uma nuvem usada apenas para backup de dados"], 
+        answer: 0 
+      },
+      { 
+        question: "21. O que significa a sigla 'DRaaS'?", 
+        options: ["Disaster Recovery as a Service", "Data Recovery as a Service", "Development Resources as a Service", "Digital Rights as a Service", "Dynamic Routing as a Service"], 
+        answer: 0 
+      },
+      { 
+        question: "22. Qual é a principal função de uma rede de entrega de conteúdo (CDN) na nuvem?", 
+        options: ["Distribuir conteúdo de maneira rápida e eficiente a usuários em diversas localidades", "Armazenar dados localmente em servidores físicos", "Gerenciar a segurança da nuvem", "Fornecer armazenamento ilimitado de dados", "Aumentar a capacidade de processamento local"], 
+        answer: 0 
+      },
+      { 
+        question: "23. O que é um serviço 'containerized' em computação em nuvem?", 
+        options: ["Aplicações e serviços que são executados em containers isolados e leves", "Serviços de armazenamento de dados em grande escala", "Aplicações de backup de dados", "Sistemas operacionais que rodam na nuvem", "Redes privadas para proteger dados"], 
+        answer: 0 
+      },
+      { 
+        question: "24. O que significa 'auto-scaling' em nuvem?", 
+        options: ["Capacidade de ajustar automaticamente os recursos de computação de acordo com a demanda", "Capacidade de aumentar o armazenamento de dados sem limites", "Capacidade de instalar novos servidores físicos", "Capacidade de aumentar a segurança automaticamente", "Capacidade de instalar novos aplicativos automaticamente"], 
+        answer: 0 
+      },
+      { 
+        question: "25. O que é a 'cloud orchestration'?", 
+        options: ["O processo de coordenar e automatizar vários serviços de nuvem", "A habilidade de aumentar a segurança em várias nuvens", "A instalação de novos servidores físicos na nuvem", "A sincronização de dados entre diferentes nuvens", "A redução de custos operacionais na nuvem"], 
+        answer: 0 
+      },
+      { 
+        question: "26. O que é um 'multi-cloud strategy'?", 
+        options: ["A utilização de múltiplos provedores de nuvem para evitar dependência de um único fornecedor", "A utilização de uma única nuvem privada para todas as operações", "Armazenamento de dados em servidores locais e nuvens públicas", "A criação de uma única nuvem dedicada a uma organização", "A utilização de várias nuvens públicas para fins de segurança"], 
+        answer: 0 
+      },
+      { 
+        question: "27. O que é o conceito de 'cloud-native'?", 
+        options: ["Aplicações desenvolvidas e otimizadas para funcionar nativamente em ambientes de nuvem", "Aplicações de terceiros usadas em nuvens públicas", "Serviços de backup e recuperação de dados", "Aplicações criadas para serem executadas apenas em servidores locais", "Tecnologia que permite a instalação de sistemas operacionais em nuvem"], 
+        answer: 0 
+      },
+      { 
+        question: "28. Qual é a diferença entre 'cloud storage' e 'cloud backup'?", 
+        options: ["Cloud storage é usado para armazenar dados, enquanto cloud backup é uma cópia de segurança", "Cloud backup é usado para armazenamento em tempo real", "Ambos significam o mesmo", "Cloud backup é mais rápido que cloud storage", "Cloud storage não é seguro, mas cloud backup é"], 
+        answer: 0 
+      },
+      { 
+        question: "29. O que significa 'latência' em computação em nuvem?", 
+        options: ["O tempo que leva para os dados viajarem de um ponto a outro", "A quantidade de dados que podem ser armazenados", "O tempo necessário para uma nuvem processar dados", "O número de servidores disponíveis", "O nível de segurança dos dados na nuvem"], 
+        answer: 0 
+      },
+      { 
+        question: "30. O que são 'cloud services'?", 
+        options: ["Serviços de computação, armazenamento e rede oferecidos pela nuvem", "Serviços de segurança em nuvem", "Serviços de redes sociais na nuvem", "Serviços para garantir a integridade dos dados", "Serviços de backup em servidores locais"], 
+        answer: 0 
+      }
+
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      const currentQuestion = questions[currentQuestionIndex];
+      const questionText = document.getElementById('question-text');
+      const answersContainer = document.getElementById('answers-container');
+
+      questionText.textContent = currentQuestion.question;
+      answersContainer.innerHTML = '';
+
+      currentQuestion.options.forEach((option, index) => {
+        const answerOption = document.createElement('div');
+        answerOption.classList.add('answer-option');
+        answerOption.textContent = option;
+        answerOption.onclick = () => checkAnswer(index);
+        answersContainer.appendChild(answerOption);
+      });
+    }
+
+    function checkAnswer(selectedIndex) {
+      const currentQuestion = questions[currentQuestionIndex];
+
+      if (selectedIndex === currentQuestion.answer) {
+        score++;
+      }
+
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.textContent = `Você acertou ${score} de ${questions.length} perguntas!`;
+    }
+
+    // Começar o quiz automaticamente
+    loadQuestion();
+  </script>
+
+</body>
+</html>

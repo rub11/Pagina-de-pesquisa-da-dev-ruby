@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Redes Neurais Artificiais</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Redes Neurais Artificiais</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é uma rede neural artificial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">Um sistema computacional inspirado no funcionamento do cérebro humano, projetado para reconhecer padrões.</li>
+        <li onclick="selectAnswer(this, 1, 1)">Uma rede de computadores interconectados que processam dados em tempo real.</li>
+        <li onclick="selectAnswer(this, 2, 1)">Um modelo de aprendizado de máquina baseado em árvores de decisão.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. O que é uma camada de entrada em uma rede neural?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">A camada que recebe os dados de entrada e os passa para as camadas seguintes.</li>
+        <li onclick="selectAnswer(this, 1, 2)">A camada responsável por fornecer a saída final da rede neural.</li>
+        <li onclick="selectAnswer(this, 2, 2)">A camada que processa os dados de saída e retorna ao usuário.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que são pesos em uma rede neural?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Os valores que determinam a importância de cada entrada na rede neural.</li>
+        <li onclick="selectAnswer(this, 1, 3)">As variáveis de controle que ajustam a saída da rede.</li>
+        <li onclick="selectAnswer(this, 2, 3)">A quantidade de neurônios em cada camada da rede.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que é a função de ativação em uma rede neural?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">A função que determina se um neurônio será ativado ou não, baseando-se na entrada.</li>
+        <li onclick="selectAnswer(this, 1, 4)">A função responsável por determinar a arquitetura da rede neural.</li>
+        <li onclick="selectAnswer(this, 2, 4)">A função que calcula os valores de entrada para a rede neural.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é o algoritmo de retropropagação (backpropagation)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">O algoritmo usado para ajustar os pesos da rede neural durante o treinamento.</li>
+        <li onclick="selectAnswer(this, 1, 5)">O algoritmo responsável por melhorar a arquitetura da rede.</li>
+        <li onclick="selectAnswer(this, 2, 5)">O algoritmo que define a função de ativação em uma rede neural.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que é uma rede neural convolucional (CNN)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Um tipo de rede neural projetada para processar dados com uma grade regular, como imagens.</li>
+        <li onclick="selectAnswer(this, 1, 6)">Uma rede neural com múltiplas camadas de entrada e saída.</li>
+        <li onclick="selectAnswer(this, 2, 6)">Uma rede neural especializada em tarefas de processamento de texto.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que é overfitting em uma rede neural?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Quando o modelo aprende detalhes excessivos dos dados de treinamento e perde a capacidade de generalizar.</li>
+        <li onclick="selectAnswer(this, 1, 7)">Quando o modelo falha em aprender padrões dos dados de treinamento e tem desempenho ruim.</li>
+        <li onclick="selectAnswer(this, 2, 7)">Quando o modelo aprende de forma eficiente sem perda de dados durante o treinamento.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que são redes neurais recorrentes (RNN)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Redes neurais que possuem conexões direcionadas para trás, permitindo que a rede tenha memória de eventos anteriores.</li>
+        <li onclick="selectAnswer(this, 1, 8)">Redes neurais compostas por camadas separadas que processam dados em paralelo.</li>
+        <li onclick="selectAnswer(this, 2, 8)">Redes neurais que se concentram exclusivamente em análise de grandes volumes de dados.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é uma rede neural densa?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Uma rede neural onde cada neurônio de uma camada está conectado a todos os neurônios da camada seguinte.</li>
+        <li onclick="selectAnswer(this, 1, 9)">Uma rede neural onde os neurônios são conectados apenas de maneira hierárquica.</li>
+        <li onclick="selectAnswer(this, 2, 9)">Uma rede neural que utiliza dados de entrada simples para o treinamento.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é *dropout* em uma rede neural?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Uma técnica para evitar overfitting, onde algumas conexões são desativadas aleatoriamente durante o treinamento.</li>
+        <li onclick="selectAnswer(this, 1, 10)">Uma técnica para aumentar a capacidade computacional durante o treinamento.</li>
+        <li onclick="selectAnswer(this, 2, 10)">Uma técnica de regularização que aumenta a complexidade da rede neural.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionIndex) {
+    const answers = element.parentNode.children;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    userAnswers[questionIndex] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Segurança de TI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #F2E9E4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: #FFD700;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .quiz-container {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .question {
+            font-size: 24px;
+            color: #FFD700;
+        }
+        .options {
+            margin-top: 20px;
+        }
+        .option {
+            background-color: #333333;
+            color: #F2E9E4;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #444444;
+        }
+        .option.correct {
+            background-color: #28a745;
+        }
+        .option.incorrect {
+            background-color: #dc3545;
+        }
+        .next-btn {
+            background-color: #FFD700;
+            color: #121212;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            display: block;
+            margin: 30px auto;
+            transition: background-color 0.3s;
+        }
+        .next-btn:hover {
+            background-color: #e0a800;
+        }
+        .result-container {
+            text-align: center;
+            color: #FFD700;
+            font-size: 28px;
+            margin-top: 50px;
+        }
+        .slide-container {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+        .slide {
+            min-width: 100%;
+            transition: transform 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Quiz sobre Segurança de TI</h1>
+    <div class="quiz-container">
+        <div class="slide-container" id="quiz-container">
+            <!-- Slides will be inserted dynamically here -->
+        </div>
+        <button class="next-btn" id="next-btn" onclick="nextSlide()">Próxima</button>
+    </div>
+    <div class="result-container" id="result-container" style="display: none;"></div>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "O que é o conceito de 'defesa em profundidade' em segurança da informação?",
+            options: ["Uma abordagem que utiliza várias camadas de segurança para proteger dados e sistemas", "A criação de backup de dados", "A segmentação de redes", "A criptografia de dados", "A utilização de firewalls apenas"],
+            answer: 0
+        },
+        {
+            question: "Qual é a função de um firewall na segurança de TI?",
+            options: ["Filtrar o tráfego de rede, permitindo ou bloqueando o acesso a determinados recursos", "Armazenar dados em nuvem", "Monitorar a integridade dos dados", "Criptografar as comunicações", "Gerenciar as permissões de usuários"],
+            answer: 0
+        },
+        {
+            question: "O que é a autenticação de múltiplos fatores (MFA)?",
+            options: ["Uma camada adicional de segurança que exige mais de uma prova de identidade", "Uma técnica de criptografia", "Uma abordagem de backup de dados", "A segmentação de rede", "Uma forma de proteção contra malware"],
+            answer: 0
+        },
+        {
+            question: "O que significa o termo 'phishing' na segurança cibernética?",
+            options: ["Uma técnica de fraude para obter informações confidenciais por meio de e-mails ou sites falsos", "A criação de senhas seguras", "A implementação de firewalls", "A segmentação de redes", "A criptografia de dados"],
+            answer: 0
+        },
+        {
+            question: "O que é um ataque de negação de serviço (DDoS)?",
+            options: ["Um ataque que visa sobrecarregar um servidor ou rede com tráfego excessivo para impedir seu funcionamento", "A manipulação de senhas de usuários", "A modificação de dados em bancos de dados", "A interceptação de comunicações", "A execução de código malicioso em servidores"],
+            answer: 0
+        },
+        {
+            question: "O que é criptografia de ponta a ponta (E2EE)?",
+            options: ["Uma técnica de criptografia que garante que apenas o remetente e o destinatário possam acessar os dados", "Uma ferramenta para armazenar dados em nuvem", "Uma forma de segmentação de rede", "Uma técnica de backup de dados", "Uma técnica para impedir o acesso de hackers aos servidores"],
+            answer: 0
+        },
+        {
+            question: "O que é um ataque de malware?",
+            options: ["Software malicioso projetado para causar danos ou roubar informações", "Uma ferramenta de segurança contra ataques DDoS", "Uma técnica para criptografar dados", "Uma forma de autenticação de usuários", "Uma estratégia de monitoramento de tráfego de rede"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'zero trust' na segurança de TI?",
+            options: ["Uma abordagem que assume que nenhuma entidade interna ou externa deve ser confiável sem verificação", "A criação de backups de dados", "A utilização de autenticação de múltiplos fatores", "A segmentação de rede", "A criptografia de dados"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'patch management' em segurança?",
+            options: ["A prática de aplicar atualizações e correções de segurança em sistemas e softwares", "A criptografia de dados em repouso", "O gerenciamento de senhas de usuários", "A segmentação de redes", "A criação de firewalls"],
+            answer: 0
+        },
+        {
+            question: "Qual é a principal função de um antivírus?",
+            options: ["Detectar e remover software malicioso do sistema", "Monitorar o tráfego de rede", "Segmentar a rede em diferentes sub-redes", "Criptografar as comunicações", "Controlar o acesso de usuários ao sistema"],
+            answer: 0
+        },
+        {
+            question: "O que é o 'ransomware'?",
+            options: ["Um tipo de malware que criptografa dados e exige um resgate para liberar o acesso", "Uma ferramenta de monitoramento de rede", "Uma estratégia de backup de dados", "Uma técnica de autenticação de múltiplos fatores", "Um tipo de firewall"],
+            answer: 0
+        },
+        {
+            question: "O que são as práticas de 'segurança de rede'?",
+            options: ["A implementação de políticas, ferramentas e técnicas para proteger a rede contra ataques", "O controle de acesso a usuários", "A criação de firewalls", "A criptografia de senhas", "A segmentação de dados em diferentes servidores"],
+            answer: 0
+        },
+        {
+            question: "O que é um 'ataque man-in-the-middle' (MITM)?",
+            options: ["Um ataque em que um hacker intercepta e possivelmente altera a comunicação entre duas partes", "Um tipo de criptografia de dados", "Uma técnica de segmentação de rede", "A prática de autenticação de usuários", "A criação de firewalls"],
+            answer: 0
+        },
+        {
+            question: "O que significa 'vulnerabilidade' em segurança de TI?",
+            options: ["Uma falha ou fraqueza em um sistema que pode ser explorada por atacantes", "Uma técnica de autenticação", "Uma forma de criptografia de dados", "Um tipo de firewall", "Uma ferramenta de monitoramento de tráfego de rede"],
+            answer: 0
+        },
+        {
+            question: "O que é uma política de segurança de TI?",
+            options: ["Conjunto de regras e diretrizes para proteger os recursos de TI da organização", "A prática de criptografar dados", "A implementação de firewalls", "A segmentação de redes", "A criação de backups de dados"],
+            answer: 0
+        },
+        {
+            question: "O que é a técnica de 'social engineering'?",
+            options: ["Manipulação psicológica de pessoas para obter informações confidenciais", "Uma forma de criptografia", "A segmentação de redes", "A criação de firewalls", "A autenticação de múltiplos fatores"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'segurança em camadas'?",
+            options: ["A prática de utilizar múltiplos controles de segurança em diferentes níveis para proteger dados e sistemas", "A criptografia de senhas", "A segmentação de rede", "A utilização de antivírus", "A prática de backup de dados"],
+            answer: 0
+        },
+        {
+            question: "O que significa 'segurança em nuvem'?",
+            options: ["Práticas, ferramentas e políticas para proteger dados e sistemas na nuvem", "A criptografia de dados em trânsito", "A implementação de firewalls", "A segmentação de rede", "A criação de backups de dados em servidores locais"],
+            answer: 0
+        },
+        {
+            question: "O que é o 'backup' em segurança de TI?",
+            options: ["A criação de cópias de segurança de dados para evitar perda em caso de falha ou ataque", "A implementação de políticas de segurança", "A criação de firewalls", "A criptografia de dados em repouso", "A segmentação de redes"],
+            answer: 0
+        },
+        {
+            question: "O que é a autenticação baseada em biometria?",
+            options: ["Uma forma de autenticação que utiliza características físicas ou comportamentais únicas, como impressões digitais ou reconhecimento facial", "Uma técnica de criptografia de dados", "Uma ferramenta de monitoramento de tráfego de rede", "Uma abordagem de controle de acesso de usuários", "Uma forma de segmentação de redes"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'segurança de endpoint'?",
+            options: ["A prática de proteger dispositivos finais como computadores, smartphones e servidores contra ameaças de segurança", "A prática de proteger a rede interna de uma organização", "A técnica de segmentação de rede", "O gerenciamento de senhas de usuários", "A prática de criptografar dados"],
+            answer: 0
+        },
+        {
+            question: "Qual é o principal objetivo da criptografia de dados?",
+            options: ["Proteger dados, garantindo que apenas pessoas autorizadas possam acessá-los", "Filtrar tráfego de rede", "Monitorar tráfego de internet", "Prevenir ataques de malware", "Garantir a disponibilidade de dados"],
+            answer: 0
+        },
+        {
+            question: "O que é um ataque 'SQL Injection'?",
+            options: ["Uma técnica de ataque em que comandos maliciosos são inseridos em uma consulta SQL para manipular um banco de dados", "A utilização de senhas fracas para acessar um sistema", "Um ataque de negação de serviço", "A interceptação de dados durante a comunicação", "Uma forma de phishing"],
+            answer: 0
+        },
+        {
+            question: "O que significa o termo 'data breach' (violação de dados)?",
+            options: ["O acesso não autorizado, divulgação, alteração ou destruição de dados confidenciais", "A criação de backups de dados", "A segmentação de redes", "A utilização de antivírus", "A modificação de senhas de usuários"],
+            answer: 0
+        },
+        {
+            question: "O que são firewalls de próxima geração (NGFW)?",
+            options: ["Firewalls que oferecem recursos adicionais como inspeção profunda de pacotes e proteção contra ameaças avançadas", "Firewalls usados apenas para bloquear tráfego indesejado", "Sistemas de criptografia de dados", "Ferramentas para segmentação de rede", "Sistemas de monitoramento de tráfego de rede"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'privacidade de dados'?",
+            options: ["A prática de proteger a informação pessoal e garantir que ela seja coletada, armazenada e utilizada de forma segura e legal", "A criação de backups de dados", "A segmentação de redes", "A utilização de criptografia de dados", "A proteção contra ataques de malware"],
+            answer: 0
+        },
+        {
+            question: "O que são as ferramentas de 'detection and response' (DR) na segurança cibernética?",
+            options: ["Ferramentas que detectam e respondem rapidamente a ameaças e incidentes de segurança", "Sistemas de monitoramento de tráfego de rede", "Técnicas de criptografia", "Sistemas de backup de dados", "Ferramentas de autenticação de múltiplos fatores"],
+            answer: 0
+        },
+        {
+            question: "O que é o 'security as a service' (SECaaS)?",
+            options: ["Modelos de segurança baseados em nuvem que oferecem serviços como monitoramento de segurança, autenticação e criptografia", "A segmentação de redes", "A proteção contra ataques DDoS", "A criação de backups de dados", "O gerenciamento de permissões de usuários"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'zero-day attack'?",
+            options: ["Um ataque que explora uma vulnerabilidade de segurança desconhecida ou não corrigida por desenvolvedores", "A modificação de senhas de usuários", "A utilização de firewalls", "A técnica de criptografia de dados", "A segmentação de redes"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'white hat hacker'?",
+            options: ["Um hacker ético que usa suas habilidades para ajudar organizações a identificar e corrigir vulnerabilidades de segurança", "Um hacker que realiza ataques para obter informações pessoais", "Um hacker que manipula sistemas sem permissão", "Um software de segurança", "Uma técnica de monitoramento de tráfego"],
+            answer: 0
+        }
+    ];
+
+    let currentSlide = 0;
+    let correctAnswers = 0;
+
+    function shuffleOptions(options) {
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        return options;
+    }
+
+    function showSlide() {
+        const quizContainer = document.getElementById('quiz-container');
+        const question = questions[currentSlide].question;
+        const options = shuffleOptions([...questions[currentSlide].options]);
+        const correctAnswerIndex = questions[currentSlide].options.indexOf(questions[currentSlide].options[questions[currentSlide].answer]);
+
+        quizContainer.innerHTML = `
+            <div class="slide">
+                <div class="question">${question}</div>
+                <div class="options">
+                    ${options.map((option, index) => `
+                        <div class="option" onclick="checkAnswer(${index}, ${correctAnswerIndex}, this)">${option}</div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    function checkAnswer(selected, correct, optionElement) {
+        const options = document.querySelectorAll('.option');
+        if (selected === correct) {
+            optionElement.classList.add('correct');
+            correctAnswers++;
+        } else {
+            optionElement.classList.add('incorrect');
+            options[correct].classList.add('correct');
+        }
+
+        document.getElementById('next-btn').style.display = 'block';
+    }
+
+    function nextSlide() {
+        currentSlide++;
+        if (currentSlide < questions.length) {
+            showSlide();
+            document.getElementById('next-btn').style.display = 'none';
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        const resultContainer = document.getElementById('result-container');
+        resultContainer.style.display = 'block';
+        resultContainer.innerHTML = `Você acertou ${correctAnswers} de ${questions.length} perguntas.`;
+    }
+
+    showSlide();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Edge Computing</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+        }
+        .question-container {
+            margin-bottom: 30px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .answers {
+            list-style: none;
+            padding: 0;
+        }
+        .answers li {
+            background-color: #333;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answers li:hover {
+            background-color: #444;
+        }
+        .next-btn {
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+        .next-btn:hover {
+            background-color: #e6b800;
+        }
+        .result {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Quiz sobre Edge Computing</h1>
+    <div id="quiz">
+        <div class="question-container">
+            <p class="question" id="question1">O que é Edge Computing?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 1)">Edge Computing é um modelo de computação distribuída onde os dados são processados na borda da rede, mais próximo da fonte de dados.</li>
+                <li onclick="selectAnswer(1, 1)">Edge Computing é a computação realizada apenas em servidores de grandes centros de dados.</li>
+                <li onclick="selectAnswer(2, 1)">Edge Computing é um modelo de computação que depende de dispositivos móveis para processamento de dados.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question2">Qual é o principal benefício do Edge Computing?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 2)">Reduzir a latência ao processar dados mais próximos da fonte.</li>
+                <li onclick="selectAnswer(1, 2)">Aumentar a quantidade de dados processados em um único servidor centralizado.</li>
+                <li onclick="selectAnswer(2, 2)">Reduzir o custo de armazenamento na nuvem.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question3">Onde o Edge Computing é mais aplicado?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 3)">Em ambientes onde a latência é crítica, como em carros autônomos e dispositivos IoT.</li>
+                <li onclick="selectAnswer(1, 3)">Principalmente em plataformas de computação em nuvem.</li>
+                <li onclick="selectAnswer(2, 3)">Em sistemas de grande armazenamento de dados apenas.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question4">Qual é a diferença entre Edge Computing e Cloud Computing?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 4)">Edge Computing processa dados mais próximos da origem, enquanto Cloud Computing processa dados em centros de dados centralizados.</li>
+                <li onclick="selectAnswer(1, 4)">Ambos os modelos processam dados exclusivamente no datacenter central.</li>
+                <li onclick="selectAnswer(2, 4)">Cloud Computing foca na otimização de dispositivos móveis, enquanto Edge Computing foca em servidores locais.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question5">Quais dispositivos geralmente fazem parte de uma arquitetura de Edge Computing?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 5)">Sensores, câmeras, roteadores e dispositivos IoT.</li>
+                <li onclick="selectAnswer(1, 5)">Somente servidores e computadores de alto desempenho.</li>
+                <li onclick="selectAnswer(2, 5)">Dispositivos móveis e estações de trabalho em grandes centros de dados.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question6">Como o Edge Computing pode melhorar a privacidade de dados?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 6)">Ao processar dados localmente, sem necessidade de enviá-los para servidores remotos, melhorando a segurança e a privacidade.</li>
+                <li onclick="selectAnswer(1, 6)">Por meio do uso de criptografia apenas nos centros de dados.</li>
+                <li onclick="selectAnswer(2, 6)">Ao centralizar o armazenamento e processamento de dados em uma única localização.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question7">Qual é o impacto do Edge Computing em IoT?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 7)">Melhora a capacidade de processamento de dispositivos IoT, reduzindo a dependência de servidores centralizados.</li>
+                <li onclick="selectAnswer(1, 7)">Impossibilita a comunicação entre dispositivos IoT e sistemas centralizados.</li>
+                <li onclick="selectAnswer(2, 7)">Aumenta o custo de operação dos dispositivos IoT.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question8">Quais são os desafios do Edge Computing?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 8)">Gerenciamento de dispositivos distribuídos, conectividade e segurança.</li>
+                <li onclick="selectAnswer(1, 8)">Armazenamento ilimitado e processamento em tempo real.</li>
+                <li onclick="selectAnswer(2, 8)">A falta de hardware e software especializados.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question9">Como o Edge Computing pode ajudar na tomada de decisões em tempo real?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 9)">Ao processar dados localmente, permitindo respostas rápidas baseadas em informações imediatas.</li>
+                <li onclick="selectAnswer(1, 9)">Processando todos os dados em servidores remotos, para obter análises mais profundas.</li>
+                <li onclick="selectAnswer(2, 9)">Ao depender exclusivamente de algoritmos baseados em nuvem.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question10">Quais são as tecnologias essenciais para o Edge Computing?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 10)">IoT, redes de 5G, AI (Inteligência Artificial) e redes de borda.</li>
+                <li onclick="selectAnswer(1, 10)">Somente redes de alta velocidade.</li>
+                <li onclick="selectAnswer(2, 10)">Armazenamento local e servidores dedicados.</li>
+            </ul>
+        </div>
+
+        <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+    </div>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    let userAnswers = [];
+    const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    function selectAnswer(answerIndex, questionNumber) {
+        userAnswers[questionNumber - 1] = answerIndex;
+    }
+
+    function showResult() {
+        let correctCount = 0;
+        userAnswers.forEach((answer, index) => {
+            if (answer === correctAnswers[index]) correctCount++;
+        });
+        const resultText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+        document.getElementById('result').innerText = resultText;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Design de Interface de Usuário</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Design de Interface de Usuário</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é UI no contexto de design digital?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">User Interface</li>
+        <li onclick="selectAnswer(this, 1, 1)">User Integration</li>
+        <li onclick="selectAnswer(this, 2, 1)">Universal Interaction</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual é o principal objetivo do design de interface de usuário?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Facilitar a interação com o sistema</li>
+        <li onclick="selectAnswer(this, 1, 2)">Tornar o código mais eficiente</li>
+        <li onclick="selectAnswer(this, 2, 2)">Reduzir o tamanho do software</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. Um bom design de UI deve ser:</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Intuitivo e consistente</li>
+        <li onclick="selectAnswer(this, 1, 3)">Complexo e sofisticado</li>
+        <li onclick="selectAnswer(this, 2, 3)">Colorido e chamativo</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. Qual ferramenta é amplamente usada no design de UI?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Figma</li>
+        <li onclick="selectAnswer(this, 1, 4)">Excel</li>
+        <li onclick="selectAnswer(this, 2, 4)">Notepad</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que significa o termo "wireframe" no design de UI?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Esboço da estrutura da interface</li>
+        <li onclick="selectAnswer(this, 1, 5)">Código da interface</li>
+        <li onclick="selectAnswer(this, 2, 5)">Teste de usabilidade</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Qual desses princípios é essencial no design de UI?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Consistência</li>
+        <li onclick="selectAnswer(this, 1, 6)">Redundância</li>
+        <li onclick="selectAnswer(this, 2, 6)">Aleatoriedade</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que são protótipos no design de UI?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Simulações navegáveis da interface</li>
+        <li onclick="selectAnswer(this, 1, 7)">Códigos finais de produção</li>
+        <li onclick="selectAnswer(this, 2, 7)">Relatórios de bugs</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que o termo "responsivo" significa em UI?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Adapta-se a diferentes dispositivos</li>
+        <li onclick="selectAnswer(this, 1, 8)">Responde apenas em telas grandes</li>
+        <li onclick="selectAnswer(this, 2, 8)">Tem muitas animações</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. Qual é a vantagem de seguir padrões de design?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Melhora a usabilidade e reduz erros</li>
+        <li onclick="selectAnswer(this, 1, 9)">Torna o design mais original</li>
+        <li onclick="selectAnswer(this, 2, 9)">Facilita o uso de efeitos visuais</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que significa “feedback visual” em uma interface?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Reação visual após uma ação do usuário</li>
+        <li onclick="selectAnswer(this, 1, 10)">Resposta do servidor</li>
+        <li onclick="selectAnswer(this, 2, 10)">Notificações por e-mail</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+
+    const answersList = element.parentNode.querySelectorAll('li');
+    answersList.forEach(li => li.classList.remove('selected'));
+
+    element.classList.add('selected');
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    document.getElementById('result').innerText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+  }
+</script>
+
+</body>
+</html>

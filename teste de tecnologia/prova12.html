@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz - Internet das Coisas (IoT)</title>
+  <style>
+    body {
+      background-color: #0b0b0b;
+      color: #f5d76e;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+      font-size: 3em;
+      margin-bottom: 50px;
+      text-shadow: 1px 1px 5px #ffcc00aa;
+    }
+
+    .question-block {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 204, 0, 0.1);
+    }
+
+    .question {
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      color: #f5d76e;
+    }
+
+    .options label,
+    .options button {
+      display: block;
+      padding: 10px 15px;
+      background-color: #262626;
+      border: 1px solid #444;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      color: #f5d76e;
+      font-size: 1em;
+      text-align: left;
+    }
+
+    .options input {
+      margin-right: 10px;
+    }
+
+    .options label:hover,
+    .options button:hover {
+      background-color: #333;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz - Internet das Coisas (IoT)</h1>
+
+  <div class="question-block">
+    <div class="question">O que é a Internet das Coisas (IoT)?</div>
+    <div class="options">
+      <label><input type="radio" name="q1" /> Conexão de objetos físicos à internet para coleta e troca de dados</label>
+      <label><input type="radio" name="q1" /> Uma forma de conectar redes sociais com smartphones</label>
+      <label><input type="radio" name="q1" /> Uma rede que conecta somente computadores</label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual desses dispositivos é um exemplo de IoT?</div>
+    <div class="options">
+      <label><input type="radio" name="q2" /> Termostato inteligente</label>
+      <label><input type="radio" name="q2" /> Impressora matricial</label>
+      <label><input type="radio" name="q2" /> Monitor CRT</label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual é o principal benefício da IoT?</div>
+    <div class="options">
+      <label><input type="radio" name="q3" /> Automatizar tarefas e melhorar decisões com base em dados</label>
+      <label><input type="radio" name="q3" /> Aumentar a quantidade de hardware em rede</label>
+      <label><input type="radio" name="q3" /> Diminuir a necessidade de sensores</label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Quais tecnologias são fundamentais para a IoT?</div>
+    <div class="options">
+      <label><input type="radio" name="q4" /> Sensores, conectividade, computação em nuvem</label>
+      <label><input type="radio" name="q4" /> Fitas magnéticas, disquetes e cabos coaxiais</label>
+      <label><input type="radio" name="q4" /> Motores a combustão e válvulas analógicas</label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual das opções representa um risco da IoT?</div>
+    <div class="options">
+      <label><input type="radio" name="q5" /> Vulnerabilidades de segurança e privacidade</label>
+      <label><input type="radio" name="q5" /> Melhor conectividade entre dispositivos</label>
+      <label><input type="radio" name="q5" /> Redução do consumo de energia</label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">O que é um wearable?</div>
+    <div class="options">
+      <label><input type="radio" name="q6" /> Dispositivo eletrônico vestível que pode coletar dados</label>
+      <label><input type="radio" name="q6" /> Um tipo de cabo para conexão de IoT</label>
+      <label><input type="radio" name="q6" /> Programa usado para formatar redes</label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">O que é um sensor em um sistema IoT?</div>
+    <div class="options">
+      <label><input type="radio" name="q7" /> Dispositivo que detecta e responde a eventos físicos</label>
+      <label><input type="radio" name="q7" /> Dispositivo que apenas emite som</label>
+      <label><input type="radio" name="q7" /> Programa de controle de firewall</label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual linguagem é frequentemente usada em dispositivos IoT?</div>
+    <div class="options">
+      <label><input type="radio" name="q8" /> Python</label>
+      <label><input type="radio" name="q8" /> Swift</label>
+      <label><input type="radio" name="q8" /> COBOL</label>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual protocolo é comumente usado em IoT para comunicação leve?</div>
+    <div class="options">
+      <label><input type="radio" name="q9" /> MQTT</label>
+      <label><input type="radio" name="q9" /> FTP</label>
+      <label><input type="radio" name="q9" /> SMTP</label>
+    </div>
+  </div>
+
+  <!-- A partir daqui seguem os blocos sem radio, usando botões -->
+  <div class="question-block">
+    <div class="question">Qual é o papel da computação em nuvem na IoT?</div>
+    <div class="options">
+      <button>Armazenar e processar os dados gerados pelos dispositivos</button>
+      <button>Servir apenas como backup físico dos dispositivos</button>
+      <button>Substituir os sensores físicos nas redes IoT</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">O que significa o termo “Edge Computing” em IoT?</div>
+    <div class="options">
+      <button>Processamento de dados próximo da origem, nos próprios dispositivos</button>
+      <button>Transmissão de dados diretamente para redes sociais</button>
+      <button>Enviar todos os dados para servidores internacionais</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual dessas tecnologias sem fio é frequentemente usada em IoT?</div>
+    <div class="options">
+      <button>Zigbee</button>
+      <button>VGA</button>
+      <button>HDMI</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Em uma rede IoT, um atuador é responsável por:</div>
+    <div class="options">
+      <button>Executar ações baseadas em dados processados</button>
+      <button>Somente detectar mudanças no ambiente</button>
+      <button>Monitorar somente o tráfego de rede</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">O que diferencia a IoT industrial (IIoT)?</div>
+    <div class="options">
+      <button>Aplicações voltadas para automação e controle em ambientes industriais</button>
+      <button>Dispositivos que só funcionam em casa</button>
+      <button>É baseada apenas em eletrodomésticos inteligentes</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual dessas opções NÃO é um desafio da IoT?</div>
+    <div class="options">
+      <button>Segurança de dados</button>
+      <button>Integração de dispositivos</button>
+      <button>Facilidade de leitura de e-mails</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">A IoT pode ajudar na agricultura por meio de:</div>
+    <div class="options">
+      <button>Sensores de solo, irrigação automatizada e análise de clima</button>
+      <button>Uso de robôs gigantes para colheita manual</button>
+      <button>Exclusivamente por meio de drones</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual é uma característica importante de dispositivos IoT?</div>
+    <div class="options">
+      <button>Conectividade constante à internet</button>
+      <button>Frequente substituição manual</button>
+      <button>Isolamento completo da rede</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">O protocolo MQTT é amplamente utilizado em IoT por:</div>
+    <div class="options">
+      <button>Baixa latência e leveza na comunicação</button>
+      <button>Alta demanda de energia e processamento</button>
+      <button>Seu uso exclusivo em redes 5G</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Um exemplo de uso da IoT em cidades inteligentes é:</div>
+    <div class="options">
+      <button>Sistemas de iluminação pública controlados por sensores</button>
+      <button>Uso de antenas parabólicas em semáforos</button>
+      <button>Impressoras 3D nas ruas</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Como a IoT impacta o setor da saúde?</div>
+    <div class="options">
+      <button>Monitoramento remoto de pacientes e coleta de dados em tempo real</button>
+      <button>Envio de boletins meteorológicos diários</button>
+      <button>Impressão de relatórios médicos por fax</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual a função de um gateway em uma rede IoT?</div>
+    <div class="options">
+      <button>Conectar dispositivos IoT com a internet ou a nuvem</button>
+      <button>Reduzir a qualidade de transmissão de dados</button>
+      <button>Bloquear a comunicação entre sensores</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual o impacto da IoT na indústria automotiva?</div>
+    <div class="options">
+      <button>Permite comunicação entre veículos e infraestrutura urbana</button>
+      <button>Elimina completamente a necessidade de sensores</button>
+      <button>Substitui o volante por sensores de calor</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">O termo “coisas” em IoT refere-se a:</div>
+    <div class="options">
+      <button>Objetos físicos conectados à internet</button>
+      <button>Somente aplicativos de celular</button>
+      <button>Documentos digitais salvos em PDF</button>
+    </div>
+  </div>
+
+  <div class="question-block">
+    <div class="question">Qual linguagem é popular no desenvolvimento de IoT?</div>
+    <div class="options">
+      <button>Python</button>
+      <button>Pascal</button>
+      <button>Fortran</button>
+    </div>
+  </div>
+  
+
+  <footer>Conteúdo criado por DEV RUBY</footer>
+</body>
+</h

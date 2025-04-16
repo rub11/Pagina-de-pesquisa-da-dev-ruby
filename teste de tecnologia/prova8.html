@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - DevOps</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1d1d1d;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+        }
+        .option {
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option:hover {
+            background-color: #555;
+        }
+        .button {
+            background-color: #ffbb33;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #ffaa00;
+        }
+        .score {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="quiz">
+            <div class="question"></div>
+            <div class="options"></div>
+            <button class="button" id="nextButton">Próxima Pergunta</button>
+        </div>
+        <div id="result" class="score" style="display: none;"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "O que é DevOps?",
+                options: ["Uma prática de desenvolvimento que integra as equipes de desenvolvimento e operações", "Uma ferramenta para monitoramento de servidores", "Um tipo de software para automação de testes", "Uma metodologia para controle de versões", "Uma linguagem de programação"],
+                answer: 0
+            },
+            {
+                question: "Qual é o principal objetivo do DevOps?",
+                options: ["Automatizar e melhorar o ciclo de vida de desenvolvimento de software", "Reduzir os custos de infraestrutura", "Criar novos ambientes de desenvolvimento", "Aumentar a complexidade do ciclo de vida de software", "Melhorar a comunicação apenas entre desenvolvedores"],
+                answer: 0
+            },
+            {
+                question: "O que é CI/CD em DevOps?",
+                options: ["Integração Contínua e Entrega Contínua", "Controle Integrado e Desenvolvimento Contínuo", "Códigos Integrados e Desenvolvimento Controlado", "Comandos Integrados e Desenvolvimento Compartilhado", "Configuração e Infraestrutura de Desenvolvimento"],
+                answer: 0
+            },
+            {
+                question: "Qual é a principal vantagem de usar ferramentas de automação no DevOps?",
+                options: ["Reduzir erros manuais e acelerar o ciclo de desenvolvimento", "Aumentar a complexidade do processo de desenvolvimento", "Garantir que os desenvolvedores escrevam código perfeito", "Permitir que o desenvolvimento seja realizado por uma única pessoa", "Aumentar o tempo de deploy de novas versões"],
+                answer: 0
+            },
+            {
+                question: "Qual é a diferença entre 'continuous integration' (CI) e 'continuous delivery' (CD)?",
+                options: ["CI é o processo de integrar código frequentemente, enquanto CD é a entrega automática do código para produção", "CI é o processo de desenvolver software, e CD é o processo de teste", "CI refere-se a entregas rápidas, enquanto CD é para entregas mensais", "CI é a integração do código, e CD envolve o gerenciamento de versões", "Não há diferença entre CI e CD"],
+                answer: 0
+            },
+            {
+                question: "O que são containers no contexto do DevOps?",
+                options: ["Unidades de software que incluem o código e todas as suas dependências", "Ferramentas de segurança para proteger servidores", "Ambientes virtuais para armazenar código", "Sistemas operacionais para servidores locais", "Aplicações para controlar fluxos de trabalho de desenvolvedores"],
+                answer: 0
+            },
+            {
+                question: "O que é uma ferramenta de 'orquestração' no DevOps?",
+                options: ["Uma ferramenta que automatiza e gerencia a implantação de containers", "Uma ferramenta para controle de versões", "Uma ferramenta para testar a qualidade do código", "Uma ferramenta para editar código", "Uma ferramenta para comunicação entre equipes"],
+                answer: 0
+            },
+            {
+                question: "O que é infraestrutura como código (IaC)?",
+                options: ["Prática de gerenciar e provisionar infraestrutura através de código e automação", "Uso de código para criar bancos de dados", "A prática de escrever código manualmente em sistemas operacionais", "A escrita de código para desenvolvimento de aplicativos", "Gerenciamento de código para sistemas de rede"],
+                answer: 0
+            },
+            {
+                question: "Quais são as principais ferramentas de automação de DevOps?",
+                options: ["Jenkins, Docker, Kubernetes", "Notepad++, Eclipse, IntelliJ", "Windows Server, Linux, Apache", "SQL Server, PostgreSQL, MySQL", "GitHub, Bitbucket, GitLab"],
+                answer: 0
+            },
+            {
+                question: "O que é 'monitoramento' em um ambiente DevOps?",
+                options: ["A prática de acompanhar o desempenho das aplicações e infraestrutura em tempo real", "A prática de escrever testes para código", "A prática de monitorar desenvolvedores", "A prática de revisar código constantemente", "A prática de gerenciar bancos de dados"],
+                answer: 0
+            },
+            {
+                question: "O que é o conceito de 'shift left' no DevOps?",
+                options: ["Realizar testes o mais cedo possível no ciclo de vida do desenvolvimento", "Mover os testes para o final do ciclo de vida do desenvolvimento", "Testar apenas em servidores de produção", "Testar apenas manualmente", "Ignorar testes durante o ciclo de desenvolvimento"],
+                answer: 0
+            },
+         
+        {
+            question: "O que é um pipeline no contexto do DevOps?",
+            options: ["Uma sequência automatizada de processos que permitem a integração e entrega contínuas", "Uma ferramenta para gerenciar servidores", "Um tipo de banco de dados", "Uma linguagem de programação", "Uma plataforma de monitoramento de sistemas"],
+            answer: 0
+        },
+        {
+            question: "Qual ferramenta é amplamente utilizada para gerenciamento de containers?",
+            options: ["Docker", "Ansible", "Jenkins", "Kubernetes", "Terraform"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'infraestrutura como código' (IaC)?",
+            options: ["A prática de gerenciar e provisionar infraestrutura através de código", "Escrever código para o back-end de aplicações", "A prática de desenvolver código para integração contínua", "Configuração manual de servidores", "Escrever scripts para automação de testes"],
+            answer: 0
+        },
+        {
+            question: "Quais são os benefícios do uso de containers no DevOps?",
+            options: ["Facilidade de implantação e portabilidade entre diferentes ambientes", "Aumento do tempo de desenvolvimento", "Redução do número de servidores utilizados", "Menor flexibilidade em ambientes de produção", "Uso intensivo de recursos computacionais"],
+            answer: 0
+        },
+        {
+            question: "O que é o 'Infrastructure as Code' (IaC)?",
+            options: ["Automatizar a provisão e gerenciamento da infraestrutura por meio de código", "A prática de escrever códigos para o front-end", "A utilização de containers para isolar a infraestrutura", "Gerenciamento de servidores por meio de scripts manuais", "A prática de escrever códigos de segurança em servidores"],
+            answer: 0
+        },
+        {
+            question: "Qual a principal função do Jenkins em um pipeline DevOps?",
+            options: ["Automatizar a integração e entrega contínuas", "Gerenciar containers", "Gerenciar servidores", "Escrever código para o front-end", "Monitorar a segurança do código"],
+            answer: 0
+        },
+        {
+            question: "O que significa 'Continuous Testing' em DevOps?",
+            options: ["Testar o código automaticamente durante todo o ciclo de desenvolvimento", "Testar manualmente no final do ciclo de desenvolvimento", "Testar apenas em produção", "Testar apenas no servidor de desenvolvimento", "Testar a infraestrutura do servidor"],
+            answer: 0
+        },
+        {
+            question: "O que é o 'GitOps'?",
+            options: ["Uma abordagem de DevOps que usa Git como fonte única de verdade para gerenciar a infraestrutura", "Um tipo de banco de dados para DevOps", "Uma ferramenta para monitorar servidores", "Uma técnica para análise de dados", "Uma plataforma de comunicação entre equipes"],
+            answer: 0
+        },
+        {
+            question: "Qual é o papel do Ansible em um ambiente DevOps?",
+            options: ["Automatizar a configuração de servidores e a implantação de aplicativos", "Escrever código de front-end", "Desenvolver pipelines de CI/CD", "Criar containers", "Gerenciar integrações com APIs externas"],
+            answer: 0
+        },
+        {
+            question: "Qual a diferença entre 'deploy' e 'release' no contexto do DevOps?",
+            options: ["Deploy é o ato de colocar código em produção, enquanto release é a disponibilização para os usuários finais", "Deploy refere-se ao gerenciamento de código, enquanto release é sobre testes", "Deploy envolve apenas o front-end, enquanto release é para back-end", "Deploy é o uso de containers, enquanto release é sobre servidores", "Não há diferença entre deploy e release"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'Blue-Green Deployment'?",
+            options: ["Uma estratégia de implantação que usa duas versões da aplicação para minimizar o tempo de inatividade", "Uma técnica para desenvolvimento de código", "Uma ferramenta para automação de testes", "Um tipo de banco de dados para DevOps", "Uma estratégia para integração contínua"],
+            answer: 0
+        },
+        {
+            question: "O que significa o termo 'microserviços' em DevOps?",
+            options: ["Arquitetura de sistemas onde as aplicações são divididas em serviços independentes e escaláveis", "Uma ferramenta de automação", "Uma plataforma para segurança de código", "Uma técnica de monitoramento de servidores", "Uma abordagem para desenvolver código monolítico"],
+            answer: 0
+        },
+        {
+            question: "Qual a principal vantagem do uso de 'microservices' em DevOps?",
+            options: ["Facilidade de escalabilidade e atualização independente de componentes", "Complexidade no gerenciamento de código", "Dificuldade em realizar deploys", "Redução da flexibilidade do software", "Necessidade de mais infraestrutura"],
+            answer: 0
+        },
+        {
+            question: "Qual ferramenta é usada para provisionamento de infraestrutura no DevOps?",
+            options: ["Terraform", "Docker", "Jenkins", "Git", "Ansible"],
+            answer: 0
+        },
+        {
+            question: "O que é o 'Continuous Delivery' (CD)?",
+            options: ["Uma prática de DevOps onde o código é automaticamente entregue em produção após a validação", "Uma ferramenta para gerenciamento de containers", "A prática de realizar testes manuais no código", "A automação da criação de código", "Uma metodologia de análise de dados"],
+            answer: 0
+        },
+        {
+            question: "Qual é a principal função do Kubernetes?",
+            options: ["Orquestrar e gerenciar containers em ambientes de produção", "Automatizar testes de código", "Gerenciar servidores em cloud", "Desenvolver código para front-end", "Integrar diferentes serviços em DevOps"],
+            answer: 0
+        },
+        {
+            question: "O que é o conceito de 'ChatOps'?",
+            options: ["A prática de usar ferramentas de chat para automação e colaboração no desenvolvimento", "O uso de chatbots para responder perguntas sobre código", "A comunicação entre servidores", "A automação de deploys através de comandos em chat", "Um tipo de integração contínua"],
+            answer: 0
+        },
+        {
+            question: "Quais são os principais benefícios do uso de DevOps?",
+            options: ["Redução de tempo no ciclo de desenvolvimento e maior colaboração entre equipes", "Aumento da complexidade no gerenciamento de sistemas", "Necessidade de mais servidores e recursos", "Menor colaboração entre equipes", "Foco apenas no desenvolvimento de código"],
+            answer: 0
+        },
+        {
+            question: "O que significa o termo 'Git' no contexto de DevOps?",
+            options: ["Uma ferramenta de controle de versão para gerenciar código-fonte", "Uma plataforma de automação", "Uma linguagem de programação", "Uma ferramenta de integração contínua", "Uma estratégia de deploy"],
+            answer: 0
+        }
+   
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const question = questions[currentQuestionIndex];
+            document.querySelector('.question').textContent = question.question;
+            const optionsContainer = document.querySelector('.options');
+            optionsContainer.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionButton = document.createElement('button');
+                optionButton.classList.add('option');
+                optionButton.textContent = option;
+                optionButton.onclick = () => checkAnswer(index);
+                optionsContainer.appendChild(optionButton);
+            });
+        }
+
+        function checkAnswer(selectedIndex) {
+            const question = questions[currentQuestionIndex];
+            if (selectedIndex === question.answer) {
+                score++;
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.querySelector('#quiz').style.display = 'none';
+            const result = document.querySelector('#result');
+            result.style.display = 'block';
+            result.textContent = `Você acertou ${score} de ${questions.length} perguntas.`;
+        }
+
+        document.querySelector('#nextButton').onclick = () => {
+            loadQuestion();
+            document.querySelector('#nextButton').style.display = 'none';
+        };
+
+        loadQuestion();
+    </script>
+</body>
+</html>

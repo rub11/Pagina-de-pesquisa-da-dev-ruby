@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Data Engineering</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Data Engineering</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é Data Engineering?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">É o processo de construir e manter sistemas que coletam, armazenam e analisam grandes volumes de dados.</li>
+        <li onclick="selectAnswer(this, 1, 1)">É o processo de treinar modelos de aprendizado de máquina para fazer previsões sobre grandes volumes de dados.</li>
+        <li onclick="selectAnswer(this, 2, 1)">É o estudo de como melhorar a visualização de dados em tempo real.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. O que é um pipeline de dados?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">É um conjunto de processos automáticos para coletar, transformar e armazenar dados de forma eficiente.</li>
+        <li onclick="selectAnswer(this, 1, 2)">É um processo de visualização de dados onde os dados são organizados em gráficos interativos.</li>
+        <li onclick="selectAnswer(this, 2, 2)">É uma técnica de modelagem de dados usada em sistemas de recomendação.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que é ETL no contexto de Data Engineering?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">ETL significa Extrair, Transformar e Carregar, um processo que coleta dados de várias fontes, os transforma e os armazena em um data warehouse.</li>
+        <li onclick="selectAnswer(this, 1, 3)">ETL é um tipo de algoritmo usado para otimizar consultas em bancos de dados.</li>
+        <li onclick="selectAnswer(this, 2, 3)">ETL é uma técnica usada para prever tendências a partir de grandes volumes de dados.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. Qual é a principal diferença entre Data Engineering e Data Science?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Data Engineering foca em preparar os dados para análise, enquanto Data Science foca em analisar os dados para extrair insights.</li>
+        <li onclick="selectAnswer(this, 1, 4)">Data Engineering trabalha com modelos preditivos, enquanto Data Science foca apenas na visualização de dados.</li>
+        <li onclick="selectAnswer(this, 2, 4)">Data Engineering é responsável apenas pela criação de interfaces de usuário para dados, enquanto Data Science foca na coleta dos dados.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é um Data Warehouse?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">É um sistema utilizado para armazenar grandes volumes de dados de forma organizada e estruturada para facilitar a análise.</li>
+        <li onclick="selectAnswer(this, 1, 5)">É um banco de dados especializado em armazenar dados temporários e em tempo real.</li>
+        <li onclick="selectAnswer(this, 2, 5)">É um sistema que processa dados em tempo real para fornecer informações analíticas de forma instantânea.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que é Hadoop?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Hadoop é um framework de software que permite o processamento e o armazenamento de grandes volumes de dados de forma distribuída.</li>
+        <li onclick="selectAnswer(this, 1, 6)">Hadoop é uma linguagem de programação usada para criar pipelines de dados rápidos.</li>
+        <li onclick="selectAnswer(this, 2, 6)">Hadoop é um sistema de banco de dados para armazenar dados temporários durante a execução de processos de Machine Learning.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que é NoSQL?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">NoSQL é um tipo de banco de dados que não utiliza o modelo relacional e é otimizado para dados não estruturados e escalabilidade horizontal.</li>
+        <li onclick="selectAnswer(this, 1, 7)">NoSQL é uma linguagem de consulta utilizada em bancos de dados relacionais para otimizar o desempenho das consultas.</li>
+        <li onclick="selectAnswer(this, 2, 7)">NoSQL é uma técnica de análise de dados em tempo real.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que é Spark?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Spark é um framework de processamento de dados distribuído, rápido e de código aberto, usado para análises em larga escala.</li>
+        <li onclick="selectAnswer(this, 1, 8)">Spark é um sistema de banco de dados relacional usado em sistemas de recomendação.</li>
+        <li onclick="selectAnswer(this, 2, 8)">Spark é uma ferramenta de visualização de dados usada em Data Science.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é Data Lake?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Data Lake é um repositório de dados que armazena grandes volumes de dados em seu formato bruto e sem estrutura.</li>
+        <li onclick="selectAnswer(this, 1, 9)">Data Lake é um sistema de processamento de dados em tempo real com alta disponibilidade.</li>
+        <li onclick="selectAnswer(this, 2, 9)">Data Lake é um modelo de banco de dados relacional usado para armazenar dados temporários.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é um Data Pipeline?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">É uma série de processos automatizados que capturam, processam e armazenam dados em diferentes sistemas de maneira eficiente.</li>
+        <li onclick="selectAnswer(this, 1, 10)">É uma arquitetura de banco de dados projetada para melhorar o desempenho de consultas complexas.</li>
+        <li onclick="selectAnswer(this, 2, 10)">É uma ferramenta para visualização de grandes volumes de dados em tempo real.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+    <div id="result" class="result"></div>
+  </div>
+</div>
+
+<script>
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  let userAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionIndex) {
+    const answers = element.parentNode.children;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    userAnswers[questionIndex] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>

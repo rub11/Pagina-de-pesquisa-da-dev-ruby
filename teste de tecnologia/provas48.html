@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Tecnologia 5G</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Tecnologia 5G</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é a tecnologia 5G?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">É a quinta geração de tecnologia de rede móvel, oferecendo velocidades e latência muito menores.</li>
+        <li onclick="selectAnswer(this, 1, 1)">É uma atualização da rede 4G, mas com apenas pequenas melhorias de velocidade.</li>
+        <li onclick="selectAnswer(this, 2, 1)">É uma tecnologia usada para redes Wi-Fi mais rápidas, não relacionada a redes móveis.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual a principal vantagem do 5G sobre o 4G?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">O 5G oferece velocidades de download muito mais rápidas, além de menor latência.</li>
+        <li onclick="selectAnswer(this, 1, 2)">O 5G tem a mesma velocidade do 4G, mas é mais eficiente em termos de consumo de energia.</li>
+        <li onclick="selectAnswer(this, 2, 2)">O 5G não traz grandes vantagens em relação ao 4G, apenas é mais caro.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. Quais são as principais aplicações do 5G?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Aplicações como carros autônomos, cidades inteligentes e comunicação em tempo real são possíveis com 5G.</li>
+        <li onclick="selectAnswer(this, 1, 3)">5G é usado apenas para melhorar as chamadas de voz e mensagens de texto em dispositivos móveis.</li>
+        <li onclick="selectAnswer(this, 2, 3)">5G é exclusivo para melhorar a qualidade de vídeo em streaming em dispositivos móveis.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. Como o 5G pode impactar o IoT (Internet das Coisas)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">O 5G permitirá uma maior conectividade e comunicação eficiente entre dispositivos IoT, facilitando sua implementação em grande escala.</li>
+        <li onclick="selectAnswer(this, 1, 4)">O 5G vai impedir a evolução de dispositivos IoT devido ao aumento da latência e menor conectividade.</li>
+        <li onclick="selectAnswer(this, 2, 4)">O 5G não tem impacto no IoT, pois a rede é voltada apenas para a comunicação em massa.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. Qual a diferença entre 5G e outras gerações de redes móveis (3G, 4G)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">O 5G oferece maior largura de banda, menor latência e maior capacidade de conexão simultânea em comparação com 3G e 4G.</li>
+        <li onclick="selectAnswer(this, 1, 5)">O 5G é apenas uma versão mais cara do 4G e não oferece melhorias significativas.</li>
+        <li onclick="selectAnswer(this, 2, 5)">O 5G tem a mesma capacidade de 4G, mas oferece maior cobertura para áreas rurais.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Quais são as vantagens do 5G em termos de latência?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">O 5G oferece latência extremamente baixa, permitindo uma resposta quase instantânea, o que é vital para aplicações em tempo real.</li>
+        <li onclick="selectAnswer(this, 1, 6)">O 5G tem a mesma latência do 4G, com pequenas melhorias.</li>
+        <li onclick="selectAnswer(this, 2, 6)">O 5G não tem impacto na latência das redes móveis, apenas aumenta a velocidade de download.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que é "millimeter wave" no contexto do 5G?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">São frequências de ondas milimétricas que permitem alta velocidade e capacidade para as redes 5G, embora com alcance mais limitado.</li>
+        <li onclick="selectAnswer(this, 1, 7)">É uma tecnologia usada para aumentar a cobertura em redes 4G, não relacionada ao 5G.</li>
+        <li onclick="selectAnswer(this, 2, 7)">São frequências que permitem uma maior cobertura, mas com velocidade limitada.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. Como o 5G pode beneficiar o setor da saúde?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">O 5G pode permitir a realização de cirurgias remotas e monitoramento em tempo real de pacientes, com resposta em tempo quase real.</li>
+        <li onclick="selectAnswer(this, 1, 8)">O 5G pode ajudar apenas na melhoria da comunicação entre médicos, mas não tem impacto nas tecnologias de saúde remota.</li>
+        <li onclick="selectAnswer(this, 2, 8)">O 5G não tem impacto significativo na área da saúde, a não ser na melhoria de chamadas de vídeo.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. Quais são os principais desafios na implementação do 5G?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Desafios como a infraestrutura necessária, regulamentações governamentais e custos de implantação são os maiores obstáculos para o 5G.</li>
+        <li onclick="selectAnswer(this, 1, 9)">O maior desafio é a falta de dispositivos que suportem o 5G no mercado.</li>
+        <li onclick="selectAnswer(this, 2, 9)">Não há desafios significativos na implementação do 5G, já que ele é uma evolução do 4G.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que a tecnologia 5G significa para o futuro da conectividade?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">O 5G vai revolucionar a conectividade, permitindo a comunicação em tempo real, melhorando a Internet das Coisas e criando novas oportunidades de negócios.</li>
+        <li onclick="selectAnswer(this, 1, 10)">O 5G será apenas uma melhoria marginal, sem grandes mudanças na forma como nos conectamos.</li>
+        <li onclick="selectAnswer(this, 2, 10)">O 5G não terá impacto significativo na conectividade, já que as redes existentes ainda serão suficientes.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+
+    <div id="result" class="result"></div>
+
+  </div>
+</div>
+
+<script>
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const userAnswers = new Array(10).fill(null);
+
+  function selectAnswer(element, answerIndex, questionIndex) {
+    const answers = element.parentElement.children;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    userAnswers[questionIndex] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Programação Orientada a Objetos</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Programação Orientada a Objetos</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é um objeto em POO?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 1)">Uma instância de uma classe com estado e comportamento.</li>
+        <li onclick="selectAnswer(1, 1)">Um arquivo de texto com funções dentro.</li>
+        <li onclick="selectAnswer(2, 1)">Um tipo especial de função recursiva.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual é o propósito de uma classe?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 2)">Servir como molde para criar objetos.</li>
+        <li onclick="selectAnswer(1, 2)">Organizar arquivos do projeto.</li>
+        <li onclick="selectAnswer(2, 2)">Guardar valores de entrada do usuário.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. Qual é o princípio que permite esconder detalhes internos de implementação?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 3)">Encapsulamento</li>
+        <li onclick="selectAnswer(1, 3)">Herança</li>
+        <li onclick="selectAnswer(2, 3)">Polimorfismo</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que é herança em POO?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 4)">Mecanismo pelo qual uma classe pode herdar atributos e métodos de outra.</li>
+        <li onclick="selectAnswer(1, 4)">A forma de duplicar objetos.</li>
+        <li onclick="selectAnswer(2, 4)">O processo de copiar funções entre projetos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é polimorfismo?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 5)">Capacidade de um objeto se comportar de várias formas com base no contexto.</li>
+        <li onclick="selectAnswer(1, 5)">Capacidade de copiar objetos.</li>
+        <li onclick="selectAnswer(2, 5)">Criação de múltiplas classes simultaneamente.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Qual dos itens abaixo é um exemplo de encapsulamento?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 6)">Atributos privados com métodos públicos de acesso.</li>
+        <li onclick="selectAnswer(1, 6)">Herança múltipla em classes.</li>
+        <li onclick="selectAnswer(2, 6)">Sobrescrita de métodos herdados.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que define a visibilidade de um atributo ou método?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 7)">Modificadores de acesso como public, private, protected.</li>
+        <li onclick="selectAnswer(1, 7)">O tipo da variável (int, string etc).</li>
+        <li onclick="selectAnswer(2, 7)">A linguagem de programação utilizada.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que é um construtor em uma classe?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 8)">Um método especial chamado ao instanciar a classe.</li>
+        <li onclick="selectAnswer(1, 8)">Um atributo usado para armazenar dados.</li>
+        <li onclick="selectAnswer(2, 8)">Uma exceção lançada ao criar objetos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é a sobrescrita de métodos?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 9)">Modificar o comportamento de um método herdado em uma subclasse.</li>
+        <li onclick="selectAnswer(1, 9)">Criar múltiplos métodos com o mesmo nome.</li>
+        <li onclick="selectAnswer(2, 9)">Excluir um método da superclasse.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é uma interface?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(0, 10)">Um contrato que define métodos que uma classe deve implementar.</li>
+        <li onclick="selectAnswer(1, 10)">Uma função anônima de inicialização de objeto.</li>
+        <li onclick="selectAnswer(2, 10)">Um tipo especial de herança múltipla.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0,0,0,0,0,0,0,0,0,0];
+
+  function selectAnswer(answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    const resultText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+    document.getElementById('result').innerText = resultText;
+  }
+</script>
+
+</body>
+</html>

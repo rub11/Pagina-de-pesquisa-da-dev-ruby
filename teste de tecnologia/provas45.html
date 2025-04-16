@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Engenharia de Software Ágil</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Engenharia de Software Ágil</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é Engenharia de Software Ágil?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">É um conjunto de práticas de desenvolvimento de software que enfatizam a entrega incremental e iterativa.</li>
+        <li onclick="selectAnswer(this, 1, 1)">É um processo rígido e planejado que segue um cronograma bem definido.</li>
+        <li onclick="selectAnswer(this, 2, 1)">É uma metodologia que foca em minimizar a comunicação entre as equipes.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual é o objetivo principal do Scrum dentro da Engenharia de Software Ágil?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Facilitar a entrega de software funcional em ciclos curtos chamados sprints.</li>
+        <li onclick="selectAnswer(this, 1, 2)">Garantir que o projeto seja completado dentro do prazo estimado, sem alterações.</li>
+        <li onclick="selectAnswer(this, 2, 2)">Focar apenas na documentação do software, sem se preocupar com a funcionalidade.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. Qual é o papel do Product Owner no Scrum?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Ser o responsável por priorizar o backlog do produto e garantir que a equipe entenda as necessidades do cliente.</li>
+        <li onclick="selectAnswer(this, 1, 3)">Gerenciar a equipe de desenvolvimento e garantir que todos os membros cumpram os prazos.</li>
+        <li onclick="selectAnswer(this, 2, 3)">Fazer a documentação técnica de todas as etapas do projeto.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que significa "Sprint" no contexto de Scrum?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">É um ciclo de trabalho de duração fixa, geralmente de 1 a 4 semanas, para concluir uma parte do projeto.</li>
+        <li onclick="selectAnswer(this, 1, 4)">É uma reunião onde toda a equipe define os requisitos do projeto.</li>
+        <li onclick="selectAnswer(this, 2, 4)">É um documento formal que descreve todas as funcionalidades do software.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é o Backlog do Produto?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">É uma lista priorizada de funcionalidades e melhorias que devem ser feitas no produto.</li>
+        <li onclick="selectAnswer(this, 1, 5)">É um plano de marketing para a divulgação do software.</li>
+        <li onclick="selectAnswer(this, 2, 5)">É um conjunto de documentos legais que detalham o contrato de desenvolvimento.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Qual a principal vantagem do uso de Metodologias Ágeis?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Permite uma adaptação rápida às mudanças nos requisitos do cliente.</li>
+        <li onclick="selectAnswer(this, 1, 6)">Assegura que todo o projeto seja entregue sem alterações no escopo original.</li>
+        <li onclick="selectAnswer(this, 2, 6)">Foca em produzir uma documentação extensa antes de iniciar o desenvolvimento.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que significa a expressão "Iteração" na Engenharia de Software Ágil?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">É o processo de repetir ciclos de desenvolvimento de software, melhorando a cada nova iteração.</li>
+        <li onclick="selectAnswer(this, 1, 7)">É uma técnica para acelerar a entrega de software sem garantir a qualidade.</li>
+        <li onclick="selectAnswer(this, 2, 7)">É o momento de revisar todo o código do software de uma vez para garantir que não há erros.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que é a reunião diária (Daily Standup) no Scrum?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">É uma reunião rápida onde a equipe compartilha o progresso e identifica bloqueios no trabalho.</li>
+        <li onclick="selectAnswer(this, 1, 8)">É uma reunião formal para discussão de questões legais do projeto.</li>
+        <li onclick="selectAnswer(this, 2, 8)">É uma reunião de planejamento do próximo ciclo de desenvolvimento.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é a "Revisão de Sprint"?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">É uma reunião realizada ao final de cada sprint, onde a equipe apresenta o que foi desenvolvido.</li>
+        <li onclick="selectAnswer(this, 1, 9)">É uma reunião para discutir o plano de marketing do produto.</li>
+        <li onclick="selectAnswer(this, 2, 9)">É uma reunião para revisar os custos do projeto.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é o papel do Scrum Master?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">É o responsável por remover impedimentos, garantindo que a equipe siga os processos do Scrum corretamente.</li>
+        <li onclick="selectAnswer(this, 1, 10)">É o responsável por definir os requisitos do projeto com o cliente.</li>
+        <li onclick="selectAnswer(this, 2, 10)">É o responsável por realizar todas as tarefas de desenvolvimento do projeto.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+    <div id="result" class="result"></div>
+  </div>
+</div>
+
+<script>
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  let userAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionIndex) {
+    const answers = element.parentNode.children;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    userAnswers[questionIndex] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>

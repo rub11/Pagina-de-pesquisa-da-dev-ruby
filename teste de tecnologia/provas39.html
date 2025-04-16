@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Programação PHP</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Programação PHP</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que significa PHP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">PHP: Hypertext Preprocessor</li>
+        <li onclick="selectAnswer(this, 1, 1)">Personal Home Page</li>
+        <li onclick="selectAnswer(this, 2, 1)">PHP: Programmatic Hypertext</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Como você escreve um comentário de uma linha em PHP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">// Este é um comentário</li>
+        <li onclick="selectAnswer(this, 1, 2)"># Este é um comentário</li>
+        <li onclick="selectAnswer(this, 2, 2)">/* Este é um comentário */</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. Qual função é usada para incluir arquivos em PHP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">include()</li>
+        <li onclick="selectAnswer(this, 1, 3)">require()</li>
+        <li onclick="selectAnswer(this, 2, 3)">import()</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que a função `echo` faz em PHP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Imprime uma ou mais strings</li>
+        <li onclick="selectAnswer(this, 1, 4)">Realiza operações matemáticas</li>
+        <li onclick="selectAnswer(this, 2, 4)">Declara uma variável</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é um array em PHP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Uma variável que pode armazenar múltiplos valores</li>
+        <li onclick="selectAnswer(this, 1, 5)">Uma função matemática em PHP</li>
+        <li onclick="selectAnswer(this, 2, 5)">Um tipo de dado que só armazena números</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Como você define uma variável em PHP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">$nome = "Valor"</li>
+        <li onclick="selectAnswer(this, 1, 6)">var nome = "Valor"</li>
+        <li onclick="selectAnswer(this, 2, 6)">def nome = "Valor"</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. Como você pode criar uma função em PHP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">function nomeFunção() {}</li>
+        <li onclick="selectAnswer(this, 1, 7)">função nomeFunção() {}</li>
+        <li onclick="selectAnswer(this, 2, 7)">def nomeFunção() {}</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que significa a palavra-chave `public` em PHP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Acessível de qualquer lugar</li>
+        <li onclick="selectAnswer(this, 1, 8)">Acessível apenas dentro da classe</li>
+        <li onclick="selectAnswer(this, 2, 8)">Acessível apenas dentro do mesmo arquivo</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. Como você define uma constante em PHP?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">define('NOME_CONSTANTE', 'valor');</li>
+        <li onclick="selectAnswer(this, 1, 9)">const NOME_CONSTANTE = 'valor';</li>
+        <li onclick="selectAnswer(this, 2, 9)">const('NOME_CONSTANTE', 'valor');</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. Qual a principal diferença entre `include` e `require`?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">`include` gera um aviso, enquanto `require` gera um erro fatal</li>
+        <li onclick="selectAnswer(this, 1, 10)">Não há diferença</li>
+        <li onclick="selectAnswer(this, 2, 10)">`include` não pode ser utilizado em arquivos externos</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+    const answersList = element.parentNode.querySelectorAll('li');
+    answersList.forEach(li => li.classList.remove('selected'));
+    element.classList.add('selected');
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    document.getElementById('result').innerText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+  }
+</script>
+
+</body>
+</html>

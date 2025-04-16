@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Computação Quântica</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .quiz-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1c1c1c;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+        }
+        .question-container {
+            margin-bottom: 30px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .answers {
+            list-style: none;
+            padding: 0;
+        }
+        .answers li {
+            background-color: #333;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answers li:hover {
+            background-color: #444;
+        }
+        .next-btn {
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+        }
+        .next-btn:hover {
+            background-color: #e6b800;
+        }
+        .result {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h1>Quiz sobre Computação Quântica</h1>
+    <div id="quiz">
+        <div class="question-container">
+            <p class="question" id="question1">Qual é a definição de computação quântica?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 1)">Processamento de dados usando a física quântica para resolver problemas complexos mais rápido que os computadores tradicionais.</li>
+                <li onclick="selectAnswer(1, 1)">Uso de computadores convencionais para realizar simulações de sistemas quânticos de maneira eficiente.</li>
+                <li onclick="selectAnswer(2, 1)">Estudo de algoritmos em computadores clássicos para simular processos quânticos.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question2">O que é um qubit?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 2)">Uma unidade básica de informação em computação quântica que pode representar mais de um estado ao mesmo tempo.</li>
+                <li onclick="selectAnswer(1, 2)">Uma unidade de processamento de dados que só pode ter dois estados: 0 ou 1.</li>
+                <li onclick="selectAnswer(2, 2)">Uma memória de armazenamento de dados quânticos.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question3">O que é o entrelaçamento quântico?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 3)">Quando duas partículas estão conectadas de forma que o estado de uma afeta o estado da outra instantaneamente.</li>
+                <li onclick="selectAnswer(1, 3)">A troca de dados entre dois computadores quânticos para realizar tarefas complexas.</li>
+                <li onclick="selectAnswer(2, 3)">A interação de partículas para formar um único estado quântico.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question4">O que é um algoritmo quântico?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 4)">Algoritmos que utilizam operações quânticas para resolver problemas de forma mais eficiente do que os algoritmos clássicos.</li>
+                <li onclick="selectAnswer(1, 4)">Programas que simulam o funcionamento de computadores quânticos usando computadores clássicos.</li>
+                <li onclick="selectAnswer(2, 4)">Cálculos que ocorrem em múltiplos computadores simultaneamente para melhorar a eficiência.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question5">Quais são os principais desafios da computação quântica?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 5)">A instabilidade de qubits devido à interferência de ruídos.</li>
+                <li onclick="selectAnswer(1, 5)">A necessidade de altas temperaturas para que os qubits funcionem corretamente.</li>
+                <li onclick="selectAnswer(2, 5)">A dificuldade em desenvolver um computador quântico de uso geral e com precisão suficiente.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question6">Como a computação quântica pode impactar a criptografia?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 6)">A computação quântica pode quebrar sistemas de criptografia clássicos.</li>
+                <li onclick="selectAnswer(1, 6)">A computação quântica não tem impacto na criptografia.</li>
+                <li onclick="selectAnswer(2, 6)">A criptografia quântica é imune a ataques de computadores clássicos.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question7">O que é um computador quântico de uso geral?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 7)">Um computador quântico que pode executar qualquer tipo de algoritmo quântico com eficiência.</li>
+                <li onclick="selectAnswer(1, 7)">Um computador quântico que é projetado apenas para resolver problemas específicos de criptografia.</li>
+                <li onclick="selectAnswer(2, 7)">Um computador quântico que simula a computação clássica para gerar resultados mais rápidos.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question8">Como a computação quântica é diferente da computação clássica?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 8)">A computação quântica usa unidades de processamento chamadas qubits, enquanto a computação clássica usa bits.</li>
+                <li onclick="selectAnswer(1, 8)">Ambos os tipos de computação utilizam o mesmo hardware e sofrem das mesmas limitações.</li>
+                <li onclick="selectAnswer(2, 8)">A computação quântica é limitada apenas a simulações, enquanto a computação clássica resolve problemas gerais.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question9">O que é a superposição quântica?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 9)">Quando um qubit pode existir em múltiplos estados ao mesmo tempo, aumentando a capacidade de processamento.</li>
+                <li onclick="selectAnswer(1, 9)">Quando um qubit pode se comportar como um bit clássico e um bit quântico simultaneamente.</li>
+                <li onclick="selectAnswer(2, 9)">Quando um qubit é isolado de outros qubits e opera de forma independente.</li>
+            </ul>
+        </div>
+
+        <div class="question-container">
+            <p class="question" id="question10">O que são portas quânticas e como elas funcionam?</p>
+            <ul class="answers">
+                <li onclick="selectAnswer(0, 10)">São operações matemáticas que manipulam o estado de qubits em um computador quântico.</li>
+                <li onclick="selectAnswer(1, 10)">São operações realizadas em computadores clássicos para imitar a computação quântica.</li>
+                <li onclick="selectAnswer(2, 10)">São operações realizadas para corrigir erros em computadores quânticos.</li>
+            </ul>
+        </div>
+
+        <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+    </div>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+    let userAnswers = [];
+    const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+    function selectAnswer(answerIndex, questionNumber) {
+        userAnswers[questionNumber - 1] = answerIndex;
+    }
+
+    function showResult() {
+        let correctCount = 0;
+        userAnswers.forEach((answer, index) => {
+            if (answer === correctAnswers[index]) correctCount++;
+        });
+        const resultText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+        document.getElementById('result').innerText = resultText;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Realidade Aumentada</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #111;
+      color: #ffffff; /* Dourado luxuoso */
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #222;
+      color: #d4af37;
+      font-size: 18px;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px 0;
+      width: 100%;
+      cursor: pointer;
+      text-align: left;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    .slide {
+      margin-bottom: 40px;
+    }
+
+    .correct {
+      background-color: #28a745; /* Verde para resposta correta */
+    }
+
+    .incorrect {
+      background-color: #dc3545; /* Vermelho para resposta incorreta */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="slide">
+    <h2>O que é Realidade Aumentada (AR)?</h2>
+    <button onclick="checkAnswer(this, true)">É a sobreposição de elementos virtuais no mundo real, utilizando dispositivos como smartphones e óculos especiais.</button>
+    <button onclick="checkAnswer(this, false)">É a criação de ambientes virtuais completamente imersivos, sem interação com o mundo real.</button>
+    <button onclick="checkAnswer(this, false)">É uma forma de editar imagens utilizando software no computador.</button>
+  </div>
+
+  <div class="slide">
+    <h2>Qual é a principal tecnologia usada para implementar a Realidade Aumentada?</h2>
+    <button onclick="checkAnswer(this, true)">Câmeras e sensores de movimento para detectar o ambiente e inserir objetos virtuais.</button>
+    <button onclick="checkAnswer(this, false)">A utilização de imagens estáticas e vídeos.</button>
+    <button onclick="checkAnswer(this, false)">Realidade Virtual combinada com Inteligência Artificial.</button>
+  </div>
+
+  <div class="slide">
+    <h2>Quais são os principais dispositivos que utilizam Realidade Aumentada?</h2>
+    <button onclick="checkAnswer(this, true)">Smartphones, tablets, óculos inteligentes (como o Microsoft HoloLens) e câmeras 3D.</button>
+    <button onclick="checkAnswer(this, false)">Apenas dispositivos móveis como smartphones e computadores.</button>
+    <button onclick="checkAnswer(this, false)">Exclusivamente óculos de realidade virtual.</button>
+  </div>
+
+  <div class="slide">
+    <h2>Qual é a principal diferença entre Realidade Aumentada (AR) e Realidade Virtual (VR)?</h2>
+    <button onclick="checkAnswer(this, true)">AR sobrepõe elementos digitais ao mundo real, enquanto VR cria um ambiente totalmente virtual e imersivo.</button>
+    <button onclick="checkAnswer(this, false)">AR utiliza realidade 3D, enquanto VR é apenas em 2D.</button>
+    <button onclick="checkAnswer(this, false)">AR requer dispositivos especiais, enquanto VR pode ser acessado diretamente em qualquer dispositivo.</button>
+  </div>
+
+  <div class="slide">
+    <h2>Como a Realidade Aumentada pode ser utilizada na educação?</h2>
+    <button onclick="checkAnswer(this, true)">Através de visualizações 3D interativas, que ajudam os alunos a entender conceitos complexos de maneira mais prática e envolvente.</button>
+    <button onclick="checkAnswer(this, false)">Apenas com a criação de jogos educacionais virtuais.</button>
+    <button onclick="checkAnswer(this, false)">Somente através de vídeos educativos com efeitos especiais.</button>
+  </div>
+
+  <div class="slide">
+    <h2>Quais setores podem se beneficiar da Realidade Aumentada?</h2>
+    <button onclick="checkAnswer(this, true)">Saúde, varejo, turismo, manufatura e entretenimento.</button>
+    <button onclick="checkAnswer(this, false)">Somente o setor de entretenimento e jogos.</button>
+    <button onclick="checkAnswer(this, false)">Apenas o setor de marketing digital.</button>
+  </div>
+  <div class="slide">
+    <h2>Qual é a principal função da Realidade Aumentada?</h2>
+    <button onclick="checkAnswer(this, true)">Sobrepor elementos digitais ao mundo real, criando uma experiência interativa.</button>
+    <button onclick="checkAnswer(this, false)">Criar mundos totalmente virtuais, sem interação com o mundo real.</button>
+    <button onclick="checkAnswer(this, false)">Exibir informações apenas em dispositivos móveis.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual dispositivo é mais comumente usado para acessar experiências de Realidade Aumentada?</h2>
+    <button onclick="checkAnswer(this, true)">Smartphones e tablets com câmeras e sensores.</button>
+    <button onclick="checkAnswer(this, false)">Óculos de realidade virtual (VR) e capacetes especiais.</button>
+    <button onclick="checkAnswer(this, false)">Computadores com softwares específicos.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Como a Realidade Aumentada pode ser aplicada na medicina?</h2>
+    <button onclick="checkAnswer(this, true)">Permite a visualização de modelos 3D de órgãos e estruturas, auxiliando no diagnóstico e cirurgia.</button>
+    <button onclick="checkAnswer(this, false)">Substituindo a necessidade de equipamentos médicos tradicionais.</button>
+    <button onclick="checkAnswer(this, false)">Criando tratamentos virtuais para pacientes.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Em qual setor a Realidade Aumentada tem sido mais utilizada no varejo?</h2>
+    <button onclick="checkAnswer(this, true)">Proporcionar aos clientes experiências de compra interativas e visualizações de produtos em 3D.</button>
+    <button onclick="checkAnswer(this, false)">Apenas na melhoria da logística de estoque e distribuição.</button>
+    <button onclick="checkAnswer(this, false)">Na redução de custos com anúncios tradicionais.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual a principal vantagem da Realidade Aumentada em treinamentos profissionais?</h2>
+    <button onclick="checkAnswer(this, true)">Proporciona treinamentos imersivos e simulados em ambientes controlados.</button>
+    <button onclick="checkAnswer(this, false)">Exclusivamente para entretenimento e jogos.</button>
+    <button onclick="checkAnswer(this, false)">Foca apenas no desenvolvimento de habilidades manuais, sem aspectos interativos.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Quais são os desafios da Realidade Aumentada?</h2>
+    <button onclick="checkAnswer(this, true)">Problemas de precisão, alto custo e a necessidade de dispositivos específicos.</button>
+    <button onclick="checkAnswer(this, false)">Falta de interesse e adaptação do público.</button>
+    <button onclick="checkAnswer(this, false)">Tecnologia ainda em estágios iniciais, sem capacidade de evolução.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual é a diferença entre Realidade Aumentada e Realidade Mista?</h2>
+    <button onclick="checkAnswer(this, true)">Realidade Mista combina elementos do mundo real e virtual, permitindo interações mais naturais.</button>
+    <button onclick="checkAnswer(this, false)">Realidade Aumentada oferece uma experiência mais imersiva que a Realidade Mista.</button>
+    <button onclick="checkAnswer(this, false)">Realidade Mista é uma versão mais barata da Realidade Aumentada.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual a importância do GPS na Realidade Aumentada?</h2>
+    <button onclick="checkAnswer(this, true)">Permite que objetos virtuais sejam posicionados corretamente no espaço físico real.</button>
+    <button onclick="checkAnswer(this, false)">Apenas melhora a qualidade de imagem nas experiências de AR.</button>
+    <button onclick="checkAnswer(this, false)">Não tem importância significativa para a AR.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Como a AR pode ser utilizada no setor de turismo?</h2>
+    <button onclick="checkAnswer(this, true)">Proporciona experiências interativas em pontos turísticos, como guias virtuais.</button>
+    <button onclick="checkAnswer(this, false)">Substitui completamente os guias humanos em tours turísticos.</button>
+    <button onclick="checkAnswer(this, false)">Exclusivamente com visualizações de paisagens em 3D.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>O que são marcadores em Realidade Aumentada?</h2>
+    <button onclick="checkAnswer(this, true)">São imagens ou objetos usados para que a AR reconheça e insira elementos virtuais sobre eles.</button>
+    <button onclick="checkAnswer(this, false)">São dispositivos usados para conectar a AR com sistemas de realidade virtual.</button>
+    <button onclick="checkAnswer(this, false)">São apenas símbolos em telas que indicam onde a AR será exibida.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual é o futuro da Realidade Aumentada?</h2>
+    <button onclick="checkAnswer(this, true)">Espera-se que a AR se integre ainda mais com dispositivos como óculos inteligentes e soluções para diversos setores.</button>
+    <button onclick="checkAnswer(this, false)">A AR provavelmente será substituída pela Realidade Virtual nos próximos anos.</button>
+    <button onclick="checkAnswer(this, false)">A AR tem um futuro limitado e será usada apenas em áreas de entretenimento.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Quais setores estão mais explorando o uso da AR?</h2>
+    <button onclick="checkAnswer(this, true)">Saúde, educação, varejo, publicidade e indústria automotiva.</button>
+    <button onclick="checkAnswer(this, false)">Somente os setores de tecnologia e entretenimento.</button>
+    <button onclick="checkAnswer(this, false)">Apenas o setor de marketing digital e redes sociais.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Como a AR é usada em marketing?</h2>
+    <button onclick="checkAnswer(this, true)">Oferece experiências interativas de produtos em 3D e campanhas publicitárias imersivas.</button>
+    <button onclick="checkAnswer(this, false)">Substitui os comerciais tradicionais por vídeos em 3D.</button>
+    <button onclick="checkAnswer(this, false)">Usa AR apenas para promoções em mídias sociais.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual é o papel da Realidade Aumentada nos jogos?</h2>
+    <button onclick="checkAnswer(this, true)">Permite a interação do jogador com o ambiente real enquanto incorpora elementos virtuais no jogo.</button>
+    <button onclick="checkAnswer(this, false)">Os jogos com AR são limitados e não oferecem experiências imersivas.</button>
+    <button onclick="checkAnswer(this, false)">A AR no jogo substitui completamente a necessidade de gráficos 3D.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Quais dispositivos de AR estão disponíveis no mercado?</h2>
+    <button onclick="checkAnswer(this, true)">Óculos como o Microsoft HoloLens, Magic Leap e o Google Glass.</button>
+    <button onclick="checkAnswer(this, false)">Somente óculos de realidade virtual (VR).</button>
+    <button onclick="checkAnswer(this, false)">Apenas softwares para smartphones e tablets.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual é a principal vantagem da AR na educação?</h2>
+    <button onclick="checkAnswer(this, true)">Facilita o aprendizado de conceitos complexos, proporcionando visualizações dinâmicas e interativas.</button>
+    <button onclick="checkAnswer(this, false)">Exclusivamente focada no ensino de matérias científicas e técnicas.</button>
+    <button onclick="checkAnswer(this, false)">Revoluciona a educação substituindo os livros e materiais tradicionais.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual é a maior aplicação de AR no setor industrial?</h2>
+    <button onclick="checkAnswer(this, true)">Auxílio no treinamento de funcionários e na manutenção de equipamentos complexos.</button>
+    <button onclick="checkAnswer(this, false)">Substituição de maquinários pesados por dispositivos AR.</button>
+    <button onclick="checkAnswer(this, false)">Exclusivamente usada para entretenimento no local de trabalho.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Como a AR é usada na arquitetura?</h2>
+    <button onclick="checkAnswer(this, true)">Permite a visualização de modelos 3D de edifícios e espaços antes da construção.</button>
+    <button onclick="checkAnswer(this, false)">Apenas para criar efeitos visuais nos projetos de interiores.</button>
+    <button onclick="checkAnswer(this, false)">Exclusivamente usada para adicionar cores e acabamentos aos projetos.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual é a diferença entre AR e MR (Realidade Mista)?</h2>
+    <button onclick="checkAnswer(this, true)">AR sobrepõe objetos virtuais no mundo real, enquanto MR permite uma interação mais profunda e natural entre os objetos virtuais e o ambiente real.</button>
+    <button onclick="checkAnswer(this, false)">AR é mais avançada do que MR em termos de imersão.</button>
+    <button onclick="checkAnswer(this, false)">MR usa apenas dispositivos de realidade aumentada, enquanto AR usa dispositivos de realidade virtual.</button>
+  </div>
+  
+  <div class="slide">
+    <h2>Qual é a função dos "tags" ou "markers" na AR?</h2>
+    <button onclick="checkAnswer(this, true)">Eles ajudam o sistema a localizar e mapear elementos virtuais no mundo real.</button>
+    <button onclick="checkAnswer(this, false)">São usados para enviar dados diretamente para o servidor da aplicação AR.</button>
+    <button onclick="checkAnswer(this, false)">São exclusivos para o uso em óculos de realidade aumentada.</button>
+  </div>
+  
+</div>
+
+
+
+
+<script>
+  function checkAnswer(button, isCorrect) {
+    if (isCorrect) {
+      button.classList.add("correct");
+      button.innerText += " - Correto!";
+    } else {
+      button.classList.add("incorrect");
+      button.innerText += " - Incorreto!";
+    }
+    // Desabilitar todos os botões após a resposta
+    let buttons = button.parentElement.getElementsByTagName("button");
+    for (let btn of buttons) {
+      btn.disabled = true;
+    }
+  }
+</script>
+
+</body>
+</html>

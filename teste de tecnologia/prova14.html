@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz - Desenvolvimento de Jogos</title>
+  <style>
+    body {
+      background: #0e0e0e;
+      color: #f5d57a;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #f5d57a;
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+    .question p {
+      font-size: 1.1em;
+    }
+    .option {
+      margin: 8px 0;
+      padding: 10px 16px;
+      background-color: #222;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .option:hover {
+      background-color: #333;
+    }
+    .option.correct {
+      background-color: #2a6f2d;
+    }
+    .option.incorrect {
+      background-color: #8b2e2e;
+    }
+    .button {
+      display: block;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background: #d4af37;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .button:hover {
+      background: #bfa128;
+    }
+    .result {
+      text-align: center;
+      font-size: 1.3em;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz: Desenvolvimento de Jogos</h1>
+
+  <div id="quiz-container"></div>
+
+  <button class="button" onclick="showResult()">Ver Resultado</button>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    const quizData = [
+      {
+        question: "1. Qual linguagem é mais usada em engines como Unity?",
+        options: ["Python", "C++", "Java", "C#"],
+        correct: 3
+      },
+      {
+        question: "2. O que é uma engine de jogo?",
+        options: [
+          "Um tipo de computador para jogos",
+          "Uma biblioteca gráfica",
+          "Um conjunto de ferramentas para criar jogos",
+          "Um tipo de personagem jogável"
+        ],
+        correct: 2
+      },
+      {
+        question: "3. O que é FPS em jogos?",
+        options: [
+          "Ferramenta para programadores de som",
+          "Frames por segundo",
+          "Função de performance superior",
+          "Foco principal de sistema"
+        ],
+        correct: 1
+      },
+      {
+        question: "4. O que é o Unity?",
+        options: [
+          "Um tipo de jogo 2D",
+          "Uma linguagem de programação",
+          "Uma engine de desenvolvimento de jogos",
+          "Um framework de JavaScript"
+        ],
+        correct: 2
+      },
+      {
+        question: "5. Qual dessas engines é mais usada para jogos 2D simples?",
+        options: ["Unreal", "CryEngine", "Godot", "Frostbite"],
+        correct: 2
+      },
+      {
+        question: "6. Em jogos, o que é o 'colisor' (collider)?",
+        options: [
+          "Um personagem de jogo",
+          "Um sistema de renderização",
+          "Uma função gráfica",
+          "Um componente que detecta colisões"
+        ],
+        correct: 3
+      },
+      {
+        question: "7. O que é um sprite?",
+        options: [
+          "Uma textura animada usada em jogos",
+          "Um tipo de engine 3D",
+          "Um comando em Python",
+          "Um hardware de jogos"
+        ],
+        correct: 0
+      },
+      {
+        question: "8. Qual a principal linguagem usada na Unreal Engine?",
+        options: ["Python", "C++", "Java", "Lua"],
+        correct: 1
+      },
+      {
+        question: "9. O que é o loop de jogo (game loop)?",
+        options: [
+          "Um ciclo de repetição no código",
+          "Uma biblioteca gráfica",
+          "Um componente de áudio",
+          "Um tipo de level design"
+        ],
+        correct: 0
+      },
+      {
+        question: "10. O que é IA (inteligência artificial) em jogos?",
+        options: [
+          "Interface Animada",
+          "Integração Automática",
+          "Comportamento inteligente dos NPCs",
+          "Um software de som"
+        ],
+        correct: 2
+      }
+    ];
+
+    let selectedAnswers = [];
+
+    const quizContainer = document.getElementById("quiz-container");
+
+    quizData.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      const questionText = `<p>${q.question}</p>`;
+      const options = q.options.map((opt, idx) => 
+        `<div class="option" onclick="selectOption(${i}, ${idx}, this)">${opt}</div>`
+      ).join("");
+      div.innerHTML = questionText + options;
+      quizContainer.appendChild(div);
+      selectedAnswers.push(null);
+    });
+
+    function selectOption(questionIndex, optionIndex, element) {
+      const questionDiv = quizContainer.children[questionIndex];
+      const options = questionDiv.querySelectorAll(".option");
+      options.forEach(opt => opt.classList.remove("selected"));
+      element.classList.add("selected");
+      selectedAnswers[questionIndex] = optionIndex;
+    }
+
+    function showResult() {
+      let correctCount = 0;
+      quizData.forEach((q, i) => {
+        const questionDiv = quizContainer.children[i];
+        const options = questionDiv.querySelectorAll(".option");
+        options.forEach((opt, idx) => {
+          opt.classList.remove("correct", "incorrect");
+          if (idx === q.correct) {
+            opt.classList.add("correct");
+          } else if (idx === selectedAnswers[i]) {
+            opt.classList.add("incorrect");
+          }
+        });
+        if (selectedAnswers[i] === q.correct) correctCount++;
+      });
+
+      const percentage = (correctCount / quizData.length) * 100;
+      let message = "";
+
+      if (percentage === 100) {
+        message = "🎮 Gabaritou! Você domina o desenvolvimento de jogos!";
+      } else if (percentage >= 80) {
+        message = "🔥 Excelente! Seu conhecimento está afiado!";
+      } else if (percentage >= 60) {
+        message = "✨ Muito bom! Mas dá pra melhorar.";
+      } else if (percentage >= 40) {
+        message = "⚠️ Quase lá. Que tal revisar o conteúdo?";
+      } else {
+        message = "💡 Hora de estudar mais sobre desenvolvimento de jogos!";
+      }
+
+      document.getElementById("result").innerHTML = `
+        <p>Você acertou <strong>${correctCount}</strong> de ${quizData.length} perguntas (${percentage.toFixed(1)}%).</p>
+        <p>${message}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

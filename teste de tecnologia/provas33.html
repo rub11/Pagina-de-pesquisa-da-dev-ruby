@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Programação C</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Programação C</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. Qual é a extensão padrão de arquivos C?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">.c</li>
+        <li onclick="selectAnswer(this, 1, 1)">.cpp</li>
+        <li onclick="selectAnswer(this, 2, 1)">.java</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual função é o ponto de entrada de um programa em C?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">main()</li>
+        <li onclick="selectAnswer(this, 1, 2)">start()</li>
+        <li onclick="selectAnswer(this, 2, 2)">init()</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. Como se declara uma variável inteira?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">int x;</li>
+        <li onclick="selectAnswer(this, 1, 3)">integer x;</li>
+        <li onclick="selectAnswer(this, 2, 3)">num x;</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. Qual biblioteca é usada para entrada e saída padrão?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">stdio.h</li>
+        <li onclick="selectAnswer(this, 1, 4)">stdlib.h</li>
+        <li onclick="selectAnswer(this, 2, 4)">string.h</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. Como imprimir algo na tela em C?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">printf()</li>
+        <li onclick="selectAnswer(this, 1, 5)">echo()</li>
+        <li onclick="selectAnswer(this, 2, 5)">print()</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Qual operador é usado para comparar igualdade?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">==</li>
+        <li onclick="selectAnswer(this, 1, 6)">*</li>
+        <li onclick="selectAnswer(this, 2, 6)">&</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. Qual palavra-chave é usada para criar loops em C?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">for</li>
+        <li onclick="selectAnswer(this, 1, 7)">repeat</li>
+        <li onclick="selectAnswer(this, 2, 7)">loop</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que significa “compilar” um código em C?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Transformar em código executável</li>
+        <li onclick="selectAnswer(this, 1, 8)">Salvar o arquivo</li>
+        <li onclick="selectAnswer(this, 2, 8)">Apagar os erros</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. Como alocar memória dinamicamente em C?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">malloc()</li>
+        <li onclick="selectAnswer(this, 1, 9)">allocate()</li>
+        <li onclick="selectAnswer(this, 2, 9)">memory()</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. Qual símbolo é usado para apontadores em C?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">*</li>
+        <li onclick="selectAnswer(this, 1, 10)">#</li>
+        <li onclick="selectAnswer(this, 2, 10)">%</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+
+    const answersList = element.parentNode.querySelectorAll('li');
+    answersList.forEach(li => li.classList.remove('selected'));
+
+    element.classList.add('selected');
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    const resultText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+    document.getElementById('result').innerText = resultText;
+  }
+</script>
+
+</body>
+</html>

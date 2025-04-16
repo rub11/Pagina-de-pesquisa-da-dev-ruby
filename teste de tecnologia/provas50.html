@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Design de Interfaces</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Design de Interfaces</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é Design de Interface de Usuário (UI)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">Design de Interface de Usuário é o processo de criar interfaces de software com foco na usabilidade e na experiência do usuário.</li>
+        <li onclick="selectAnswer(this, 1, 1)">Design de Interface de Usuário refere-se apenas à escolha de cores e imagens de fundo para aplicativos.</li>
+        <li onclick="selectAnswer(this, 2, 1)">Design de Interface de Usuário é apenas sobre criar layouts visuais sem considerar a experiência do usuário.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. O que significa a sigla UX em design de interfaces?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">UX significa User Experience (Experiência do Usuário), focando em criar produtos fáceis de usar e agradáveis ao usuário.</li>
+        <li onclick="selectAnswer(this, 1, 2)">UX significa Usability Extra, que é um termo usado para descrever a estética da interface.</li>
+        <li onclick="selectAnswer(this, 2, 2)">UX é um termo relacionado à velocidade de carregamento de uma interface, não à experiência do usuário.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que é a hierarquia visual em design de interfaces?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Hierarquia visual é a organização de elementos na interface para guiar a atenção do usuário para as informações mais importantes.</li>
+        <li onclick="selectAnswer(this, 1, 3)">Hierarquia visual é o processo de definir a cor predominante em um site, sem considerar a disposição dos elementos.</li>
+        <li onclick="selectAnswer(this, 2, 3)">Hierarquia visual é um conceito que não é relevante em design de interfaces, pois os usuários não prestam atenção na organização dos elementos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que é a tipografia no design de interfaces?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Tipografia é o estilo, o formato e o arranjo das fontes usadas em uma interface, impactando a legibilidade e a estética.</li>
+        <li onclick="selectAnswer(this, 1, 4)">Tipografia é o uso de fontes grandes para chamar a atenção do usuário, sem levar em consideração a legibilidade.</li>
+        <li onclick="selectAnswer(this, 2, 4)">Tipografia refere-se apenas ao uso de fontes de fácil leitura em textos longos em interfaces.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que são wireframes em design de interfaces?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Wireframes são representações esqueléticas de páginas ou telas de uma interface, usadas para planejar o layout antes do design final.</li>
+        <li onclick="selectAnswer(this, 1, 5)">Wireframes são um tipo de protótipo interativo que simula o comportamento da interface de um site ou aplicativo.</li>
+        <li onclick="selectAnswer(this, 2, 5)">Wireframes são apenas uma maneira de definir as cores e o estilo visual de uma interface.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que é a teoria das cores no design de interfaces?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">A teoria das cores refere-se ao uso intencional das cores para transmitir mensagens, provocar emoções e melhorar a usabilidade de uma interface.</li>
+        <li onclick="selectAnswer(this, 1, 6)">A teoria das cores é apenas sobre escolher cores que parecem agradáveis, sem considerar sua relação com a usabilidade.</li>
+        <li onclick="selectAnswer(this, 2, 6)">A teoria das cores não tem importância no design de interfaces, uma vez que qualquer cor pode ser usada indiscriminadamente.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que é design responsivo?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Design responsivo é o processo de criar interfaces que se adaptam automaticamente a diferentes tamanhos de tela, como dispositivos móveis e desktop.</li>
+        <li onclick="selectAnswer(this, 1, 7)">Design responsivo é o processo de fazer com que as interfaces carreguem rapidamente em dispositivos móveis, sem mudar o layout.</li>
+        <li onclick="selectAnswer(this, 2, 7)">Design responsivo é uma técnica que visa criar apenas sites para computadores, sem se preocupar com dispositivos móveis.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que é a usabilidade no design de interfaces?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Usabilidade é a facilidade com que um usuário consegue interagir com a interface, completando tarefas de forma eficiente e agradável.</li>
+        <li onclick="selectAnswer(this, 1, 8)">Usabilidade é um conceito irrelevante no design de interfaces, pois o foco deve ser apenas na aparência visual.</li>
+        <li onclick="selectAnswer(this, 2, 8)">Usabilidade é o processo de otimizar a interface para que ela seja esteticamente agradável, sem priorizar a funcionalidade.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é o conceito de "Call to Action" (CTA) no design de interfaces?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">"Call to Action" é uma chamada para ação, como um botão ou link, que incentiva o usuário a realizar uma ação específica, como comprar ou se inscrever.</li>
+        <li onclick="selectAnswer(this, 1, 9)">"Call to Action" é uma ferramenta visual usada para decorar a interface, sem um propósito claro de interação.</li>
+        <li onclick="selectAnswer(this, 2, 9)">"Call to Action" refere-se apenas a frases usadas no conteúdo textual de uma interface.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é prototipagem no design de interfaces?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Prototipagem é a criação de um modelo funcional de uma interface para testar sua usabilidade antes do desenvolvimento final.</li>
+        <li onclick="selectAnswer(this, 1, 10)">Prototipagem é a fase onde se escolhem apenas os elementos visuais, sem considerar a interatividade.</li>
+        <li onclick="selectAnswer(this, 2, 10)">Prototipagem é o processo de criar uma interface finalizada, sem necessidade de testes.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+
+    <div id="result" class="result"></div>
+
+  </div>
+</div>
+
+<script>
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const userAnswers = new Array(10).fill(null);
+
+  function selectAnswer(element, answerIndex, questionIndex) {
+    const answers = element.parentElement.children;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    userAnswers[questionIndex] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>

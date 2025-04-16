@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Desenvolvimento Móvel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e5e5e5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: gold;
+            padding-top: 20px;
+        }
+
+        .quiz-container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 30px;
+        }
+
+        .question {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .answers {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .answer {
+            background-color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .answer:hover {
+            background-color: #444;
+        }
+
+        .answer.correct {
+            background-color: green;
+        }
+
+        .answer.incorrect {
+            background-color: red;
+        }
+
+        .result {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .result p {
+            font-size: 20px;
+        }
+
+        .btn {
+            padding: 15px;
+            background-color: gold;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        .btn:hover {
+            background-color: #f7d400;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quiz sobre Desenvolvimento Móvel</h1>
+<div class="quiz-container">
+    <div class="question" data-question-id="1">
+        <p><strong>1. O que é Desenvolvimento Móvel?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Criação de aplicativos para dispositivos móveis como smartphones e tablets</div>
+            <div class="answer" data-answer-id="2">Desenvolvimento de sistemas para computadores de mesa</div>
+            <div class="answer" data-answer-id="3">Criação de websites responsivos</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="2">
+        <p><strong>2. Qual a principal diferença entre desenvolvimento para Android e iOS?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">O Android utiliza Java ou Kotlin, enquanto o iOS utiliza Swift ou Objective-C</div>
+            <div class="answer" data-answer-id="2">O Android utiliza Python, enquanto o iOS usa JavaScript</div>
+            <div class="answer" data-answer-id="3">Ambos os sistemas operacionais utilizam a mesma linguagem de programação</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="3">
+        <p><strong>3. O que é o "Material Design" no contexto de desenvolvimento para Android?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Um conjunto de diretrizes para criar interfaces de usuário simples e agradáveis no Android</div>
+            <div class="answer" data-answer-id="2">Uma biblioteca de frameworks para design de sites responsivos</div>
+            <div class="answer" data-answer-id="3">Uma ferramenta para desenvolver jogos no Android</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="4">
+        <p><strong>4. Qual framework é utilizado para desenvolver aplicativos móveis híbridos?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">React Native</div>
+            <div class="answer" data-answer-id="2">Laravel</div>
+            <div class="answer" data-answer-id="3">Bootstrap</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="5">
+        <p><strong>5. Qual é o principal benefício de usar Flutter no desenvolvimento de aplicativos móveis?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Desenvolvimento de aplicativos nativos para iOS e Android a partir de um único código-base</div>
+            <div class="answer" data-answer-id="2">Permite criar apenas aplicativos para Android</div>
+            <div class="answer" data-answer-id="3">Facilita a criação de websites responsivos</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="6">
+        <p><strong>6. O que é uma "API" no contexto do desenvolvimento de aplicativos móveis?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Uma interface de programação de aplicações que permite a comunicação entre diferentes sistemas</div>
+            <div class="answer" data-answer-id="2">Uma ferramenta para otimizar o desempenho do aplicativo em dispositivos móveis</div>
+            <div class="answer" data-answer-id="3">Uma linguagem de programação exclusiva para aplicativos móveis</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="7">
+        <p><strong>7. O que é a arquitetura "MVVM" usada no desenvolvimento de aplicativos móveis?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Uma arquitetura que separa a lógica de apresentação da lógica de negócios no aplicativo</div>
+            <div class="answer" data-answer-id="2">Uma arquitetura que agrupa todas as funcionalidades no mesmo módulo</div>
+            <div class="answer" data-answer-id="3">Uma técnica de otimização de banco de dados para dispositivos móveis</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="8">
+        <p><strong>8. O que significa a sigla "SDK" no contexto do desenvolvimento móvel?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Software Development Kit, um conjunto de ferramentas para desenvolver aplicativos móveis</div>
+            <div class="answer" data-answer-id="2">Simple Data Kit, usado para manipulação de banco de dados em aplicativos</div>
+            <div class="answer" data-answer-id="3">Secure Data Key, uma chave de segurança para proteger aplicativos móveis</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="9">
+        <p><strong>9. O que são "notificações push" em aplicativos móveis?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Mensagens enviadas aos usuários para atualizações de aplicativo ou eventos</div>
+            <div class="answer" data-answer-id="2">Notificações que são enviadas apenas por SMS</div>
+            <div class="answer" data-answer-id="3">Notificações internas dentro do aplicativo para melhorar a navegação</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="10">
+        <p><strong>10. O que é um "emulador" no desenvolvimento de aplicativos móveis?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Uma ferramenta que simula o funcionamento de um dispositivo móvel no computador</div>
+            <div class="answer" data-answer-id="2">Um aplicativo para emular outros sistemas operacionais móveis</div>
+            <div class="answer" data-answer-id="3">Um método para otimizar o desempenho de aplicativos em dispositivos reais</div>
+        </div>
+    </div>
+    <div class="result" id="result-container">
+        <p id="result-text"></p>
+    </div>
+    <button class="btn" onclick="submitQuiz()">Ver Resultado</button>
+</div>
+
+<script>
+    const correctAnswers = {
+        1: 1, // O que é Desenvolvimento Móvel
+        2: 1, // Diferença entre Android e iOS
+        3: 1, // O que é Material Design
+        4: 1, // Framework para aplicativos híbridos
+        5: 1, // Benefício do Flutter
+        6: 1, // O que é API
+        7: 1, // O que é MVVM
+        8: 1, // Significado de SDK
+        9: 1, // O que são notificações push
+        10: 1 // O que é emulador
+    };
+
+    function submitQuiz() {
+        let score = 0;
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(question => {
+            const questionId = question.getAttribute('data-question-id');
+            const selectedAnswer = question.querySelector('.answer.selected');
+            if (selectedAnswer) {
+                const answerId = selectedAnswer.getAttribute('data-answer-id');
+                if (parseInt(answerId) === correctAnswers[questionId]) {
+                    score++;
+                    selectedAnswer.classList.add('correct');
+                } else {
+                    selectedAnswer.classList.add('incorrect');
+                }
+            }
+        });
+
+        const resultContainer = document.getElementById('result-container');
+        const resultText = document.getElementById('result-text');
+        const percentage = (score / 10) * 100;
+        resultText.textContent = `Você acertou ${score} de 10 questões (${percentage.toFixed(2)}%)`;
+        resultContainer.style.display = 'block';
+    }
+
+    document.querySelectorAll('.answer').forEach(answer => {
+        answer.addEventListener('click', function() {
+            const question = this.closest('.question');
+            const selectedAnswer = question.querySelector('.answer.selected');
+            if (selectedAnswer) {
+                selectedAnswer.classList.remove('selected');
+            }
+            this.classList.add('selected');
+        });
+    });
+</script>
+
+</body>
+</html>

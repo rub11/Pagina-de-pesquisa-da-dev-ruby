@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Arquitetura de Software</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e5e5e5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: gold;
+            padding-top: 20px;
+        }
+
+        .quiz-container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 30px;
+        }
+
+        .question {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .answers {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .answer {
+            background-color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .answer:hover {
+            background-color: #444;
+        }
+
+        .answer.correct {
+            background-color: green;
+        }
+
+        .answer.incorrect {
+            background-color: red;
+        }
+
+        .result {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .result p {
+            font-size: 20px;
+        }
+
+        .btn {
+            padding: 15px;
+            background-color: gold;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        .btn:hover {
+            background-color: #f7d400;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quiz sobre Arquitetura de Software</h1>
+<div class="quiz-container">
+    <div class="question" data-question-id="1">
+        <p><strong>1. O que é Arquitetura de Software?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">A estrutura organizacional de um sistema de software, incluindo a interação dos componentes</div>
+            <div class="answer" data-answer-id="2">A escolha das linguagens de programação para um projeto</div>
+            <div class="answer" data-answer-id="3">A implementação do código-fonte do software</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="2">
+        <p><strong>2. Qual é a principal responsabilidade de um arquiteto de software?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Definir a estrutura e as diretrizes para o desenvolvimento do software</div>
+            <div class="answer" data-answer-id="2">Codificar as funcionalidades principais do sistema</div>
+            <div class="answer" data-answer-id="3">Gerenciar a equipe de desenvolvimento</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="3">
+        <p><strong>3. Qual é a diferença entre Arquitetura de Software e Design de Software?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Arquitetura se foca na estrutura geral, enquanto o design detalha a implementação dos componentes</div>
+            <div class="answer" data-answer-id="2">Arquitetura é apenas a escolha de tecnologias, enquanto o design é sobre como o sistema vai ser implementado</div>
+            <div class="answer" data-answer-id="3">Não existe diferença, ambos se referem ao mesmo processo</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="4">
+        <p><strong>4. O que é uma arquitetura monolítica?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Uma arquitetura em que todos os componentes do software são integrados em uma única aplicação</div>
+            <div class="answer" data-answer-id="2">Uma arquitetura baseada em microserviços, com componentes independentes</div>
+            <div class="answer" data-answer-id="3">Uma arquitetura de sistema distribuído em várias máquinas físicas</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="5">
+        <p><strong>5. O que são padrões de arquitetura?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Soluções comprovadas para problemas recorrentes em projetos de software</div>
+            <div class="answer" data-answer-id="2">Estilos de programação que garantem a melhor performance de software</div>
+            <div class="answer" data-answer-id="3">Estruturas de hardware para suportar aplicações de software</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="6">
+        <p><strong>6. Qual é a vantagem de usar a arquitetura baseada em microserviços?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Facilidade de escalabilidade e manutenção de serviços independentes</div>
+            <div class="answer" data-answer-id="2">Aumento da complexidade na implementação de um sistema único</div>
+            <div class="answer" data-answer-id="3">Melhora no desempenho da aplicação em um único servidor</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="7">
+        <p><strong>7. O que é um diagrama de arquitetura de software?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Um gráfico que mostra a estrutura e interação dos componentes do sistema</div>
+            <div class="answer" data-answer-id="2">Uma lista detalhada de todas as bibliotecas usadas no projeto</div>
+            <div class="answer" data-answer-id="3">Um mapa de rede de computadores conectados ao sistema</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="8">
+        <p><strong>8. Qual é a principal característica da arquitetura em camadas?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">A separação do sistema em camadas que tratam de funcionalidades específicas, como apresentação, negócios e dados</div>
+            <div class="answer" data-answer-id="2">A arquitetura não tem camadas específicas, tudo é feito em uma única camada de dados</div>
+            <div class="answer" data-answer-id="3">A separação de responsabilidades com foco em microservices</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="9">
+        <p><strong>9. O que é escalabilidade em uma arquitetura de software?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">A capacidade do sistema de lidar com um aumento de carga sem perda de performance</div>
+            <div class="answer" data-answer-id="2">A capacidade do sistema de ser acessado por diferentes tipos de dispositivos</div>
+            <div class="answer" data-answer-id="3">A capacidade do sistema de rodar em diferentes linguagens de programação</div>
+        </div>
+    </div>
+    <div class="question" data-question-id="10">
+        <p><strong>10. O que é uma arquitetura orientada a eventos?</strong></p>
+        <div class="answers">
+            <div class="answer" data-answer-id="1">Uma arquitetura onde os componentes do sistema se comunicam por eventos assíncronos</div>
+            <div class="answer" data-answer-id="2">Uma arquitetura baseada em chamadas síncronas entre componentes</div>
+            <div class="answer" data-answer-id="3">Uma arquitetura que utiliza processos em lote para comunicação entre sistemas</div>
+        </div>
+    </div>
+    <div class="result" id="result-container">
+        <p id="result-text"></p>
+    </div>
+    <button class="btn" onclick="submitQuiz()">Ver Resultado</button>
+</div>
+
+<script>
+    const correctAnswers = {
+        1: 1, // O que é Arquitetura de Software
+        2: 1, // Responsabilidade do arquiteto de software
+        3: 1, // Diferença entre Arquitetura e Design de Software
+        4: 1, // Arquitetura monolítica
+        5: 1, // O que são padrões de arquitetura
+        6: 1, // Vantagem de microserviços
+        7: 1, // O que é diagrama de arquitetura
+        8: 1, // Característica da arquitetura em camadas
+        9: 1, // O que é escalabilidade
+        10: 1  // Arquitetura orientada a eventos
+    };
+
+    function submitQuiz() {
+        let score = 0;
+        let totalQuestions = 10;
+
+        for (let i = 1; i <= totalQuestions; i++) {
+            const selectedAnswer = document.querySelector(`.question[data-question-id="${i}"] .answer.selected`);
+            if (selectedAnswer && parseInt(selectedAnswer.getAttribute('data-answer-id')) === correctAnswers[i]) {
+                score++;
+            }
+        }
+
+        let resultText = `Você acertou ${score} de ${totalQuestions} perguntas.`;
+        if (score === totalQuestions) {
+            resultText += " Parabéns! Você acertou todas!";
+        } else if (score >= totalQuestions / 2) {
+            resultText += " Bom trabalho! Continue aprendendo!";
+        } else {
+            resultText += " Você pode melhorar, continue praticando!";
+        }
+
+        document.getElementById('result-text').innerText = resultText;
+        document.getElementById('result-container').style.display = 'block';
+    }
+
+    // Mark the selected answer as 'selected'
+    document.querySelectorAll('.answer').forEach(answer => {
+        answer.addEventListener('click', function() {
+            this.parentNode.querySelectorAll('.answer').forEach(ans => ans.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+</script>
+
+</body>
+</html>

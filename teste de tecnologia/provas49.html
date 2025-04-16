@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Automação Industrial</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Automação Industrial</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é Automação Industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">Automação Industrial envolve o uso de tecnologias para controlar e monitorar processos de produção sem intervenção humana direta.</li>
+        <li onclick="selectAnswer(this, 1, 1)">Automação Industrial se refere à introdução de trabalhadores robôs nas fábricas.</li>
+        <li onclick="selectAnswer(this, 2, 1)">Automação Industrial é a utilização de inteligência artificial em processos administrativos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Quais são os principais componentes de um sistema de automação industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Sensores, atuadores, controladores e interfaces de comunicação são os principais componentes de um sistema de automação industrial.</li>
+        <li onclick="selectAnswer(this, 1, 2)">Somente os sensores são importantes, pois eles monitoram os processos.</li>
+        <li onclick="selectAnswer(this, 2, 2)">A automação industrial é realizada exclusivamente com a ajuda de controladores remotos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. Quais são as vantagens da automação industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Maior eficiência, redução de erros humanos, e aumento na qualidade da produção.</li>
+        <li onclick="selectAnswer(this, 1, 3)">A automação industrial não oferece grandes vantagens em comparação ao trabalho manual.</li>
+        <li onclick="selectAnswer(this, 2, 3)">A automação industrial é vantajosa apenas em fábricas com grande número de trabalhadores.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que são sistemas SCADA no contexto da automação industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Sistemas SCADA são usados para monitorar e controlar processos industriais em tempo real, coletando dados de sensores e controlando atuadores.</li>
+        <li onclick="selectAnswer(this, 1, 4)">SCADA é um sistema exclusivamente para controlar a comunicação entre trabalhadores em uma fábrica.</li>
+        <li onclick="selectAnswer(this, 2, 4)">Sistemas SCADA são usados apenas em indústrias de alimentos e bebidas para controle de qualidade.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é a indústria 4.0 e como ela está relacionada à automação industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Indústria 4.0 é a quarta revolução industrial, caracterizada pela integração de tecnologias digitais, como IoT, inteligência artificial e automação industrial.</li>
+        <li onclick="selectAnswer(this, 1, 5)">Indústria 4.0 é um termo que descreve a automação de processos de produção utilizando apenas máquinas de alta velocidade.</li>
+        <li onclick="selectAnswer(this, 2, 5)">Indústria 4.0 é um modelo de automação industrial que substitui todas as máquinas existentes por robôs autônomos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Quais são os benefícios da integração de IoT com automação industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">A integração de IoT permite monitoramento em tempo real e a análise de dados para otimizar processos de produção e manutenção.</li>
+        <li onclick="selectAnswer(this, 1, 6)">IoT é utilizado apenas para controlar o uso de energia em processos industriais.</li>
+        <li onclick="selectAnswer(this, 2, 6)">A integração de IoT é vantajosa apenas para a gestão de estoque e não para a automação de processos industriais.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que são robôs industriais e qual é seu papel na automação?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Robôs industriais são usados para realizar tarefas repetitivas ou perigosas, melhorando a eficiência e a segurança nas fábricas.</li>
+        <li onclick="selectAnswer(this, 1, 7)">Robôs industriais são máquinas utilizadas apenas para realizar tarefas administrativas em fábricas.</li>
+        <li onclick="selectAnswer(this, 2, 7)">Robôs industriais são usados para substituir toda a mão-de-obra humana nas fábricas.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. Como a automação industrial pode melhorar a qualidade do produto?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">A automação garante consistência e precisão nas tarefas repetitivas, resultando em uma maior uniformidade e qualidade do produto final.</li>
+        <li onclick="selectAnswer(this, 1, 8)">A automação não tem impacto significativo na qualidade do produto, apenas aumenta a produção.</li>
+        <li onclick="selectAnswer(this, 2, 8)">A automação pode reduzir a qualidade do produto devido a falhas nos sistemas automáticos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é um PLC (Controlador Lógico Programável) e qual seu papel na automação industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">O PLC é um dispositivo usado para controlar máquinas e processos, executando tarefas específicas de automação conforme programado.</li>
+        <li onclick="selectAnswer(this, 1, 9)">O PLC é uma ferramenta utilizada exclusivamente para o controle de qualidade de produtos finais.</li>
+        <li onclick="selectAnswer(this, 2, 9)">O PLC é usado apenas para gerenciar a energia consumida nas fábricas, sem interação com os processos produtivos.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. Quais são os desafios associados à implementação de automação industrial?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Desafios como o custo inicial elevado, a necessidade de treinamento e a integração de sistemas legados podem dificultar a implementação da automação industrial.</li>
+        <li onclick="selectAnswer(this, 1, 10)">A implementação de automação industrial é simples e barata, sem grandes desafios para as empresas.</li>
+        <li onclick="selectAnswer(this, 2, 10)">Não há desafios, já que a automação industrial é amplamente adotada sem obstáculos pelas empresas.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+
+    <div id="result" class="result"></div>
+
+  </div>
+</div>
+
+<script>
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const userAnswers = new Array(10).fill(null);
+
+  function selectAnswer(element, answerIndex, questionIndex) {
+    const answers = element.parentElement.children;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    userAnswers[questionIndex] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>

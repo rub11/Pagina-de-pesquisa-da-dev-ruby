@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Design Responsivo</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Design Responsivo</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é design responsivo?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">Um design que se adapta a diferentes dispositivos</li>
+        <li onclick="selectAnswer(this, 1, 1)">Um design que responde ao servidor</li>
+        <li onclick="selectAnswer(this, 2, 1)">Um design exclusivo para desktop</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual tecnologia é essencial para design responsivo?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Media Queries</li>
+        <li onclick="selectAnswer(this, 1, 2)">SQL</li>
+        <li onclick="selectAnswer(this, 2, 2)">AJAX</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que define um layout fluido?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Uso de porcentagens em vez de pixels fixos</li>
+        <li onclick="selectAnswer(this, 1, 3)">Designs que usam cores vibrantes</li>
+        <li onclick="selectAnswer(this, 2, 3)">Elementos que se movem aleatoriamente</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que são breakpoints em design responsivo?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Pontos onde o layout muda para se adaptar à tela</li>
+        <li onclick="selectAnswer(this, 1, 4)">Erros no carregamento da página</li>
+        <li onclick="selectAnswer(this, 2, 4)">Interrupções na rede</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. Qual dessas práticas ajuda no design responsivo?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Utilizar unidades relativas como em (%) ou vw/vh</li>
+        <li onclick="selectAnswer(this, 1, 5)">Trabalhar apenas com imagens em alta resolução</li>
+        <li onclick="selectAnswer(this, 2, 5)">Fixar o tamanho dos elementos com px</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Qual o benefício de um site responsivo?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Melhor experiência do usuário em qualquer dispositivo</li>
+        <li onclick="selectAnswer(this, 1, 6)">Mais uso de memória</li>
+        <li onclick="selectAnswer(this, 2, 6)">Aumento do número de scripts</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. Qual framework facilita o design responsivo?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Bootstrap</li>
+        <li onclick="selectAnswer(this, 1, 7)">jQuery</li>
+        <li onclick="selectAnswer(this, 2, 7)">Flask</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que são imagens responsivas?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Imagens que se adaptam ao tamanho da tela</li>
+        <li onclick="selectAnswer(this, 1, 8)">Imagens com animações</li>
+        <li onclick="selectAnswer(this, 2, 8)">Imagens em preto e branco</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. Qual unidade é mais usada para fontes em design responsivo?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">em ou rem</li>
+        <li onclick="selectAnswer(this, 1, 9)">px</li>
+        <li onclick="selectAnswer(this, 2, 9)">cm</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. Como garantir que o site fique responsivo em dispositivos móveis?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Usando viewport meta tag</li>
+        <li onclick="selectAnswer(this, 1, 10)">Removendo todos os scripts</li>
+        <li onclick="selectAnswer(this, 2, 10)">Utilizando apenas tabelas</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+    const answersList = element.parentNode.querySelectorAll('li');
+    answersList.forEach(li => li.classList.remove('selected'));
+    element.classList.add('selected');
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) correctCount++;
+    });
+    document.getElementById('result').innerText = `Você acertou ${correctCount} de ${correctAnswers.length} perguntas.`;
+  }
+</script>
+
+</body>
+</html>

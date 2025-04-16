@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Python Avançado</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Python Avançado</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é um *decorator* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">Uma função que permite modificar o comportamento de outra função.</li>
+        <li onclick="selectAnswer(this, 1, 1)">Uma estrutura de dados utilizada para armazenar valores temporários.</li>
+        <li onclick="selectAnswer(this, 2, 1)">Uma técnica de otimização de código que reduz o tempo de execução.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. O que significa a expressão *lambda* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Uma maneira de definir funções anônimas de forma simples.</li>
+        <li onclick="selectAnswer(this, 1, 2)">Uma classe abstrata para representar operações matemáticas.</li>
+        <li onclick="selectAnswer(this, 2, 2)">Uma função que permite realizar chamadas recursivas.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. O que é um *gerador* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Uma função que utiliza a palavra-chave *yield* para retornar valores de forma preguiçosa.</li>
+        <li onclick="selectAnswer(this, 1, 3)">Uma função que gera números aleatórios durante a execução.</li>
+        <li onclick="selectAnswer(this, 2, 3)">Uma estrutura de dados que armazena valores em uma sequência infinita.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que é *multiprocessing* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Uma biblioteca que permite a execução de múltiplos processos simultaneamente.</li>
+        <li onclick="selectAnswer(this, 1, 4)">Um módulo que facilita a execução de tarefas em paralelo com threads.</li>
+        <li onclick="selectAnswer(this, 2, 4)">Uma técnica de otimização para melhorar a performance de loops em grandes volumes de dados.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que é o conceito de *metaclasses* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Uma classe que define o comportamento de outras classes.</li>
+        <li onclick="selectAnswer(this, 1, 5)">Um tipo de função utilizada para gerenciar a execução de métodos em uma classe.</li>
+        <li onclick="selectAnswer(this, 2, 5)">Uma estrutura de dados utilizada para a criação de instâncias de objetos de forma dinâmica.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. O que é *list comprehension* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">Uma maneira compacta de criar listas com base em uma expressão.</li>
+        <li onclick="selectAnswer(this, 1, 6)">Uma forma de iterar sobre listas de maneira eficiente.</li>
+        <li onclick="selectAnswer(this, 2, 6)">Uma técnica utilizada para criar objetos imutáveis em listas.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que são *funções recursivas* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Funções que chamam a si mesmas durante sua execução.</li>
+        <li onclick="selectAnswer(this, 1, 7)">Funções que retornam valores complexos baseados em operações matemáticas.</li>
+        <li onclick="selectAnswer(this, 2, 7)">Funções que utilizam parâmetros em múltiplas formas para manipular dados.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. O que é *duck typing* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Um estilo de tipagem dinâmica onde o tipo de um objeto é determinado por seu comportamento.</li>
+        <li onclick="selectAnswer(this, 1, 8)">Uma técnica de otimização de código para melhorar a leitura de arquivos grandes.</li>
+        <li onclick="selectAnswer(this, 2, 8)">Uma forma de tipagem que permite misturar diferentes tipos de dados em uma lista.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é *decorator pattern* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Uma técnica de design para adicionar funcionalidades a objetos de maneira flexível.</li>
+        <li onclick="selectAnswer(this, 1, 9)">Uma estrutura que permite agrupar diferentes tipos de funções em um módulo.</li>
+        <li onclick="selectAnswer(this, 2, 9)">Uma maneira de definir funções com parâmetros variáveis.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é *asyncio* em Python?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">Uma biblioteca que permite a execução assíncrona de código para tarefas I/O-bound.</li>
+        <li onclick="selectAnswer(this, 1, 10)">Uma estrutura para facilitar a execução paralela de código em múltiplos processos.</li>
+        <li onclick="selectAnswer(this, 2, 10)">Uma técnica para otimizar a execução de laços em grandes volumes de dados.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+  </div>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  let userAnswers = [];
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  function selectAnswer(element, answerIndex, questionNumber) {
+    userAnswers[questionNumber - 1] = answerIndex;
+    const answersList = element.parentNode.querySelectorAll('li');
+    answersList.forEach(li => li.classList.remove('selected'));
+    element.classList.add('selected');
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>

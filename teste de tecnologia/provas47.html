@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz sobre Infraestrutura como Código</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+    }
+    h1 {
+      text-align: center;
+      color: #ffcc00;
+    }
+    .question-container {
+      margin-bottom: 30px;
+    }
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .answers {
+      list-style: none;
+      padding: 0;
+    }
+    .answers li {
+      background-color: #333;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .answers li:hover {
+      background-color: #444;
+    }
+    .answers li.selected {
+      background-color: #ffcc00;
+      color: #000;
+    }
+    .next-btn {
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+    }
+    .next-btn:hover {
+      background-color: #e6b800;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1>Quiz sobre Infraestrutura como Código</h1>
+  <div id="quiz">
+
+    <div class="question-container">
+      <p class="question">1. O que é Infraestrutura como Código (IaC)?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 1)">É a prática de gerenciar e provisionar infraestrutura através de código em vez de processos manuais.</li>
+        <li onclick="selectAnswer(this, 1, 1)">É a prática de construir a infraestrutura de TI com base em modelos de redes locais tradicionais.</li>
+        <li onclick="selectAnswer(this, 2, 1)">É uma metodologia que utiliza apenas ferramentas de virtualização sem automação.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">2. Qual a principal vantagem da Infraestrutura como Código?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 2)">Permite a automação do provisionamento, gerenciamento e configuração da infraestrutura.</li>
+        <li onclick="selectAnswer(this, 1, 2)">Aumenta a complexidade e o custo dos projetos de TI, tornando-os mais difíceis de gerenciar.</li>
+        <li onclick="selectAnswer(this, 2, 2)">Reduz a escalabilidade dos sistemas, pois não é possível automatizar processos com IaC.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">3. Quais ferramentas são usadas para implementar Infraestrutura como Código?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 3)">Ferramentas como Terraform, Ansible, Puppet, e Chef são amplamente utilizadas para IaC.</li>
+        <li onclick="selectAnswer(this, 1, 3)">Ferramentas como o Kubernetes são exclusivas para IaC, mas não são a melhor escolha.</li>
+        <li onclick="selectAnswer(this, 2, 3)">Infraestrutura como Código pode ser feita apenas com scripts manuais de shell.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">4. O que significa a expressão "Desenvolvimento DevOps" no contexto de IaC?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 4)">Refere-se à integração contínua entre desenvolvimento e operações, favorecendo o uso de IaC para automação e colaboração.</li>
+        <li onclick="selectAnswer(this, 1, 4)">Refere-se a um modelo de desenvolvimento onde apenas as operações são automatizadas, sem integração com o desenvolvimento.</li>
+        <li onclick="selectAnswer(this, 2, 4)">É um conceito que não tem relação com IaC, mas sim com o desenvolvimento de interfaces de usuário.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">5. O que significa "Imutabilidade" em IaC?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 5)">Imutabilidade significa que, uma vez que a infraestrutura é criada, ela não deve ser alterada manualmente.</li>
+        <li onclick="selectAnswer(this, 1, 5)">Imutabilidade significa que a infraestrutura é criada de forma programável, mas ainda pode ser modificada manualmente conforme necessário.</li>
+        <li onclick="selectAnswer(this, 2, 5)">Imutabilidade significa que toda a infraestrutura precisa ser gerida apenas por scripts de automação.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">6. Quais são os benefícios do uso de IaC para o provisionamento de servidores em nuvem?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 6)">A automação, escalabilidade e consistência são benefícios chave do uso de IaC para servidores em nuvem.</li>
+        <li onclick="selectAnswer(this, 1, 6)">IaC ajuda a criar uma rede local tradicional para servidores em nuvem, mas não oferece benefícios significativos para escalabilidade.</li>
+        <li onclick="selectAnswer(this, 2, 6)">A única vantagem é que facilita o provisionamento manual de servidores em nuvem.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">7. O que são "Templates" no contexto de IaC?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 7)">Templates são arquivos de código que definem a infraestrutura desejada, podendo ser reutilizados para criar ambientes idênticos.</li>
+        <li onclick="selectAnswer(this, 1, 7)">Templates são scripts utilizados apenas para monitoramento de infraestrutura em tempo real.</li>
+        <li onclick="selectAnswer(this, 2, 7)">Templates são utilizados para escrever códigos de interfaces de usuário, não relacionados a infraestrutura.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">8. Quais são os principais desafios da Infraestrutura como Código?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 8)">Os principais desafios incluem gerenciamento de versões, complexidade de configuração e necessidade de monitoramento contínuo.</li>
+        <li onclick="selectAnswer(this, 1, 8)">Os principais desafios são a falta de ferramentas e a incompatibilidade com nuvens públicas.</li>
+        <li onclick="selectAnswer(this, 2, 8)">Não há grandes desafios associados a IaC, ela é uma solução simples de implementar e manter.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">9. O que é "Orquestração" no contexto de IaC?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 9)">Orquestração refere-se à automação e coordenação de múltiplos serviços e recursos de infraestrutura para garantir que trabalhem juntos.</li>
+        <li onclick="selectAnswer(this, 1, 9)">Orquestração é o processo manual de definir as configurações de servidores em um único local.</li>
+        <li onclick="selectAnswer(this, 2, 9)">Orquestração é o processo de automatizar a implementação de front-end, mas não tem relação com a infraestrutura.</li>
+      </ul>
+    </div>
+
+    <div class="question-container">
+      <p class="question">10. O que é "State File" em IaC?</p>
+      <ul class="answers">
+        <li onclick="selectAnswer(this, 0, 10)">State File é um arquivo que mantém o estado atual da infraestrutura, usado para gerenciar alterações e provisionamentos subsequentes.</li>
+        <li onclick="selectAnswer(this, 1, 10)">State File é um arquivo que contém as configurações de segurança para acesso a servidores e redes.</li>
+        <li onclick="selectAnswer(this, 2, 10)">State File é um arquivo de log que registra a execução do código sem impacto nas configurações.</li>
+      </ul>
+    </div>
+
+    <button class="next-btn" onclick="showResult()">Ver Resultado</button>
+
+    <div id="result" class="result"></div>
+
+  </div>
+</div>
+
+<script>
+  const correctAnswers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const userAnswers = new Array(10).fill(null);
+
+  function selectAnswer(element, answerIndex, questionIndex) {
+    const answers = element.parentElement.children;
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].classList.remove("selected");
+    }
+    element.classList.add("selected");
+    userAnswers[questionIndex] = answerIndex;
+  }
+
+  function showResult() {
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index]) {
+        correctCount++;
+      }
+    });
+    const resultMessage = `Você acertou ${correctCount} de 10 perguntas!`;
+    document.getElementById('result').innerText = resultMessage;
+  }
+</script>
+
+</body>
+</html>
